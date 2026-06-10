@@ -29,7 +29,7 @@
             </ul>
             <div class="nav-right">
                 <button class="lang-toggle" id="langToggle">
-                    <span class="active">EN</span><span>|</span><span>हिंग्लिश</span>
+                    <span class="active">EN</span><span>|</span><span>HI</span>
                 </button>
                 <div class="hamburger" id="hamburger">
                     <span></span><span></span><span></span>
@@ -48,471 +48,443 @@
     <main class="main-content">
         <section class="page-header">
             <h1 class="purple-gradient">🏗️ Object Oriented Software Engineering</h1>
-            <p class="subtitle" data-lang="en">UML, Design Patterns, Agile, Testing & SOLID Principles</p>
-            <p class="subtitle" data-lang="hi">UML Diagrams, Design Patterns, Agile, Testing aur SOLID Principles</p>
+            <p class="subtitle" data-lang="en">SDLC, UML Diagrams, Design Patterns, Testing & SOLID Principles</p>
+            <p class="subtitle" data-lang="hi">SDLC, UML Diagrams, Design Patterns, Testing aur SOLID Principles</p>
         </section>
 
-        <!-- UNIT 1 -->
+        <!-- ==================== UNIT 1: SE Fundamentals ==================== -->
         <div class="unit-section open">
             <div class="unit-header" onclick="toggleUnit(this)">
                 <div class="unit-number purple">1</div>
-                <div class="unit-title">Software Engineering Basics & SDLC</div>
+                <div class="unit-title">Software Engineering Fundamentals & SDLC</div>
                 <div class="unit-toggle">▼</div>
             </div>
             <div class="unit-content">
-                <p data-lang="en">SDLC defines how software is built step by step. Waterfall is sequential. Agile is iterative with sprints.</p>
-                <p data-lang="hi">SDLC define karta hai ki software kaise step by step banta hai. Waterfall sequential hai. Agile iterative hai with sprints (2-4 weeks cycles).</p>
 
-                <div class="pills">
-                    <span class="pill purple">SDLC</span>
-                    <span class="pill purple">Waterfall</span>
-                    <span class="pill purple">Agile</span>
-                    <span class="pill purple">Scrum</span>
-                    <span class="pill purple">Spiral</span>
-                    <span class="pill purple">Iterative</span>
+                <!-- SDLC Overview -->
+                <h3 style="color:var(--purple);margin-bottom:.5rem" data-lang="en">What is SDLC?</h3>
+                <h3 style="color:var(--purple);margin-bottom:.5rem" data-lang="hi">SDLC kya hai?</h3>
+                <p data-lang="en">Software Development Life Cycle defines structured phases to build quality software.</p>
+                <p data-lang="hi">SDLC ek structured process hai jo software banana sikhata hai step by step.</p>
+
+                <!-- Waterfall Model -->
+                <h3 style="color:var(--cyan);margin:1.5rem 0 .5rem" data-lang="en">Waterfall Model (Sequential)</h3>
+                <h3 style="color:var(--cyan);margin:1.5rem 0 .5rem" data-lang="hi">Waterfall Model (Ek ke baad ek)</h3>
+                <div class="waterfall-flow">
+                    <span class="waterfall-step" style="background:rgba(124,58,237,.15);color:var(--purple);border:1px solid var(--purple)">Requirements</span>
+                    <span class="waterfall-arrow">→</span>
+                    <span class="waterfall-step" style="background:rgba(236,72,153,.15);color:var(--pink);border:1px solid var(--pink)">Design</span>
+                    <span class="waterfall-arrow">→</span>
+                    <span class="waterfall-step" style="background:rgba(6,182,212,.15);color:var(--cyan);border:1px solid var(--cyan)">Code</span>
+                    <span class="waterfall-arrow">→</span>
+                    <span class="waterfall-step" style="background:rgba(16,185,129,.15);color:var(--green);border:1px solid var(--green)">Test</span>
+                    <span class="waterfall-arrow">→</span>
+                    <span class="waterfall-step" style="background:rgba(249,115,22,.15);color:var(--orange);border:1px solid var(--orange)">Deploy</span>
                 </div>
+                <div class="explain-box" data-lang="en">Each phase completes fully before next begins. No going back. Best for small, well-defined projects.</div>
+                <div class="explain-box" data-lang="hi">Har phase pura hota hai tabhi next start hota hai. Wapas nahi ja sakte. Chhote projects ke liye best hai.</div>
 
-                <!-- Waterfall Diagram -->
-                <h3 style="margin: 1.5rem 0 0.5rem; color: var(--purple);" data-lang="en">Waterfall Model</h3>
-                <h3 style="margin: 1.5rem 0 0.5rem; color: var(--purple);" data-lang="hi">Waterfall Model</h3>
-                <div class="diagram" style="flex-direction: column; gap: 0;">
-                    <div class="diagram-box purple">Requirements</div>
-                    <div class="diagram-arrow" style="transform: rotate(90deg);">→</div>
-                    <div class="diagram-box pink">Design</div>
-                    <div class="diagram-arrow" style="transform: rotate(90deg);">→</div>
-                    <div class="diagram-box cyan">Implementation</div>
-                    <div class="diagram-arrow" style="transform: rotate(90deg);">→</div>
-                    <div class="diagram-box green">Testing</div>
-                    <div class="diagram-arrow" style="transform: rotate(90deg);">→</div>
-                    <div class="diagram-box orange">Deployment</div>
-                    <div class="diagram-arrow" style="transform: rotate(90deg);">→</div>
-                    <div class="diagram-box yellow">Maintenance</div>
+                <!-- Agile/Scrum -->
+                <h3 style="color:var(--green);margin:1.5rem 0 .5rem" data-lang="en">Agile & Scrum</h3>
+                <h3 style="color:var(--green);margin:1.5rem 0 .5rem" data-lang="hi">Agile & Scrum</h3>
+                <div class="table-wrapper">
+                    <table>
+                        <thead><tr><th>Role</th><th data-lang="en">Responsibility</th><th data-lang="hi">Kaam</th></tr></thead>
+                        <tbody>
+                            <tr><td style="color:var(--purple);font-weight:600">Product Owner</td><td data-lang="en">Defines what to build (backlog)</td><td data-lang="hi">Kya banana hai decide karta hai</td></tr>
+                            <tr><td style="color:var(--cyan);font-weight:600">Scrum Master</td><td data-lang="en">Removes blockers, facilitates</td><td data-lang="hi">Team ki problems solve karta hai</td></tr>
+                            <tr><td style="color:var(--green);font-weight:600">Dev Team</td><td data-lang="en">Builds the product in sprints</td><td data-lang="hi">Sprint mein product banata hai</td></tr>
+                        </tbody>
+                    </table>
                 </div>
+                <div class="explain-box" data-lang="en">Sprint = 2-4 week cycle. Daily standup (15 min). Sprint Review + Retrospective at end.</div>
+                <div class="explain-box" data-lang="hi">Sprint = 2-4 week ka cycle. Daily standup 15 min ka. Sprint end pe Review + Retrospective hota hai.</div>
 
-                <!-- Agile/Scrum Board -->
-                <h3 style="margin: 2rem 0 0.5rem; color: var(--purple);" data-lang="en">Agile Scrum Board</h3>
-                <h3 style="margin: 2rem 0 0.5rem; color: var(--purple);" data-lang="hi">Agile Scrum Board</h3>
-                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 1rem 0;">
-                    <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1rem;">
-                        <div style="font-weight: 700; color: var(--orange); margin-bottom: 0.5rem; text-align: center;">To Do</div>
-                        <div style="padding: 6px 10px; background: rgba(249,115,22,0.1); border-radius: 6px; font-size: 0.8rem; margin: 4px 0;">User Stories</div>
-                        <div style="padding: 6px 10px; background: rgba(249,115,22,0.1); border-radius: 6px; font-size: 0.8rem; margin: 4px 0;">Backlog Items</div>
-                    </div>
-                    <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1rem;">
-                        <div style="font-weight: 700; color: var(--cyan); margin-bottom: 0.5rem; text-align: center;">In Progress</div>
-                        <div style="padding: 6px 10px; background: rgba(6,182,212,0.1); border-radius: 6px; font-size: 0.8rem; margin: 4px 0;">Sprint Tasks</div>
-                        <div style="padding: 6px 10px; background: rgba(6,182,212,0.1); border-radius: 6px; font-size: 0.8rem; margin: 4px 0;">Development</div>
-                    </div>
-                    <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1rem;">
-                        <div style="font-weight: 700; color: var(--green); margin-bottom: 0.5rem; text-align: center;">Done</div>
-                        <div style="padding: 6px 10px; background: rgba(16,185,129,0.1); border-radius: 6px; font-size: 0.8rem; margin: 4px 0;">Tested</div>
-                        <div style="padding: 6px 10px; background: rgba(16,185,129,0.1); border-radius: 6px; font-size: 0.8rem; margin: 4px 0;">Deployed</div>
-                    </div>
+                <!-- Requirements -->
+                <h3 style="color:var(--orange);margin:1.5rem 0 .5rem" data-lang="en">Requirements: Functional vs Non-Functional</h3>
+                <h3 style="color:var(--orange);margin:1.5rem 0 .5rem" data-lang="hi">Requirements: Functional vs Non-Functional</h3>
+                <div class="table-wrapper">
+                    <table>
+                        <thead><tr><th>Type</th><th data-lang="en">Example</th><th data-lang="hi">Example</th></tr></thead>
+                        <tbody>
+                            <tr><td><span class="pill purple">Functional</span></td><td data-lang="en">User can login, search books, place order</td><td data-lang="hi">User login kar sake, book search kare, order place kare</td></tr>
+                            <tr><td><span class="pill orange">Non-Functional</span></td><td data-lang="en">Page loads in &lt;2 sec, supports 1000 users, 99.9% uptime</td><td data-lang="hi">Page 2 sec mein load ho, 1000 users handle kare, 99.9% uptime</td></tr>
+                        </tbody>
+                    </table>
                 </div>
-
-                <div class="explain-box" data-lang="en">Waterfall is linear - each phase must complete before next begins. Agile breaks work into sprints (2-4 weeks). Scrum uses Daily Standups, Sprint Planning, and Retrospectives.</div>
-                <div class="explain-box" data-lang="hi">Waterfall linear hai - har phase complete hona chahiye next se pehle. Agile kaam ko sprints (2-4 weeks) mein todta hai. Scrum mein Daily Standups, Sprint Planning, aur Retrospectives hote hain.</div>
+                <div class="explain-box" data-lang="en">Functional = WHAT system does. Non-Functional = HOW WELL it does it (performance, security, scalability).</div>
+                <div class="explain-box" data-lang="hi">Functional = System KYA karta hai. Non-Functional = KITNA ACCHA karta hai (speed, security, scalability).</div>
             </div>
         </div>
 
-        <!-- UNIT 2 -->
+        <!-- ==================== UNIT 2: UML Diagrams ==================== -->
         <div class="unit-section">
             <div class="unit-header" onclick="toggleUnit(this)">
-                <div class="unit-number purple">2</div>
+                <div class="unit-number pink">2</div>
                 <div class="unit-title">UML Diagrams</div>
                 <div class="unit-toggle">▼</div>
             </div>
             <div class="unit-content">
-                <p data-lang="en">UML (Unified Modeling Language) provides standard diagrams to visualize software design. There are structural and behavioral diagrams.</p>
-                <p data-lang="hi">UML (Unified Modeling Language) standard diagrams provide karta hai software design visualize karne ke liye. Structural aur Behavioral diagrams hote hain.</p>
-
-                <div class="pills">
-                    <span class="pill purple">Use Case</span>
-                    <span class="pill purple">Class Diagram</span>
-                    <span class="pill purple">Sequence</span>
-                    <span class="pill purple">State</span>
-                    <span class="pill purple">Activity</span>
-                    <span class="pill purple">Package</span>
-                </div>
+                <p data-lang="en">UML (Unified Modeling Language) provides visual blueprints of software systems.</p>
+                <p data-lang="hi">UML software ke visual blueprints banane ka standard tarika hai.</p>
 
                 <!-- Use Case Diagram -->
-                <h3 style="margin: 1.5rem 0 0.5rem; color: var(--purple);" data-lang="en">Use Case Diagram - Library System</h3>
-                <h3 style="margin: 1.5rem 0 0.5rem; color: var(--purple);" data-lang="hi">Use Case Diagram - Library System</h3>
-                <div style="display: flex; align-items: center; gap: 2rem; padding: 2rem; background: var(--bg-card); border-radius: var(--radius); border: 1px solid var(--border); margin: 1rem 0; flex-wrap: wrap; justify-content: center;">
-                    <!-- Actor -->
-                    <div style="text-align: center;">
-                        <div style="font-size: 2.5rem;">🧑‍🎓</div>
-                        <div style="font-size: 0.8rem; font-weight: 600; color: var(--text-secondary);">Student</div>
-                    </div>
-                    <!-- Lines -->
-                    <div style="display: flex; flex-direction: column; gap: 8px;">
-                        <div style="display: flex; align-items: center; gap: 8px;">
-                            <span style="color: var(--text-muted);">──────</span>
-                            <div style="padding: 8px 20px; border: 2px solid var(--purple); border-radius: 30px; font-size: 0.85rem; color: var(--purple);">Borrow Book</div>
+                <h3 style="color:var(--cyan);margin:1.5rem 0 .5rem">Use Case Diagram</h3>
+                <div class="uml-diagram">
+                    <div class="uml-row">
+                        <div class="uml-actor">Student</div>
+                        <div style="display:flex;flex-direction:column;gap:.4rem">
+                            <div class="uml-usecase">Borrow Book</div>
+                            <div class="uml-usecase">Return Book</div>
+                            <div class="uml-usecase">Search Catalog</div>
                         </div>
-                        <div style="display: flex; align-items: center; gap: 8px;">
-                            <span style="color: var(--text-muted);">──────</span>
-                            <div style="padding: 8px 20px; border: 2px solid var(--pink); border-radius: 30px; font-size: 0.85rem; color: var(--pink);">Return Book</div>
-                        </div>
-                        <div style="display: flex; align-items: center; gap: 8px;">
-                            <span style="color: var(--text-muted);">──────</span>
-                            <div style="padding: 8px 20px; border: 2px solid var(--cyan); border-radius: 30px; font-size: 0.85rem; color: var(--cyan);">Search Book</div>
-                        </div>
+                        <div class="uml-actor">Librarian</div>
                     </div>
                 </div>
+                <div class="explain-box" data-lang="en">Shows actors (users) and what they can do with the system. Use for requirement gathering.</div>
+                <div class="explain-box" data-lang="hi">Actors (users) aur unke system ke saath interactions dikhata hai. Requirements gather karne mein use hota hai.</div>
 
                 <!-- Class Diagram -->
-                <h3 style="margin: 1.5rem 0 0.5rem; color: var(--purple);" data-lang="en">Class Diagram</h3>
-                <h3 style="margin: 1.5rem 0 0.5rem; color: var(--purple);" data-lang="hi">Class Diagram</h3>
-                <div class="class-diagram">
-                    <div class="class-box">
-                        <div class="class-name">Student</div>
-                        <div class="class-attrs">- name: String<br>- roll: int<br>- marks: Map</div>
-                        <div class="class-methods">+ enroll()<br>+ getMarks()<br>+ display()</div>
-                    </div>
-                    <div class="inheritance-arrow">▲<br>|</div>
-                    <div class="class-children">
-                        <div class="class-box">
-                            <div class="class-name">MCAStudent</div>
-                            <div class="class-attrs">- semester: int<br>- specialization: String</div>
-                            <div class="class-methods">+ getSemester()<br>+ display()</div>
+                <h3 style="color:var(--purple);margin:1.5rem 0 .5rem">Class Diagram</h3>
+                <div class="uml-diagram">
+                    <div class="uml-row">
+                        <div class="uml-class">
+                            <div class="uml-name">Animal</div>
+                            <div class="uml-attrs">- name: String<br>- age: int</div>
+                            <div class="uml-methods">+ eat(): void<br>+ sleep(): void</div>
+                        </div>
+                        <div class="uml-arrow">◁───</div>
+                        <div class="uml-class">
+                            <div class="uml-name">Dog</div>
+                            <div class="uml-attrs">- breed: String</div>
+                            <div class="uml-methods">+ bark(): void</div>
                         </div>
                     </div>
                 </div>
+                <div class="explain-box" data-lang="en">Shows classes, attributes, methods and relationships (inheritance, association). Use for system structure design.</div>
+                <div class="explain-box" data-lang="hi">Classes, attributes, methods aur relationships dikhata hai. System ka structure design karne ke liye use hota hai.</div>
 
                 <!-- Sequence Diagram -->
-                <h3 style="margin: 1.5rem 0 0.5rem; color: var(--purple);" data-lang="en">Sequence Diagram - Book Borrow</h3>
-                <h3 style="margin: 1.5rem 0 0.5rem; color: var(--purple);" data-lang="hi">Sequence Diagram - Book Borrow</h3>
-                <div style="padding: 2rem; background: var(--bg-card); border-radius: var(--radius); border: 1px solid var(--border); margin: 1rem 0;">
-                    <div style="display: flex; justify-content: space-around; text-align: center; margin-bottom: 1rem;">
-                        <div style="font-weight: 700; color: var(--purple); padding: 8px 16px; background: rgba(124,58,237,0.1); border-radius: 6px;">Student</div>
-                        <div style="font-weight: 700; color: var(--cyan); padding: 8px 16px; background: rgba(6,182,212,0.1); border-radius: 6px;">Library</div>
-                        <div style="font-weight: 700; color: var(--green); padding: 8px 16px; background: rgba(16,185,129,0.1); border-radius: 6px;">Database</div>
-                    </div>
-                    <div style="display: flex; flex-direction: column; gap: 8px; font-size: 0.8rem;">
-                        <div style="display: flex; align-items: center; padding: 6px 0;">
-                            <span style="width: 33%; text-align: center; color: var(--purple);">●</span>
-                            <span style="flex:1; border-top: 2px solid var(--purple); position: relative;">
-                                <span style="position: absolute; top: -18px; left: 20%; font-size: 0.75rem; color: var(--text-secondary);">requestBook()</span>
-                            </span>
-                            <span style="width: 33%; text-align: center; color: var(--cyan);">●</span>
+                <h3 style="color:var(--yellow);margin:1.5rem 0 .5rem">Sequence Diagram</h3>
+                <div class="uml-diagram">
+                    <div class="uml-row" style="gap:3rem">
+                        <div style="text-align:center">
+                            <div style="padding:.3rem .6rem;background:rgba(124,58,237,.15);border-radius:4px;font-size:.75rem;color:var(--purple);font-weight:700">User</div>
+                            <div class="uml-seq-line"></div>
+                            <div class="uml-seq-line"></div>
+                            <div class="uml-seq-line"></div>
                         </div>
-                        <div style="display: flex; align-items: center; padding: 6px 0;">
-                            <span style="width: 33%;"></span>
-                            <span style="width: 33%; text-align: center; color: var(--cyan);">●</span>
-                            <span style="flex:1; border-top: 2px solid var(--cyan); position: relative;">
-                                <span style="position: absolute; top: -18px; left: 20%; font-size: 0.75rem; color: var(--text-secondary);">checkAvailability()</span>
-                            </span>
-                            <span style="width: 10%; text-align: center; color: var(--green);">●</span>
+                        <div style="display:flex;flex-direction:column;gap:.3rem;justify-content:center">
+                            <div class="uml-seq-msg">login() →</div>
+                            <div class="uml-seq-msg">← success</div>
+                            <div class="uml-seq-msg">getData() →</div>
                         </div>
-                        <div style="display: flex; align-items: center; padding: 6px 0;">
-                            <span style="width: 33%;"></span>
-                            <span style="width: 33%; text-align: center; color: var(--cyan);">●</span>
-                            <span style="flex:1; border-top: 2px dashed var(--green); position: relative;">
-                                <span style="position: absolute; top: -18px; left: 20%; font-size: 0.75rem; color: var(--text-secondary);">return: available</span>
-                            </span>
-                            <span style="width: 10%; text-align: center; color: var(--green);">●</span>
-                        </div>
-                        <div style="display: flex; align-items: center; padding: 6px 0;">
-                            <span style="width: 33%; text-align: center; color: var(--purple);">●</span>
-                            <span style="flex:1; border-top: 2px dashed var(--cyan); position: relative;">
-                                <span style="position: absolute; top: -18px; left: 20%; font-size: 0.75rem; color: var(--text-secondary);">issueBook()</span>
-                            </span>
-                            <span style="width: 33%; text-align: center; color: var(--cyan);">●</span>
+                        <div style="text-align:center">
+                            <div style="padding:.3rem .6rem;background:rgba(6,182,212,.15);border-radius:4px;font-size:.75rem;color:var(--cyan);font-weight:700">Server</div>
+                            <div class="uml-seq-line"></div>
+                            <div class="uml-seq-line"></div>
+                            <div class="uml-seq-line"></div>
                         </div>
                     </div>
                 </div>
+                <div class="explain-box" data-lang="en">Shows message flow between objects over time. Use for understanding interaction order.</div>
+                <div class="explain-box" data-lang="hi">Objects ke beech messages ka time-ordered flow dikhata hai. Interaction ka order samajhne ke liye use hota hai.</div>
 
                 <!-- State Diagram -->
-                <h3 style="margin: 1.5rem 0 0.5rem; color: var(--purple);" data-lang="en">State Diagram - Book</h3>
-                <h3 style="margin: 1.5rem 0 0.5rem; color: var(--purple);" data-lang="hi">State Diagram - Book</h3>
-                <div class="diagram">
-                    <div class="diagram-box green" style="border-radius: 30px;">Available</div>
-                    <div class="diagram-arrow">→</div>
-                    <div class="diagram-box orange" style="border-radius: 30px;">Issued</div>
-                    <div class="diagram-arrow">→</div>
-                    <div class="diagram-box cyan" style="border-radius: 30px;">Returned</div>
-                    <div class="diagram-arrow">→</div>
-                    <div class="diagram-box green" style="border-radius: 30px;">Available</div>
+                <h3 style="color:var(--green);margin:1.5rem 0 .5rem">State Diagram</h3>
+                <div class="uml-diagram">
+                    <div class="uml-row">
+                        <div class="uml-state">Idle</div>
+                        <div class="uml-arrow">→ start</div>
+                        <div class="uml-state">Running</div>
+                        <div class="uml-arrow">→ finish</div>
+                        <div class="uml-state">Done</div>
+                    </div>
                 </div>
+                <div class="explain-box" data-lang="en">Shows states of an object and transitions between them. Use for lifecycle modeling.</div>
+                <div class="explain-box" data-lang="hi">Object ke states aur transitions dikhata hai. Object ka lifecycle model karne ke liye use hota hai.</div>
 
-                <div class="explain-box" data-lang="en">Use Case shows what the system does (actor-system interaction). Class Diagram shows structure. Sequence shows time-ordered interactions. State shows object lifecycle.</div>
-                <div class="explain-box" data-lang="hi">Use Case dikhata hai system kya karta hai (actor-system interaction). Class Diagram structure dikhata hai. Sequence time-ordered interactions dikhata hai. State object ka lifecycle dikhata hai.</div>
+                <!-- Activity Diagram -->
+                <h3 style="color:var(--orange);margin:1.5rem 0 .5rem">Activity Diagram (Flowchart)</h3>
+                <div class="uml-diagram">
+                    <div style="display:flex;flex-direction:column;align-items:center;gap:.3rem">
+                        <div class="uml-state" style="border-radius:50%;min-width:20px;padding:.2rem;background:var(--green)"></div>
+                        <div class="uml-arrow">↓</div>
+                        <div style="padding:.3rem .8rem;border:2px solid var(--orange);border-radius:4px;font-size:.75rem;color:var(--orange)">Enter Username</div>
+                        <div class="uml-arrow">↓</div>
+                        <div style="padding:.3rem .8rem;border:2px solid var(--orange);border-radius:4px;font-size:.75rem;color:var(--orange);transform:rotate(0deg)">◇ Valid?</div>
+                        <div style="display:flex;gap:2rem;align-items:center">
+                            <div style="font-size:.65rem;color:var(--green)">Yes → Dashboard</div>
+                            <div style="font-size:.65rem;color:var(--pink)">No → Error</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="explain-box" data-lang="en">Shows workflow/process steps with decisions. Use for business logic and algorithms.</div>
+                <div class="explain-box" data-lang="hi">Workflow/process steps aur decisions dikhata hai. Business logic model karne ke liye use hota hai.</div>
             </div>
         </div>
 
-        <!-- UNIT 3 -->
+        <!-- ==================== UNIT 3: Design Patterns ==================== -->
         <div class="unit-section">
             <div class="unit-header" onclick="toggleUnit(this)">
-                <div class="unit-number purple">3</div>
+                <div class="unit-number cyan">3</div>
                 <div class="unit-title">Design Patterns</div>
                 <div class="unit-toggle">▼</div>
             </div>
             <div class="unit-content">
-                <p data-lang="en">Design Patterns are reusable solutions to recurring software design problems. They are categorized into Creational, Structural, and Behavioral patterns.</p>
-                <p data-lang="hi">Design Patterns baar-baar aane wale software design problems ke reusable solutions hain. Ye teen categories mein hain: Creational, Structural, aur Behavioral.</p>
+                <p data-lang="en">Reusable solutions to common software design problems. Three types: Creational, Structural, Behavioral.</p>
+                <p data-lang="hi">Software design problems ke reusable solutions. Teen types: Creational, Structural, Behavioral.</p>
 
                 <div class="pills">
                     <span class="pill purple">Singleton</span>
                     <span class="pill pink">Factory</span>
-                    <span class="pill cyan">Builder</span>
-                    <span class="pill green">Adapter</span>
-                    <span class="pill orange">Observer</span>
-                    <span class="pill yellow">Strategy</span>
+                    <span class="pill cyan">Observer</span>
+                    <span class="pill green">Strategy</span>
+                    <span class="pill orange">Builder</span>
+                    <span class="pill yellow">Adapter</span>
                 </div>
 
-                <div class="table-wrapper">
-                    <table>
-                        <thead>
-                            <tr><th>Category</th><th>Pattern</th><th data-lang="en">Purpose</th><th data-lang="hi">Purpose</th></tr>
-                        </thead>
-                        <tbody>
-                            <tr><td><span class="pill purple">Creational</span></td><td>Singleton</td><td data-lang="en">Only one instance of a class</td><td data-lang="hi">Class ka sirf ek instance bane</td></tr>
-                            <tr><td><span class="pill purple">Creational</span></td><td>Factory</td><td data-lang="en">Create objects without specifying exact class</td><td data-lang="hi">Exact class specify kiye bina objects create karo</td></tr>
-                            <tr><td><span class="pill purple">Creational</span></td><td>Builder</td><td data-lang="en">Build complex objects step by step</td><td data-lang="hi">Complex objects step by step banao</td></tr>
-                            <tr><td><span class="pill cyan">Structural</span></td><td>Adapter</td><td data-lang="en">Make incompatible interfaces work together</td><td data-lang="hi">Incompatible interfaces ko saath kaam karao</td></tr>
-                            <tr><td><span class="pill cyan">Structural</span></td><td>Decorator</td><td data-lang="en">Add behavior without modifying class</td><td data-lang="hi">Class modify kiye bina behavior add karo</td></tr>
-                            <tr><td><span class="pill orange">Behavioral</span></td><td>Observer</td><td data-lang="en">Notify objects when state changes</td><td data-lang="hi">State change hone pe objects ko notify karo</td></tr>
-                            <tr><td><span class="pill orange">Behavioral</span></td><td>Strategy</td><td data-lang="en">Switch algorithms at runtime</td><td data-lang="hi">Runtime pe algorithms switch karo</td></tr>
-                        </tbody>
-                    </table>
-                </div>
+                <!-- Singleton -->
+                <h3 style="color:var(--purple);margin:1.5rem 0 .5rem">1. Singleton Pattern</h3>
+                <div class="explain-box" data-lang="en">Only ONE instance of a class exists. Use for: Database connection, Logger, Config manager.</div>
+                <div class="explain-box" data-lang="hi">Class ka sirf EK hi instance banta hai. Use: DB connection, Logger, Config manager.</div>
+                <div class="code-block"><span class="code-label">Java</span><pre><span class="kw">class</span> <span class="fn">Database</span> {
+    <span class="kw">private static</span> <span class="fn">Database</span> <span class="var">instance</span>;
+    <span class="kw">private</span> <span class="fn">Database</span>() {} <span class="cm">// private constructor</span>
+    <span class="kw">public static</span> <span class="fn">Database</span> <span class="fn">getInstance</span>() {
+        <span class="kw">if</span> (<span class="var">instance</span> <span class="op">==</span> <span class="kw">null</span>) <span class="var">instance</span> <span class="op">=</span> <span class="kw">new</span> <span class="fn">Database</span>();
+        <span class="kw">return</span> <span class="var">instance</span>;
+    }
+}</pre></div>
 
-                <div class="code-block">
-                    <span class="code-label">Java</span>
-                    <pre><span class="cm">// Observer Pattern</span>
-<span class="kw">interface</span> <span class="fn">Observer</span> {
-    <span class="kw">void</span> <span class="fn">update</span>(<span class="fn">String</span> <span class="var">message</span>);
-}
+                <!-- Factory -->
+                <h3 style="color:var(--pink);margin:1.5rem 0 .5rem">2. Factory Pattern</h3>
+                <div class="explain-box" data-lang="en">Creates objects without specifying exact class. Use for: Shape creation, Payment processing, Notification types.</div>
+                <div class="explain-box" data-lang="hi">Exact class bataye bina objects banata hai. Use: Shape creation, Payment processing, Notifications.</div>
+                <div class="code-block"><span class="code-label">Java</span><pre><span class="kw">interface</span> <span class="fn">Shape</span> { <span class="kw">void</span> <span class="fn">draw</span>(); }
+<span class="kw">class</span> <span class="fn">Circle</span> <span class="kw">implements</span> <span class="fn">Shape</span> { <span class="kw">public void</span> <span class="fn">draw</span>() { <span class="fn">System</span>.out.<span class="fn">println</span>(<span class="str">"Circle"</span>); } }
+<span class="kw">class</span> <span class="fn">Square</span> <span class="kw">implements</span> <span class="fn">Shape</span> { <span class="kw">public void</span> <span class="fn">draw</span>() { <span class="fn">System</span>.out.<span class="fn">println</span>(<span class="str">"Square"</span>); } }
 
-<span class="kw">class</span> <span class="fn">Student</span> <span class="kw">implements</span> <span class="fn">Observer</span> {
-    <span class="fn">String</span> <span class="var">name</span>;
-    <span class="fn">Student</span>(<span class="fn">String</span> <span class="var">name</span>) { <span class="kw">this</span>.<span class="var">name</span> <span class="op">=</span> <span class="var">name</span>; }
-    <span class="kw">public void</span> <span class="fn">update</span>(<span class="fn">String</span> <span class="var">msg</span>) {
-        <span class="fn">System</span>.out.<span class="fn">println</span>(<span class="var">name</span> <span class="op">+</span> <span class="str">" received: "</span> <span class="op">+</span> <span class="var">msg</span>);
+<span class="kw">class</span> <span class="fn">ShapeFactory</span> {
+    <span class="kw">static</span> <span class="fn">Shape</span> <span class="fn">create</span>(<span class="fn">String</span> <span class="var">type</span>) {
+        <span class="kw">if</span> (<span class="var">type</span>.<span class="fn">equals</span>(<span class="str">"circle"</span>)) <span class="kw">return new</span> <span class="fn">Circle</span>();
+        <span class="kw">return new</span> <span class="fn">Square</span>();
+    }
+}</pre></div>
+
+                <!-- Observer -->
+                <h3 style="color:var(--cyan);margin:1.5rem 0 .5rem">3. Observer Pattern</h3>
+                <div class="explain-box" data-lang="en">When state changes, all subscribers get notified. Use for: Event systems, Notifications, UI updates.</div>
+                <div class="explain-box" data-lang="hi">State change hone pe sabhi subscribers ko notify karta hai. Use: Events, Notifications, UI updates.</div>
+                <div class="code-block"><span class="code-label">Java</span><pre><span class="kw">interface</span> <span class="fn">Observer</span> { <span class="kw">void</span> <span class="fn">update</span>(<span class="fn">String</span> <span class="var">msg</span>); }
+
+<span class="kw">class</span> <span class="fn">Channel</span> {
+    <span class="fn">List</span><span class="op">&lt;</span><span class="fn">Observer</span><span class="op">&gt;</span> <span class="var">subs</span> <span class="op">=</span> <span class="kw">new</span> <span class="fn">ArrayList</span><span class="op">&lt;&gt;</span>();
+    <span class="kw">void</span> <span class="fn">subscribe</span>(<span class="fn">Observer</span> <span class="var">o</span>) { <span class="var">subs</span>.<span class="fn">add</span>(<span class="var">o</span>); }
+    <span class="kw">void</span> <span class="fn">notify</span>(<span class="fn">String</span> <span class="var">msg</span>) {
+        <span class="kw">for</span>(<span class="fn">Observer</span> <span class="var">o</span> : <span class="var">subs</span>) <span class="var">o</span>.<span class="fn">update</span>(<span class="var">msg</span>);
+    }
+}</pre></div>
+
+                <!-- Strategy -->
+                <h3 style="color:var(--green);margin:1.5rem 0 .5rem">4. Strategy Pattern</h3>
+                <div class="explain-box" data-lang="en">Switch algorithms at runtime. Use for: Sorting strategies, Payment methods, Compression algorithms.</div>
+                <div class="explain-box" data-lang="hi">Runtime pe algorithm switch kar sakte ho. Use: Sorting, Payment methods, Compression.</div>
+                <div class="code-block"><span class="code-label">Java</span><pre><span class="kw">interface</span> <span class="fn">SortStrategy</span> { <span class="kw">void</span> <span class="fn">sort</span>(<span class="kw">int</span>[] <span class="var">arr</span>); }
+<span class="kw">class</span> <span class="fn">BubbleSort</span> <span class="kw">implements</span> <span class="fn">SortStrategy</span> { <span class="kw">public void</span> <span class="fn">sort</span>(<span class="kw">int</span>[] <span class="var">a</span>) { <span class="cm">/*bubble*/</span> } }
+<span class="kw">class</span> <span class="fn">QuickSort</span> <span class="kw">implements</span> <span class="fn">SortStrategy</span> { <span class="kw">public void</span> <span class="fn">sort</span>(<span class="kw">int</span>[] <span class="var">a</span>) { <span class="cm">/*quick*/</span> } }
+
+<span class="kw">class</span> <span class="fn">Sorter</span> {
+    <span class="fn">SortStrategy</span> <span class="var">strategy</span>;
+    <span class="kw">void</span> <span class="fn">setStrategy</span>(<span class="fn">SortStrategy</span> <span class="var">s</span>) { <span class="var">strategy</span> <span class="op">=</span> <span class="var">s</span>; }
+    <span class="kw">void</span> <span class="fn">execute</span>(<span class="kw">int</span>[] <span class="var">arr</span>) { <span class="var">strategy</span>.<span class="fn">sort</span>(<span class="var">arr</span>); }
+}</pre></div>
+
+                <!-- Builder -->
+                <h3 style="color:var(--orange);margin:1.5rem 0 .5rem">5. Builder Pattern</h3>
+                <div class="explain-box" data-lang="en">Build complex objects step by step. Use for: Pizza orders, Query builders, Config objects.</div>
+                <div class="explain-box" data-lang="hi">Complex objects ko step by step banao. Use: Pizza order, Query builder, Config objects.</div>
+                <div class="code-block"><span class="code-label">Java</span><pre><span class="kw">class</span> <span class="fn">Pizza</span> {
+    <span class="fn">String</span> <span class="var">size</span>, <span class="var">crust</span>, <span class="var">topping</span>;
+    <span class="kw">static class</span> <span class="fn">Builder</span> {
+        <span class="fn">String</span> <span class="var">size</span>, <span class="var">crust</span>, <span class="var">topping</span>;
+        <span class="fn">Builder</span> <span class="fn">size</span>(<span class="fn">String</span> <span class="var">s</span>) { <span class="var">size</span><span class="op">=</span><span class="var">s</span>; <span class="kw">return this</span>; }
+        <span class="fn">Builder</span> <span class="fn">crust</span>(<span class="fn">String</span> <span class="var">c</span>) { <span class="var">crust</span><span class="op">=</span><span class="var">c</span>; <span class="kw">return this</span>; }
+        <span class="fn">Builder</span> <span class="fn">topping</span>(<span class="fn">String</span> <span class="var">t</span>) { <span class="var">topping</span><span class="op">=</span><span class="var">t</span>; <span class="kw">return this</span>; }
+        <span class="fn">Pizza</span> <span class="fn">build</span>() { <span class="kw">return new</span> <span class="fn">Pizza</span>(<span class="kw">this</span>); }
     }
 }
+<span class="cm">// Usage: new Pizza.Builder().size("L").crust("thin").topping("cheese").build();</span></pre></div>
 
-<span class="kw">class</span> <span class="fn">NoticeBoard</span> {
-    <span class="fn">List</span><span class="op">&lt;</span><span class="fn">Observer</span><span class="op">&gt;</span> <span class="var">observers</span> <span class="op">=</span> <span class="kw">new</span> <span class="fn">ArrayList</span><span class="op">&lt;&gt;</span>();
-    <span class="kw">void</span> <span class="fn">subscribe</span>(<span class="fn">Observer</span> <span class="var">o</span>) { <span class="var">observers</span>.<span class="fn">add</span>(<span class="var">o</span>); }
-    <span class="kw">void</span> <span class="fn">post</span>(<span class="fn">String</span> <span class="var">msg</span>) {
-        <span class="kw">for</span> (<span class="fn">Observer</span> <span class="var">o</span> : <span class="var">observers</span>) <span class="var">o</span>.<span class="fn">update</span>(<span class="var">msg</span>);
-    }
-}</pre>
-                </div>
+                <!-- Adapter -->
+                <h3 style="color:var(--yellow);margin:1.5rem 0 .5rem">6. Adapter Pattern</h3>
+                <div class="explain-box" data-lang="en">Makes incompatible interfaces work together. Use for: Legacy code integration, Third-party library wrapping.</div>
+                <div class="explain-box" data-lang="hi">Incompatible interfaces ko saath kaam karata hai. Use: Purane code ko naye ke saath connect karna.</div>
+                <div class="code-block"><span class="code-label">Java</span><pre><span class="kw">interface</span> <span class="fn">MediaPlayer</span> { <span class="kw">void</span> <span class="fn">play</span>(<span class="fn">String</span> <span class="var">file</span>); }
+<span class="kw">class</span> <span class="fn">VlcPlayer</span> { <span class="kw">void</span> <span class="fn">playVlc</span>(<span class="fn">String</span> <span class="var">f</span>) { <span class="cm">/*vlc*/</span> } }
 
-                <div class="explain-box" data-lang="en">Observer Pattern: When NoticeBoard posts a message, all subscribed Students get notified automatically. This is like YouTube subscriptions - you get notified of new videos.</div>
-                <div class="explain-box" data-lang="hi">Observer Pattern: Jab NoticeBoard pe message post hota hai, saare subscribed Students ko automatically notification milta hai. Ye YouTube subscription jaisa hai - new video aaye toh notification milta hai.</div>
+<span class="kw">class</span> <span class="fn">VlcAdapter</span> <span class="kw">implements</span> <span class="fn">MediaPlayer</span> {
+    <span class="fn">VlcPlayer</span> <span class="var">vlc</span> <span class="op">=</span> <span class="kw">new</span> <span class="fn">VlcPlayer</span>();
+    <span class="kw">public void</span> <span class="fn">play</span>(<span class="fn">String</span> <span class="var">file</span>) { <span class="var">vlc</span>.<span class="fn">playVlc</span>(<span class="var">file</span>); }
+}</pre></div>
             </div>
         </div>
 
-        <!-- UNIT 4 -->
+        <!-- ==================== UNIT 4: Testing ==================== -->
         <div class="unit-section">
             <div class="unit-header" onclick="toggleUnit(this)">
-                <div class="unit-number purple">4</div>
+                <div class="unit-number green">4</div>
                 <div class="unit-title">Software Testing</div>
                 <div class="unit-toggle">▼</div>
             </div>
             <div class="unit-content">
-                <p data-lang="en">Testing ensures software works correctly. Different levels of testing verify different aspects of the system.</p>
-                <p data-lang="hi">Testing ensure karta hai ki software sahi se kaam kare. Testing ke different levels system ke different aspects verify karte hain.</p>
+                <p data-lang="en">Testing verifies that software works correctly at every level.</p>
+                <p data-lang="hi">Testing ensure karta hai ki software har level pe sahi kaam kare.</p>
 
-                <div class="pills">
-                    <span class="pill purple">Unit Testing</span>
-                    <span class="pill pink">Integration</span>
-                    <span class="pill cyan">System Testing</span>
-                    <span class="pill green">Acceptance</span>
-                    <span class="pill orange">Black Box</span>
-                    <span class="pill yellow">White Box</span>
-                </div>
-
-                <!-- Testing Types Comparison -->
+                <!-- Testing Levels -->
+                <h3 style="color:var(--purple);margin:1.5rem 0 .5rem" data-lang="en">Testing Levels</h3>
+                <h3 style="color:var(--purple);margin:1.5rem 0 .5rem" data-lang="hi">Testing ke Levels</h3>
                 <div class="table-wrapper">
                     <table>
-                        <thead>
-                            <tr><th>Aspect</th><th style="color: var(--orange);">Black Box</th><th style="color: var(--cyan);">White Box</th></tr>
-                        </thead>
+                        <thead><tr><th>Level</th><th data-lang="en">What it Tests</th><th data-lang="hi">Kya test karta hai</th><th data-lang="en">Example</th><th data-lang="hi">Example</th></tr></thead>
                         <tbody>
-                            <tr>
-                                <td data-lang="en">Knowledge</td><td data-lang="hi">Knowledge</td>
-                                <td data-lang="en">No code knowledge needed</td><td data-lang="hi">Code ka knowledge nahi chahiye</td>
-                                <td data-lang="en">Full code access required</td><td data-lang="hi">Pura code access chahiye</td>
-                            </tr>
-                            <tr>
-                                <td>Focus</td>
-                                <td data-lang="en">Input → Output</td><td data-lang="hi">Input → Output</td>
-                                <td data-lang="en">Internal logic & paths</td><td data-lang="hi">Internal logic & paths</td>
-                            </tr>
-                            <tr>
-                                <td data-lang="en">Done by</td><td data-lang="hi">Kaun karta hai</td>
-                                <td data-lang="en">Testers / Users</td><td data-lang="hi">Testers / Users</td>
-                                <td data-lang="en">Developers</td><td data-lang="hi">Developers</td>
-                            </tr>
-                            <tr>
-                                <td>Techniques</td>
-                                <td>Equivalence, Boundary</td>
-                                <td>Statement, Branch, Path</td>
-                            </tr>
+                            <tr><td><span class="pill purple">Unit</span></td><td data-lang="en">Single function/method</td><td data-lang="hi">Ek function/method</td><td data-lang="en">Test add(2,3)==5</td><td data-lang="hi">Test add(2,3)==5</td></tr>
+                            <tr><td><span class="pill cyan">Integration</span></td><td data-lang="en">Multiple modules together</td><td data-lang="hi">Kai modules saath mein</td><td data-lang="en">Login + Database</td><td data-lang="hi">Login + Database</td></tr>
+                            <tr><td><span class="pill green">System</span></td><td data-lang="en">Complete application</td><td data-lang="hi">Pura application</td><td data-lang="en">Full app end-to-end</td><td data-lang="hi">Pura app end-to-end</td></tr>
                         </tbody>
                     </table>
                 </div>
 
-                <!-- Test Case Template -->
-                <h3 style="margin: 1.5rem 0 0.5rem; color: var(--purple);" data-lang="en">Test Case Template</h3>
-                <h3 style="margin: 1.5rem 0 0.5rem; color: var(--purple);" data-lang="hi">Test Case Template</h3>
+                <!-- Black Box vs White Box -->
+                <h3 style="color:var(--orange);margin:1.5rem 0 .5rem">Black Box vs White Box Testing</h3>
                 <div class="table-wrapper">
                     <table>
-                        <thead>
-                            <tr><th>Field</th><th>Example</th></tr>
-                        </thead>
+                        <thead><tr><th>Aspect</th><th style="color:var(--orange)">Black Box</th><th style="color:var(--cyan)">White Box</th></tr></thead>
                         <tbody>
-                            <tr><td>Test ID</td><td>TC_LOGIN_001</td></tr>
-                            <tr><td>Description</td><td>Verify login with valid credentials</td></tr>
-                            <tr><td>Precondition</td><td>User account exists</td></tr>
-                            <tr><td>Input</td><td>username: "rahul", password: "pass123"</td></tr>
-                            <tr><td>Expected Result</td><td>Login successful, redirect to dashboard</td></tr>
-                            <tr><td>Status</td><td><span class="pill green">Pass</span></td></tr>
+                            <tr><td data-lang="en">Code Knowledge</td><td data-lang="hi">Code Knowledge</td><td data-lang="en">Not needed</td><td data-lang="hi">Chahiye nahi</td><td data-lang="en">Required</td><td data-lang="hi">Chahiye</td></tr>
+                            <tr><td>Focus</td><td data-lang="en">Input → Output</td><td data-lang="hi">Input → Output</td><td data-lang="en">Internal logic, paths</td><td data-lang="hi">Internal logic, paths</td></tr>
+                            <tr><td data-lang="en">Done by</td><td data-lang="hi">Kaun karta hai</td><td>Testers</td><td>Developers</td></tr>
+                            <tr><td>Techniques</td><td>Equivalence, Boundary</td><td>Statement, Branch, Path coverage</td></tr>
                         </tbody>
                     </table>
                 </div>
+                <div class="explain-box" data-lang="en">Black Box = test without seeing code (only inputs/outputs). White Box = test with full code access (check all paths).</div>
+                <div class="explain-box" data-lang="hi">Black Box = bina code dekhe test (sirf input/output). White Box = code dekh ke test (saare paths check karo).</div>
 
-                <div class="explain-box" data-lang="en">Unit tests verify individual components. Integration tests check how modules work together. System tests validate the complete application. Acceptance tests confirm business requirements are met.</div>
-                <div class="explain-box" data-lang="hi">Unit tests individual components verify karte hain. Integration tests check karte hain ki modules saath kaise kaam karte hain. System tests complete application validate karte hain. Acceptance tests confirm karte hain ki business requirements poori ho gayi hain.</div>
+                <!-- Test Case Example -->
+                <h3 style="color:var(--green);margin:1.5rem 0 .5rem" data-lang="en">Test Case Example</h3>
+                <h3 style="color:var(--green);margin:1.5rem 0 .5rem" data-lang="hi">Test Case Example</h3>
+                <div class="table-wrapper">
+                    <table>
+                        <thead><tr><th>Test ID</th><th>Description</th><th>Input</th><th>Expected Output</th><th>Status</th></tr></thead>
+                        <tbody>
+                            <tr><td>TC_01</td><td>Valid login</td><td>user="admin", pass="1234"</td><td>Dashboard page</td><td><span class="pill green">Pass</span></td></tr>
+                            <tr><td>TC_02</td><td>Invalid password</td><td>user="admin", pass="wrong"</td><td>Error message</td><td><span class="pill green">Pass</span></td></tr>
+                            <tr><td>TC_03</td><td>Empty fields</td><td>user="", pass=""</td><td>Validation error</td><td><span class="pill orange">Fail</span></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="explain-box" data-lang="en">Every test case must have: ID, description, preconditions, input data, expected result, and actual status.</div>
+                <div class="explain-box" data-lang="hi">Har test case mein hona chahiye: ID, description, preconditions, input, expected result, aur status.</div>
             </div>
         </div>
 
-        <!-- UNIT 5 -->
+        <!-- ==================== UNIT 5: SOLID Principles ==================== -->
         <div class="unit-section">
             <div class="unit-header" onclick="toggleUnit(this)">
-                <div class="unit-number purple">5</div>
+                <div class="unit-number orange">5</div>
                 <div class="unit-title">SOLID Principles</div>
                 <div class="unit-toggle">▼</div>
             </div>
             <div class="unit-content">
-                <p data-lang="en">SOLID principles are five guidelines for writing maintainable, scalable object-oriented code.</p>
-                <p data-lang="hi">SOLID principles paanch guidelines hain jo maintainable aur scalable OOP code likhne mein madad karte hain.</p>
+                <p data-lang="en">Five design principles for writing clean, maintainable OOP code.</p>
+                <p data-lang="hi">Paanch design principles jo clean aur maintainable OOP code likhne mein madad karte hain.</p>
 
-                <div class="pills">
-                    <span class="pill purple">S - Single Responsibility</span>
-                    <span class="pill pink">O - Open/Closed</span>
-                    <span class="pill cyan">L - Liskov Substitution</span>
-                    <span class="pill green">I - Interface Segregation</span>
-                    <span class="pill orange">D - Dependency Inversion</span>
-                </div>
+                <!-- S - Single Responsibility -->
+                <h3 style="color:var(--purple);margin:1.5rem 0 .3rem">S — Single Responsibility Principle</h3>
+                <div class="explain-box" data-lang="en">A class should have only ONE reason to change (one job only).</div>
+                <div class="explain-box" data-lang="hi">Ek class ka sirf EK hi kaam hona chahiye (ek reason to change).</div>
+                <div class="code-block"><span class="code-label">Java</span><pre><span class="cm">// ✓ Correct: Each class has one job</span>
+<span class="kw">class</span> <span class="fn">Invoice</span> { <span class="kw">double</span> <span class="fn">calculate</span>() { <span class="kw">return</span> <span class="var">qty</span> <span class="op">*</span> <span class="var">price</span>; } }
+<span class="kw">class</span> <span class="fn">InvoicePrinter</span> { <span class="kw">void</span> <span class="fn">print</span>(<span class="fn">Invoice</span> <span class="var">i</span>) { <span class="cm">/*print*/</span> } }
+<span class="kw">class</span> <span class="fn">InvoiceSaver</span> { <span class="kw">void</span> <span class="fn">save</span>(<span class="fn">Invoice</span> <span class="var">i</span>) { <span class="cm">/*save to DB*/</span> } }</pre></div>
 
-                <!-- SOLID Table -->
-                <div class="table-wrapper">
-                    <table>
-                        <thead>
-                            <tr><th>Principle</th><th data-lang="en">Meaning</th><th data-lang="hi">Meaning</th></tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><span class="pill purple">S</span></td>
-                                <td data-lang="en">One class = one job</td>
-                                <td data-lang="hi">Ek class ka ek hi kaam hona chahiye</td>
-                            </tr>
-                            <tr>
-                                <td><span class="pill pink">O</span></td>
-                                <td data-lang="en">Open for extension, closed for modification</td>
-                                <td data-lang="hi">Class extend ho sake, par modify nahi karni chahiye</td>
-                            </tr>
-                            <tr>
-                                <td><span class="pill cyan">L</span></td>
-                                <td data-lang="en">Child should work wherever parent works</td>
-                                <td data-lang="hi">Child class parent ki jagah kaam kar sake</td>
-                            </tr>
-                            <tr>
-                                <td><span class="pill green">I</span></td>
-                                <td data-lang="en">Small focused interfaces better than big ones</td>
-                                <td data-lang="hi">Chhoti focused interfaces better hain badi wali se</td>
-                            </tr>
-                            <tr>
-                                <td><span class="pill orange">D</span></td>
-                                <td data-lang="en">Depend on abstractions, not concrete classes</td>
-                                <td data-lang="hi">Concrete classes pe nahi, abstractions pe depend karo</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+                <!-- O - Open/Closed -->
+                <h3 style="color:var(--pink);margin:1.5rem 0 .3rem">O — Open/Closed Principle</h3>
+                <div class="explain-box" data-lang="en">Open for extension, closed for modification. Add new features without changing existing code.</div>
+                <div class="explain-box" data-lang="hi">Extension ke liye open, modification ke liye closed. Naya feature add karo bina purana code badle.</div>
+                <div class="code-block"><span class="code-label">Java</span><pre><span class="cm">// ✓ Correct: Add new shapes without modifying existing code</span>
+<span class="kw">interface</span> <span class="fn">Shape</span> { <span class="kw">double</span> <span class="fn">area</span>(); }
+<span class="kw">class</span> <span class="fn">Circle</span> <span class="kw">implements</span> <span class="fn">Shape</span> { <span class="kw">public double</span> <span class="fn">area</span>() { <span class="kw">return</span> <span class="num">3.14</span><span class="op">*</span><span class="var">r</span><span class="op">*</span><span class="var">r</span>; } }
+<span class="kw">class</span> <span class="fn">Rect</span> <span class="kw">implements</span> <span class="fn">Shape</span> { <span class="kw">public double</span> <span class="fn">area</span>() { <span class="kw">return</span> <span class="var">w</span><span class="op">*</span><span class="var">h</span>; } }
+<span class="cm">// New shape? Just add new class implementing Shape!</span></pre></div>
 
-                <div class="code-block">
-                    <span class="code-label">Java - SRP Example</span>
-                    <pre><span class="cm">// BAD: One class doing everything</span>
-<span class="kw">class</span> <span class="fn">Student</span> {
-    <span class="kw">void</span> <span class="fn">calculateMarks</span>() { <span class="cm">/* ... */</span> }
-    <span class="kw">void</span> <span class="fn">printReport</span>() { <span class="cm">/* ... */</span> }
-    <span class="kw">void</span> <span class="fn">saveToDatabase</span>() { <span class="cm">/* ... */</span> }
-}
+                <!-- L - Liskov Substitution -->
+                <h3 style="color:var(--cyan);margin:1.5rem 0 .3rem">L — Liskov Substitution Principle</h3>
+                <div class="explain-box" data-lang="en">Child class should work wherever parent class is used without breaking anything.</div>
+                <div class="explain-box" data-lang="hi">Child class ko parent ki jagah use karo toh kuch break nahi hona chahiye.</div>
+                <div class="code-block"><span class="code-label">Java</span><pre><span class="cm">// ✓ Correct: Any Bird subclass works where Bird is expected</span>
+<span class="kw">class</span> <span class="fn">Bird</span> { <span class="kw">void</span> <span class="fn">eat</span>() {} }
+<span class="kw">class</span> <span class="fn">Sparrow</span> <span class="kw">extends</span> <span class="fn">Bird</span> { <span class="kw">void</span> <span class="fn">fly</span>() {} }
+<span class="kw">class</span> <span class="fn">Penguin</span> <span class="kw">extends</span> <span class="fn">Bird</span> { <span class="kw">void</span> <span class="fn">swim</span>() {} }
+<span class="cm">// Both work as Bird - no broken behavior</span></pre></div>
 
-<span class="cm">// GOOD: Each class has single responsibility</span>
-<span class="kw">class</span> <span class="fn">Student</span> { <span class="kw">void</span> <span class="fn">calculateMarks</span>() { } }
-<span class="kw">class</span> <span class="fn">ReportPrinter</span> { <span class="kw">void</span> <span class="fn">print</span>(<span class="fn">Student</span> <span class="var">s</span>) { } }
-<span class="kw">class</span> <span class="fn">StudentRepository</span> { <span class="kw">void</span> <span class="fn">save</span>(<span class="fn">Student</span> <span class="var">s</span>) { } }</pre>
-                </div>
+                <!-- I - Interface Segregation -->
+                <h3 style="color:var(--green);margin:1.5rem 0 .3rem">I — Interface Segregation Principle</h3>
+                <div class="explain-box" data-lang="en">Don't force classes to implement methods they don't use. Use small, specific interfaces.</div>
+                <div class="explain-box" data-lang="hi">Classes ko un methods ko implement karne pe force mat karo jo unke kaam ke nahi. Chhote interfaces banao.</div>
+                <div class="code-block"><span class="code-label">Java</span><pre><span class="cm">// ✓ Correct: Small, focused interfaces</span>
+<span class="kw">interface</span> <span class="fn">Printable</span> { <span class="kw">void</span> <span class="fn">print</span>(); }
+<span class="kw">interface</span> <span class="fn">Scannable</span> { <span class="kw">void</span> <span class="fn">scan</span>(); }
+<span class="kw">class</span> <span class="fn">Printer</span> <span class="kw">implements</span> <span class="fn">Printable</span> { <span class="kw">public void</span> <span class="fn">print</span>() {} }
+<span class="kw">class</span> <span class="fn">AllInOne</span> <span class="kw">implements</span> <span class="fn">Printable</span>, <span class="fn">Scannable</span> {
+    <span class="kw">public void</span> <span class="fn">print</span>() {} <span class="kw">public void</span> <span class="fn">scan</span>() {}
+}</pre></div>
 
-                <div class="code-block">
-                    <span class="code-label">Java - DIP Example</span>
-                    <pre><span class="cm">// Dependency Inversion: Depend on abstractions</span>
-<span class="kw">interface</span> <span class="fn">NotificationService</span> {
-    <span class="kw">void</span> <span class="fn">send</span>(<span class="fn">String</span> <span class="var">message</span>);
-}
-
+                <!-- D - Dependency Inversion -->
+                <h3 style="color:var(--orange);margin:1.5rem 0 .3rem">D — Dependency Inversion Principle</h3>
+                <div class="explain-box" data-lang="en">Depend on abstractions (interfaces), not concrete classes. High-level modules shouldn't depend on low-level.</div>
+                <div class="explain-box" data-lang="hi">Concrete classes pe nahi, abstractions (interfaces) pe depend karo. High-level module low-level pe depend na kare.</div>
+                <div class="code-block"><span class="code-label">Java</span><pre><span class="cm">// ✓ Correct: Depend on interface, not concrete class</span>
+<span class="kw">interface</span> <span class="fn">NotificationService</span> { <span class="kw">void</span> <span class="fn">send</span>(<span class="fn">String</span> <span class="var">msg</span>); }
 <span class="kw">class</span> <span class="fn">EmailService</span> <span class="kw">implements</span> <span class="fn">NotificationService</span> {
-    <span class="kw">public void</span> <span class="fn">send</span>(<span class="fn">String</span> <span class="var">msg</span>) {
-        <span class="fn">System</span>.out.<span class="fn">println</span>(<span class="str">"Email: "</span> <span class="op">+</span> <span class="var">msg</span>);
-    }
+    <span class="kw">public void</span> <span class="fn">send</span>(<span class="fn">String</span> <span class="var">msg</span>) { <span class="cm">/*email*/</span> }
 }
-
-<span class="kw">class</span> <span class="fn">SMSService</span> <span class="kw">implements</span> <span class="fn">NotificationService</span> {
-    <span class="kw">public void</span> <span class="fn">send</span>(<span class="fn">String</span> <span class="var">msg</span>) {
-        <span class="fn">System</span>.out.<span class="fn">println</span>(<span class="str">"SMS: "</span> <span class="op">+</span> <span class="var">msg</span>);
-    }
-}
-
-<span class="cm">// Depends on abstraction, not concrete class</span>
-<span class="kw">class</span> <span class="fn">AlertSystem</span> {
-    <span class="fn">NotificationService</span> <span class="var">service</span>;
-    <span class="fn">AlertSystem</span>(<span class="fn">NotificationService</span> <span class="var">s</span>) { <span class="kw">this</span>.<span class="var">service</span> <span class="op">=</span> <span class="var">s</span>; }
-    <span class="kw">void</span> <span class="fn">alert</span>(<span class="fn">String</span> <span class="var">msg</span>) { <span class="var">service</span>.<span class="fn">send</span>(<span class="var">msg</span>); }
-}</pre>
-                </div>
-
-                <div class="explain-box" data-lang="en">SOLID makes code easier to maintain and extend. SRP: Split large classes. OCP: Use polymorphism to add features. LSP: Proper inheritance hierarchy. ISP: Small interfaces. DIP: Use interfaces for dependencies.</div>
-                <div class="explain-box" data-lang="hi">SOLID se code maintain aur extend karna easy hota hai. SRP: Badi classes split karo. OCP: Features add karne ke liye polymorphism use karo. LSP: Sahi inheritance hierarchy. ISP: Chhoti interfaces. DIP: Dependencies ke liye interfaces use karo.</div>
+<span class="kw">class</span> <span class="fn">UserController</span> {
+    <span class="fn">NotificationService</span> <span class="var">service</span>; <span class="cm">// depends on interface!</span>
+    <span class="kw">void</span> <span class="fn">register</span>() { <span class="var">service</span>.<span class="fn">send</span>(<span class="str">"Welcome!"</span>); }
+}</pre></div>
             </div>
         </div>
+
     </main>
 
+    <!-- Footer -->
     <footer class="footer">
-        <div class="footer-brand">Prof. Manoj Purohit · MCA Learning Hub · GGSIPU</div>
-        <p>© 2024 All Rights Reserved</p>
+        <div class="footer-brand">Prof. Manoj Purohit · MCA Department</div>
+        <p>Built for students who want to learn with examples and diagrams 📚</p>
     </footer>
 
     <script>
+        // Unit toggle
         function toggleUnit(header) {
-            header.parentElement.classList.toggle('open');
+            const section = header.parentElement;
+            section.classList.toggle('open');
         }
-        const langBtn = document.getElementById('langToggle');
-        function updateLangButton() {
-            const isHi = document.body.classList.contains('hinglish');
-            langBtn.innerHTML = isHi 
-                ? '<span>EN</span><span>|</span><span class="active">हिंग्लिश</span>' 
-                : '<span class="active">EN</span><span>|</span><span>हिंग्लिश</span>';
-        }
-        langBtn.addEventListener('click', () => {
+
+        // Language toggle
+        const langToggle = document.getElementById('langToggle');
+        langToggle.addEventListener('click', () => {
             document.body.classList.toggle('hinglish');
-            updateLangButton();
-            localStorage.setItem('lang', document.body.classList.contains('hinglish') ? 'hi' : 'en');
+            const spans = langToggle.querySelectorAll('span');
+            spans[0].classList.toggle('active');
+            spans[2].classList.toggle('active');
         });
-        if (localStorage.getItem('lang') === 'hi') {
-            document.body.classList.add('hinglish');
-            updateLangButton();
-        }
-        document.getElementById('hamburger').addEventListener('click', () => {
-            document.getElementById('mobileMenu').classList.toggle('open');
-        });
+
+        // Hamburger menu
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
     </script>
 </body>
 </html>
