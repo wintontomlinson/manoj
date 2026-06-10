@@ -42,11 +42,11 @@
 <main class="main-content">
 <section class="page-header">
 <h1 class="green-gradient">Python Programming</h1>
-<p class="subtitle" data-lang="en">Complete MCA Syllabus with Code Examples</p>
-<p class="subtitle" data-lang="hi">MCA Syllabus ke according puri Python, code ke saath</p>
+<p class="subtitle" data-lang="en">Complete MCA Syllabus with Step-by-Step Explanations</p>
+<p class="subtitle" data-lang="hi">MCA Syllabus ke according puri Python, har line ka explanation</p>
 </section>
 
-<!-- ===== UNIT 1: Python Basics ===== -->
+<!-- ===== UNIT 1 ===== -->
 <div class="unit-section open">
 <div class="unit-header" onclick="toggleUnit(this)">
 <div class="unit-number green">1</div>
@@ -55,175 +55,125 @@
 </div>
 <div class="unit-content">
 
-<div class="topic">
-<h4>1. What is Python</h4>
-<p data-lang="en">Python is a popular programming language. It is used for web development, data science, AI, and automation.</p>
-<p data-lang="hi">Python ek popular programming language hai. Ye web development, data science, AI, aur automation ke liye use hoti hai.</p>
-</div>
+<div class="topic"><h4>1.1 Variables</h4>
+<p data-lang="en">A variable stores data in memory. Python does not need type declaration. You just assign a value using = sign.</p>
+<p data-lang="hi">Variable memory mein data store karta hai. Python mein type likhne ki zarurat nahi. Bas = se value assign karo.</p>
+<pre class="code">name = "Manoj"      # string variable
+age = 30            # integer variable
+pi = 3.14           # float variable
+print(name, age, pi)  # Output: Manoj 30 3.14</pre>
+<p class="steps" data-lang="en"><strong>Step by step:</strong><br>Line 1: Python creates a box called "name" and puts "Manoj" inside it<br>Line 2: Creates box "age" with number 30<br>Line 3: Creates box "pi" with decimal 3.14<br>Line 4: print() shows all three values on screen separated by space</p>
+<p class="steps" data-lang="hi"><strong>Step by step:</strong><br>Line 1: Python ek box "name" banata hai aur usme "Manoj" dalta hai<br>Line 2: "age" box mein 30 dalta hai<br>Line 3: "pi" box mein 3.14 dalta hai<br>Line 4: print() teeno values screen pe dikhata hai</p>
+<a href="terminal.html" class="try-btn">Try it</a></div>
 
-<div class="topic">
-<h4>2. Python Syntax</h4>
-<p data-lang="en">Python uses indentation (spaces) to define blocks of code. No curly braces like C or Java.</p>
-<p data-lang="hi">Python mein indentation (spaces) se code blocks define hote hain. C ya Java jaisi curly braces nahi lagti.</p>
-<div class="syntax-box"><strong>Syntax:</strong><br><code>Indentation matters! Use 4 spaces for each block.</code></div>
-<div class="example"><strong>Example:</strong>
-<pre class="code">if 5 &gt; 2:
-    print("Five is greater")  # indented = inside if
-print("This is outside")      # not indented = outside if</pre>
-<div class="output"><strong>Output:</strong><br>Five is greater<br>This is outside</div>
-</div>
-<a href="terminal.html" class="try-btn">Try it Yourself &rarr;</a>
-</div>
+<div class="topic"><h4>1.2 Data Types</h4>
+<p data-lang="en">Python has several built-in types: int (whole numbers), float (decimals), str (text), bool (True/False), list, tuple, dict, set.</p>
+<p data-lang="hi">Python mein kai types hain: int (poore number), float (decimal), str (text), bool (True/False), list, tuple, dict, set.</p>
+<pre class="code">x = 10          # int
+y = 3.5         # float
+s = "Hello"     # str
+b = True        # bool
+print(type(x))  # Output: &lt;class 'int'&gt;</pre>
+<p class="steps" data-lang="en"><strong>Step by step:</strong><br>Line 1: x gets integer 10<br>Line 2: y gets float 3.5<br>Line 3: s gets string "Hello"<br>Line 4: b gets boolean True<br>Line 5: type() checks what type x is, prints &lt;class 'int'&gt;</p>
+<p class="steps" data-lang="hi"><strong>Step by step:</strong><br>Line 1: x mein integer 10 gaya<br>Line 2: y mein float 3.5 gaya<br>Line 3: s mein string "Hello" gaya<br>Line 4: b mein boolean True gaya<br>Line 5: type() check karta hai x ka type kya hai, output deta hai int</p>
+<a href="terminal.html" class="try-btn">Try it</a></div>
 
-<div class="topic">
-<h4>3. Variables</h4>
-<p data-lang="en">Variables are containers for storing data. You do not need to declare a type.</p>
-<p data-lang="hi">Variables data store karne ke containers hain. Type declare karne ki zaroorat nahi.</p>
-<div class="syntax-box"><strong>Syntax:</strong><br><code>variable_name = value</code></div>
-<div class="example"><strong>Example:</strong>
-<pre class="code">x = 5           # integer
-y = "Hello"     # string
-z = 3.14        # float
-print(x)
-print(y)</pre>
-<div class="output"><strong>Output:</strong><br>5<br>Hello</div>
-</div>
-<a href="terminal.html" class="try-btn">Try it Yourself &rarr;</a>
-</div>
+<div class="topic"><h4>1.3 Type Casting</h4>
+<p data-lang="en">Converting one data type to another. Use int(), float(), str() functions. Useful when taking user input (which is always string).</p>
+<p data-lang="hi">Ek type ko doosre mein convert karna. int(), float(), str() functions use karo. User input hamesha string hota hai toh casting zaroori hai.</p>
+<pre class="code">a = "25"
+b = int(a)        # string to int
+c = float(b)      # int to float
+d = str(c)        # float to string
+print(b, c, d)    # Output: 25 25.0 25.0</pre>
+<p class="steps" data-lang="en"><strong>Step by step:</strong><br>Line 1: a holds string "25" (text, not number)<br>Line 2: int(a) converts text "25" to number 25, stored in b<br>Line 3: float(b) converts 25 to 25.0, stored in c<br>Line 4: str(c) converts 25.0 back to text "25.0", stored in d<br>Line 5: prints all converted values</p>
+<p class="steps" data-lang="hi"><strong>Step by step:</strong><br>Line 1: a mein string "25" hai (text hai, number nahi)<br>Line 2: int(a) text "25" ko number 25 mein badalta hai<br>Line 3: float(b) 25 ko 25.0 mein badalta hai<br>Line 4: str(c) 25.0 ko wapas text bana deta hai<br>Line 5: sab converted values print hoti hain</p>
+<a href="terminal.html" class="try-btn">Try it</a></div>
 
-<div class="topic">
-<h4>4. Data Types</h4>
-<p data-lang="en">Python has these built-in data types:</p>
-<p data-lang="hi">Python mein ye built-in data types hain:</p>
-<div class="table-wrapper">
-<table>
-<tr><th>Category</th><th>Type</th></tr>
-<tr><td>Text</td><td>str</td></tr>
-<tr><td>Numeric</td><td>int, float, complex</td></tr>
-<tr><td>Sequence</td><td>list, tuple, range</td></tr>
-<tr><td>Mapping</td><td>dict</td></tr>
-<tr><td>Set</td><td>set, frozenset</td></tr>
-<tr><td>Boolean</td><td>bool</td></tr>
-<tr><td>None</td><td>NoneType</td></tr>
-</table>
-</div>
-<div class="example"><strong>Example:</strong>
-<pre class="code">x = "Hello"        # str
-x = 20             # int
-x = 20.5           # float
-x = ["a", "b"]     # list
-x = ("a", "b")     # tuple
-x = {"name": "Manoj"}  # dict
-x = True           # bool
-print(type(x))</pre>
-<div class="output"><strong>Output:</strong><br>&lt;class 'bool'&gt;</div>
-</div>
-<a href="terminal.html" class="try-btn">Try it Yourself &rarr;</a>
-</div>
+<div class="topic"><h4>1.4 Operators</h4>
+<p data-lang="en">Operators perform operations: + - * / (arithmetic), == != > < (comparison), and or not (logical), ** (power), // (floor division), % (modulo).</p>
+<p data-lang="hi">Operators operations karte hain: + - * / (arithmetic), == != > < (comparison), and or not (logical), ** (power), // (floor division), % (modulo).</p>
+<pre class="code">a, b = 10, 3
+print(a + b)    # 13
+print(a ** b)   # 1000 (10 power 3)
+print(a // b)   # 3 (floor division)
+print(a % b)    # 1 (remainder)
+print(a > b)    # True</pre>
+<p class="steps" data-lang="en"><strong>Step by step:</strong><br>Line 1: a gets 10, b gets 3 (multiple assignment)<br>Line 2: 10 + 3 = 13 printed<br>Line 3: 10 raised to power 3 = 1000<br>Line 4: 10 divided by 3 = 3.33, floor removes decimal = 3<br>Line 5: 10 divided by 3, remainder is 1<br>Line 6: Is 10 greater than 3? Yes, so True</p>
+<p class="steps" data-lang="hi"><strong>Step by step:</strong><br>Line 1: a ko 10, b ko 3 milta hai<br>Line 2: 10 + 3 = 13 print hota hai<br>Line 3: 10 ki power 3 = 1000<br>Line 4: 10 / 3 = 3.33, floor se decimal hatao = 3<br>Line 5: 10 / 3 ka remainder 1 hai<br>Line 6: Kya 10 bada hai 3 se? Haan, toh True</p>
+<a href="terminal.html" class="try-btn">Try it</a></div>
 
-<div class="topic">
-<h4>5. Type Casting</h4>
-<p data-lang="en">You can convert one type to another using int(), float(), str(), list() etc.</p>
-<p data-lang="hi">Ek type ko doosre mein convert kar sakte ho int(), float(), str(), list() se.</p>
-<div class="syntax-box"><strong>Syntax:</strong><br><code>new_variable = int(value)<br>new_variable = float(value)<br>new_variable = str(value)</code></div>
-<div class="example"><strong>Example:</strong>
-<pre class="code">x = int("10")      # str to int
-y = float(5)       # int to float
-z = str(100)       # int to str
-a = list("hello")  # str to list
-print(x + 5)</pre>
-<div class="output"><strong>Output:</strong><br>15</div>
-</div>
-<a href="terminal.html" class="try-btn">Try it Yourself &rarr;</a>
-</div>
-
-<div class="topic">
-<h4>6. Operators</h4>
-<p data-lang="en">Operators perform operations on variables and values.</p>
-<p data-lang="hi">Operators variables aur values pe operations karte hain.</p>
-<div class="syntax-box"><strong>Arithmetic:</strong> + - * / // % **<br><strong>Comparison:</strong> == != &gt; &lt; &gt;= &lt;= (returns True/False)<br><strong>Logical:</strong> and or not<br><strong>Identity:</strong> is, is not<br><strong>Membership:</strong> in, not in</div>
-<div class="example"><strong>Example:</strong>
-<pre class="code">print(10 + 3)    # 13
-print(10 - 3)    # 7
-print(10 * 3)    # 30
-print(10 / 3)    # 3.333
-print(10 // 3)   # 3 (floor)
-print(10 % 3)    # 1 (remainder)
-print(2 ** 3)    # 8 (power)</pre>
-<div class="output"><strong>Output:</strong><br>13<br>7<br>30<br>3.3333333333333335<br>3<br>1<br>8</div>
-</div>
-<a href="terminal.html" class="try-btn">Try it Yourself &rarr;</a>
-</div>
-
-<div class="topic">
-<h4>7. Input/Output</h4>
-<p data-lang="en">print() displays output. input() reads from user. input() always returns a string.</p>
-<p data-lang="hi">print() output dikhata hai. input() user se padhta hai. input() hamesha string return karta hai.</p>
-<div class="syntax-box"><strong>Syntax:</strong><br><code>variable = input("prompt")<br>print(value)</code></div>
-<div class="example"><strong>Example:</strong>
+<div class="topic"><h4>1.5 Input/Output</h4>
+<p data-lang="en">input() reads text from user. print() displays output. input() always returns a string, so convert if you need a number.</p>
+<p data-lang="hi">input() user se text leta hai. print() output dikhata hai. input() hamesha string deta hai, number chahiye toh convert karo.</p>
 <pre class="code">name = input("Enter name: ")
 age = int(input("Enter age: "))
-print(f"Hello {name}, age {age}")</pre>
-<div class="output"><strong>Output:</strong><br>Enter name: Rahul<br>Enter age: 21<br>Hello Rahul, age 21</div>
-</div>
-<a href="terminal.html" class="try-btn">Try it Yourself &rarr;</a>
-</div>
+print(f"Hello {name}, age {age}")
+# Output: Hello Manoj, age 30</pre>
+<p class="steps" data-lang="en"><strong>Step by step:</strong><br>Line 1: Shows "Enter name: " on screen, waits for user to type, stores it in name<br>Line 2: Shows "Enter age: ", user types number, int() converts string to integer<br>Line 3: f-string puts name and age inside the message, prints it</p>
+<p class="steps" data-lang="hi"><strong>Step by step:</strong><br>Line 1: Screen pe "Enter name: " dikhata hai, user type karta hai, name mein store hota hai<br>Line 2: "Enter age: " dikhata hai, user number type karta hai, int() string ko number banata hai<br>Line 3: f-string name aur age ko message mein daalke print karta hai</p>
+<a href="terminal.html" class="try-btn">Try it</a></div>
 
-<div class="topic">
-<h4>8. String Formatting</h4>
-<p data-lang="en">There are 3 ways to format strings in Python. f-string is recommended.</p>
-<p data-lang="hi">Python mein strings format karne ke 3 tarike hain. f-string recommended hai.</p>
-<div class="syntax-box"><strong>Syntax:</strong><br><code>f"text {variable}"<br>"text {}".format(variable)<br>"text %s" % variable</code></div>
-<div class="example"><strong>Example:</strong>
-<pre class="code">name = "Rahul"
-age = 21
-# f-string (recommended)
-print(f"Name: {name}, Age: {age}")
-# .format()
-print("Name: {}, Age: {}".format(name, age))
-# % operator
-print("Name: %s, Age: %d" % (name, age))</pre>
-<div class="output"><strong>Output:</strong><br>Name: Rahul, Age: 21<br>Name: Rahul, Age: 21<br>Name: Rahul, Age: 21</div>
-</div>
-<a href="terminal.html" class="try-btn">Try it Yourself &rarr;</a>
-</div>
+<div class="topic"><h4>1.6 Strings</h4>
+<p data-lang="en">Strings are text enclosed in quotes. They are immutable (cannot change individual characters). Use indexing [] and slicing [start:end].</p>
+<p data-lang="hi">Strings text hain jo quotes mein hote hain. Ye immutable hain (ek character badal nahi sakte). Indexing [] aur slicing [start:end] use karo.</p>
+<pre class="code">s = "Python"
+print(s[0])      # P (first char)
+print(s[-1])     # n (last char)
+print(s[0:3])    # Pyt (index 0,1,2)
+print(len(s))    # 6 (length)</pre>
+<p class="steps" data-lang="en"><strong>Step by step:</strong><br>Line 1: s stores "Python" (6 characters, index 0 to 5)<br>Line 2: s[0] gets first character = P<br>Line 3: s[-1] gets last character = n<br>Line 4: s[0:3] gets characters at index 0, 1, 2 = "Pyt"<br>Line 5: len() counts total characters = 6</p>
+<p class="steps" data-lang="hi"><strong>Step by step:</strong><br>Line 1: s mein "Python" store hai (6 characters, index 0 se 5)<br>Line 2: s[0] pehla character deta hai = P<br>Line 3: s[-1] last character deta hai = n<br>Line 4: s[0:3] index 0, 1, 2 ke characters = "Pyt"<br>Line 5: len() total characters ginta hai = 6</p>
+<a href="terminal.html" class="try-btn">Try it</a></div>
 
-<div class="topic">
-<h4>9. Comments</h4>
-<p data-lang="en">Comments are notes in code. Python ignores them. Use # for single line.</p>
-<p data-lang="hi">Comments code mein notes hain. Python inhe ignore karta hai. # single line ke liye.</p>
-<div class="syntax-box"><strong>Syntax:</strong><br><code># single line comment<br>"""multi-line comment"""</code></div>
-<div class="example"><strong>Example:</strong>
+<div class="topic"><h4>1.7 Comments</h4>
+<p data-lang="en">Comments explain code. Single line: # symbol. Multi-line: triple quotes. Python ignores comments when running.</p>
+<p data-lang="hi">Comments code ko explain karte hain. Single line: # symbol. Multi-line: triple quotes. Python comments ko ignore karta hai.</p>
 <pre class="code"># This is a single line comment
+x = 5  # inline comment
 
 """
-This is a
-multi-line comment
+This is a multi-line comment.
+Used for documentation.
 """
+print(x)  # Output: 5</pre>
+<p class="steps" data-lang="en"><strong>Step by step:</strong><br>Line 1: Python sees # and skips this entire line<br>Line 2: x gets 5, the # part after is ignored<br>Lines 4-7: Triple quotes create multi-line comment, Python skips all of it<br>Line 8: Only this line runs, prints 5</p>
+<p class="steps" data-lang="hi"><strong>Step by step:</strong><br>Line 1: Python # dekhta hai aur poori line skip karta hai<br>Line 2: x ko 5 milta hai, # ke baad ka part ignore hota hai<br>Lines 4-7: Triple quotes multi-line comment banate hain, sab skip hota hai<br>Line 8: Sirf ye line run hoti hai, 5 print hota hai</p>
+<a href="terminal.html" class="try-btn">Try it</a></div>
 
-print("Hello")  # inline comment</pre>
-<div class="output"><strong>Output:</strong><br>Hello</div>
-</div>
-</div>
+<div class="topic"><h4>1.8 Keywords</h4>
+<p data-lang="en">Keywords are reserved words in Python. You cannot use them as variable names. Examples: if, else, for, while, def, class, return, True, False, None, import, from, etc.</p>
+<p data-lang="hi">Keywords Python ke reserved words hain. Inko variable name ki tarah use nahi kar sakte. Jaise: if, else, for, while, def, class, return, True, False, None, import.</p>
+<pre class="code">import keyword
+print(keyword.kwlist)
+# Output: ['False', 'None', 'True', 'and', 'as', 'assert', ...]
+print(len(keyword.kwlist))  # Output: 35</pre>
+<p class="steps" data-lang="en"><strong>Step by step:</strong><br>Line 1: Imports the keyword module (built-in library)<br>Line 2: keyword.kwlist gives a list of all Python keywords<br>Line 3: Output shows all 35 keywords<br>Line 4: len() counts them = 35 keywords in Python 3</p>
+<p class="steps" data-lang="hi"><strong>Step by step:</strong><br>Line 1: keyword module import hota hai (built-in library)<br>Line 2: keyword.kwlist se sab keywords ki list milti hai<br>Line 3: Output mein saare 35 keywords dikhte hain<br>Line 4: len() ginta hai = Python 3 mein 35 keywords hain</p>
+<a href="terminal.html" class="try-btn">Try it</a></div>
 
-<div class="topic">
-<h4>10. Python Keywords</h4>
-<p data-lang="en">Keywords are reserved words. You cannot use them as variable names.</p>
-<p data-lang="hi">Keywords reserved words hain. Inhe variable names ke roop mein use nahi kar sakte.</p>
-<div class="syntax-box"><strong>Keywords:</strong><br><code>False, True, None, and, or, not, if, elif, else, for, while, break, continue, pass, def, return, class, import, from, as, try, except, finally, raise, with, lambda, yield, global, del, in, is</code></div>
+<!-- Activity 1 -->
+<div class="activity"><h4>Unit 1 Activity</h4>
+<div class="mcq"><p class="q">Q1: What is output of type(3.14)?</p>
+<button class="opt" onclick="ck(this,'a1',false)">A) &lt;class 'int'&gt;</button>
+<button class="opt" onclick="ck(this,'a1',true)">B) &lt;class 'float'&gt;</button>
+<button class="opt" onclick="ck(this,'a1',false)">C) &lt;class 'str'&gt;</button>
+<span id="a1" class="ans"></span></div>
+<div class="mcq"><p class="q">Q2: What does // operator do?</p>
+<button class="opt" onclick="ck(this,'a2',false)">A) Normal division</button>
+<button class="opt" onclick="ck(this,'a2',true)">B) Floor division</button>
+<button class="opt" onclick="ck(this,'a2',false)">C) Power</button>
+<span id="a2" class="ans"></span></div>
+<div class="mcq"><p class="q">Q3: input() always returns?</p>
+<button class="opt" onclick="ck(this,'a3',false)">A) int</button>
+<button class="opt" onclick="ck(this,'a3',true)">B) str</button>
+<button class="opt" onclick="ck(this,'a3',false)">C) float</button>
+<span id="a3" class="ans"></span></div>
+<div class="coding-task"><p class="q">Task: Write a program that takes two numbers from user and prints their sum, difference, product, and quotient.</p><a href="terminal.html" class="try-btn">Open Terminal</a></div>
 </div>
-
-<!-- Activity Unit 1 -->
-<div class="activity"><h4>Activity - Unit 1</h4>
-<div class="mcq"><p class="q">Q1. What is the output of: print(type(3.14))?</p><button class="opt" onclick="ck(this,false)">&lt;class 'int'&gt;</button><button class="opt" onclick="ck(this,true)">&lt;class 'float'&gt;</button><button class="opt" onclick="ck(this,false)">&lt;class 'str'&gt;</button><span class="ans"></span></div>
-<div class="mcq"><p class="q">Q2. Which operator gives the remainder?</p><button class="opt" onclick="ck(this,false)">//</button><button class="opt" onclick="ck(this,true)">%</button><button class="opt" onclick="ck(this,false)">**</button><span class="ans"></span></div>
-<div class="mcq"><p class="q">Q3. x = "5"; print(x + x) gives?</p><button class="opt" onclick="ck(this,false)">10</button><button class="opt" onclick="ck(this,true)">55</button><button class="opt" onclick="ck(this,false)">Error</button><span class="ans"></span></div>
-<div class="coding-task"><p class="q">Coding Task: Create variables for your name, age, and CGPA. Print them using f-string.</p><a href="terminal.html" class="try-btn">Try in Terminal &rarr;</a></div>
-</div>
-
 </div></div>
 
-<!-- ===== UNIT 2: Control Flow and Functions ===== -->
+<!-- ===== UNIT 2 ===== -->
 <div class="unit-section">
 <div class="unit-header" onclick="toggleUnit(this)">
 <div class="unit-number orange">2</div>
@@ -232,220 +182,139 @@ print("Hello")  # inline comment</pre>
 </div>
 <div class="unit-content">
 
-<div class="topic">
-<h4>1. if / elif / else</h4>
-<p data-lang="en">Use if to make decisions. elif checks another condition. else runs when nothing is True.</p>
-<p data-lang="hi">if se decisions lete hain. elif doosri condition check karta hai. else tab chalta hai jab kuch True nahi.</p>
-<div class="syntax-box"><strong>Syntax:</strong><br><code>if condition:<br>&nbsp;&nbsp;&nbsp;&nbsp;code<br>elif condition:<br>&nbsp;&nbsp;&nbsp;&nbsp;code<br>else:<br>&nbsp;&nbsp;&nbsp;&nbsp;code</code></div>
-<div class="example"><strong>Example:</strong>
-<pre class="code">marks = 85
-if marks &gt;= 90:
-    print("A+")
-elif marks &gt;= 80:
-    print("A")
-elif marks &gt;= 70:
-    print("B")
+<div class="topic"><h4>2.1 if / elif / else</h4>
+<p data-lang="en">Conditional statements run different code based on conditions. if checks first, elif checks more, else runs when nothing matches.</p>
+<p data-lang="hi">Conditional statements condition ke basis pe alag code run karte hain. if pehle check karta hai, elif aur check karta hai, else tab run hota hai jab kuch match na ho.</p>
+<pre class="code">marks = 75
+if marks >= 90:
+    print("A grade")
+elif marks >= 60:
+    print("B grade")
 else:
-    print("C")</pre>
-<div class="output"><strong>Output:</strong><br>A</div>
-</div>
-<a href="terminal.html" class="try-btn">Try it Yourself &rarr;</a>
-</div>
+    print("C grade")
+# Output: B grade</pre>
+<p class="steps" data-lang="en"><strong>Step by step:</strong><br>Line 1: marks = 75<br>Line 2: Is 75 >= 90? No, skip this block<br>Line 4: Is 75 >= 60? Yes! Enter this block<br>Line 5: Print "B grade" (this runs)<br>Line 6-7: else is skipped because elif was true</p>
+<p class="steps" data-lang="hi"><strong>Step by step:</strong><br>Line 1: marks = 75<br>Line 2: Kya 75 >= 90? Nahi, skip<br>Line 4: Kya 75 >= 60? Haan! Is block mein jao<br>Line 5: "B grade" print hota hai<br>Line 6-7: else skip hota hai kyunki elif true tha</p>
+<a href="terminal.html" class="try-btn">Try it</a></div>
 
-<div class="topic">
-<h4>2. Ternary Operator</h4>
-<p data-lang="en">Write if-else in one line. Short and quick.</p>
-<p data-lang="hi">Ek line mein if-else likho. Short aur fast.</p>
-<div class="syntax-box"><strong>Syntax:</strong><br><code>value_if_true if condition else value_if_false</code></div>
-<div class="example"><strong>Example:</strong>
-<pre class="code">age = 20
-status = "Adult" if age &gt;= 18 else "Minor"
-print(status)</pre>
-<div class="output"><strong>Output:</strong><br>Adult</div>
-</div>
-<a href="terminal.html" class="try-btn">Try it Yourself &rarr;</a>
-</div>
-
-<div class="topic">
-<h4>3. for Loop</h4>
-<p data-lang="en">for loop repeats code for each item in a sequence (list, string, range).</p>
-<p data-lang="hi">for loop sequence ke har item ke liye code repeat karta hai (list, string, range).</p>
-<div class="syntax-box"><strong>Syntax:</strong><br><code>for variable in sequence:<br>&nbsp;&nbsp;&nbsp;&nbsp;code</code></div>
-<div class="example"><strong>Example:</strong>
-<pre class="code">fruits = ["apple", "banana", "mango"]
-for fruit in fruits:
-    print(fruit)</pre>
-<div class="output"><strong>Output:</strong><br>apple<br>banana<br>mango</div>
-</div>
-<a href="terminal.html" class="try-btn">Try it Yourself &rarr;</a>
-</div>
-
-<div class="topic">
-<h4>4. range() Function</h4>
-<p data-lang="en">range() generates a sequence of numbers. Use it with for loops.</p>
-<p data-lang="hi">range() numbers ka sequence generate karta hai. for loops ke saath use karo.</p>
-<div class="syntax-box"><strong>Syntax:</strong><br><code>range(start, stop, step)</code></div>
-<div class="example"><strong>Example:</strong>
-<pre class="code">for i in range(1, 10, 2):
-    print(i, end=" ")</pre>
-<div class="output"><strong>Output:</strong><br>1 3 5 7 9</div>
-</div>
-<a href="terminal.html" class="try-btn">Try it Yourself &rarr;</a>
-</div>
-
-<div class="topic">
-<h4>5. while Loop</h4>
-<p data-lang="en">while loop runs as long as the condition is True.</p>
-<p data-lang="hi">while loop tab tak chalta hai jab tak condition True hai.</p>
-<div class="syntax-box"><strong>Syntax:</strong><br><code>while condition:<br>&nbsp;&nbsp;&nbsp;&nbsp;code</code></div>
-<div class="example"><strong>Example:</strong>
-<pre class="code">count = 5
-while count &gt; 0:
-    print(count, end=" ")
-    count -= 1</pre>
-<div class="output"><strong>Output:</strong><br>5 4 3 2 1</div>
-</div>
-<a href="terminal.html" class="try-btn">Try it Yourself &rarr;</a>
-</div>
-
-<div class="topic">
-<h4>6. break and continue</h4>
-<p data-lang="en">break exits the loop. continue skips the current iteration.</p>
-<p data-lang="hi">break loop se bahar nikalta hai. continue current iteration skip karta hai.</p>
-<div class="syntax-box"><strong>Syntax:</strong><br><code>break    # exit loop<br>continue # skip to next iteration</code></div>
-<div class="example"><strong>Example:</strong>
-<pre class="code"># break
-for i in range(10):
-    if i == 5:
-        break
-    print(i, end=" ")
-print()
-# continue
-for i in range(6):
-    if i == 3:
-        continue
-    print(i, end=" ")</pre>
-<div class="output"><strong>Output:</strong><br>0 1 2 3 4<br>0 1 2 4 5</div>
-</div>
-<a href="terminal.html" class="try-btn">Try it Yourself &rarr;</a>
-</div>
-
-<div class="topic">
-<h4>7. pass Statement</h4>
-<p data-lang="en">pass does nothing. Use it as a placeholder for empty code blocks.</p>
-<p data-lang="hi">pass kuch nahi karta. Empty code blocks ke liye placeholder hai.</p>
-<div class="syntax-box"><strong>Syntax:</strong><br><code>pass</code></div>
-<div class="example"><strong>Example:</strong>
+<div class="topic"><h4>2.2 for Loop</h4>
+<p data-lang="en">for loop repeats code for each item in a sequence (list, string, range). range(n) gives numbers from 0 to n-1.</p>
+<p data-lang="hi">for loop code ko har item ke liye repeat karta hai. range(n) 0 se n-1 tak numbers deta hai.</p>
 <pre class="code">for i in range(5):
-    pass  # TODO: write code later
+    print(i, end=" ")
+# Output: 0 1 2 3 4
 
-def my_function():
-    pass  # empty function, no error</pre>
-<div class="output"><strong>Output:</strong><br>(no output, no error)</div>
-</div>
-</div>
+for ch in "Hi":
+    print(ch)
+# Output: H then i</pre>
+<p class="steps" data-lang="en"><strong>Step by step:</strong><br>Line 1: range(5) gives [0,1,2,3,4]. i starts with 0<br>Line 2: Prints 0, then loop repeats: prints 1, 2, 3, 4. end=" " keeps same line<br>Line 5: Loop goes through each character of "Hi". First ch = "H"<br>Line 6: Prints "H", then ch = "i", prints "i"</p>
+<p class="steps" data-lang="hi"><strong>Step by step:</strong><br>Line 1: range(5) se [0,1,2,3,4] milta hai. i 0 se shuru hota hai<br>Line 2: 0 print hota hai, phir loop repeat: 1, 2, 3, 4 print hota hai<br>Line 5: Loop "Hi" ke har character pe jata hai. Pehle ch = "H"<br>Line 6: "H" print hota hai, phir ch = "i", "i" print hota hai</p>
+<a href="terminal.html" class="try-btn">Try it</a></div>
 
-<div class="topic">
-<h4>8. Functions (def, return)</h4>
-<p data-lang="en">A function is a block of code that runs when called. Use def to create it. Use return to send back a value.</p>
-<p data-lang="hi">Function ek code block hai jo call karne pe chalta hai. def se banao. return se value wapas bhejo.</p>
-<div class="syntax-box"><strong>Syntax:</strong><br><code>def function_name(parameters):<br>&nbsp;&nbsp;&nbsp;&nbsp;code<br>&nbsp;&nbsp;&nbsp;&nbsp;return value</code></div>
-<div class="example"><strong>Example:</strong>
-<pre class="code">def greet(name):
-    return f"Hello, {name}!"
+<div class="topic"><h4>2.3 while Loop</h4>
+<p data-lang="en">while loop runs as long as condition is True. Be careful: if condition never becomes False, loop runs forever (infinite loop).</p>
+<p data-lang="hi">while loop tab tak chalta hai jab tak condition True hai. Dhyan rakhna: agar condition kabhi False na ho, loop hamesha chalega.</p>
+<pre class="code">count = 1
+while count <= 5:
+    print(count, end=" ")
+    count += 1
+# Output: 1 2 3 4 5</pre>
+<p class="steps" data-lang="en"><strong>Step by step:</strong><br>Line 1: count starts at 1<br>Line 2: Is 1 <= 5? Yes, enter loop<br>Line 3: Print 1<br>Line 4: count becomes 2. Go back to line 2<br>Repeats until count = 6. Is 6 <= 5? No, exit loop</p>
+<p class="steps" data-lang="hi"><strong>Step by step:</strong><br>Line 1: count 1 se shuru<br>Line 2: Kya 1 <= 5? Haan, loop mein jao<br>Line 3: 1 print karo<br>Line 4: count 2 ho gaya. Wapas line 2 pe jao<br>Repeat hota hai jab tak count = 6. Kya 6 <= 5? Nahi, loop se bahar</p>
+<a href="terminal.html" class="try-btn">Try it</a></div>
 
-result = greet("Manoj")
-print(result)</pre>
-<div class="output"><strong>Output:</strong><br>Hello, Manoj!</div>
-</div>
-<a href="terminal.html" class="try-btn">Try it Yourself &rarr;</a>
-</div>
+<div class="topic"><h4>2.4 break / continue</h4>
+<p data-lang="en">break stops the loop completely. continue skips current iteration and goes to next one.</p>
+<p data-lang="hi">break loop ko poora rok deta hai. continue current iteration skip karta hai aur next pe jaata hai.</p>
+<pre class="code">for i in range(10):
+    if i == 3:
+        continue    # skip 3
+    if i == 7:
+        break       # stop at 7
+    print(i, end=" ")
+# Output: 0 1 2 4 5 6</pre>
+<p class="steps" data-lang="en"><strong>Step by step:</strong><br>Lines 1-6: Loop goes 0,1,2... At i=3: continue skips print, jumps to i=4<br>At i=4,5,6: prints normally<br>At i=7: break stops entire loop immediately<br>Result: 0 1 2 (3 skipped) 4 5 6 (7 onwards stopped)</p>
+<p class="steps" data-lang="hi"><strong>Step by step:</strong><br>Lines 1-6: Loop 0,1,2... pe jaata hai. i=3 pe: continue print skip karta hai, i=4 pe jaata hai<br>i=4,5,6: normally print hota hai<br>i=7 pe: break poora loop rok deta hai<br>Result: 0 1 2 (3 skip) 4 5 6 (7 se ruk gaya)</p>
+<a href="terminal.html" class="try-btn">Try it</a></div>
 
-<div class="topic">
-<h4>9. Parameters (*args, **kwargs, default)</h4>
-<p data-lang="en">Functions can have default values, variable positional args (*args), and keyword args (**kwargs).</p>
-<p data-lang="hi">Functions mein default values, variable positional args (*args), aur keyword args (**kwargs) ho sakte hain.</p>
-<div class="syntax-box"><strong>Syntax:</strong><br><code>def func(a, b=10):       # default parameter<br>def func(*args):          # variable positional<br>def func(**kwargs):       # variable keyword</code></div>
-<div class="example"><strong>Example:</strong>
-<pre class="code">def add_all(*args):
-    return sum(args)
+<div class="topic"><h4>2.5 Functions</h4>
+<p data-lang="en">Functions are reusable blocks of code. Define with def keyword. They take parameters and can return values.</p>
+<p data-lang="hi">Functions reusable code blocks hain. def keyword se banate hain. Parameters lete hain aur values return kar sakte hain.</p>
+<pre class="code">def add(a, b):
+    result = a + b
+    return result
 
-def show_info(**kwargs):
-    for key, val in kwargs.items():
-        print(f"{key}: {val}")
+ans = add(5, 3)
+print(ans)  # Output: 8</pre>
+<p class="steps" data-lang="en"><strong>Step by step:</strong><br>Line 1: Define function "add" that takes two parameters a, b<br>Line 2: Inside function: add a + b, store in result<br>Line 3: Send result back to whoever called this function<br>Line 5: Call add(5,3). a=5, b=3. Returns 8. ans = 8<br>Line 6: Print 8</p>
+<p class="steps" data-lang="hi"><strong>Step by step:</strong><br>Line 1: "add" function define karo jo do parameters a, b leta hai<br>Line 2: Function ke andar: a + b karo, result mein daalo<br>Line 3: result wapas bhejo jisne call kiya<br>Line 5: add(5,3) call karo. a=5, b=3. 8 return hota hai. ans = 8<br>Line 6: 8 print hota hai</p>
+<a href="terminal.html" class="try-btn">Try it</a></div>
 
-print(add_all(1, 2, 3, 4))
-show_info(name="Manoj", subject="Python")</pre>
-<div class="output"><strong>Output:</strong><br>10<br>name: Manoj<br>subject: Python</div>
-</div>
-<a href="terminal.html" class="try-btn">Try it Yourself &rarr;</a>
-</div>
-
-<div class="topic">
-<h4>10. Lambda</h4>
-<p data-lang="en">Lambda is a small anonymous function. It can have any number of arguments but only one expression.</p>
-<p data-lang="hi">Lambda ek chhota anonymous function hai. Isme kai arguments ho sakte hain lekin sirf ek expression.</p>
-<div class="syntax-box"><strong>Syntax:</strong><br><code>lambda arguments: expression</code></div>
-<div class="example"><strong>Example:</strong>
+<div class="topic"><h4>2.6 Lambda</h4>
+<p data-lang="en">Lambda is a small anonymous function in one line. Syntax: lambda arguments: expression. Used for short operations.</p>
+<p data-lang="hi">Lambda ek chhota anonymous function hai ek line mein. Syntax: lambda arguments: expression. Chhote operations ke liye use hota hai.</p>
 <pre class="code">square = lambda x: x ** 2
+print(square(5))  # Output: 25
+
 add = lambda a, b: a + b
+print(add(3, 4))  # Output: 7</pre>
+<p class="steps" data-lang="en"><strong>Step by step:</strong><br>Line 1: Create lambda that takes x and returns x*x. Store in "square"<br>Line 2: Call square(5). x=5. 5**2 = 25. Print 25<br>Line 4: Create lambda with two parameters, returns their sum<br>Line 5: Call add(3,4). 3+4 = 7. Print 7</p>
+<p class="steps" data-lang="hi"><strong>Step by step:</strong><br>Line 1: Lambda banao jo x leke x*x return kare. "square" mein store karo<br>Line 2: square(5) call karo. x=5. 5**2 = 25. 25 print<br>Line 4: Do parameters wala lambda, sum return kare<br>Line 5: add(3,4) call karo. 3+4 = 7. 7 print</p>
+<a href="terminal.html" class="try-btn">Try it</a></div>
 
-print(square(5))
-print(add(3, 7))</pre>
-<div class="output"><strong>Output:</strong><br>25<br>10</div>
-</div>
-<a href="terminal.html" class="try-btn">Try it Yourself &rarr;</a>
-</div>
-
-<div class="topic">
-<h4>11. map, filter, reduce</h4>
-<p data-lang="en">map() applies a function to each item. filter() selects items. reduce() combines all items into one.</p>
-<p data-lang="hi">map() har item pe function lagata hai. filter() items select karta hai. reduce() sab items ko ek mein combine karta hai.</p>
-<div class="syntax-box"><strong>Syntax:</strong><br><code>map(function, iterable)<br>filter(function, iterable)<br>reduce(function, iterable)</code></div>
-<div class="example"><strong>Example:</strong>
+<div class="topic"><h4>2.7 map / filter / reduce</h4>
+<p data-lang="en">map() applies function to every item. filter() keeps items that pass a test. reduce() combines all items into one value.</p>
+<p data-lang="hi">map() function ko har item pe lagata hai. filter() wahi items rakhta hai jo test pass karein. reduce() sab items ko ek value mein combine karta hai.</p>
 <pre class="code">from functools import reduce
-
 nums = [1, 2, 3, 4, 5]
+
 squares = list(map(lambda x: x**2, nums))
-evens = list(filter(lambda x: x % 2 == 0, nums))
-total = reduce(lambda a, b: a + b, nums)
+print(squares)  # [1, 4, 9, 16, 25]
 
-print(squares)
-print(evens)
-print(total)</pre>
-<div class="output"><strong>Output:</strong><br>[1, 4, 9, 16, 25]<br>[2, 4]<br>15</div>
-</div>
-<a href="terminal.html" class="try-btn">Try it Yourself &rarr;</a>
-</div>
+evens = list(filter(lambda x: x%2==0, nums))
+print(evens)    # [2, 4]
 
-<div class="topic">
-<h4>12. Recursion</h4>
-<p data-lang="en">Recursion means a function calls itself. It must have a base case to stop.</p>
-<p data-lang="hi">Recursion matlab function khud ko call karta hai. Isme base case hona zaroori hai rokne ke liye.</p>
-<div class="syntax-box"><strong>Syntax:</strong><br><code>def func(n):<br>&nbsp;&nbsp;&nbsp;&nbsp;if base_case:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return value<br>&nbsp;&nbsp;&nbsp;&nbsp;return func(n-1)</code></div>
-<div class="example"><strong>Example:</strong>
+total = reduce(lambda a,b: a+b, nums)
+print(total)    # 15</pre>
+<p class="steps" data-lang="en"><strong>Step by step:</strong><br>Line 1: Import reduce from functools module<br>Line 2: nums list has [1,2,3,4,5]<br>Line 4: map applies x**2 to each: 1,4,9,16,25<br>Line 7: filter keeps only even numbers (x%2==0): 2,4<br>Line 10: reduce adds all: 1+2=3, 3+3=6, 6+4=10, 10+5=15</p>
+<p class="steps" data-lang="hi"><strong>Step by step:</strong><br>Line 1: reduce functools module se import karo<br>Line 2: nums list mein [1,2,3,4,5] hai<br>Line 4: map har number pe x**2 lagata hai: 1,4,9,16,25<br>Line 7: filter sirf even numbers rakhta hai (x%2==0): 2,4<br>Line 10: reduce sab jodta hai: 1+2=3, 3+3=6, 6+4=10, 10+5=15</p>
+<a href="terminal.html" class="try-btn">Try it</a></div>
+
+<div class="topic"><h4>2.8 Recursion</h4>
+<p data-lang="en">Recursion is when a function calls itself. It needs a base case (stopping condition) or it will run forever.</p>
+<p data-lang="hi">Recursion tab hota hai jab function khud ko call kare. Base case (stopping condition) zaroori hai warna forever chalega.</p>
 <pre class="code">def factorial(n):
-    if n &lt;= 1:
+    if n == 0:
         return 1
     return n * factorial(n - 1)
 
-print(factorial(5))</pre>
-<div class="output"><strong>Output:</strong><br>120</div>
-</div>
-<a href="terminal.html" class="try-btn">Try it Yourself &rarr;</a>
-</div>
+print(factorial(5))  # Output: 120</pre>
+<p class="steps" data-lang="en"><strong>Step by step:</strong><br>Line 1: Define factorial function<br>Line 2-3: Base case: if n is 0, return 1 (stop here)<br>Line 4: Otherwise return n * factorial(n-1)<br>Call: factorial(5) = 5 * factorial(4) = 5 * 4 * factorial(3) = ... = 5*4*3*2*1 = 120</p>
+<p class="steps" data-lang="hi"><strong>Step by step:</strong><br>Line 1: factorial function define karo<br>Line 2-3: Base case: agar n 0 hai toh 1 return karo (yahan ruko)<br>Line 4: Nahi toh n * factorial(n-1) return karo<br>Call: factorial(5) = 5 * factorial(4) = 5*4*3*2*1 = 120</p>
+<a href="terminal.html" class="try-btn">Try it</a></div>
 
-<!-- Activity Unit 2 -->
-<div class="activity"><h4>Activity - Unit 2</h4>
-<div class="mcq"><p class="q">Q1. What does range(1, 10, 2) generate?</p><button class="opt" onclick="ck(this,true)">1, 3, 5, 7, 9</button><button class="opt" onclick="ck(this,false)">1, 2, 3...10</button><button class="opt" onclick="ck(this,false)">2, 4, 6, 8</button><span class="ans"></span></div>
-<div class="mcq"><p class="q">Q2. Lambda function is also called?</p><button class="opt" onclick="ck(this,true)">Anonymous function</button><button class="opt" onclick="ck(this,false)">Recursive function</button><button class="opt" onclick="ck(this,false)">Generator</button><span class="ans"></span></div>
-<div class="mcq"><p class="q">Q3. Which keyword exits a loop?</p><button class="opt" onclick="ck(this,true)">break</button><button class="opt" onclick="ck(this,false)">continue</button><button class="opt" onclick="ck(this,false)">pass</button><span class="ans"></span></div>
-<div class="coding-task"><p class="q">Coding Task: Write a function that takes a list of numbers and returns only even numbers using filter() and lambda.</p><a href="terminal.html" class="try-btn">Try in Terminal &rarr;</a></div>
+<!-- Activity 2 -->
+<div class="activity"><h4>Unit 2 Activity</h4>
+<div class="mcq"><p class="q">Q1: What does break do?</p>
+<button class="opt" onclick="ck(this,'b1',false)">A) Skips one iteration</button>
+<button class="opt" onclick="ck(this,'b1',true)">B) Stops the loop completely</button>
+<button class="opt" onclick="ck(this,'b1',false)">C) Restarts the loop</button>
+<span id="b1" class="ans"></span></div>
+<div class="mcq"><p class="q">Q2: Lambda is?</p>
+<button class="opt" onclick="ck(this,'b2',true)">A) Anonymous function</button>
+<button class="opt" onclick="ck(this,'b2',false)">B) A loop</button>
+<button class="opt" onclick="ck(this,'b2',false)">C) A data type</button>
+<span id="b2" class="ans"></span></div>
+<div class="mcq"><p class="q">Q3: reduce() returns?</p>
+<button class="opt" onclick="ck(this,'b3',false)">A) A list</button>
+<button class="opt" onclick="ck(this,'b3',true)">B) A single value</button>
+<button class="opt" onclick="ck(this,'b3',false)">C) A tuple</button>
+<span id="b3" class="ans"></span></div>
+<div class="coding-task"><p class="q">Task: Write a recursive function to find sum of digits of a number (e.g., 123 gives 6).</p><a href="terminal.html" class="try-btn">Open Terminal</a></div>
 </div>
-
 </div></div>
 
-<!-- ===== UNIT 3: Data Structures ===== -->
+<!-- ===== UNIT 3 ===== -->
 <div class="unit-section">
 <div class="unit-header" onclick="toggleUnit(this)">
 <div class="unit-number purple">3</div>
@@ -454,532 +323,405 @@ print(factorial(5))</pre>
 </div>
 <div class="unit-content">
 
-<div class="topic">
-<h4>1. Strings (Methods and Slicing)</h4>
-<p data-lang="en">Strings are sequences of characters. They are immutable. You can slice them using [start:stop:step].</p>
-<p data-lang="hi">Strings characters ka sequence hain. Ye immutable hain. [start:stop:step] se slice kar sakte ho.</p>
-<div class="syntax-box"><strong>Syntax:</strong><br><code>string[start:stop:step]<br>string.method()</code></div>
-<div class="example"><strong>Example:</strong>
-<pre class="code">s = "Hello, Python!"
-print(s.upper())       # HELLO, PYTHON!
-print(s.lower())       # hello, python!
-print(s.replace("Python", "World"))
-print(s[0:5])          # Hello
-print(s[::-1])         # reversed string
-print(s.split(", "))   # ['Hello', 'Python!']
-print(len(s))          # 14</pre>
-<div class="output"><strong>Output:</strong><br>HELLO, PYTHON!<br>hello, python!<br>Hello, World!<br>Hello<br>!nohtyP ,olleH<br>['Hello', 'Python!']<br>14</div>
-</div>
-<a href="terminal.html" class="try-btn">Try it Yourself &rarr;</a>
-</div>
+<div class="topic"><h4>3.1 Lists</h4>
+<p data-lang="en">Lists are ordered, mutable collections. Use square brackets []. You can add, remove, and change items.</p>
+<p data-lang="hi">Lists ordered aur mutable collections hain. Square brackets [] use karo. Items add, remove, change kar sakte ho.</p>
+<pre class="code">fruits = ["apple", "banana", "cherry"]
+fruits.append("mango")
+fruits[0] = "grape"
+print(fruits)       # ['grape', 'banana', 'cherry', 'mango']
+print(len(fruits))  # 4</pre>
+<p class="steps" data-lang="en"><strong>Step by step:</strong><br>Line 1: Create list with 3 fruits<br>Line 2: append() adds "mango" at end. Now 4 items<br>Line 3: Change index 0 from "apple" to "grape"<br>Line 4: Print updated list<br>Line 5: len() counts items = 4</p>
+<p class="steps" data-lang="hi"><strong>Step by step:</strong><br>Line 1: 3 fruits ki list bani<br>Line 2: append() "mango" end mein add karta hai. Ab 4 items<br>Line 3: Index 0 pe "apple" ko "grape" se badla<br>Line 4: Updated list print hoti hai<br>Line 5: len() items ginta hai = 4</p>
+<a href="terminal.html" class="try-btn">Try it</a></div>
 
-<div class="topic">
-<h4>2. Lists (Methods and Comprehension)</h4>
-<p data-lang="en">Lists are ordered, mutable collections. You can add, remove, and sort items.</p>
-<p data-lang="hi">Lists ordered aur mutable collections hain. Items add, remove, aur sort kar sakte ho.</p>
-<div class="syntax-box"><strong>Syntax:</strong><br><code>my_list = [item1, item2, item3]<br>squares = [x**2 for x in range(5)]</code></div>
-<div class="example"><strong>Example:</strong>
-<pre class="code">nums = [3, 1, 4, 1, 5]
-nums.append(9)
-nums.sort()
-print(nums)
-nums.pop()
-print(nums)
+<div class="topic"><h4>3.2 Tuples</h4>
+<p data-lang="en">Tuples are ordered but immutable (cannot change after creation). Use parentheses (). Faster than lists. Good for fixed data.</p>
+<p data-lang="hi">Tuples ordered hain but immutable (banane ke baad change nahi kar sakte). Parentheses () use karo. Lists se fast hain.</p>
+<pre class="code">colors = ("red", "green", "blue")
+print(colors[1])    # green
+print(len(colors))  # 3
+# colors[0] = "pink"  # ERROR! Cannot modify tuple
 
-# List comprehension
-squares = [x**2 for x in range(6)]
-print(squares)</pre>
-<div class="output"><strong>Output:</strong><br>[1, 1, 3, 4, 5, 9]<br>[1, 1, 3, 4, 5]<br>[0, 1, 4, 9, 16, 25]</div>
-</div>
-<a href="terminal.html" class="try-btn">Try it Yourself &rarr;</a>
-</div>
+a, b, c = colors    # tuple unpacking
+print(a)            # red</pre>
+<p class="steps" data-lang="en"><strong>Step by step:</strong><br>Line 1: Create tuple with 3 colors (cannot be changed later)<br>Line 2: Access index 1 = "green"<br>Line 3: len() = 3 items<br>Line 4: If you try to modify, Python gives TypeError<br>Line 6: Unpacking: a="red", b="green", c="blue"<br>Line 7: Print a = "red"</p>
+<p class="steps" data-lang="hi"><strong>Step by step:</strong><br>Line 1: 3 colors ka tuple bana (baad mein change nahi hoga)<br>Line 2: Index 1 access karo = "green"<br>Line 3: len() = 3 items<br>Line 4: Agar modify karoge toh TypeError aayega<br>Line 6: Unpacking: a="red", b="green", c="blue"<br>Line 7: a print karo = "red"</p>
+<a href="terminal.html" class="try-btn">Try it</a></div>
 
-<div class="topic">
-<h4>3. Tuples</h4>
-<p data-lang="en">Tuples are ordered and immutable. You cannot change them after creation.</p>
-<p data-lang="hi">Tuples ordered aur immutable hain. Banane ke baad change nahi kar sakte.</p>
-<div class="syntax-box"><strong>Syntax:</strong><br><code>my_tuple = (item1, item2, item3)</code></div>
-<div class="example"><strong>Example:</strong>
-<pre class="code">coords = (10, 20, 30)
-print(coords[0])
-print(coords.count(10))
+<div class="topic"><h4>3.3 Sets</h4>
+<p data-lang="en">Sets are unordered collections with no duplicates. Use curly braces {}. Good for removing duplicates and set operations (union, intersection).</p>
+<p data-lang="hi">Sets unordered collections hain jismein duplicates nahi hote. Curly braces {} use karo. Duplicates hatane aur set operations ke liye best.</p>
+<pre class="code">s = {1, 2, 3, 3, 2}
+print(s)          # {1, 2, 3} (no duplicates)
 
-# Unpacking
-x, y, z = coords
-print(x, y, z)
+a = {1, 2, 3}
+b = {3, 4, 5}
+print(a | b)      # {1, 2, 3, 4, 5} union
+print(a &amp; b)      # {3} intersection</pre>
+<p class="steps" data-lang="en"><strong>Step by step:</strong><br>Line 1: Set created with duplicates 3 and 2<br>Line 2: Python removes duplicates automatically. Only {1,2,3} remains<br>Line 4-5: Two sets a and b<br>Line 6: a | b = union (all unique items from both)<br>Line 7: a &amp; b = intersection (items in both) = {3}</p>
+<p class="steps" data-lang="hi"><strong>Step by step:</strong><br>Line 1: Set banaya duplicates ke saath (3 aur 2 do baar)<br>Line 2: Python duplicates automatically hata deta hai. Sirf {1,2,3} bachta hai<br>Line 4-5: Do sets a aur b<br>Line 6: a | b = union (dono ke saare unique items)<br>Line 7: a &amp; b = intersection (dono mein common) = {3}</p>
+<a href="terminal.html" class="try-btn">Try it</a></div>
 
-# Swap using tuples
-a, b = 5, 10
-a, b = b, a
-print(a, b)</pre>
-<div class="output"><strong>Output:</strong><br>10<br>1<br>10 20 30<br>10 5</div>
-</div>
-<a href="terminal.html" class="try-btn">Try it Yourself &rarr;</a>
-</div>
-
-<div class="topic">
-<h4>4. Sets</h4>
-<p data-lang="en">Sets are unordered collections of unique items. Duplicates are removed automatically.</p>
-<p data-lang="hi">Sets unordered collections hain jismein sirf unique items hote hain. Duplicates automatically hat jaate hain.</p>
-<div class="syntax-box"><strong>Syntax:</strong><br><code>my_set = {item1, item2, item3}<br>union: a | b<br>intersection: a &amp; b<br>difference: a - b</code></div>
-<div class="example"><strong>Example:</strong>
-<pre class="code">a = {1, 2, 3, 4, 5}
-b = {4, 5, 6, 7, 8}
-
-print(a | b)    # Union
-print(a &amp; b)    # Intersection
-print(a - b)    # Difference
-
-a.add(10)
-a.discard(1)
-print(a)</pre>
-<div class="output"><strong>Output:</strong><br>{1, 2, 3, 4, 5, 6, 7, 8}<br>{4, 5}<br>{1, 2, 3}<br>{2, 3, 4, 5, 10}</div>
-</div>
-<a href="terminal.html" class="try-btn">Try it Yourself &rarr;</a>
-</div>
-
-<div class="topic">
-<h4>5. Dictionaries</h4>
-<p data-lang="en">Dictionaries store key-value pairs. Keys must be unique. Access values using keys.</p>
-<p data-lang="hi">Dictionaries key-value pairs store karte hain. Keys unique honi chahiye. Values keys se access karo.</p>
-<div class="syntax-box"><strong>Syntax:</strong><br><code>my_dict = {"key": "value"}<br>my_dict["key"]<br>my_dict.get("key", default)</code></div>
-<div class="example"><strong>Example:</strong>
-<pre class="code">student = {"name": "Rahul", "age": 22, "marks": 85}
-print(student["name"])
-print(student.get("gpa", 0))
-
-student["sem"] = 4
-student.pop("marks")
+<div class="topic"><h4>3.4 Dictionaries</h4>
+<p data-lang="en">Dictionaries store key-value pairs. Use curly braces with key:value. Keys must be unique. Access values using keys.</p>
+<p data-lang="hi">Dictionaries key-value pairs store karte hain. Curly braces mein key:value use karo. Keys unique honi chahiye.</p>
+<pre class="code">student = {"name": "Rahul", "age": 22, "grade": "A"}
+print(student["name"])    # Rahul
+student["city"] = "Delhi" # add new key
+del student["grade"]      # delete key
 print(student)
+# {'name': 'Rahul', 'age': 22, 'city': 'Delhi'}</pre>
+<p class="steps" data-lang="en"><strong>Step by step:</strong><br>Line 1: Dict with 3 key-value pairs<br>Line 2: Access value using key "name" = "Rahul"<br>Line 3: Add new key "city" with value "Delhi"<br>Line 4: del removes "grade" key and its value<br>Line 5-6: Print shows updated dict (3 items now)</p>
+<p class="steps" data-lang="hi"><strong>Step by step:</strong><br>Line 1: Dict mein 3 key-value pairs hain<br>Line 2: "name" key se value access karo = "Rahul"<br>Line 3: Naya key "city" add karo, value "Delhi"<br>Line 4: del "grade" key aur uski value hatata hai<br>Line 5-6: Updated dict print hota hai (ab 3 items)</p>
+<a href="terminal.html" class="try-btn">Try it</a></div>
 
-# Dict comprehension
-squares = {x: x**2 for x in range(5)}
-print(squares)</pre>
-<div class="output"><strong>Output:</strong><br>Rahul<br>0<br>{'name': 'Rahul', 'age': 22, 'sem': 4}<br>{0: 0, 1: 1, 2: 4, 3: 9, 4: 16}</div>
+<div class="topic"><h4>3.5 String Methods</h4>
+<p data-lang="en">Strings have built-in methods: upper(), lower(), strip(), split(), join(), replace(), find(), count().</p>
+<p data-lang="hi">Strings ke built-in methods hain: upper(), lower(), strip(), split(), join(), replace(), find(), count().</p>
+<pre class="code">s = "  Hello World  "
+print(s.strip())        # "Hello World" (remove spaces)
+print(s.strip().upper())# "HELLO WORLD"
+print(s.strip().split())# ['Hello', 'World']
+print("-".join(["a","b","c"]))  # "a-b-c"</pre>
+<p class="steps" data-lang="en"><strong>Step by step:</strong><br>Line 1: String with extra spaces on both sides<br>Line 2: strip() removes leading/trailing spaces<br>Line 3: upper() converts all to uppercase<br>Line 4: split() breaks string into list at spaces<br>Line 5: join() connects list items with "-" between them</p>
+<p class="steps" data-lang="hi"><strong>Step by step:</strong><br>Line 1: String jismein dono taraf extra spaces hain<br>Line 2: strip() start/end ke spaces hatata hai<br>Line 3: upper() sab uppercase mein badalta hai<br>Line 4: split() string ko spaces pe todke list banata hai<br>Line 5: join() list items ko "-" se jodta hai</p>
+<a href="terminal.html" class="try-btn">Try it</a></div>
+
+<div class="topic"><h4>3.6 Comprehension</h4>
+<p data-lang="en">List comprehension creates lists in one line. Syntax: [expression for item in iterable if condition]. Shorter than regular loops.</p>
+<p data-lang="hi">List comprehension ek line mein list banata hai. Syntax: [expression for item in iterable if condition]. Regular loops se chhota code.</p>
+<pre class="code">squares = [x**2 for x in range(6)]
+print(squares)  # [0, 1, 4, 9, 16, 25]
+
+evens = [x for x in range(20) if x % 2 == 0]
+print(evens)    # [0, 2, 4, 6, 8, 10, 12, 14, 16, 18]</pre>
+<p class="steps" data-lang="en"><strong>Step by step:</strong><br>Line 1: For each x in 0,1,2,3,4,5: compute x**2. Collect all results in list<br>Line 2: Print [0, 1, 4, 9, 16, 25]<br>Line 4: For each x in 0-19: keep only if x%2==0 (even numbers)<br>Line 5: Print all even numbers from 0 to 18</p>
+<p class="steps" data-lang="hi"><strong>Step by step:</strong><br>Line 1: Har x ke liye (0,1,2,3,4,5): x**2 calculate karo. Sab results list mein daalo<br>Line 2: [0, 1, 4, 9, 16, 25] print hota hai<br>Line 4: Har x ke liye (0-19): sirf woh rakho jinka x%2==0 (even numbers)<br>Line 5: 0 se 18 tak even numbers print hote hain</p>
+<a href="terminal.html" class="try-btn">Try it</a></div>
+
+<!-- Activity 3 -->
+<div class="activity"><h4>Unit 3 Activity</h4>
+<div class="mcq"><p class="q">Q1: Lists are?</p>
+<button class="opt" onclick="ck(this,'c1',true)">A) Mutable and ordered</button>
+<button class="opt" onclick="ck(this,'c1',false)">B) Immutable and ordered</button>
+<button class="opt" onclick="ck(this,'c1',false)">C) Mutable and unordered</button>
+<span id="c1" class="ans"></span></div>
+<div class="mcq"><p class="q">Q2: Sets allow duplicates?</p>
+<button class="opt" onclick="ck(this,'c2',false)">A) Yes</button>
+<button class="opt" onclick="ck(this,'c2',true)">B) No</button>
+<button class="opt" onclick="ck(this,'c2',false)">C) Only strings</button>
+<span id="c2" class="ans"></span></div>
+<div class="mcq"><p class="q">Q3: Dictionary keys must be?</p>
+<button class="opt" onclick="ck(this,'c3',true)">A) Unique</button>
+<button class="opt" onclick="ck(this,'c3',false)">B) Integer only</button>
+<button class="opt" onclick="ck(this,'c3',false)">C) Sorted</button>
+<span id="c3" class="ans"></span></div>
+<div class="coding-task"><p class="q">Task: Create a dictionary of 5 students with names as keys and marks as values. Use comprehension to filter students with marks > 60.</p><a href="terminal.html" class="try-btn">Open Terminal</a></div>
 </div>
-<a href="terminal.html" class="try-btn">Try it Yourself &rarr;</a>
-</div>
-
-<div class="topic">
-<h4>6. Collections (Counter, defaultdict)</h4>
-<p data-lang="en">Counter counts elements. defaultdict gives a default value for missing keys.</p>
-<p data-lang="hi">Counter elements count karta hai. defaultdict missing keys ke liye default value deta hai.</p>
-<div class="syntax-box"><strong>Syntax:</strong><br><code>from collections import Counter, defaultdict<br>Counter(iterable)<br>defaultdict(type)</code></div>
-<div class="example"><strong>Example:</strong>
-<pre class="code">from collections import Counter, defaultdict
-
-words = ["python", "java", "python", "python", "java"]
-count = Counter(words)
-print(count)
-print(count.most_common(1))
-
-dd = defaultdict(list)
-dd["fruits"].append("apple")
-dd["fruits"].append("banana")
-print(dict(dd))</pre>
-<div class="output"><strong>Output:</strong><br>Counter({'python': 3, 'java': 2})<br>[('python', 3)]<br>{'fruits': ['apple', 'banana']}</div>
-</div>
-<a href="terminal.html" class="try-btn">Try it Yourself &rarr;</a>
-</div>
-
-<!-- Activity Unit 3 -->
-<div class="activity"><h4>Activity - Unit 3</h4>
-<div class="mcq"><p class="q">Q1. Which is immutable?</p><button class="opt" onclick="ck(this,false)">List</button><button class="opt" onclick="ck(this,true)">Tuple</button><button class="opt" onclick="ck(this,false)">Dictionary</button><span class="ans"></span></div>
-<div class="mcq"><p class="q">Q2. "hello"[1:4] gives?</p><button class="opt" onclick="ck(this,false)">hell</button><button class="opt" onclick="ck(this,true)">ell</button><button class="opt" onclick="ck(this,false)">ello</button><span class="ans"></span></div>
-<div class="mcq"><p class="q">Q3. What removes duplicates from a list?</p><button class="opt" onclick="ck(this,true)">set()</button><button class="opt" onclick="ck(this,false)">list()</button><button class="opt" onclick="ck(this,false)">tuple()</button><span class="ans"></span></div>
-<div class="coding-task"><p class="q">Coding Task: Create a dictionary of 5 students with marks. Use dict comprehension to get only toppers (marks &gt; 80).</p><a href="terminal.html" class="try-btn">Try in Terminal &rarr;</a></div>
-</div>
-
 </div></div>
 
-<!-- ===== UNIT 4: OOP ===== -->
+<!-- ===== UNIT 4 ===== -->
 <div class="unit-section">
 <div class="unit-header" onclick="toggleUnit(this)">
 <div class="unit-number pink">4</div>
-<div class="unit-title">Object-Oriented Programming</div>
+<div class="unit-title">Object Oriented Programming</div>
 <div class="unit-toggle">&#9660;</div>
 </div>
 <div class="unit-content">
 
-<div class="topic">
-<h4>1. Classes and Objects</h4>
-<p data-lang="en">A class is a blueprint. An object is an instance of that class.</p>
-<p data-lang="hi">Class ek blueprint hai. Object us class ka instance hai.</p>
-<div class="syntax-box"><strong>Syntax:</strong><br><code>class ClassName:<br>&nbsp;&nbsp;&nbsp;&nbsp;def method(self):<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;code<br><br>obj = ClassName()</code></div>
-<div class="example"><strong>Example:</strong>
+<div class="topic"><h4>4.1 Classes and Objects</h4>
+<p data-lang="en">A class is a blueprint. An object is created from that blueprint. class keyword defines a class. Use ClassName() to create an object.</p>
+<p data-lang="hi">Class ek blueprint hai. Object us blueprint se banta hai. class keyword se class define hoti hai. ClassName() se object banao.</p>
 <pre class="code">class Car:
-    def start(self):
-        print("Car started")
+    color = "red"
+    speed = 100
 
 my_car = Car()
-my_car.start()</pre>
-<div class="output"><strong>Output:</strong><br>Car started</div>
-</div>
-<a href="terminal.html" class="try-btn">Try it Yourself &rarr;</a>
-</div>
+print(my_car.color)  # red
+print(my_car.speed)  # 100</pre>
+<p class="steps" data-lang="en"><strong>Step by step:</strong><br>Line 1: Define class named "Car"<br>Line 2-3: Class has two attributes: color and speed<br>Line 5: Create object "my_car" from Car class<br>Line 6: Access color attribute using dot notation = "red"<br>Line 7: Access speed = 100</p>
+<p class="steps" data-lang="hi"><strong>Step by step:</strong><br>Line 1: "Car" naam ki class define karo<br>Line 2-3: Class ke do attributes: color aur speed<br>Line 5: Car class se "my_car" object banao<br>Line 6: Dot notation se color access karo = "red"<br>Line 7: speed access karo = 100</p>
+<a href="terminal.html" class="try-btn">Try it</a></div>
 
-<div class="topic">
-<h4>2. __init__ and self</h4>
-<p data-lang="en">__init__ is the constructor. It runs when you create an object. self refers to the current object.</p>
-<p data-lang="hi">__init__ constructor hai. Object banate waqt chalta hai. self current object ko refer karta hai.</p>
-<div class="syntax-box"><strong>Syntax:</strong><br><code>def __init__(self, param1, param2):<br>&nbsp;&nbsp;&nbsp;&nbsp;self.param1 = param1</code></div>
-<div class="example"><strong>Example:</strong>
+<div class="topic"><h4>4.2 __init__ and self</h4>
+<p data-lang="en">__init__ is constructor (runs when object is created). self refers to the current object. Every method must have self as first parameter.</p>
+<p data-lang="hi">__init__ constructor hai (object bante hi run hota hai). self current object ko refer karta hai. Har method mein self first parameter hona chahiye.</p>
 <pre class="code">class Student:
     def __init__(self, name, roll):
         self.name = name
         self.roll = roll
-
+    
     def display(self):
-        print(f"{self.roll}: {self.name}")
+        print(f"{self.name} - {self.roll}")
 
-s1 = Student("Rahul", 101)
-s1.display()</pre>
-<div class="output"><strong>Output:</strong><br>101: Rahul</div>
-</div>
-<a href="terminal.html" class="try-btn">Try it Yourself &rarr;</a>
-</div>
+s1 = Student("Amit", 101)
+s1.display()  # Amit - 101</pre>
+<p class="steps" data-lang="en"><strong>Step by step:</strong><br>Line 1: Define Student class<br>Line 2: __init__ takes self (auto), name, roll as parameters<br>Line 3-4: Store name and roll inside this object using self<br>Line 6-7: display method prints this object's data<br>Line 9: Create s1. __init__ runs: self.name="Amit", self.roll=101<br>Line 10: s1.display() prints "Amit - 101"</p>
+<p class="steps" data-lang="hi"><strong>Step by step:</strong><br>Line 1: Student class define karo<br>Line 2: __init__ self (auto), name, roll parameters leta hai<br>Line 3-4: self se name aur roll is object mein store karo<br>Line 6-7: display method is object ka data print karta hai<br>Line 9: s1 banao. __init__ run hota hai: self.name="Amit", self.roll=101<br>Line 10: s1.display() "Amit - 101" print karta hai</p>
+<a href="terminal.html" class="try-btn">Try it</a></div>
 
-<div class="topic">
-<h4>3. Class Methods and Static Methods</h4>
-<p data-lang="en">@classmethod uses cls (the class). @staticmethod does not use self or cls.</p>
-<p data-lang="hi">@classmethod cls (class) use karta hai. @staticmethod self ya cls dono nahi use karta.</p>
-<div class="syntax-box"><strong>Syntax:</strong><br><code>@classmethod<br>def method(cls): ...<br><br>@staticmethod<br>def method(): ...</code></div>
-<div class="example"><strong>Example:</strong>
-<pre class="code">class MathUtils:
-    pi = 3.14159
-
-    @classmethod
-    def circle_area(cls, r):
-        return cls.pi * r ** 2
-
-    @staticmethod
-    def add(a, b):
-        return a + b
-
-print(MathUtils.circle_area(7))
-print(MathUtils.add(3, 4))</pre>
-<div class="output"><strong>Output:</strong><br>153.93791<br>7</div>
-</div>
-<a href="terminal.html" class="try-btn">Try it Yourself &rarr;</a>
-</div>
-
-<div class="topic">
-<h4>4. Inheritance</h4>
-<p data-lang="en">A child class inherits properties and methods from a parent class. Use super() to call parent methods.</p>
-<p data-lang="hi">Child class parent class se properties aur methods inherit karti hai. super() se parent methods call karo.</p>
-<div class="syntax-box"><strong>Syntax:</strong><br><code>class Child(Parent):<br>&nbsp;&nbsp;&nbsp;&nbsp;def __init__(self):<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;super().__init__()</code></div>
-<div class="example"><strong>Example:</strong>
+<div class="topic"><h4>4.3 Inheritance</h4>
+<p data-lang="en">Child class inherits from parent class. Child gets all parent's methods and attributes. Use class Child(Parent) syntax.</p>
+<p data-lang="hi">Child class parent class se inherit karti hai. Child ko parent ke saare methods aur attributes milte hain. class Child(Parent) syntax use karo.</p>
 <pre class="code">class Animal:
-    def __init__(self, name):
-        self.name = name
     def speak(self):
-        return "..."
+        print("Animal speaks")
 
 class Dog(Animal):
-    def speak(self):
-        return f"{self.name} says Woof!"
+    def bark(self):
+        print("Dog barks")
 
-d = Dog("Tommy")
-print(d.speak())</pre>
-<div class="output"><strong>Output:</strong><br>Tommy says Woof!</div>
-</div>
-<a href="terminal.html" class="try-btn">Try it Yourself &rarr;</a>
-</div>
+d = Dog()
+d.speak()  # Animal speaks (inherited)
+d.bark()   # Dog barks (own method)</pre>
+<p class="steps" data-lang="en"><strong>Step by step:</strong><br>Line 1-3: Parent class Animal with speak() method<br>Line 5: Dog inherits from Animal (written in parentheses)<br>Line 6-7: Dog has its own bark() method<br>Line 9: Create Dog object<br>Line 10: d.speak() works because Dog inherited it from Animal<br>Line 11: d.bark() is Dog's own method</p>
+<p class="steps" data-lang="hi"><strong>Step by step:</strong><br>Line 1-3: Parent class Animal jismein speak() hai<br>Line 5: Dog Animal se inherit karti hai (parentheses mein likha)<br>Line 6-7: Dog ka apna bark() method hai<br>Line 9: Dog object banao<br>Line 10: d.speak() chalta hai kyunki Dog ne Animal se inherit kiya<br>Line 11: d.bark() Dog ka apna method hai</p>
+<a href="terminal.html" class="try-btn">Try it</a></div>
 
-<div class="topic">
-<h4>5. Polymorphism</h4>
-<p data-lang="en">Same method name behaves differently in different classes. This is called method overriding.</p>
-<p data-lang="hi">Same method name alag classes mein alag behave karta hai. Ise method overriding kehte hain.</p>
-<div class="syntax-box"><strong>Syntax:</strong><br><code>class A:<br>&nbsp;&nbsp;&nbsp;&nbsp;def show(self): ...<br>class B:<br>&nbsp;&nbsp;&nbsp;&nbsp;def show(self): ...</code></div>
-<div class="example"><strong>Example:</strong>
-<pre class="code">class Rectangle:
-    def __init__(self, w, h):
-        self.w, self.h = w, h
-    def area(self):
-        return self.w * self.h
+<div class="topic"><h4>4.4 Polymorphism</h4>
+<p data-lang="en">Polymorphism means "many forms". Same method name behaves differently in different classes. Child class can override parent's method.</p>
+<p data-lang="hi">Polymorphism ka matlab "many forms". Same method name alag classes mein alag behave karta hai. Child class parent ke method ko override kar sakti hai.</p>
+<pre class="code">class Cat:
+    def sound(self):
+        return "Meow"
 
-class Circle:
-    def __init__(self, r):
-        self.r = r
-    def area(self):
-        return 3.14 * self.r ** 2
+class Dog:
+    def sound(self):
+        return "Woof"
 
-shapes = [Rectangle(4, 5), Circle(3)]
-for s in shapes:
-    print(f"Area: {s.area()}")</pre>
-<div class="output"><strong>Output:</strong><br>Area: 20<br>Area: 28.26</div>
-</div>
-<a href="terminal.html" class="try-btn">Try it Yourself &rarr;</a>
-</div>
+for animal in [Cat(), Dog()]:
+    print(animal.sound())
+# Output: Meow then Woof</pre>
+<p class="steps" data-lang="en"><strong>Step by step:</strong><br>Line 1-3: Cat class has sound() returning "Meow"<br>Line 5-7: Dog class has sound() returning "Woof"<br>Line 9: Loop through list of [Cat object, Dog object]<br>Line 10: First iteration: Cat's sound() = "Meow". Second: Dog's sound() = "Woof"<br>Same method name, different behavior = polymorphism</p>
+<p class="steps" data-lang="hi"><strong>Step by step:</strong><br>Line 1-3: Cat class mein sound() "Meow" return karta hai<br>Line 5-7: Dog class mein sound() "Woof" return karta hai<br>Line 9: Loop [Cat object, Dog object] pe chalta hai<br>Line 10: Pehle Cat ka sound() = "Meow". Phir Dog ka sound() = "Woof"<br>Same method naam, alag behavior = polymorphism</p>
+<a href="terminal.html" class="try-btn">Try it</a></div>
 
-<div class="topic">
-<h4>6. Encapsulation</h4>
-<p data-lang="en">Encapsulation hides data. Public: name. Protected: _name. Private: __name.</p>
-<p data-lang="hi">Encapsulation data ko hide karta hai. Public: name. Protected: _name. Private: __name.</p>
-<div class="syntax-box"><strong>Syntax:</strong><br><code>self.name = value      # public<br>self._name = value     # protected<br>self.__name = value    # private</code></div>
-<div class="example"><strong>Example:</strong>
+<div class="topic"><h4>4.5 Encapsulation</h4>
+<p data-lang="en">Encapsulation hides internal data. Use _ (protected) or __ (private) prefix. Access private data through getter/setter methods.</p>
+<p data-lang="hi">Encapsulation internal data ko hide karta hai. _ (protected) ya __ (private) prefix use karo. Private data ko getter/setter se access karo.</p>
 <pre class="code">class BankAccount:
-    def __init__(self, owner, balance):
-        self.owner = owner        # public
+    def __init__(self, balance):
         self.__balance = balance  # private
-
+    
     def get_balance(self):
         return self.__balance
+    
+    def deposit(self, amount):
+        self.__balance += amount
 
-acc = BankAccount("Manoj", 1000)
-print(acc.owner)
-print(acc.get_balance())
-# print(acc.__balance)  # Error!</pre>
-<div class="output"><strong>Output:</strong><br>Manoj<br>1000</div>
-</div>
-<a href="terminal.html" class="try-btn">Try it Yourself &rarr;</a>
-</div>
+acc = BankAccount(1000)
+acc.deposit(500)
+print(acc.get_balance())  # 1500
+# print(acc.__balance)    # ERROR! Private</pre>
+<p class="steps" data-lang="en"><strong>Step by step:</strong><br>Line 3: __balance is private (double underscore). Cannot access directly from outside<br>Line 5-6: get_balance() is getter method (safe way to read private data)<br>Line 8-9: deposit() modifies private balance safely<br>Line 11: Create account with 1000<br>Line 12: Add 500. Balance = 1500<br>Line 13: Access through getter works. Direct access (line 14) gives error</p>
+<p class="steps" data-lang="hi"><strong>Step by step:</strong><br>Line 3: __balance private hai (double underscore). Bahar se directly access nahi ho sakta<br>Line 5-6: get_balance() getter method hai (private data safe tarike se padho)<br>Line 8-9: deposit() private balance ko safely modify karta hai<br>Line 11: 1000 se account banao<br>Line 12: 500 add karo. Balance = 1500<br>Line 13: Getter se access hota hai. Direct access (line 14) error deta hai</p>
+<a href="terminal.html" class="try-btn">Try it</a></div>
 
-<div class="topic">
-<h4>7. Abstraction</h4>
-<p data-lang="en">Abstract class cannot be instantiated. Child classes must implement abstract methods.</p>
-<p data-lang="hi">Abstract class ka object nahi ban sakta. Child classes ko abstract methods implement karne hote hain.</p>
-<div class="syntax-box"><strong>Syntax:</strong><br><code>from abc import ABC, abstractmethod<br><br>class MyABC(ABC):<br>&nbsp;&nbsp;&nbsp;&nbsp;@abstractmethod<br>&nbsp;&nbsp;&nbsp;&nbsp;def my_method(self): pass</code></div>
-<div class="example"><strong>Example:</strong>
-<pre class="code">from abc import ABC, abstractmethod
-
-class Vehicle(ABC):
-    @abstractmethod
-    def start(self):
-        pass
-
-class Car(Vehicle):
-    def start(self):
-        return "Car started with key"
-
-c = Car()
-print(c.start())
-# v = Vehicle()  # Error! Can't instantiate</pre>
-<div class="output"><strong>Output:</strong><br>Car started with key</div>
-</div>
-<a href="terminal.html" class="try-btn">Try it Yourself &rarr;</a>
-</div>
-
-<div class="topic">
-<h4>8. Magic Methods</h4>
-<p data-lang="en">Magic methods (dunder methods) let you customize operators like +, ==, len(), print() for your objects.</p>
-<p data-lang="hi">Magic methods (dunder methods) se aap apne objects ke liye +, ==, len(), print() customize kar sakte ho.</p>
-<div class="syntax-box"><strong>Syntax:</strong><br><code>__str__  : print(obj)<br>__add__  : obj1 + obj2<br>__len__  : len(obj)<br>__eq__   : obj1 == obj2</code></div>
-<div class="example"><strong>Example:</strong>
+<div class="topic"><h4>4.6 Magic Methods</h4>
+<p data-lang="en">Magic methods have double underscores (__name__). They let you define how objects behave with operators like +, -, print, len, etc.</p>
+<p data-lang="hi">Magic methods mein double underscores hote hain (__name__). Ye define karte hain ki objects +, -, print, len jaise operators ke saath kaise behave karein.</p>
 <pre class="code">class Vector:
     def __init__(self, x, y):
         self.x, self.y = x, y
-
-    def __str__(self):
-        return f"Vector({self.x}, {self.y})"
-
+    
     def __add__(self, other):
-        return Vector(self.x + other.x, self.y + other.y)
+        return Vector(self.x+other.x, self.y+other.y)
+    
+    def __str__(self):
+        return f"({self.x}, {self.y})"
 
-v1 = Vector(3, 4)
-v2 = Vector(1, 2)
-print(v1)
-print(v1 + v2)</pre>
-<div class="output"><strong>Output:</strong><br>Vector(3, 4)<br>Vector(4, 6)</div>
-</div>
-<a href="terminal.html" class="try-btn">Try it Yourself &rarr;</a>
-</div>
+v1 = Vector(2, 3)
+v2 = Vector(1, 4)
+v3 = v1 + v2
+print(v3)  # (3, 7)</pre>
+<p class="steps" data-lang="en"><strong>Step by step:</strong><br>Line 2-3: Store x and y coordinates<br>Line 5-6: __add__ defines what + does. Adds x's together, y's together<br>Line 8-9: __str__ defines what print shows<br>Line 11-12: Create two vectors<br>Line 13: v1 + v2 calls __add__. Returns Vector(3, 7)<br>Line 14: print(v3) calls __str__. Shows "(3, 7)"</p>
+<p class="steps" data-lang="hi"><strong>Step by step:</strong><br>Line 2-3: x aur y coordinates store karo<br>Line 5-6: __add__ define karta hai ki + kya karega. Dono ke x jodo, dono ke y jodo<br>Line 8-9: __str__ define karta hai ki print mein kya dikhe<br>Line 11-12: Do vectors banao<br>Line 13: v1 + v2 __add__ call karta hai. Vector(3, 7) return hota hai<br>Line 14: print(v3) __str__ call karta hai. "(3, 7)" dikhta hai</p>
+<a href="terminal.html" class="try-btn">Try it</a></div>
 
-<!-- Activity Unit 4 -->
-<div class="activity"><h4>Activity - Unit 4</h4>
-<div class="mcq"><p class="q">Q1. What is __init__ in Python class?</p><button class="opt" onclick="ck(this,true)">Constructor</button><button class="opt" onclick="ck(this,false)">Destructor</button><button class="opt" onclick="ck(this,false)">Iterator</button><span class="ans"></span></div>
-<div class="mcq"><p class="q">Q2. Which supports multiple inheritance?</p><button class="opt" onclick="ck(this,false)">Java</button><button class="opt" onclick="ck(this,true)">Python</button><button class="opt" onclick="ck(this,false)">C#</button><span class="ans"></span></div>
-<div class="mcq"><p class="q">Q3. __ (double underscore) makes a variable?</p><button class="opt" onclick="ck(this,false)">Public</button><button class="opt" onclick="ck(this,false)">Protected</button><button class="opt" onclick="ck(this,true)">Private</button><span class="ans"></span></div>
-<div class="coding-task"><p class="q">Coding Task: Create a BankAccount class with deposit(), withdraw(), and get_balance(). Use encapsulation (__balance as private).</p><a href="terminal.html" class="try-btn">Try in Terminal &rarr;</a></div>
+<!-- Activity 4 -->
+<div class="activity"><h4>Unit 4 Activity</h4>
+<div class="mcq"><p class="q">Q1: __init__ is called?</p>
+<button class="opt" onclick="ck(this,'d1',true)">A) When object is created</button>
+<button class="opt" onclick="ck(this,'d1',false)">B) When object is deleted</button>
+<button class="opt" onclick="ck(this,'d1',false)">C) When class is defined</button>
+<span id="d1" class="ans"></span></div>
+<div class="mcq"><p class="q">Q2: Private variable prefix is?</p>
+<button class="opt" onclick="ck(this,'d2',false)">A) Single _</button>
+<button class="opt" onclick="ck(this,'d2',true)">B) Double __</button>
+<button class="opt" onclick="ck(this,'d2',false)">C) No prefix</button>
+<span id="d2" class="ans"></span></div>
+<div class="mcq"><p class="q">Q3: Polymorphism means?</p>
+<button class="opt" onclick="ck(this,'d3',false)">A) One form</button>
+<button class="opt" onclick="ck(this,'d3',true)">B) Many forms</button>
+<button class="opt" onclick="ck(this,'d3',false)">C) No form</button>
+<span id="d3" class="ans"></span></div>
+<div class="coding-task"><p class="q">Task: Create a class Rectangle with __init__(width, height), area() method, and __str__ magic method.</p><a href="terminal.html" class="try-btn">Open Terminal</a></div>
 </div>
-
 </div></div>
 
-<!-- ===== UNIT 5: File Handling and Advanced ===== -->
+<!-- ===== UNIT 5 ===== -->
 <div class="unit-section">
 <div class="unit-header" onclick="toggleUnit(this)">
 <div class="unit-number cyan">5</div>
-<div class="unit-title">File Handling and Advanced</div>
+<div class="unit-title">Advanced Topics</div>
 <div class="unit-toggle">&#9660;</div>
 </div>
 <div class="unit-content">
 
-<div class="topic">
-<h4>1. File Handling</h4>
-<p data-lang="en">Use open() to read or write files. Always use "with" for safe file handling.</p>
-<p data-lang="hi">Files read/write karne ke liye open() use karo. "with" safe file handling ke liye use karo.</p>
-<div class="syntax-box"><strong>Syntax:</strong><br><code>with open("file.txt", "mode") as f:<br>&nbsp;&nbsp;&nbsp;&nbsp;content = f.read()<br><br>Modes: r(read), w(write), a(append), r+(read+write)</code></div>
-<div class="example"><strong>Example:</strong>
-<pre class="code"># Write
+<div class="topic"><h4>5.1 File Handling</h4>
+<p data-lang="en">Open files with open(). Modes: "r" (read), "w" (write), "a" (append). Always close file or use "with" statement.</p>
+<p data-lang="hi">Files open() se open karo. Modes: "r" (padho), "w" (likho), "a" (add karo). File hamesha close karo ya "with" use karo.</p>
+<pre class="code"># Writing to file
 with open("test.txt", "w") as f:
     f.write("Hello\n")
     f.write("World\n")
 
-# Read
+# Reading file
 with open("test.txt", "r") as f:
     content = f.read()
-    print(content)
+    print(content)  # Hello\nWorld\n</pre>
+<p class="steps" data-lang="en"><strong>Step by step:</strong><br>Line 2: Open "test.txt" in write mode. "with" auto-closes file<br>Line 3: Write "Hello" followed by newline<br>Line 4: Write "World" followed by newline<br>Line 7: Open same file in read mode<br>Line 8: f.read() reads entire file content<br>Line 9: Print shows Hello and World on separate lines</p>
+<p class="steps" data-lang="hi"><strong>Step by step:</strong><br>Line 2: "test.txt" write mode mein open karo. "with" file auto-close karta hai<br>Line 3: "Hello" likho newline ke saath<br>Line 4: "World" likho newline ke saath<br>Line 7: Same file read mode mein open karo<br>Line 8: f.read() poora content padh leta hai<br>Line 9: Print mein Hello aur World alag lines pe dikhte hain</p>
+<a href="terminal.html" class="try-btn">Try it</a></div>
 
-# Read line by line
-with open("test.txt", "r") as f:
-    for line in f:
-        print(line.strip())</pre>
-<div class="output"><strong>Output:</strong><br>Hello<br>World</div>
-</div>
-<a href="terminal.html" class="try-btn">Try it Yourself &rarr;</a>
-</div>
-
-<div class="topic">
-<h4>2. CSV Files</h4>
-<p data-lang="en">CSV files store tabular data. Use the csv module to read and write them.</p>
-<p data-lang="hi">CSV files tabular data store karti hain. csv module se read aur write karo.</p>
-<div class="syntax-box"><strong>Syntax:</strong><br><code>import csv<br>csv.writer(file)<br>csv.reader(file)<br>csv.DictReader(file)</code></div>
-<div class="example"><strong>Example:</strong>
-<pre class="code">import csv
-
-# Write CSV
-with open("data.csv", "w", newline="") as f:
-    writer = csv.writer(f)
-    writer.writerow(["Name", "Marks"])
-    writer.writerow(["Rahul", 85])
-    writer.writerow(["Priya", 92])
-
-# Read CSV
-with open("data.csv", "r") as f:
-    reader = csv.reader(f)
-    for row in reader:
-        print(row)</pre>
-<div class="output"><strong>Output:</strong><br>['Name', 'Marks']<br>['Rahul', '85']<br>['Priya', '92']</div>
-</div>
-<a href="terminal.html" class="try-btn">Try it Yourself &rarr;</a>
-</div>
-
-<div class="topic">
-<h4>3. JSON</h4>
-<p data-lang="en">JSON stores data as key-value pairs. Use json module to convert between Python dict and JSON.</p>
-<p data-lang="hi">JSON data ko key-value pairs mein store karta hai. json module se Python dict aur JSON mein convert karo.</p>
-<div class="syntax-box"><strong>Syntax:</strong><br><code>import json<br>json.dump(data, file)    # dict to file<br>json.load(file)          # file to dict<br>json.dumps(data)         # dict to string<br>json.loads(string)       # string to dict</code></div>
-<div class="example"><strong>Example:</strong>
-<pre class="code">import json
-
-data = {"name": "Rahul", "marks": 85}
-
-# Write JSON
-with open("data.json", "w") as f:
-    json.dump(data, f, indent=2)
-
-# Read JSON
-with open("data.json", "r") as f:
-    loaded = json.load(f)
-    print(loaded["name"])</pre>
-<div class="output"><strong>Output:</strong><br>Rahul</div>
-</div>
-<a href="terminal.html" class="try-btn">Try it Yourself &rarr;</a>
-</div>
-
-<div class="topic">
-<h4>4. Exception Handling</h4>
-<p data-lang="en">Use try/except to handle errors. finally always runs. raise throws custom errors.</p>
-<p data-lang="hi">try/except se errors handle karo. finally hamesha chalta hai. raise custom errors throw karta hai.</p>
-<div class="syntax-box"><strong>Syntax:</strong><br><code>try:<br>&nbsp;&nbsp;&nbsp;&nbsp;code<br>except ErrorType as e:<br>&nbsp;&nbsp;&nbsp;&nbsp;handle error<br>else:<br>&nbsp;&nbsp;&nbsp;&nbsp;runs if no error<br>finally:<br>&nbsp;&nbsp;&nbsp;&nbsp;always runs</code></div>
-<div class="example"><strong>Example:</strong>
+<div class="topic"><h4>5.2 Exceptions</h4>
+<p data-lang="en">Exceptions handle errors without crashing. Use try-except. catch specific errors like ValueError, ZeroDivisionError, FileNotFoundError.</p>
+<p data-lang="hi">Exceptions errors handle karte hain bina crash ke. try-except use karo. Specific errors catch karo jaise ValueError, ZeroDivisionError.</p>
 <pre class="code">try:
-    result = 10 / 0
-except ZeroDivisionError as e:
-    print(f"Error: {e}")
+    num = int(input("Enter number: "))
+    result = 10 / num
+    print(result)
+except ValueError:
+    print("Not a valid number!")
+except ZeroDivisionError:
+    print("Cannot divide by zero!")
 finally:
     print("Done")</pre>
-<div class="output"><strong>Output:</strong><br>Error: division by zero<br>Done</div>
-</div>
-<a href="terminal.html" class="try-btn">Try it Yourself &rarr;</a>
-</div>
+<p class="steps" data-lang="en"><strong>Step by step:</strong><br>Line 1: try block starts. Python will attempt this code<br>Line 2: If user types "abc", int() fails with ValueError<br>Line 3: If num is 0, division fails with ZeroDivisionError<br>Line 5-6: If ValueError happened, print error message<br>Line 7-8: If ZeroDivisionError happened, print that message<br>Line 9-10: finally always runs no matter what</p>
+<p class="steps" data-lang="hi"><strong>Step by step:</strong><br>Line 1: try block shuru. Python ye code try karega<br>Line 2: Agar user "abc" type kare, int() fail hota hai ValueError se<br>Line 3: Agar num 0 hai, division fail hota hai ZeroDivisionError se<br>Line 5-6: Agar ValueError hua, error message print hoga<br>Line 7-8: Agar ZeroDivisionError hua, wo message print hoga<br>Line 9-10: finally hamesha run hota hai chahe kuch bhi ho</p>
+<a href="terminal.html" class="try-btn">Try it</a></div>
 
-<div class="topic">
-<h4>5. Regular Expressions</h4>
-<p data-lang="en">Regex finds patterns in text. Use the re module. Common: \d (digit), \w (word), \s (space).</p>
-<p data-lang="hi">Regex text mein patterns dhundhta hai. re module use karo. Common: \d (digit), \w (word), \s (space).</p>
-<div class="syntax-box"><strong>Syntax:</strong><br><code>import re<br>re.search(pattern, text)<br>re.findall(pattern, text)<br>re.sub(pattern, replace, text)</code></div>
-<div class="example"><strong>Example:</strong>
+<div class="topic"><h4>5.3 Modules</h4>
+<p data-lang="en">Modules are Python files you can import. Use import to bring in functions. Python has many built-in modules like math, os, random, datetime.</p>
+<p data-lang="hi">Modules Python files hain jinhe import kar sakte ho. import se functions lao. Python mein math, os, random, datetime jaise built-in modules hain.</p>
+<pre class="code">import math
+print(math.sqrt(16))   # 4.0
+print(math.pi)         # 3.14159...
+
+from random import randint
+print(randint(1, 10))  # random number 1-10
+
+import os
+print(os.getcwd())     # current directory</pre>
+<p class="steps" data-lang="en"><strong>Step by step:</strong><br>Line 1: Import entire math module<br>Line 2: math.sqrt(16) = square root of 16 = 4.0<br>Line 3: math.pi = 3.14159...<br>Line 5: Import only randint function from random module<br>Line 6: randint(1,10) gives random number between 1 and 10<br>Line 8: Import os module for operating system tasks<br>Line 9: os.getcwd() shows current working directory</p>
+<p class="steps" data-lang="hi"><strong>Step by step:</strong><br>Line 1: Poora math module import karo<br>Line 2: math.sqrt(16) = 16 ka square root = 4.0<br>Line 3: math.pi = 3.14159...<br>Line 5: random module se sirf randint function import karo<br>Line 6: randint(1,10) 1 se 10 ke beech random number deta hai<br>Line 8: os module import karo (operating system tasks ke liye)<br>Line 9: os.getcwd() current working directory dikhata hai</p>
+<a href="terminal.html" class="try-btn">Try it</a></div>
+
+<div class="topic"><h4>5.4 Regex</h4>
+<p data-lang="en">Regular expressions find patterns in text. Import re module. Common: \d (digit), \w (word char), + (one or more), * (zero or more).</p>
+<p data-lang="hi">Regular expressions text mein patterns dhundhte hain. re module import karo. Common: \d (digit), \w (word char), + (ek ya zyada), * (zero ya zyada).</p>
 <pre class="code">import re
 
-text = "Phone: 9876543210, Email: test@mail.com"
+text = "My number is 9876543210"
+phone = re.search(r'\d{10}', text)
+print(phone.group())  # 9876543210
 
-numbers = re.findall(r'\d+', text)
-print(numbers)
+emails = re.findall(r'\w+@\w+\.\w+',
+    "contact a@b.com or x@y.org")
+print(emails)  # ['a@b.com', 'x@y.org']</pre>
+<p class="steps" data-lang="en"><strong>Step by step:</strong><br>Line 1: Import re (regex) module<br>Line 3: text has a phone number inside it<br>Line 4: search for pattern \d{10} (exactly 10 digits)<br>Line 5: .group() returns the matched text = "9876543210"<br>Line 7-8: findall finds all email-like patterns in text<br>Line 9: Returns list of all matches</p>
+<p class="steps" data-lang="hi"><strong>Step by step:</strong><br>Line 1: re (regex) module import karo<br>Line 3: text mein ek phone number hai<br>Line 4: \d{10} pattern dhoondho (exactly 10 digits)<br>Line 5: .group() matched text return karta hai = "9876543210"<br>Line 7-8: findall saare email-like patterns dhundhta hai<br>Line 9: Sab matches ki list return hoti hai</p>
+<a href="terminal.html" class="try-btn">Try it</a></div>
 
-email = re.search(r'[\w.]+@[\w.]+', text)
-print(email.group())</pre>
-<div class="output"><strong>Output:</strong><br>['9876543210']<br>test@mail.com</div>
-</div>
-<a href="terminal.html" class="try-btn">Try it Yourself &rarr;</a>
-</div>
+<div class="topic"><h4>5.5 Decorators</h4>
+<p data-lang="en">Decorators add extra functionality to functions without changing them. Use @decorator_name syntax above the function.</p>
+<p data-lang="hi">Decorators functions mein extra functionality add karte hain bina unhe change kiye. @decorator_name syntax function ke upar use karo.</p>
+<pre class="code">def timer(func):
+    import time
+    def wrapper(*args):
+        start = time.time()
+        result = func(*args)
+        end = time.time()
+        print(f"Time: {end-start:.4f}s")
+        return result
+    return wrapper
 
-<div class="topic">
-<h4>6. Modules and Packages</h4>
-<p data-lang="en">A module is a .py file with functions. A package is a folder of modules. Use import to use them.</p>
-<p data-lang="hi">Module ek .py file hai jismein functions hain. Package modules ka folder hai. import se use karo.</p>
-<div class="syntax-box"><strong>Syntax:</strong><br><code>import module_name<br>from module import function<br>import module as alias</code></div>
-<div class="example"><strong>Example:</strong>
-<pre class="code">import math
-print(math.sqrt(16))
-print(math.pi)
+@timer
+def slow_add(a, b):
+    import time; time.sleep(1)
+    return a + b
 
-from os import getcwd
-print(getcwd())
+print(slow_add(3, 4))  # Time: 1.00s then 7</pre>
+<p class="steps" data-lang="en"><strong>Step by step:</strong><br>Line 1: Define decorator function "timer" (takes a function as input)<br>Line 3: wrapper replaces the original function<br>Line 4: Record start time<br>Line 5: Run original function and save result<br>Line 6-7: Record end time, print difference<br>Line 8: Return original result<br>Line 11: @timer wraps slow_add with timer functionality<br>Line 16: Calling slow_add runs wrapper first, then original</p>
+<p class="steps" data-lang="hi"><strong>Step by step:</strong><br>Line 1: "timer" decorator function define karo (ek function input leta hai)<br>Line 3: wrapper original function ki jagah le leta hai<br>Line 4: Start time record karo<br>Line 5: Original function run karo, result save karo<br>Line 6-7: End time record karo, difference print karo<br>Line 8: Original result return karo<br>Line 11: @timer slow_add ko timer functionality se wrap karta hai<br>Line 16: slow_add call karne pe pehle wrapper run hota hai</p>
+<a href="terminal.html" class="try-btn">Try it</a></div>
 
-# pip install numpy pandas
-# pip freeze &gt; requirements.txt</pre>
-<div class="output"><strong>Output:</strong><br>4.0<br>3.141592653589793<br>/home/user</div>
-</div>
-<a href="terminal.html" class="try-btn">Try it Yourself &rarr;</a>
-</div>
-
-<div class="topic">
-<h4>7. NumPy Basics</h4>
-<p data-lang="en">NumPy provides fast arrays and math operations. It is the foundation for data science in Python.</p>
-<p data-lang="hi">NumPy fast arrays aur math operations deta hai. Ye Python mein data science ka foundation hai.</p>
-<div class="syntax-box"><strong>Syntax:</strong><br><code>import numpy as np<br>np.array([1, 2, 3])<br>np.zeros((rows, cols))<br>np.arange(start, stop, step)</code></div>
-<div class="example"><strong>Example:</strong>
+<div class="topic"><h4>5.6 NumPy</h4>
+<p data-lang="en">NumPy is a library for numerical computing. It provides fast arrays and math operations. Arrays are faster than Python lists.</p>
+<p data-lang="hi">NumPy numerical computing ki library hai. Fast arrays aur math operations deta hai. Arrays Python lists se fast hain.</p>
 <pre class="code">import numpy as np
 
-a = np.array([10, 20, 30, 40])
-print(a * 2)
-print(a.mean())
-print(a.max())
+arr = np.array([1, 2, 3, 4, 5])
+print(arr * 2)        # [2 4 6 8 10]
+print(arr.mean())     # 3.0
+print(arr.sum())      # 15
 
-b = np.zeros((2, 3))
-print(b)</pre>
-<div class="output"><strong>Output:</strong><br>[20 40 60 80]<br>25.0<br>40<br>[[0. 0. 0.]<br> [0. 0. 0.]]</div>
-</div>
-<a href="terminal.html" class="try-btn">Try it Yourself &rarr;</a>
-</div>
+matrix = np.array([[1,2],[3,4]])
+print(matrix.shape)   # (2, 2)
+print(matrix.T)       # transpose</pre>
+<p class="steps" data-lang="en"><strong>Step by step:</strong><br>Line 1: Import numpy, call it "np" for short<br>Line 3: Create numpy array from list<br>Line 4: arr * 2 multiplies every element by 2 (vectorized)<br>Line 5: .mean() = average = (1+2+3+4+5)/5 = 3.0<br>Line 6: .sum() = total = 15<br>Line 8: Create 2x2 matrix<br>Line 9: .shape shows dimensions = (2 rows, 2 columns)<br>Line 10: .T gives transpose (rows become columns)</p>
+<p class="steps" data-lang="hi"><strong>Step by step:</strong><br>Line 1: numpy import karo, chhota naam "np" do<br>Line 3: List se numpy array banao<br>Line 4: arr * 2 har element ko 2 se multiply karta hai (vectorized)<br>Line 5: .mean() = average = (1+2+3+4+5)/5 = 3.0<br>Line 6: .sum() = total = 15<br>Line 8: 2x2 matrix banao<br>Line 9: .shape dimensions dikhata hai = (2 rows, 2 columns)<br>Line 10: .T transpose deta hai (rows columns ban jati hain)</p>
+<a href="terminal.html" class="try-btn">Try it</a></div>
 
-<!-- Activity Unit 5 -->
-<div class="activity"><h4>Activity - Unit 5</h4>
-<div class="mcq"><p class="q">Q1. Which mode opens file for both read and write?</p><button class="opt" onclick="ck(this,false)">r</button><button class="opt" onclick="ck(this,true)">r+</button><button class="opt" onclick="ck(this,false)">w</button><span class="ans"></span></div>
-<div class="mcq"><p class="q">Q2. Which block always executes in exception handling?</p><button class="opt" onclick="ck(this,false)">try</button><button class="opt" onclick="ck(this,false)">except</button><button class="opt" onclick="ck(this,true)">finally</button><span class="ans"></span></div>
-<div class="mcq"><p class="q">Q3. re.findall() returns?</p><button class="opt" onclick="ck(this,true)">List of all matches</button><button class="opt" onclick="ck(this,false)">First match only</button><button class="opt" onclick="ck(this,false)">Boolean</button><span class="ans"></span></div>
-<div class="coding-task"><p class="q">Coding Task: Write a program that reads a file, counts words, and handles FileNotFoundError.</p><a href="terminal.html" class="try-btn">Try in Terminal &rarr;</a></div>
+<!-- Activity 5 -->
+<div class="activity"><h4>Unit 5 Activity</h4>
+<div class="mcq"><p class="q">Q1: "with" statement in file handling?</p>
+<button class="opt" onclick="ck(this,'e1',true)">A) Auto-closes file</button>
+<button class="opt" onclick="ck(this,'e1',false)">B) Locks the file</button>
+<button class="opt" onclick="ck(this,'e1',false)">C) Deletes the file</button>
+<span id="e1" class="ans"></span></div>
+<div class="mcq"><p class="q">Q2: finally block runs?</p>
+<button class="opt" onclick="ck(this,'e2',true)">A) Always</button>
+<button class="opt" onclick="ck(this,'e2',false)">B) Only on error</button>
+<button class="opt" onclick="ck(this,'e2',false)">C) Never</button>
+<span id="e2" class="ans"></span></div>
+<div class="mcq"><p class="q">Q3: numpy array vs list?</p>
+<button class="opt" onclick="ck(this,'e3',true)">A) Faster operations</button>
+<button class="opt" onclick="ck(this,'e3',false)">B) Slower operations</button>
+<button class="opt" onclick="ck(this,'e3',false)">C) Same speed</button>
+<span id="e3" class="ans"></span></div>
+<div class="coding-task"><p class="q">Task: Write a program that reads a file, counts words, and handles FileNotFoundError with try-except.</p><a href="terminal.html" class="try-btn">Open Terminal</a></div>
 </div>
-
 </div></div>
 
 </main>
 
 <footer class="footer">
 <div class="footer-brand">Prof. Manoj Purohit - MCA Learning Hub - GGSIPU</div>
-<p>&copy; 2024 All Rights Reserved</p>
+<p>Made with care for MCA students</p>
 </footer>
 
 <script>
-function toggleUnit(header){const s=header.parentElement;s.classList.toggle('open')}
-function ck(b,c){const m=b.closest('.mcq'),a=m.querySelector('.ans');m.querySelectorAll('.opt').forEach(o=>{o.disabled=true;});if(c){b.style.background='rgba(16,185,129,.2)';b.style.borderColor='#10B981';a.textContent='Correct!';a.style.color='#10B981';}else{b.style.background='rgba(239,68,68,.2)';b.style.borderColor='#ef4444';a.textContent='Wrong!';a.style.color='#ef4444';}}
-const langBtn=document.getElementById('langToggle');
-let isHindi=false;
-langBtn.addEventListener('click',()=>{isHindi=!isHindi;document.body.classList.toggle('hinglish',isHindi);const spans=langBtn.querySelectorAll('span');spans[0].classList.toggle('active',!isHindi);spans[2].classList.toggle('active',isHindi)});
-const hamburger=document.getElementById('hamburger');
-const mobileMenu=document.getElementById('mobileMenu');
-hamburger.addEventListener('click',()=>mobileMenu.classList.toggle('open'));
+function toggleUnit(el){el.parentElement.classList.toggle('open')}
+function ck(btn,id,correct){
+document.getElementById(id).textContent=correct?'Correct!':'Wrong!';
+document.getElementById(id).style.color=correct?'#10B981':'#ef4444';
+btn.style.background=correct?'rgba(16,185,129,.2)':'rgba(239,68,68,.2)';
+btn.style.borderColor=correct?'#10B981':'#ef4444';
+}
+// Language toggle
+const lt=document.getElementById('langToggle');
+lt.addEventListener('click',()=>{
+document.body.classList.toggle('hinglish');
+const spans=lt.querySelectorAll('span');
+spans[0].classList.toggle('active');
+spans[2].classList.toggle('active');
+});
+// Hamburger
+const hb=document.getElementById('hamburger');
+const mm=document.getElementById('mobileMenu');
+hb.addEventListener('click',()=>mm.classList.toggle('open'));
 </script>
 </body>
 </html>
