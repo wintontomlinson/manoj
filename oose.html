@@ -42,11 +42,11 @@
 <main class="main-content">
 <section class="page-header">
 <h1 class="purple-gradient">Object Oriented Software Engineering</h1>
-<p class="subtitle" data-lang="en">Complete MCA Syllabus with Diagrams and Examples</p>
-<p class="subtitle" data-lang="hi">MCA Syllabus ke according OOSE, diagrams aur examples ke saath</p>
+<p class="subtitle" data-lang="en">Step-by-step notes with code, diagrams, and explanations</p>
+<p class="subtitle" data-lang="hi">Step-by-step notes code, diagrams, aur explanations ke saath</p>
 </section>
 
-<!-- ===== UNIT 1: Software Engineering ===== -->
+<!-- UNIT 1 -->
 <div class="unit-section open">
 <div class="unit-header" onclick="toggleUnit(this)">
 <div class="unit-number green">1</div>
@@ -55,82 +55,53 @@
 </div>
 <div class="unit-content">
 
-<div class="topic">
-<h4>1. What is Software Engineering</h4>
-<p data-lang="en">Software Engineering is the systematic approach to developing, operating, and maintaining software. It applies engineering principles to software development.</p>
-<p data-lang="hi">Software Engineering software develop, operate, aur maintain karne ka systematic approach hai. Ye engineering principles ko software development mein apply karta hai.</p>
-</div>
+<h4>1.1 What is Software Engineering</h4>
+<p data-lang="en">Software Engineering is a systematic, disciplined approach to developing, operating, and maintaining software using engineering principles.</p>
+<p data-lang="hi">Software Engineering ek systematic aur disciplined approach hai jo engineering principles ka use karke software develop, operate, aur maintain karta hai.</p>
+<div class="explain-box"><strong>Step by step:</strong><br>1. Gather requirements from the client<br>2. Design the system architecture<br>3. Write the code (implementation)<br>4. Test for bugs and errors<br>5. Deploy to production<br>6. Maintain and update over time</div>
+<a href="https://www.geeksforgeeks.org/software-engineering/" target="_blank" class="card-link">Learn more &rarr;</a>
 
-<div class="topic">
-<h4>2. SDLC (Software Development Life Cycle)</h4>
-<p data-lang="en">SDLC is a process used to design, develop, and test software. It has these phases:</p>
-<p data-lang="hi">SDLC ek process hai jo software design, develop, aur test karne ke liye use hota hai. Iske ye phases hain:</p>
+<h4>1.2 SDLC Phases</h4>
+<p data-lang="en">SDLC (Software Development Life Cycle) is the process used to plan, design, develop, test, and deploy software.</p>
+<p data-lang="hi">SDLC (Software Development Life Cycle) wo process hai jo software plan, design, develop, test, aur deploy karne ke liye use hota hai.</p>
 <div class="diagram">
-<div class="diagram-box green">Planning</div>
-<span class="diagram-arrow">&rarr;</span>
-<div class="diagram-box purple">Analysis</div>
-<span class="diagram-arrow">&rarr;</span>
-<div class="diagram-box pink">Design</div>
-<span class="diagram-arrow">&rarr;</span>
-<div class="diagram-box cyan">Implementation</div>
-<span class="diagram-arrow">&rarr;</span>
-<div class="diagram-box orange">Testing</div>
-<span class="diagram-arrow">&rarr;</span>
+<div class="diagram-box green">Planning</div><span class="diagram-arrow">&rarr;</span>
+<div class="diagram-box purple">Analysis</div><span class="diagram-arrow">&rarr;</span>
+<div class="diagram-box pink">Design</div><span class="diagram-arrow">&rarr;</span>
+<div class="diagram-box cyan">Coding</div><span class="diagram-arrow">&rarr;</span>
+<div class="diagram-box orange">Testing</div><span class="diagram-arrow">&rarr;</span>
 <div class="diagram-box yellow">Deployment</div>
 </div>
-</div>
+<div class="explain-box green"><strong>Step by step:</strong><br>1. Planning: define scope, timeline, budget<br>2. Analysis: gather and document requirements<br>3. Design: create architecture and UI mockups<br>4. Coding: developers write the actual code<br>5. Testing: QA team verifies correctness<br>6. Deployment: release to users</div>
 
-<div class="topic">
-<h4>3. Waterfall Model</h4>
-<p data-lang="en">Waterfall is a linear, sequential model. Each phase must be completed before the next one starts. No going back.</p>
-<p data-lang="hi">Waterfall ek linear, sequential model hai. Har phase pehle complete hona chahiye, tabhi agla phase start hota hai. Wapas nahi ja sakte.</p>
+<h4>1.3 Waterfall Model</h4>
+<p data-lang="en">Waterfall is a linear model where each phase must finish before the next begins. There is no going back to a previous phase.</p>
+<p data-lang="hi">Waterfall ek linear model hai jahan har phase pehle complete hona chahiye, tabhi agla start hota hai. Wapas nahi ja sakte.</p>
 <div class="diagram diagram-vertical">
-<div class="diagram-box green">Requirements</div>
-<span class="diagram-arrow">&darr;</span>
-<div class="diagram-box purple">Design</div>
-<span class="diagram-arrow">&darr;</span>
-<div class="diagram-box pink">Coding</div>
-<span class="diagram-arrow">&darr;</span>
-<div class="diagram-box cyan">Testing</div>
-<span class="diagram-arrow">&darr;</span>
-<div class="diagram-box orange">Deployment</div>
+<div class="diagram-box green">Requirements</div><span class="diagram-arrow">&darr;</span>
+<div class="diagram-box purple">Design</div><span class="diagram-arrow">&darr;</span>
+<div class="diagram-box pink">Implementation</div><span class="diagram-arrow">&darr;</span>
+<div class="diagram-box cyan">Testing</div><span class="diagram-arrow">&darr;</span>
+<div class="diagram-box orange">Maintenance</div>
 </div>
-<p data-lang="en"><strong>Advantages:</strong> Simple, easy to manage, clear documentation.<br><strong>Disadvantages:</strong> No flexibility, late testing, not suitable for changing requirements.</p>
-<p data-lang="hi"><strong>Advantages:</strong> Simple, manage karna easy, clear documentation.<br><strong>Disadvantages:</strong> Flexibility nahi, testing late hoti hai, changing requirements ke liye suitable nahi.</p>
-</div>
+<div class="explain-box"><strong>Step by step:</strong><br>1. Collect all requirements upfront (no changes later)<br>2. Design entire system on paper<br>3. Code the whole system<br>4. Test after coding is done<br>5. Deploy and maintain<br><br><strong>Pros:</strong> Simple, well-documented<br><strong>Cons:</strong> No flexibility, testing happens late</div>
+<a href="https://www.geeksforgeeks.org/waterfall-model/" target="_blank" class="card-link">Try reading more &rarr;</a>
 
-<div class="topic">
-<h4>4. Agile and Scrum</h4>
-<p data-lang="en">Agile is an iterative approach. Software is developed in small parts called sprints (2-4 weeks). Customer feedback is taken after each sprint.</p>
-<p data-lang="hi">Agile ek iterative approach hai. Software chhote parts mein develop hota hai jise sprints kehte hain (2-4 weeks). Har sprint ke baad customer feedback liya jaata hai.</p>
-<div class="syntax-box"><strong>Scrum Roles:</strong><br>- Product Owner: decides what to build<br>- Scrum Master: removes obstacles, manages process<br>- Team: developers who build the product<br><br><strong>Scrum Events:</strong><br>- Sprint Planning: decide sprint goals<br>- Daily Standup: 15-minute daily meeting<br>- Sprint Review: demo to stakeholders<br>- Sprint Retrospective: what went well, what to improve</div>
-</div>
-
-<div class="topic">
-<h4>5. Requirements (Functional vs Non-Functional)</h4>
-<p data-lang="en">Functional requirements define what the system should do. Non-functional requirements define how it should perform.</p>
-<p data-lang="hi">Functional requirements define karti hain ki system kya karega. Non-functional requirements define karti hain ki system kaise perform karega.</p>
-<div class="table-wrapper">
-<table>
-<tr><th>Functional</th><th>Non-Functional</th></tr>
-<tr><td>User can login</td><td>Login should take less than 2 seconds</td></tr>
-<tr><td>System sends email</td><td>System handles 1000 users at a time</td></tr>
-<tr><td>Add items to cart</td><td>System must be available 99.9% of time</td></tr>
-<tr><td>Generate report</td><td>Data must be encrypted</td></tr>
-</table>
-</div>
-</div>
+<h4>1.4 Agile and Scrum</h4>
+<p data-lang="en">Agile is an iterative approach where software is built in small increments called sprints (2 to 4 weeks). Feedback is collected after each sprint.</p>
+<p data-lang="hi">Agile ek iterative approach hai jahan software chhote increments (sprints, 2 se 4 weeks) mein banta hai. Har sprint ke baad feedback liya jaata hai.</p>
+<div class="explain-box cyan"><strong>Step by step (Scrum process):</strong><br>1. Product Owner creates a backlog of features<br>2. Team picks items for the sprint (Sprint Planning)<br>3. Daily Standup: 15-minute sync meeting<br>4. Team builds and tests during the sprint<br>5. Sprint Review: demo the work to stakeholders<br>6. Sprint Retrospective: discuss improvements<br>7. Repeat for next sprint</div>
+<a href="https://www.geeksforgeeks.org/agile-methodology/" target="_blank" class="card-link">Try reading more &rarr;</a>
 
 <!-- Activity Unit 1 -->
-<div class="activity"><h4>Activity - Unit 1</h4>
+<div class="activity"><h4>Activity: Unit 1 MCQs</h4>
 <div class="mcq"><p class="q">Q1. Waterfall model is which type?</p><button class="opt" onclick="ck(this,true)">Linear/Sequential</button><button class="opt" onclick="ck(this,false)">Iterative</button><button class="opt" onclick="ck(this,false)">Spiral</button><span class="ans"></span></div>
-<div class="mcq"><p class="q">Q2. Sprint duration in Scrum is typically?</p><button class="opt" onclick="ck(this,false)">1 day</button><button class="opt" onclick="ck(this,true)">2-4 weeks</button><button class="opt" onclick="ck(this,false)">6 months</button><span class="ans"></span></div>
-<div class="mcq"><p class="q">Q3. "System must handle 1000 users" is which type of requirement?</p><button class="opt" onclick="ck(this,false)">Functional</button><button class="opt" onclick="ck(this,true)">Non-Functional</button><button class="opt" onclick="ck(this,false)">Business</button><span class="ans"></span></div>
+<div class="mcq"><p class="q">Q2. Sprint duration in Scrum?</p><button class="opt" onclick="ck(this,false)">1 day</button><button class="opt" onclick="ck(this,true)">2-4 weeks</button><button class="opt" onclick="ck(this,false)">6 months</button><span class="ans"></span></div>
+<div class="mcq"><p class="q">Q3. SDLC stands for?</p><button class="opt" onclick="ck(this,true)">Software Development Life Cycle</button><button class="opt" onclick="ck(this,false)">System Data Logic Control</button><button class="opt" onclick="ck(this,false)">Software Design Language Code</button><span class="ans"></span></div>
 </div>
-
 </div></div>
 
-<!-- ===== UNIT 2: UML Diagrams ===== -->
+<!-- UNIT 2 -->
 <div class="unit-section">
 <div class="unit-header" onclick="toggleUnit(this)">
 <div class="unit-number orange">2</div>
@@ -139,18 +110,14 @@
 </div>
 <div class="unit-content">
 
-<div class="topic">
-<h4>1. What is UML</h4>
-<p data-lang="en">UML (Unified Modeling Language) is a standard way to visualize software design. It uses diagrams to show structure and behavior of a system.</p>
-<p data-lang="hi">UML (Unified Modeling Language) software design ko visualize karne ka standard tarika hai. Ye diagrams use karta hai system ki structure aur behavior dikhane ke liye.</p>
-<div class="syntax-box"><strong>Types of UML Diagrams:</strong><br><strong>Structural:</strong> Class Diagram, Object Diagram, Package Diagram<br><strong>Behavioral:</strong> Use Case, Sequence, State, Activity Diagram</div>
-</div>
+<h4>2.1 What is UML</h4>
+<p data-lang="en">UML (Unified Modeling Language) is a standard visual language to represent software design using diagrams.</p>
+<p data-lang="hi">UML (Unified Modeling Language) ek standard visual language hai jo diagrams ke through software design represent karta hai.</p>
+<div class="explain-box"><strong>Step by step:</strong><br>1. UML is NOT a programming language, it is a modeling language<br>2. Structural diagrams show the static structure (Class, Object, Package)<br>3. Behavioral diagrams show dynamic behavior (Use Case, Sequence, Activity)<br>4. Draw diagrams before coding to plan the system</div>
 
-<div class="topic">
-<h4>2. Use Case Diagram</h4>
-<p data-lang="en">Use Case Diagram shows what a system does from the user's point of view. It has actors (users) and use cases (actions).</p>
-<p data-lang="hi">Use Case Diagram dikhata hai ki system user ke point of view se kya karta hai. Ismein actors (users) aur use cases (actions) hote hain.</p>
-<div class="syntax-box"><strong>Elements:</strong><br>- Actor: stick figure (external user or system)<br>- Use Case: oval (an action the system performs)<br>- System Boundary: rectangle around use cases<br>- Relationships: include, extend, generalization</div>
+<h4>2.2 Use Case Diagram</h4>
+<p data-lang="en">Use Case Diagram shows what actions a system performs from the user's perspective. Actors are users, use cases are actions.</p>
+<p data-lang="hi">Use Case Diagram dikhata hai ki system user ke perspective se kya actions perform karta hai. Actors users hain, use cases actions hain.</p>
 <div class="diagram" style="flex-direction:column;gap:1rem;">
 <div style="border:2px dashed var(--purple);border-radius:12px;padding:1.5rem;min-width:250px;text-align:center;">
 <p style="color:var(--purple);font-weight:700;margin-bottom:1rem;">Library System</p>
@@ -160,103 +127,71 @@
 <div style="border:2px solid var(--cyan);border-radius:50px;padding:6px 20px;color:var(--cyan);">Return Book</div>
 </div>
 </div>
-<p style="color:var(--text-muted);font-size:0.85rem;">Actor: Student, Librarian | Use Cases: Search, Borrow, Return</p>
+<p style="color:var(--text-muted);font-size:0.85rem;">Actors: Student, Librarian | Use Cases: Search, Borrow, Return</p>
 </div>
-</div>
+<div class="explain-box green"><strong>Step by step:</strong><br>1. Identify actors (who uses the system)<br>2. Identify use cases (what can they do)<br>3. Draw system boundary (rectangle)<br>4. Place actors outside, use cases inside<br>5. Connect actors to their use cases with lines</div>
 
-<div class="topic">
-<h4>3. Class Diagram</h4>
-<p data-lang="en">Class Diagram shows classes, their attributes, methods, and relationships. It is the most important UML diagram for OOP.</p>
-<p data-lang="hi">Class Diagram classes, unke attributes, methods, aur relationships dikhata hai. Ye OOP ke liye sabse important UML diagram hai.</p>
-<div class="syntax-box"><strong>Class box has 3 sections:</strong><br>1. Class Name (top, bold)<br>2. Attributes (middle): - private, + public, # protected<br>3. Methods (bottom)<br><br><strong>Relationships:</strong> Association, Aggregation, Composition, Inheritance</div>
+<h4>2.3 Class Diagram</h4>
+<p data-lang="en">Class Diagram shows classes with their attributes, methods, and relationships. It is the most important structural diagram.</p>
+<p data-lang="hi">Class Diagram classes ko unke attributes, methods, aur relationships ke saath dikhata hai. Ye sabse important structural diagram hai.</p>
 <div class="class-diagram">
 <div class="class-box">
-<div class="class-name">Student</div>
-<div class="class-attrs">- name: String<br>- roll: int<br>- marks: double</div>
-<div class="class-methods">+ display(): void<br>+ getGrade(): String</div>
+<div class="class-name">Animal</div>
+<div class="class-attrs">- name: String<br>- age: int</div>
+<div class="class-methods">+ eat(): void<br>+ sleep(): void</div>
 </div>
 <div class="inheritance-arrow">&uarr; extends</div>
 <div class="class-children">
 <div class="class-box">
-<div class="class-name">MCAStudent</div>
-<div class="class-attrs">- semester: int</div>
-<div class="class-methods">+ getSemester(): int</div>
+<div class="class-name">Dog</div>
+<div class="class-attrs">- breed: String</div>
+<div class="class-methods">+ bark(): void</div>
+</div>
+<div class="class-box">
+<div class="class-name">Cat</div>
+<div class="class-attrs">- color: String</div>
+<div class="class-methods">+ meow(): void</div>
 </div>
 </div>
 </div>
-</div>
+<div class="explain-box"><strong>Step by step:</strong><br>1. Top section: class name (bold)<br>2. Middle section: attributes (- private, + public, # protected)<br>3. Bottom section: methods<br>4. Arrow pointing up means "extends" (inheritance)<br>5. Dog and Cat inherit eat() and sleep() from Animal</div>
 
-<div class="topic">
-<h4>4. Sequence Diagram</h4>
-<p data-lang="en">Sequence Diagram shows how objects interact in a time sequence. It shows the order of messages between objects.</p>
-<p data-lang="hi">Sequence Diagram dikhata hai ki objects time sequence mein kaise interact karte hain. Ye objects ke beech messages ka order dikhata hai.</p>
-<div class="syntax-box"><strong>Elements:</strong><br>- Object: rectangle at the top<br>- Lifeline: dashed vertical line below object<br>- Message: horizontal arrow between lifelines<br>- Activation: thin rectangle on lifeline (shows processing)</div>
+<h4>2.4 Sequence Diagram</h4>
+<p data-lang="en">Sequence Diagram shows how objects communicate in a time-ordered sequence using messages (arrows).</p>
+<p data-lang="hi">Sequence Diagram dikhata hai ki objects time-ordered sequence mein messages (arrows) ke through kaise communicate karte hain.</p>
 <div class="diagram" style="flex-direction:column;gap:0.5rem;">
 <div style="display:flex;justify-content:space-around;width:100%;">
 <div class="diagram-box green">User</div>
-<div class="diagram-box purple">Login Page</div>
-<div class="diagram-box pink">Server</div>
-<div class="diagram-box cyan">Database</div>
+<div class="diagram-box purple">ATM</div>
+<div class="diagram-box pink">Bank Server</div>
 </div>
 <div style="color:var(--text-muted);font-size:0.8rem;text-align:left;width:100%;padding:0.5rem;">
-1. User enters credentials &rarr; Login Page<br>
-2. Login Page sends request &rarr; Server<br>
-3. Server queries &rarr; Database<br>
-4. Database returns result &rarr; Server<br>
-5. Server sends response &rarr; Login Page<br>
-6. Login Page shows result &rarr; User
+1. User inserts card &rarr; ATM<br>2. ATM asks for PIN &rarr; User<br>3. User enters PIN &rarr; ATM<br>4. ATM verifies PIN &rarr; Bank Server<br>5. Bank Server returns result &rarr; ATM<br>6. ATM shows balance &rarr; User</div>
 </div>
-</div>
-</div>
+<div class="explain-box orange"><strong>Step by step:</strong><br>1. Objects are drawn as boxes at the top<br>2. Dashed vertical lines go down (lifelines)<br>3. Horizontal arrows show messages in order<br>4. Time flows from top to bottom<br>5. Each arrow is numbered to show sequence</div>
 
-<div class="topic">
-<h4>5. State Diagram</h4>
-<p data-lang="en">State Diagram shows the different states of an object and transitions between them based on events.</p>
-<p data-lang="hi">State Diagram ek object ki different states aur events ke basis pe transitions dikhata hai.</p>
-<div class="syntax-box"><strong>Elements:</strong><br>- State: rounded rectangle<br>- Transition: arrow with event label<br>- Initial State: filled circle<br>- Final State: circle with ring</div>
+<h4>2.5 Activity Diagram</h4>
+<p data-lang="en">Activity Diagram is like a flowchart showing the flow of activities, decisions, and parallel actions from start to finish.</p>
+<p data-lang="hi">Activity Diagram ek flowchart ki tarah hai jo start se finish tak activities, decisions, aur parallel actions ka flow dikhata hai.</p>
 <div class="diagram">
-<div class="diagram-box green">New</div>
-<span class="diagram-arrow">&rarr;</span>
-<div class="diagram-box purple">Open</div>
-<span class="diagram-arrow">&rarr;</span>
-<div class="diagram-box orange">In Progress</div>
-<span class="diagram-arrow">&rarr;</span>
-<div class="diagram-box pink">Resolved</div>
-<span class="diagram-arrow">&rarr;</span>
-<div class="diagram-box cyan">Closed</div>
+<div class="diagram-box green">Start</div><span class="diagram-arrow">&rarr;</span>
+<div class="diagram-box purple">Enter Credentials</div><span class="diagram-arrow">&rarr;</span>
+<div class="diagram-box orange">Valid?</div><span class="diagram-arrow">&rarr;</span>
+<div class="diagram-box cyan">Show Dashboard</div><span class="diagram-arrow">&rarr;</span>
+<div class="diagram-box pink">End</div>
 </div>
-<p style="color:var(--text-muted);font-size:0.85rem;text-align:center;">Example: Bug Tracking System states</p>
-</div>
-
-<div class="topic">
-<h4>6. Activity Diagram</h4>
-<p data-lang="en">Activity Diagram is like a flowchart. It shows the flow of activities from start to end, including decisions and parallel activities.</p>
-<p data-lang="hi">Activity Diagram flowchart jaisa hota hai. Ye start se end tak activities ka flow dikhata hai, decisions aur parallel activities ke saath.</p>
-<div class="syntax-box"><strong>Elements:</strong><br>- Start: filled circle<br>- End: circle with ring<br>- Activity: rounded rectangle<br>- Decision: diamond shape<br>- Fork/Join: thick horizontal bar (for parallel)</div>
-<div class="diagram">
-<div class="diagram-box green">Start</div>
-<span class="diagram-arrow">&rarr;</span>
-<div class="diagram-box purple">Enter Username</div>
-<span class="diagram-arrow">&rarr;</span>
-<div class="diagram-box pink">Check Password</div>
-<span class="diagram-arrow">&rarr;</span>
-<div class="diagram-box orange">Valid?</div>
-<span class="diagram-arrow">&rarr;</span>
-<div class="diagram-box cyan">Dashboard</div>
-</div>
-<p style="color:var(--text-muted);font-size:0.85rem;text-align:center;">If invalid, go back to "Enter Username"</p>
-</div>
+<div class="explain-box"><strong>Step by step:</strong><br>1. Filled circle = start node<br>2. Rounded rectangles = activities<br>3. Diamond shape = decision (if/else)<br>4. If valid, go to dashboard. If not, go back to enter credentials<br>5. Circle with ring = end node</div>
+<a href="https://www.geeksforgeeks.org/unified-modeling-language-uml-activity-diagrams/" target="_blank" class="card-link">Try reading more &rarr;</a>
 
 <!-- Activity Unit 2 -->
-<div class="activity"><h4>Activity - Unit 2</h4>
-<div class="mcq"><p class="q">Q1. Use Case Diagram shows the system from whose perspective?</p><button class="opt" onclick="ck(this,true)">User</button><button class="opt" onclick="ck(this,false)">Developer</button><button class="opt" onclick="ck(this,false)">Database</button><span class="ans"></span></div>
-<div class="mcq"><p class="q">Q2. Class Diagram belongs to which category?</p><button class="opt" onclick="ck(this,true)">Structural</button><button class="opt" onclick="ck(this,false)">Behavioral</button><button class="opt" onclick="ck(this,false)">Deployment</button><span class="ans"></span></div>
-<div class="mcq"><p class="q">Q3. Sequence Diagram shows interaction in?</p><button class="opt" onclick="ck(this,true)">Time order</button><button class="opt" onclick="ck(this,false)">Random order</button><button class="opt" onclick="ck(this,false)">Alphabetical order</button><span class="ans"></span></div>
+<div class="activity"><h4>Activity: Unit 2 MCQs</h4>
+<div class="mcq"><p class="q">Q1. Use Case Diagram shows system from whose view?</p><button class="opt" onclick="ck(this,true)">User</button><button class="opt" onclick="ck(this,false)">Developer</button><button class="opt" onclick="ck(this,false)">Database</button><span class="ans"></span></div>
+<div class="mcq"><p class="q">Q2. Class Diagram is which type?</p><button class="opt" onclick="ck(this,true)">Structural</button><button class="opt" onclick="ck(this,false)">Behavioral</button><button class="opt" onclick="ck(this,false)">Deployment</button><span class="ans"></span></div>
+<div class="mcq"><p class="q">Q3. In Sequence Diagram, time flows?</p><button class="opt" onclick="ck(this,true)">Top to bottom</button><button class="opt" onclick="ck(this,false)">Left to right</button><button class="opt" onclick="ck(this,false)">Random</button><span class="ans"></span></div>
 </div>
-
 </div></div>
 
-<!-- ===== UNIT 3: Design Patterns ===== -->
+<!-- UNIT 3 -->
 <div class="unit-section">
 <div class="unit-header" onclick="toggleUnit(this)">
 <div class="unit-number purple">3</div>
@@ -265,202 +200,91 @@
 </div>
 <div class="unit-content">
 
-<div class="topic">
-<h4>1. What are Design Patterns</h4>
-<p data-lang="en">Design Patterns are proven solutions to common software design problems. They are templates, not code. There are 3 types: Creational, Structural, and Behavioral.</p>
-<p data-lang="hi">Design Patterns common software design problems ke proven solutions hain. Ye templates hain, code nahi. 3 types hain: Creational, Structural, aur Behavioral.</p>
-<div class="table-wrapper">
-<table>
-<tr><th>Type</th><th>Purpose</th><th>Examples</th></tr>
+<h4>3.1 What are Design Patterns</h4>
+<p data-lang="en">Design Patterns are reusable solutions to common software design problems. They are templates (not actual code). Three categories: Creational, Structural, Behavioral.</p>
+<p data-lang="hi">Design Patterns common software design problems ke reusable solutions hain. Ye templates hain (actual code nahi). Teen categories: Creational, Structural, Behavioral.</p>
+<div class="table-wrapper"><table>
+<tr><th>Category</th><th>Purpose</th><th>Examples</th></tr>
 <tr><td>Creational</td><td>Object creation</td><td>Singleton, Factory, Builder</td></tr>
 <tr><td>Structural</td><td>Class composition</td><td>Adapter, Decorator, Facade</td></tr>
-<tr><td>Behavioral</td><td>Object interaction</td><td>Observer, Strategy, Command</td></tr>
-</table>
-</div>
-</div>
+<tr><td>Behavioral</td><td>Object communication</td><td>Observer, Strategy, Command</td></tr>
+</table></div>
 
-<div class="topic">
-<h4>2. Singleton Pattern</h4>
-<p data-lang="en">Singleton ensures only one instance of a class exists. Useful for database connections, loggers, and configuration.</p>
-<p data-lang="hi">Singleton ensure karta hai ki class ka sirf ek instance ho. Database connections, loggers, aur configuration ke liye useful hai.</p>
-<div class="example"><strong>Java Code:</strong>
-<pre class="code">class Logger {
-    private static Logger instance;
-    private Logger() { }
+<h4>3.2 Singleton Pattern</h4>
+<p data-lang="en">Singleton ensures only ONE instance of a class exists throughout the application. Useful for loggers, database connections.</p>
+<p data-lang="hi">Singleton ensure karta hai ki class ka sirf EK instance pure application mein exist kare. Loggers, database connections ke liye useful hai.</p>
+<div class="code-block"><span class="code-label">Java</span><pre><span class="kw">class</span> <span class="fn">Logger</span> {
+    <span class="kw">private static</span> Logger instance;        <span class="cm">// single instance stored here</span>
+    <span class="kw">private</span> <span class="fn">Logger</span>() { }                    <span class="cm">// private constructor blocks new</span>
 
-    public static Logger getInstance() {
-        if (instance == null) {
-            instance = new Logger();
+    <span class="kw">public static</span> Logger <span class="fn">getInstance</span>() {
+        <span class="kw">if</span> (instance == <span class="kw">null</span>) {
+            instance = <span class="kw">new</span> <span class="fn">Logger</span>();          <span class="cm">// create only if not exists</span>
         }
-        return instance;
+        <span class="kw">return</span> instance;
     }
 
-    public void log(String msg) {
-        System.out.println("[LOG] " + msg);
+    <span class="kw">public void</span> <span class="fn">log</span>(String msg) {
+        System.out.<span class="fn">println</span>(<span class="str">"[LOG] "</span> + msg);
     }
+}</pre></div>
+<div class="explain-box green"><strong>Step by step (what each line does):</strong><br>1. <code>private static Logger instance</code> - holds the single object<br>2. <code>private Logger()</code> - constructor is private so no one can call new Logger()<br>3. <code>getInstance()</code> - this is the only way to get the object<br>4. <code>if (instance == null)</code> - checks if object already exists<br>5. If not, creates one. If yes, returns the same object<br>6. Result: l1 == l2 will be true (same reference)</div>
+<a href="terminal.html" class="card-link">Try it yourself &rarr;</a>
+
+<h4>3.3 Factory Pattern</h4>
+<p data-lang="en">Factory Pattern creates objects without exposing creation logic. You ask the factory for an object by type, it gives you the right one.</p>
+<p data-lang="hi">Factory Pattern objects create karta hai bina creation logic expose kiye. Aap factory se type ke basis pe object maango, wo sahi object de deta hai.</p>
+<div class="code-block"><span class="code-label">Java</span><pre><span class="kw">interface</span> <span class="fn">Shape</span> {
+    <span class="kw">void</span> <span class="fn">draw</span>();
 }
-
-public class Main {
-    public static void main(String[] args) {
-        Logger l1 = Logger.getInstance();
-        Logger l2 = Logger.getInstance();
-        l1.log("Server started");
-        System.out.println(l1 == l2);  // true, same object
-    }
-}</pre>
-<div class="output"><strong>Output:</strong><br>[LOG] Server started<br>true</div>
-</div>
-<a href="terminal.html" class="try-btn">Try it Yourself &rarr;</a>
-</div>
-
-<div class="topic">
-<h4>3. Factory Pattern</h4>
-<p data-lang="en">Factory pattern creates objects without exposing creation logic. The client uses a factory method instead of "new".</p>
-<p data-lang="hi">Factory pattern objects banata hai bina creation logic expose kiye. Client "new" ke bajaye factory method use karta hai.</p>
-<div class="example"><strong>Java Code:</strong>
-<pre class="code">interface Notification {
-    void send(String message);
+<span class="kw">class</span> <span class="fn">Circle</span> <span class="kw">implements</span> Shape {
+    <span class="kw">public void</span> <span class="fn">draw</span>() { System.out.<span class="fn">println</span>(<span class="str">"Drawing Circle"</span>); }
 }
-
-class EmailNotification implements Notification {
-    public void send(String message) {
-        System.out.println("Email: " + message);
-    }
+<span class="kw">class</span> <span class="fn">Square</span> <span class="kw">implements</span> Shape {
+    <span class="kw">public void</span> <span class="fn">draw</span>() { System.out.<span class="fn">println</span>(<span class="str">"Drawing Square"</span>); }
 }
-
-class SMSNotification implements Notification {
-    public void send(String message) {
-        System.out.println("SMS: " + message);
+<span class="kw">class</span> <span class="fn">ShapeFactory</span> {
+    Shape <span class="fn">create</span>(String type) {
+        <span class="kw">if</span> (type.equals(<span class="str">"circle"</span>)) <span class="kw">return new</span> <span class="fn">Circle</span>();
+        <span class="kw">if</span> (type.equals(<span class="str">"square"</span>)) <span class="kw">return new</span> <span class="fn">Square</span>();
+        <span class="kw">return null</span>;
     }
+}</pre></div>
+<div class="explain-box"><strong>Step by step:</strong><br>1. Define a common interface (Shape) with a method draw()<br>2. Create concrete classes (Circle, Square) that implement Shape<br>3. ShapeFactory has a create() method that takes a type string<br>4. Based on the string, it returns the correct object<br>5. Client never uses "new Circle()" directly, only factory.create("circle")</div>
+<a href="terminal.html" class="card-link">Try it yourself &rarr;</a>
+
+<h4>3.4 Observer Pattern</h4>
+<p data-lang="en">Observer Pattern lets multiple objects (subscribers) listen for changes in another object (publisher). When state changes, all subscribers get notified.</p>
+<p data-lang="hi">Observer Pattern multiple objects (subscribers) ko ek object (publisher) ke changes sunne deta hai. Jab state change hoti hai, sab subscribers ko notify kiya jaata hai.</p>
+<div class="code-block"><span class="code-label">Java</span><pre><span class="kw">interface</span> <span class="fn">Observer</span> {
+    <span class="kw">void</span> <span class="fn">update</span>(String msg);
 }
-
-class NotificationFactory {
-    public Notification create(String type) {
-        if (type.equals("email")) return new EmailNotification();
-        if (type.equals("sms")) return new SMSNotification();
-        return null;
-    }
-}
-
-public class Main {
-    public static void main(String[] args) {
-        NotificationFactory factory = new NotificationFactory();
-        Notification n = factory.create("email");
-        n.send("Hello!");
-    }
-}</pre>
-<div class="output"><strong>Output:</strong><br>Email: Hello!</div>
-</div>
-<a href="terminal.html" class="try-btn">Try it Yourself &rarr;</a>
-</div>
-
-<div class="topic">
-<h4>4. Observer Pattern</h4>
-<p data-lang="en">Observer pattern lets objects subscribe to events. When state changes, all subscribers are notified automatically.</p>
-<p data-lang="hi">Observer pattern objects ko events subscribe karne deta hai. Jab state change hoti hai, sab subscribers ko automatically notify kiya jaata hai.</p>
-<div class="example"><strong>Java Code:</strong>
-<pre class="code">import java.util.ArrayList;
-import java.util.List;
-
-interface Observer {
-    void update(String message);
-}
-
-class Student implements Observer {
+<span class="kw">class</span> <span class="fn">Student</span> <span class="kw">implements</span> Observer {
     String name;
-    Student(String name) { this.name = name; }
-    public void update(String message) {
-        System.out.println(name + " received: " + message);
+    <span class="fn">Student</span>(String name) { <span class="kw">this</span>.name = name; }
+    <span class="kw">public void</span> <span class="fn">update</span>(String msg) {
+        System.out.<span class="fn">println</span>(name + <span class="str">" received: "</span> + msg);
     }
 }
-
-class Teacher {
-    List&lt;Observer&gt; students = new ArrayList&lt;&gt;();
-
-    void subscribe(Observer o) { students.add(o); }
-
-    void notifyAll(String msg) {
-        for (Observer o : students) {
-            o.update(msg);
-        }
+<span class="kw">class</span> <span class="fn">Teacher</span> {
+    List&lt;Observer&gt; students = <span class="kw">new</span> ArrayList&lt;&gt;();
+    <span class="kw">void</span> <span class="fn">subscribe</span>(Observer o) { students.<span class="fn">add</span>(o); }
+    <span class="kw">void</span> <span class="fn">notifyAll</span>(String msg) {
+        <span class="kw">for</span> (Observer o : students) o.<span class="fn">update</span>(msg);
     }
-}
-
-public class Main {
-    public static void main(String[] args) {
-        Teacher t = new Teacher();
-        t.subscribe(new Student("Rahul"));
-        t.subscribe(new Student("Priya"));
-        t.notifyAll("Assignment due tomorrow!");
-    }
-}</pre>
-<div class="output"><strong>Output:</strong><br>Rahul received: Assignment due tomorrow!<br>Priya received: Assignment due tomorrow!</div>
-</div>
-<a href="terminal.html" class="try-btn">Try it Yourself &rarr;</a>
-</div>
-
-<div class="topic">
-<h4>5. Strategy Pattern</h4>
-<p data-lang="en">Strategy pattern lets you choose an algorithm at runtime. You define a family of algorithms and make them interchangeable.</p>
-<p data-lang="hi">Strategy pattern runtime pe algorithm choose karne deta hai. Aap algorithms ka ek family define karte ho aur unhe interchangeable banate ho.</p>
-<div class="example"><strong>Java Code:</strong>
-<pre class="code">interface SortStrategy {
-    void sort(int[] arr);
-}
-
-class BubbleSort implements SortStrategy {
-    public void sort(int[] arr) {
-        System.out.println("Sorting with Bubble Sort");
-        // bubble sort logic here
-    }
-}
-
-class QuickSort implements SortStrategy {
-    public void sort(int[] arr) {
-        System.out.println("Sorting with Quick Sort");
-        // quick sort logic here
-    }
-}
-
-class Sorter {
-    private SortStrategy strategy;
-
-    void setStrategy(SortStrategy s) {
-        this.strategy = s;
-    }
-
-    void sort(int[] arr) {
-        strategy.sort(arr);
-    }
-}
-
-public class Main {
-    public static void main(String[] args) {
-        Sorter sorter = new Sorter();
-        int[] data = {5, 2, 8, 1};
-
-        sorter.setStrategy(new BubbleSort());
-        sorter.sort(data);
-
-        sorter.setStrategy(new QuickSort());
-        sorter.sort(data);
-    }
-}</pre>
-<div class="output"><strong>Output:</strong><br>Sorting with Bubble Sort<br>Sorting with Quick Sort</div>
-</div>
-<a href="terminal.html" class="try-btn">Try it Yourself &rarr;</a>
-</div>
+}</pre></div>
+<div class="explain-box orange"><strong>Step by step:</strong><br>1. Observer interface has update() method<br>2. Student implements Observer, prints the message<br>3. Teacher maintains a list of subscribed students<br>4. subscribe() adds a student to the list<br>5. notifyAll() loops through and calls update() on each<br>6. When teacher posts, every subscribed student gets the message</div>
+<a href="terminal.html" class="card-link">Try it yourself &rarr;</a>
 
 <!-- Activity Unit 3 -->
-<div class="activity"><h4>Activity - Unit 3</h4>
-<div class="mcq"><p class="q">Q1. Singleton pattern creates how many objects?</p><button class="opt" onclick="ck(this,true)">Only one</button><button class="opt" onclick="ck(this,false)">Multiple</button><button class="opt" onclick="ck(this,false)">Zero</button><span class="ans"></span></div>
-<div class="mcq"><p class="q">Q2. Factory pattern belongs to which category?</p><button class="opt" onclick="ck(this,true)">Creational</button><button class="opt" onclick="ck(this,false)">Structural</button><button class="opt" onclick="ck(this,false)">Behavioral</button><span class="ans"></span></div>
-<div class="mcq"><p class="q">Q3. Observer pattern is used for?</p><button class="opt" onclick="ck(this,false)">Creating objects</button><button class="opt" onclick="ck(this,true)">Notifying subscribers</button><button class="opt" onclick="ck(this,false)">Sorting data</button><span class="ans"></span></div>
+<div class="activity"><h4>Activity: Unit 3 MCQs</h4>
+<div class="mcq"><p class="q">Q1. Singleton allows how many instances?</p><button class="opt" onclick="ck(this,true)">Only one</button><button class="opt" onclick="ck(this,false)">Unlimited</button><button class="opt" onclick="ck(this,false)">Two</button><span class="ans"></span></div>
+<div class="mcq"><p class="q">Q2. Factory pattern belongs to?</p><button class="opt" onclick="ck(this,true)">Creational</button><button class="opt" onclick="ck(this,false)">Structural</button><button class="opt" onclick="ck(this,false)">Behavioral</button><span class="ans"></span></div>
+<div class="mcq"><p class="q">Q3. Observer pattern is used for?</p><button class="opt" onclick="ck(this,false)">Creating objects</button><button class="opt" onclick="ck(this,true)">Notifying subscribers</button><button class="opt" onclick="ck(this,false)">Sorting arrays</button><span class="ans"></span></div>
 </div>
-
 </div></div>
 
-<!-- ===== UNIT 4: Testing ===== -->
+<!-- UNIT 4 -->
 <div class="unit-section">
 <div class="unit-header" onclick="toggleUnit(this)">
 <div class="unit-number pink">4</div>
@@ -469,126 +293,52 @@ public class Main {
 </div>
 <div class="unit-content">
 
-<div class="topic">
-<h4>1. Types of Testing</h4>
-<p data-lang="en">Testing verifies that software works correctly. There are different levels of testing.</p>
-<p data-lang="hi">Testing verify karta hai ki software sahi kaam kar raha hai. Testing ke alag-alag levels hote hain.</p>
-<div class="table-wrapper">
-<table>
+<h4>4.1 Types of Testing</h4>
+<p data-lang="en">Testing verifies that software works correctly. Different levels target different parts of the system.</p>
+<p data-lang="hi">Testing verify karta hai ki software sahi kaam karta hai. Alag levels system ke alag parts ko target karte hain.</p>
+<div class="table-wrapper"><table>
 <tr><th>Type</th><th>What it tests</th><th>Done by</th></tr>
-<tr><td>Unit Testing</td><td>Individual methods or functions</td><td>Developer</td></tr>
+<tr><td>Unit Testing</td><td>Individual functions/methods</td><td>Developer</td></tr>
 <tr><td>Integration Testing</td><td>Interaction between modules</td><td>Developer/Tester</td></tr>
-<tr><td>System Testing</td><td>Complete system end-to-end</td><td>Testing Team</td></tr>
-<tr><td>Acceptance Testing</td><td>Does it meet user requirements?</td><td>Client/User</td></tr>
-</table>
-</div>
-</div>
+<tr><td>System Testing</td><td>Complete system end-to-end</td><td>QA Team</td></tr>
+<tr><td>Acceptance Testing</td><td>Does it meet user needs?</td><td>Client</td></tr>
+</table></div>
+<div class="explain-box"><strong>Step by step:</strong><br>1. Developer writes unit tests for each function<br>2. Modules are combined and integration tested<br>3. Full system is tested as a whole<br>4. Client verifies it meets their requirements</div>
 
-<div class="topic">
-<h4>2. Black Box Testing</h4>
-<p data-lang="en">Black Box Testing tests the software without looking at internal code. You only check inputs and expected outputs.</p>
-<p data-lang="hi">Black Box Testing software ko bina internal code dekhe test karta hai. Sirf inputs aur expected outputs check karte hain.</p>
-<div class="syntax-box"><strong>Techniques:</strong><br>- Equivalence Partitioning: divide inputs into valid/invalid groups<br>- Boundary Value Analysis: test at boundaries (min, max, min-1, max+1)<br>- Decision Table: test combinations of conditions</div>
-<div class="example"><strong>Example:</strong>
-<pre class="code">// Testing a login function (black box)
-// We do NOT look at the code inside
+<h4>4.2 Black Box vs White Box Testing</h4>
+<p data-lang="en">Black Box tests inputs and outputs without seeing internal code. White Box tests the internal logic, paths, and branches of code.</p>
+<p data-lang="hi">Black Box inputs aur outputs test karta hai bina internal code dekhe. White Box code ki internal logic, paths, aur branches test karta hai.</p>
+<div class="table-wrapper"><table>
+<tr><th>Aspect</th><th>Black Box</th><th>White Box</th></tr>
+<tr><td>Code visible?</td><td>No</td><td>Yes</td></tr>
+<tr><td>Focus</td><td>What the system does</td><td>How the system does it</td></tr>
+<tr><td>Done by</td><td>Tester</td><td>Developer</td></tr>
+<tr><td>Techniques</td><td>Equivalence, Boundary</td><td>Statement, Branch coverage</td></tr>
+</table></div>
+<div class="explain-box green"><strong>Step by step (Black Box):</strong><br>1. Look at the requirements (not the code)<br>2. Create test inputs based on specs<br>3. Run the system with those inputs<br>4. Check if output matches expected result<br>5. You never open the source code</div>
+<div class="explain-box orange"><strong>Step by step (White Box):</strong><br>1. Open the source code and read it<br>2. Identify all if/else branches<br>3. Write tests that cover every branch<br>4. Ensure every line of code runs at least once<br>5. Check all possible paths through the code</div>
 
-// Test Case 1: Valid credentials
-Input: username="admin", password="1234"
-Expected: Login successful
-
-// Test Case 2: Wrong password
-Input: username="admin", password="wrong"
-Expected: Invalid password
-
-// Test Case 3: Empty fields
-Input: username="", password=""
-Expected: Fields cannot be empty</pre>
-</div>
-</div>
-
-<div class="topic">
-<h4>3. White Box Testing</h4>
-<p data-lang="en">White Box Testing tests the internal logic of the code. You check paths, branches, and conditions inside the code.</p>
-<p data-lang="hi">White Box Testing code ki internal logic test karta hai. Code ke andar paths, branches, aur conditions check karte hain.</p>
-<div class="syntax-box"><strong>Techniques:</strong><br>- Statement Coverage: every line executes at least once<br>- Branch Coverage: every if/else branch is tested<br>- Path Coverage: every possible path through code is tested</div>
-<div class="example"><strong>Example:</strong>
-<pre class="code">// Code to test
-int getDiscount(int amount) {
-    if (amount > 1000) {
-        return 20;   // Path 1
-    } else {
-        return 5;    // Path 2
-    }
-}
-
-// White box tests (we know the code):
-// Test 1: amount = 1500 (takes Path 1, returns 20)
-// Test 2: amount = 500  (takes Path 2, returns 5)
-// Both branches covered!</pre>
-</div>
-</div>
-
-<div class="topic">
-<h4>4. Test Case</h4>
-<p data-lang="en">A test case is a set of conditions to check if a feature works correctly. It has ID, description, input, expected output, and status.</p>
-<p data-lang="hi">Test case conditions ka set hai jo check karta hai ki feature sahi kaam kar raha hai. Ismein ID, description, input, expected output, aur status hota hai.</p>
-<div class="table-wrapper">
-<table>
+<h4>4.3 Test Case Example</h4>
+<p data-lang="en">A Test Case documents what to test, with what input, and what the expected result should be.</p>
+<p data-lang="hi">Test Case document karta hai ki kya test karna hai, kaunsa input dena hai, aur expected result kya hona chahiye.</p>
+<div class="table-wrapper"><table>
 <tr><th>ID</th><th>Description</th><th>Input</th><th>Expected Output</th><th>Status</th></tr>
-<tr><td>TC-01</td><td>Valid login</td><td>user: admin, pass: 1234</td><td>Login success</td><td style="color:var(--green)">Pass</td></tr>
-<tr><td>TC-02</td><td>Invalid password</td><td>user: admin, pass: wrong</td><td>Error message</td><td style="color:var(--green)">Pass</td></tr>
-<tr><td>TC-03</td><td>Empty username</td><td>user: "", pass: 1234</td><td>Validation error</td><td style="color:#ef4444">Fail</td></tr>
-<tr><td>TC-04</td><td>SQL injection</td><td>user: ' OR 1=1, pass: x</td><td>Blocked</td><td style="color:var(--green)">Pass</td></tr>
-</table>
-</div>
-</div>
-
-<div class="topic">
-<h4>5. JUnit Basics</h4>
-<p data-lang="en">JUnit is a testing framework for Java. You write test methods with @Test annotation. Use assertions to check results.</p>
-<p data-lang="hi">JUnit Java ke liye ek testing framework hai. @Test annotation ke saath test methods likhte hain. Assertions se results check karte hain.</p>
-<div class="syntax-box"><strong>Annotations:</strong><br><code>@Test - marks a test method<br>@BeforeEach - runs before each test<br>@AfterEach - runs after each test</code><br><br><strong>Assertions:</strong><br><code>assertEquals(expected, actual)<br>assertTrue(condition)<br>assertFalse(condition)<br>assertNull(object)</code></div>
-<div class="example"><strong>Java Code:</strong>
-<pre class="code">import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
-
-class Calculator {
-    int add(int a, int b) { return a + b; }
-    int divide(int a, int b) { return a / b; }
-}
-
-class CalculatorTest {
-    Calculator calc = new Calculator();
-
-    @Test
-    void testAdd() {
-        assertEquals(5, calc.add(2, 3));
-        assertEquals(0, calc.add(-1, 1));
-    }
-
-    @Test
-    void testDivide() {
-        assertEquals(5, calc.divide(10, 2));
-        assertThrows(ArithmeticException.class,
-            () -> calc.divide(10, 0));
-    }
-}</pre>
-<div class="output"><strong>Output:</strong><br>All tests passed (2 tests)</div>
-</div>
-<a href="terminal.html" class="try-btn">Try it Yourself &rarr;</a>
-</div>
+<tr><td>TC-01</td><td>Valid login</td><td>user: admin, pass: 1234</td><td>Login success</td><td style="color:var(--green);">Pass</td></tr>
+<tr><td>TC-02</td><td>Wrong password</td><td>user: admin, pass: wrong</td><td>Error message</td><td style="color:var(--green);">Pass</td></tr>
+<tr><td>TC-03</td><td>Empty fields</td><td>user: "", pass: ""</td><td>Validation error</td><td style="color:#ef4444;">Fail</td></tr>
+<tr><td>TC-04</td><td>SQL injection</td><td>user: ' OR 1=1, pass: x</td><td>Blocked</td><td style="color:var(--green);">Pass</td></tr>
+</table></div>
+<div class="explain-box"><strong>Step by step to write a test case:</strong><br>1. Give it a unique ID (TC-01, TC-02...)<br>2. Write a short description of what you are testing<br>3. Define the input values<br>4. Write the expected output<br>5. Run the test and record Pass or Fail</div>
 
 <!-- Activity Unit 4 -->
-<div class="activity"><h4>Activity - Unit 4</h4>
-<div class="mcq"><p class="q">Q1. Black Box Testing focuses on?</p><button class="opt" onclick="ck(this,true)">Input and Output</button><button class="opt" onclick="ck(this,false)">Internal code</button><button class="opt" onclick="ck(this,false)">Database</button><span class="ans"></span></div>
-<div class="mcq"><p class="q">Q2. Unit Testing is done by?</p><button class="opt" onclick="ck(this,true)">Developer</button><button class="opt" onclick="ck(this,false)">Client</button><button class="opt" onclick="ck(this,false)">End User</button><span class="ans"></span></div>
-<div class="mcq"><p class="q">Q3. @Test annotation is from which framework?</p><button class="opt" onclick="ck(this,true)">JUnit</button><button class="opt" onclick="ck(this,false)">Selenium</button><button class="opt" onclick="ck(this,false)">TestNG</button><span class="ans"></span></div>
+<div class="activity"><h4>Activity: Unit 4 MCQs</h4>
+<div class="mcq"><p class="q">Q1. Black Box focuses on?</p><button class="opt" onclick="ck(this,true)">Input and Output</button><button class="opt" onclick="ck(this,false)">Internal code paths</button><button class="opt" onclick="ck(this,false)">Database schema</button><span class="ans"></span></div>
+<div class="mcq"><p class="q">Q2. Unit testing is done by?</p><button class="opt" onclick="ck(this,true)">Developer</button><button class="opt" onclick="ck(this,false)">Client</button><button class="opt" onclick="ck(this,false)">Manager</button><span class="ans"></span></div>
+<div class="mcq"><p class="q">Q3. White Box checks?</p><button class="opt" onclick="ck(this,false)">Only UI</button><button class="opt" onclick="ck(this,true)">Code branches and paths</button><button class="opt" onclick="ck(this,false)">User satisfaction</button><span class="ans"></span></div>
 </div>
-
 </div></div>
 
-<!-- ===== UNIT 5: SOLID Principles ===== -->
+<!-- UNIT 5 -->
 <div class="unit-section">
 <div class="unit-header" onclick="toggleUnit(this)">
 <div class="unit-number cyan">5</div>
@@ -597,208 +347,135 @@ class CalculatorTest {
 </div>
 <div class="unit-content">
 
-<div class="topic">
-<h4>1. S: Single Responsibility Principle</h4>
-<p data-lang="en">A class should have only one reason to change. One class, one job.</p>
-<p data-lang="hi">Ek class ko change karne ki sirf ek reason honi chahiye. Ek class, ek kaam.</p>
-<div class="example"><strong>Java Code:</strong>
-<pre class="code">// BAD: One class doing multiple jobs
-class Student {
-    void saveToDatabase() { }
-    void generateReport() { }
-    void sendEmail() { }
+<h4>5.1 S: Single Responsibility Principle</h4>
+<p data-lang="en">A class should have only ONE reason to change. Each class does one job only.</p>
+<p data-lang="hi">Ek class ke paas change hone ki sirf EK reason honi chahiye. Har class sirf ek kaam kare.</p>
+<div class="code-block"><span class="code-label">Java</span><pre><span class="cm">// BAD: Student class does too many things</span>
+<span class="kw">class</span> <span class="fn">Student</span> {
+    <span class="kw">void</span> <span class="fn">saveToDatabase</span>() { }   <span class="cm">// job 1: database</span>
+    <span class="kw">void</span> <span class="fn">generatePDF</span>() { }      <span class="cm">// job 2: report</span>
+    <span class="kw">void</span> <span class="fn">sendEmail</span>() { }        <span class="cm">// job 3: notification</span>
 }
 
-// GOOD: Each class has one job
-class Student {
-    String name;
-    int roll;
+<span class="cm">// GOOD: separate classes for separate jobs</span>
+<span class="kw">class</span> <span class="fn">Student</span> { String name; <span class="kw">int</span> roll; }
+<span class="kw">class</span> <span class="fn">StudentDB</span> {
+    <span class="kw">void</span> <span class="fn">save</span>(Student s) { System.out.<span class="fn">println</span>(<span class="str">"Saved "</span> + s.name); }
+}
+<span class="kw">class</span> <span class="fn">ReportService</span> {
+    <span class="kw">void</span> <span class="fn">generate</span>(Student s) { System.out.<span class="fn">println</span>(<span class="str">"PDF for "</span> + s.name); }
+}</pre></div>
+<div class="explain-box"><strong>Step by step (what each line does):</strong><br>1. BAD version: Student has 3 different jobs (database, PDF, email)<br>2. If email logic changes, you must modify Student class<br>3. GOOD version: Student only holds data (name, roll)<br>4. StudentDB handles saving to database only<br>5. ReportService handles PDF generation only<br>6. Now each class has exactly one reason to change</div>
+
+<h4>5.2 O: Open/Closed Principle</h4>
+<p data-lang="en">Classes should be open for extension but closed for modification. Add new features by creating new classes, not changing existing ones.</p>
+<p data-lang="hi">Classes extension ke liye open honi chahiye lekin modification ke liye closed. Naya feature add karne ke liye nayi class banao, purani mat badlo.</p>
+<div class="code-block"><span class="code-label">Java</span><pre><span class="kw">interface</span> <span class="fn">Discount</span> {
+    <span class="kw">double</span> <span class="fn">calculate</span>(<span class="kw">double</span> price);
+}
+<span class="kw">class</span> <span class="fn">RegularDiscount</span> <span class="kw">implements</span> Discount {
+    <span class="kw">public double</span> <span class="fn">calculate</span>(<span class="kw">double</span> price) { <span class="kw">return</span> price * <span class="num">0.1</span>; }
+}
+<span class="kw">class</span> <span class="fn">PremiumDiscount</span> <span class="kw">implements</span> Discount {
+    <span class="kw">public double</span> <span class="fn">calculate</span>(<span class="kw">double</span> price) { <span class="kw">return</span> price * <span class="num">0.2</span>; }
+}
+<span class="cm">// To add new discount: just create new class, no old code changes</span>
+<span class="kw">class</span> <span class="fn">FestivalDiscount</span> <span class="kw">implements</span> Discount {
+    <span class="kw">public double</span> <span class="fn">calculate</span>(<span class="kw">double</span> price) { <span class="kw">return</span> price * <span class="num">0.3</span>; }
+}</pre></div>
+<div class="explain-box green"><strong>Step by step (what each line does):</strong><br>1. <code>interface Discount</code> defines the contract: calculate(price)<br>2. RegularDiscount gives 10% off (price * 0.1)<br>3. PremiumDiscount gives 20% off (price * 0.2)<br>4. Need a festival discount? Create FestivalDiscount class<br>5. No existing class is modified<br>6. The system is "open" to new discounts, "closed" to edits</div>
+
+<h4>5.3 L: Liskov Substitution Principle</h4>
+<p data-lang="en">A child class should work anywhere the parent class is expected, without breaking the program.</p>
+<p data-lang="hi">Child class ko parent class ki jagah kahi bhi use kar sakte hain, program break nahi hona chahiye.</p>
+<div class="code-block"><span class="code-label">Java</span><pre><span class="kw">class</span> <span class="fn">Bird</span> {
+    <span class="kw">void</span> <span class="fn">eat</span>() { System.out.<span class="fn">println</span>(<span class="str">"Eating"</span>); }
+}
+<span class="kw">class</span> <span class="fn">Sparrow</span> <span class="kw">extends</span> Bird {
+    <span class="kw">void</span> <span class="fn">fly</span>() { System.out.<span class="fn">println</span>(<span class="str">"Flying"</span>); }
 }
 
-class StudentRepository {
-    void save(Student s) {
-        System.out.println("Saved " + s.name);
-    }
+<span class="cm">// This works: Sparrow can replace Bird</span>
+Bird b = <span class="kw">new</span> <span class="fn">Sparrow</span>();
+b.<span class="fn">eat</span>();  <span class="cm">// works perfectly</span>
+
+<span class="cm">// VIOLATION: Penguin extends Bird but cannot fly</span>
+<span class="cm">// Solution: separate FlyingBird interface</span></pre></div>
+<div class="explain-box orange"><strong>Step by step (what each line does):</strong><br>1. Bird is the parent class with eat() method<br>2. Sparrow extends Bird, adds fly()<br>3. <code>Bird b = new Sparrow()</code> means we use Sparrow as a Bird<br>4. b.eat() works because Sparrow inherits eat()<br>5. If Penguin extended a FlyingBird with fly(), it would break<br>6. Fix: only give fly() to birds that can actually fly</div>
+
+<h4>5.4 I: Interface Segregation Principle</h4>
+<p data-lang="en">Do not force a class to implement methods it does not need. Use many small interfaces instead of one large one.</p>
+<p data-lang="hi">Class ko aise methods implement karne pe force mat karo jo wo use nahi karta. Ek badi interface ke bajaye chhoti interfaces use karo.</p>
+<div class="code-block"><span class="code-label">Java</span><pre><span class="cm">// BAD: one big interface</span>
+<span class="kw">interface</span> <span class="fn">Worker</span> {
+    <span class="kw">void</span> <span class="fn">work</span>();
+    <span class="kw">void</span> <span class="fn">eat</span>();
+    <span class="kw">void</span> <span class="fn">sleep</span>();
 }
 
-class ReportGenerator {
-    void generate(Student s) {
-        System.out.println("Report for " + s.name);
-    }
-}</pre>
-</div>
-</div>
+<span class="cm">// GOOD: small focused interfaces</span>
+<span class="kw">interface</span> <span class="fn">Workable</span> { <span class="kw">void</span> <span class="fn">work</span>(); }
+<span class="kw">interface</span> <span class="fn">Eatable</span>  { <span class="kw">void</span> <span class="fn">eat</span>(); }
 
-<div class="topic">
-<h4>2. O: Open/Closed Principle</h4>
-<p data-lang="en">A class should be open for extension but closed for modification. Add new features by adding new code, not changing existing code.</p>
-<p data-lang="hi">Class extension ke liye open honi chahiye, modification ke liye closed. Naya feature add karo naya code likh ke, purana code change mat karo.</p>
-<div class="example"><strong>Java Code:</strong>
-<pre class="code">// Open for extension using interface
-interface Discount {
-    double calculate(double price);
+<span class="kw">class</span> <span class="fn">Robot</span> <span class="kw">implements</span> Workable {
+    <span class="kw">public void</span> <span class="fn">work</span>() { System.out.<span class="fn">println</span>(<span class="str">"Robot working"</span>); }
 }
+<span class="kw">class</span> <span class="fn">Human</span> <span class="kw">implements</span> Workable, Eatable {
+    <span class="kw">public void</span> <span class="fn">work</span>() { System.out.<span class="fn">println</span>(<span class="str">"Human working"</span>); }
+    <span class="kw">public void</span> <span class="fn">eat</span>() { System.out.<span class="fn">println</span>(<span class="str">"Human eating"</span>); }
+}</pre></div>
+<div class="explain-box"><strong>Step by step (what each line does):</strong><br>1. BAD: Worker forces eat() and sleep() on every implementor<br>2. Robot does not eat or sleep, but is forced to implement them<br>3. GOOD: split into Workable and Eatable<br>4. Robot implements only Workable (it only works)<br>5. Human implements both Workable and Eatable<br>6. No class is forced to have useless methods</div>
 
-class RegularDiscount implements Discount {
-    public double calculate(double price) {
-        return price * 0.1;
-    }
-}
-
-class PremiumDiscount implements Discount {
-    public double calculate(double price) {
-        return price * 0.2;
-    }
-}
-
-// Adding new discount = new class, no change to existing code
-class FestivalDiscount implements Discount {
-    public double calculate(double price) {
-        return price * 0.3;
-    }
-}</pre>
-</div>
-</div>
-
-<div class="topic">
-<h4>3. L: Liskov Substitution Principle</h4>
-<p data-lang="en">A child class should be usable wherever the parent class is used, without breaking the program.</p>
-<p data-lang="hi">Child class ko parent class ki jagah use karna chahiye bina program tode.</p>
-<div class="example"><strong>Java Code:</strong>
-<pre class="code">// GOOD: Child works wherever parent is expected
-class Bird {
-    void eat() { System.out.println("Eating"); }
-}
-
-class Sparrow extends Bird {
-    void fly() { System.out.println("Flying"); }
-}
-
-// This works fine:
-Bird b = new Sparrow();
-b.eat();  // works perfectly
-
-// BAD example: Penguin extends Bird with fly()
-// Penguin cannot fly, so it violates LSP
-// Solution: separate FlyingBird from Bird</pre>
-</div>
-</div>
-
-<div class="topic">
-<h4>4. I: Interface Segregation Principle</h4>
-<p data-lang="en">Do not force a class to implement methods it does not use. Use many small interfaces instead of one big interface.</p>
-<p data-lang="hi">Class ko aise methods implement karne par force mat karo jo wo use nahi karta. Ek badi interface ke bajaye bahut si chhoti interfaces use karo.</p>
-<div class="example"><strong>Java Code:</strong>
-<pre class="code">// BAD: One big interface
-interface Worker {
-    void work();
-    void eat();
-    void sleep();
-}
-
-// GOOD: Small, focused interfaces
-interface Workable {
-    void work();
-}
-
-interface Eatable {
-    void eat();
-}
-
-class Robot implements Workable {
-    public void work() {
-        System.out.println("Robot working");
-    }
-    // Robot does not need eat() or sleep()
-}
-
-class Human implements Workable, Eatable {
-    public void work() { System.out.println("Human working"); }
-    public void eat() { System.out.println("Human eating"); }
-}</pre>
-</div>
-</div>
-
-<div class="topic">
-<h4>5. D: Dependency Inversion Principle</h4>
+<h4>5.5 D: Dependency Inversion Principle</h4>
 <p data-lang="en">High-level modules should not depend on low-level modules. Both should depend on abstractions (interfaces).</p>
 <p data-lang="hi">High-level modules ko low-level modules pe depend nahi karna chahiye. Dono ko abstractions (interfaces) pe depend karna chahiye.</p>
-<div class="example"><strong>Java Code:</strong>
-<pre class="code">// BAD: High-level depends on low-level
-class MySQLDatabase {
-    void save(String data) { }
+<div class="code-block"><span class="code-label">Java</span><pre><span class="cm">// Abstraction (interface)</span>
+<span class="kw">interface</span> <span class="fn">Database</span> {
+    <span class="kw">void</span> <span class="fn">save</span>(String data);
 }
 
-class UserService {
-    MySQLDatabase db = new MySQLDatabase(); // tightly coupled
+<span class="cm">// Low-level modules</span>
+<span class="kw">class</span> <span class="fn">MySQL</span> <span class="kw">implements</span> Database {
+    <span class="kw">public void</span> <span class="fn">save</span>(String data) {
+        System.out.<span class="fn">println</span>(<span class="str">"MySQL: "</span> + data);
+    }
 }
-
-// GOOD: Both depend on abstraction
-interface Database {
-    void save(String data);
-}
-
-class MySQLDatabase implements Database {
-    public void save(String data) {
-        System.out.println("Saved to MySQL: " + data);
+<span class="kw">class</span> <span class="fn">MongoDB</span> <span class="kw">implements</span> Database {
+    <span class="kw">public void</span> <span class="fn">save</span>(String data) {
+        System.out.<span class="fn">println</span>(<span class="str">"Mongo: "</span> + data);
     }
 }
 
-class MongoDB implements Database {
-    public void save(String data) {
-        System.out.println("Saved to MongoDB: " + data);
-    }
-}
-
-class UserService {
+<span class="cm">// High-level module depends on interface, not class</span>
+<span class="kw">class</span> <span class="fn">UserService</span> {
     Database db;
-
-    UserService(Database db) {
-        this.db = db;  // depends on interface, not class
-    }
-
-    void createUser(String name) {
-        db.save(name);
-    }
-}
-
-public class Main {
-    public static void main(String[] args) {
-        Database db = new MongoDB();
-        UserService service = new UserService(db);
-        service.createUser("Rahul");
-    }
-}</pre>
-<div class="output"><strong>Output:</strong><br>Saved to MongoDB: Rahul</div>
-</div>
-<a href="terminal.html" class="try-btn">Try it Yourself &rarr;</a>
-</div>
+    <span class="fn">UserService</span>(Database db) { <span class="kw">this</span>.db = db; }
+    <span class="kw">void</span> <span class="fn">createUser</span>(String name) { db.<span class="fn">save</span>(name); }
+}</pre></div>
+<div class="explain-box cyan"><strong>Step by step (what each line does):</strong><br>1. <code>interface Database</code> is the abstraction with save()<br>2. MySQL and MongoDB are low-level (concrete) implementations<br>3. UserService is the high-level module (business logic)<br>4. UserService takes Database in its constructor (not MySQL directly)<br>5. You can pass MySQL or MongoDB, both work<br>6. To switch databases, just pass a different object. No code change in UserService</div>
+<a href="terminal.html" class="card-link">Try it yourself &rarr;</a>
 
 <!-- Activity Unit 5 -->
-<div class="activity"><h4>Activity - Unit 5</h4>
+<div class="activity"><h4>Activity: Unit 5 MCQs</h4>
 <div class="mcq"><p class="q">Q1. SRP means a class should have?</p><button class="opt" onclick="ck(this,true)">One reason to change</button><button class="opt" onclick="ck(this,false)">Many responsibilities</button><button class="opt" onclick="ck(this,false)">No methods</button><span class="ans"></span></div>
 <div class="mcq"><p class="q">Q2. Open/Closed means open for?</p><button class="opt" onclick="ck(this,true)">Extension</button><button class="opt" onclick="ck(this,false)">Modification</button><button class="opt" onclick="ck(this,false)">Deletion</button><span class="ans"></span></div>
-<div class="mcq"><p class="q">Q3. Dependency Inversion says depend on?</p><button class="opt" onclick="ck(this,true)">Abstractions</button><button class="opt" onclick="ck(this,false)">Concrete classes</button><button class="opt" onclick="ck(this,false)">Variables</button><span class="ans"></span></div>
+<div class="mcq"><p class="q">Q3. Dependency Inversion says depend on?</p><button class="opt" onclick="ck(this,true)">Abstractions (interfaces)</button><button class="opt" onclick="ck(this,false)">Concrete classes</button><button class="opt" onclick="ck(this,false)">Global variables</button><span class="ans"></span></div>
 </div>
-
 </div></div>
 
 </main>
 
 <footer class="footer">
-<div class="footer-brand">Prof. Manoj Purohit - MCA Learning Hub - GGSIPU</div>
+<div class="footer-brand">Prof. Manoj Purohit | MCA Learning Hub | GGSIPU</div>
 <p>&copy; 2024 All Rights Reserved</p>
 </footer>
 
 <script>
-function toggleUnit(header){const s=header.parentElement;s.classList.toggle('open')}
-function ck(b,c){const m=b.closest('.mcq'),a=m.querySelector('.ans');m.querySelectorAll('.opt').forEach(o=>{o.disabled=true;});if(c){b.style.background='rgba(16,185,129,.2)';b.style.borderColor='#10B981';a.textContent='Correct!';a.style.color='#10B981';}else{b.style.background='rgba(239,68,68,.2)';b.style.borderColor='#ef4444';a.textContent='Wrong!';a.style.color='#ef4444';}}
-const langBtn=document.getElementById('langToggle');
-let isHindi=false;
-langBtn.addEventListener('click',()=>{isHindi=!isHindi;document.body.classList.toggle('hinglish',isHindi);const spans=langBtn.querySelectorAll('span');spans[0].classList.toggle('active',!isHindi);spans[2].classList.toggle('active',isHindi)});
-const hamburger=document.getElementById('hamburger');
-const mobileMenu=document.getElementById('mobileMenu');
-hamburger.addEventListener('click',()=>mobileMenu.classList.toggle('open'));
+function toggleUnit(h){h.parentElement.classList.toggle('open')}
+function ck(b,c){const m=b.closest('.mcq'),a=m.querySelector('.ans');m.querySelectorAll('.opt').forEach(o=>o.disabled=true);if(c){b.style.background='rgba(16,185,129,.2)';b.style.borderColor='#10B981';a.textContent='Correct!';a.style.color='#10B981';}else{b.style.background='rgba(239,68,68,.2)';b.style.borderColor='#ef4444';a.textContent='Wrong!';a.style.color='#ef4444';}}
+const langBtn=document.getElementById('langToggle');let isHi=false;
+langBtn.addEventListener('click',()=>{isHi=!isHi;document.body.classList.toggle('hinglish',isHi);const s=langBtn.querySelectorAll('span');s[0].classList.toggle('active',!isHi);s[2].classList.toggle('active',isHi);});
+document.getElementById('hamburger').addEventListener('click',()=>document.getElementById('mobileMenu').classList.toggle('open'));
 </script>
 </body>
 </html>
