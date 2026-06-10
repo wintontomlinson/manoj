@@ -381,7 +381,7 @@
         function togglePwd(index, enrollment) {
             const el = document.getElementById('pwd-' + index);
             if (el.textContent === '••••••••') {
-                el.textContent = enrollment.slice(0, 4) + 'mca';
+                el.textContent = enrollment.slice(-4).split('').reverse().join('') + '@mca';
                 el.style.color = 'var(--green)';
                 el.style.fontFamily = 'var(--font-mono)';
             } else {
@@ -611,7 +611,7 @@
             const students = getStudents();
             const data = [['S.No', 'Enrollment', 'Name', 'Password', 'Added On']];
             students.forEach((s, i) => {
-                data.push([i + 1, s.enrollment, s.name, s.enrollment.slice(0, 4) + 'mca', s.addedOn]);
+                data.push([i + 1, s.enrollment, s.name, s.enrollment.slice(-4).split('').reverse().join('') + '@mca', s.addedOn]);
             });
             downloadCSV(data, 'students_list.csv');
         }
