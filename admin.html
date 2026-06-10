@@ -62,6 +62,7 @@
             <button class="dash-tab active" onclick="switchDashTab('students')">👥 Manage Students</button>
             <button class="dash-tab" onclick="switchDashTab('assignments')">📝 Assignments</button>
             <button class="dash-tab" onclick="switchDashTab('submissions')">📊 Submissions</button>
+            <button class="dash-tab" onclick="switchDashTab('posts')">📢 Posts</button>
             <button class="dash-tab" onclick="switchDashTab('export')">📥 Export Data</button>
         </div>
 
@@ -182,7 +183,43 @@
             </div>
         </div>
 
-        <!-- Export Tab -->
+        <!-- Posts Tab -->
+        <div class="dash-content" id="tab-posts" style="display:none;">
+            <div class="dash-card">
+                <h3 style="margin-bottom:1rem;color:var(--cyan);">📢 Create New Post</h3>
+                <div class="form-group">
+                    <label>Title</label>
+                    <input type="text" id="postTitle" placeholder="e.g., Python End Term 2023 Question Paper">
+                </div>
+                <div class="form-group">
+                    <label>Category</label>
+                    <select id="postCategory">
+                        <option value="Question Paper">Question Paper</option>
+                        <option value="Announcement">Announcement</option>
+                        <option value="Notes">Notes</option>
+                        <option value="Assignment">Assignment</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Content (supports HTML)</label>
+                    <textarea id="postContent" rows="5" placeholder="Write the content here..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Image URL (optional)</label>
+                    <input type="text" id="postImageUrl" placeholder="https://example.com/image.jpg">
+                </div>
+                <button class="btn btn-primary" onclick="createPost()">Publish Post ✓</button>
+                <span id="postMsg" style="margin-left:1rem;color:var(--green);font-size:.85rem;"></span>
+            </div>
+
+            <div class="dash-card" style="margin-top:1.5rem;">
+                <h3 style="margin-bottom:1rem;color:var(--purple);">📋 All Posts</h3>
+                <div id="postsList"></div>
+                <p id="noPosts" style="text-align:center;color:var(--text-muted);padding:2rem;display:none;">No posts created yet.</p>
+            </div>
+        </div>
+
+        <!-- Export Tab (original) -->
         <div class="dash-content" id="tab-export" style="display:none;">
             <div class="dash-card">
                 <h3 style="margin-bottom:1.5rem;color:var(--yellow);">📥 Export & Download Data</h3>
@@ -298,6 +335,14 @@
                 localStorage.setItem('submissions', JSON.stringify(submissions));
                 localStorage.setItem('demoInitialized', 'true');
             }
+
+            // Demo posts (independent of demoInitialized)
+            if (!localStorage.getItem('posts')) {
+                localStorage.setItem('posts', JSON.stringify([
+                    {id:"post_1",title:"Python End Term 2023 - Question Paper",content:"Students, here is the Python End Term 2023 question paper. Prepare all units thoroughly.",imageUrl:"",category:"Question Paper",createdOn:"2024-12-01",createdBy:"Prof. Manoj Purohit"},
+                    {id:"post_2",title:"OOSE Assignment Due Date Extended",content:"The OOSE UML assignment deadline has been extended to next Friday. Submit on time.",imageUrl:"",category:"Announcement",createdOn:"2024-12-05",createdBy:"Prof. Manoj Purohit"}
+                ]));
+            }
         }
         initDemoData();
 
@@ -311,6 +356,7 @@
             if (tab === 'students') renderStudents();
             if (tab === 'assignments') renderAssignments();
             if (tab === 'submissions') populateAssignmentDropdowns();
+            if (tab === 'posts') renderPosts();
             if (tab === 'export') populateAssignmentDropdowns();
         }
 
@@ -675,6 +721,81 @@
                 data.push([i + 1, a.title, a.subject, a.dueDate, a.maxMarks, a.createdOn, a.description]);
             });
             downloadCSV(data, 'assignments_list.csv');
+        }
+
+        // === POSTS ===
+        function getPosts() {
+            return JSON.parse(localStorage.getItem('posts') || '[]');
+        }
+
+        function savePosts(posts) {
+            localStorage.setItem('posts', JSON.stringify(posts));
+        }
+
+        function createPost() {
+            const title = document.getElementById('postTitle').value.trim();
+            const content = document.getElementById('postContent').value.trim();
+            const imageUrl = document.getElementById('postImageUrl').value.trim();
+            const category = document.getElementById('postCategory').value;
+
+            if (!title || !content) {
+                alert('Please fill in Title and Content.');
+                return;
+            }
+
+            const posts = getPosts();
+            posts.unshift({
+                id: 'post_' + Date.now(),
+                title,
+                content,
+                imageUrl: imageUrl || '',
+                category,
+                createdOn: new Date().toISOString().split('T')[0],
+                createdBy: 'Prof. Manoj Purohit'
+            });
+            savePosts(posts);
+
+            document.getElementById('postTitle').value = '';
+            document.getElementById('postContent').value = '';
+            document.getElementById('postImageUrl').value = '';
+            document.getElementById('postMsg').textContent = '✓ Post published!';
+            setTimeout(() => document.getElementById('postMsg').textContent = '', 3000);
+            renderPosts();
+        }
+
+        function renderPosts() {
+            const posts = getPosts();
+            const container = document.getElementById('postsList');
+            const noMsg = document.getElementById('noPosts');
+
+            if (posts.length === 0) {
+                container.innerHTML = '';
+                noMsg.style.display = 'block';
+                return;
+            }
+
+            noMsg.style.display = 'none';
+            const catClass = {'Question Paper':'cat-paper','Announcement':'cat-announcement','Notes':'cat-notes','Assignment':'cat-assignment'};
+            container.innerHTML = posts.map(p => `
+                <div class="post-card">
+                    <div class="post-meta">
+                        <span class="post-category ${catClass[p.category] || 'cat-announcement'}">${p.category}</span>
+                        <span class="post-date">${p.createdOn} · ${p.createdBy}</span>
+                    </div>
+                    <div class="post-title">${p.title}</div>
+                    <div class="post-content">${p.content}</div>
+                    ${p.imageUrl ? `<img src="${p.imageUrl}" alt="${p.title}" onclick="window.open('${p.imageUrl}','_blank')">` : ''}
+                    <button style="margin-top:1rem;color:#ef4444;background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.2);padding:.4rem .8rem;border-radius:6px;font-size:.75rem;cursor:pointer;" onclick="deletePost('${p.id}')">Delete Post</button>
+                </div>
+            `).join('');
+        }
+
+        function deletePost(id) {
+            if (!confirm('Delete this post?')) return;
+            let posts = getPosts();
+            posts = posts.filter(p => p.id !== id);
+            savePosts(posts);
+            renderPosts();
         }
 
         // === LOGOUT ===

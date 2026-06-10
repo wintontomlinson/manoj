@@ -103,6 +103,17 @@
             </div>
         </section>
 
+        <!-- Latest Updates -->
+        <section class="section latest-updates" id="latestUpdates">
+            <h2 class="section-heading" data-lang="en">📢 Latest Updates</h2>
+            <h2 class="section-heading" data-lang="hi">📢 Latest Updates</h2>
+            <div id="latestPostsContainer"></div>
+            <p id="noLatestPosts" style="text-align:center;color:var(--text-muted);padding:1.5rem;display:none;">No posts yet.</p>
+            <div style="text-align:center;margin-top:1rem;">
+                <a href="login.html" style="color:var(--purple);font-weight:600;font-size:.9rem;">Login to see all →</a>
+            </div>
+        </section>
+
         <!-- Stats -->
         <section class="section">
             <div class="stats-grid">
@@ -166,6 +177,27 @@
         hamburger.addEventListener('click', () => {
             mobileMenu.classList.toggle('open');
         });
+
+        // Latest Posts
+        function renderLatestPosts() {
+            const posts = JSON.parse(localStorage.getItem('posts') || '[]');
+            const container = document.getElementById('latestPostsContainer');
+            const noMsg = document.getElementById('noLatestPosts');
+            if (!posts.length) { noMsg.style.display = 'block'; container.innerHTML = ''; return; }
+            noMsg.style.display = 'none';
+            const latest = posts.sort((a,b) => new Date(b.createdOn) - new Date(a.createdOn)).slice(0, 3);
+            const catClass = {'Question Paper':'cat-paper','Announcement':'cat-announcement','Notes':'cat-notes','Assignment':'cat-assignment'};
+            container.innerHTML = latest.map(p => `
+                <div class="post-card">
+                    <div class="post-meta">
+                        <span class="post-category ${catClass[p.category] || 'cat-announcement'}">${p.category}</span>
+                        <span class="post-date">${p.createdOn}</span>
+                    </div>
+                    <div class="post-title">${p.title}</div>
+                </div>
+            `).join('');
+        }
+        renderLatestPosts();
     </script>
 </body>
 </html>

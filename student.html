@@ -61,6 +61,7 @@
         <!-- Tabs -->
         <div class="dash-tabs">
             <button class="dash-tab active" onclick="switchStudentTab('assignments')">📝 My Assignments</button>
+            <button class="dash-tab" onclick="switchStudentTab('notices')">📢 Notices</button>
             <button class="dash-tab" onclick="switchStudentTab('profile')">👤 My Profile</button>
             <button class="dash-tab" onclick="switchStudentTab('settings')">🔐 Settings</button>
         </div>
@@ -69,6 +70,12 @@
         <div class="dash-content" id="tab-assignments">
             <div id="assignmentCards"></div>
             <p id="noAssignmentsStudent" style="text-align:center;color:var(--text-muted);padding:3rem;display:none;">No assignments available yet. Check back later!</p>
+        </div>
+
+        <!-- Notices Tab -->
+        <div class="dash-content" id="tab-notices" style="display:none;">
+            <div id="noticesContainer"></div>
+            <p id="noNotices" style="text-align:center;color:var(--text-muted);padding:3rem;display:none;">No notices posted yet. Check back later!</p>
         </div>
 
         <!-- Submit Modal -->
@@ -189,6 +196,7 @@
             document.getElementById('tab-' + tab).style.display = 'block';
 
             if (tab === 'assignments') renderStudentAssignments();
+            if (tab === 'notices') renderNotices();
             if (tab === 'profile') renderProfile();
         }
 
@@ -423,6 +431,34 @@
                     </tr>
                 `;
             }).join('');
+        }
+
+        // === NOTICES ===
+        function renderNotices() {
+            const posts = JSON.parse(localStorage.getItem('posts') || '[]');
+            const container = document.getElementById('noticesContainer');
+            const noMsg = document.getElementById('noNotices');
+
+            if (posts.length === 0) {
+                container.innerHTML = '';
+                noMsg.style.display = 'block';
+                return;
+            }
+
+            noMsg.style.display = 'none';
+            const sorted = posts.sort((a,b) => new Date(b.createdOn) - new Date(a.createdOn));
+            const catClass = {'Question Paper':'cat-paper','Announcement':'cat-announcement','Notes':'cat-notes','Assignment':'cat-assignment'};
+            container.innerHTML = sorted.map(p => `
+                <div class="post-card">
+                    <div class="post-meta">
+                        <span class="post-category ${catClass[p.category] || 'cat-announcement'}">${p.category}</span>
+                        <span class="post-date">${p.createdOn} · ${p.createdBy || 'Prof. Manoj Purohit'}</span>
+                    </div>
+                    <div class="post-title">${p.title}</div>
+                    <div class="post-content">${p.content}</div>
+                    ${p.imageUrl ? `<img src="${p.imageUrl}" alt="${p.title}" style="width:100%;max-height:400px;object-fit:contain;border-radius:8px;margin:1rem 0;cursor:pointer;" onclick="window.open('${p.imageUrl}','_blank')">` : ''}
+                </div>
+            `).join('');
         }
 
         // === LOGOUT ===
