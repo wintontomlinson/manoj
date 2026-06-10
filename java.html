@@ -13,6 +13,7 @@
 <div class="blob blob-purple"></div>
 <div class="blob blob-pink"></div>
 <div class="blob blob-cyan"></div>
+
 <nav class="navbar">
 <div class="nav-container">
 <a href="index.html" class="nav-brand"><div class="nav-badge">MP</div><span>Prof. Manoj Purohit</span></a>
@@ -25,7 +26,7 @@
 <li><a href="login.html" class="nav-student-btn">Student Login</a></li>
 </ul>
 <div class="nav-right">
-<button class="lang-toggle" id="langToggle"><span class="active">EN</span><span>|</span><span>&#2361;&#2367;&#2306;&#2327;&#2381;&#2354;&#2367;&#2358;</span></button>
+<button class="lang-toggle" id="langToggle"><span class="active">EN</span><span>|</span><span>&#2361;&#2367;&#2306;</span></button>
 <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
 </div>
 </div>
@@ -42,476 +43,409 @@
 <main class="main-content">
 <section class="page-header">
 <h1 class="orange-gradient">Java Programming (OOPJ)</h1>
-<p class="subtitle" data-lang="en">Complete MCA Syllabus with Code Examples</p>
-<p class="subtitle" data-lang="hi">MCA Syllabus ke according puri Java, code ke saath</p>
+<p class="subtitle" data-lang="en">Step-by-Step Notes with Line-by-Line Explanations</p>
+<p class="subtitle" data-lang="hi">Step-by-Step Notes, har line ki explanation ke saath</p>
 </section>
 
 <!-- ===== UNIT 1: Java Basics ===== -->
 <div class="unit-section open">
 <div class="unit-header" onclick="toggleUnit(this)">
 <div class="unit-number green">1</div>
-<div class="unit-title">Java Basics</div>
+<div class="unit-title">Unit 1: Java Basics</div>
 <div class="unit-toggle">&#9660;</div>
 </div>
 <div class="unit-content">
 
-<div class="topic">
-<h4>1. What is Java</h4>
-<p data-lang="en">Java is a popular, object-oriented programming language. It follows "Write Once, Run Anywhere" because Java code runs on JVM.</p>
-<p data-lang="hi">Java ek popular, object-oriented programming language hai. Ye "Write Once, Run Anywhere" follow karta hai kyunki Java code JVM pe chalta hai.</p>
-</div>
+<h4>1.1 What is Java</h4>
+<p data-lang="en">Java is an object-oriented, platform-independent programming language created by Sun Microsystems. Code compiles into bytecode that runs on the Java Virtual Machine (JVM), making it "Write Once, Run Anywhere."</p>
+<p data-lang="hi">Java ek object-oriented, platform-independent language hai jo Sun Microsystems ne banai thi. Code bytecode mein compile hota hai jo JVM pe chalta hai, isliye "Write Once, Run Anywhere" kehte hain.</p>
 
-<div class="topic">
-<h4>2. JDK, JRE, JVM</h4>
-<p data-lang="en">JVM (Java Virtual Machine) runs Java bytecode. JRE (Java Runtime Environment) contains JVM + libraries. JDK (Java Development Kit) contains JRE + compiler + tools.</p>
-<p data-lang="hi">JVM (Java Virtual Machine) Java bytecode run karta hai. JRE (Java Runtime Environment) mein JVM + libraries hain. JDK (Java Development Kit) mein JRE + compiler + tools hain.</p>
-<div class="diagram">
-<div class="diagram-box purple">JDK</div>
-<span class="diagram-arrow">&supset;</span>
-<div class="diagram-box pink">JRE</div>
-<span class="diagram-arrow">&supset;</span>
-<div class="diagram-box cyan">JVM</div>
-</div>
-</div>
-
-<div class="topic">
-<h4>3. Hello World Program</h4>
-<p data-lang="en">Every Java program needs a class and a main method. The main method is the entry point.</p>
-<p data-lang="hi">Har Java program mein ek class aur ek main method hona chahiye. Main method entry point hai.</p>
-<div class="syntax-box"><strong>Syntax:</strong><br><code>public class ClassName {<br>&nbsp;&nbsp;&nbsp;&nbsp;public static void main(String[] args) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// code here<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}</code></div>
-<div class="example"><strong>Example:</strong>
-<pre class="code">public class Hello {
-    public static void main(String[] args) {
-        System.out.println("Hello, World!");
+<h4>1.2 Hello World</h4>
+<p data-lang="en">Every Java program needs at least one class and a main method. The main method is where execution begins.</p>
+<p data-lang="hi">Har Java program mein kam se kam ek class aur ek main method hona chahiye. Execution main method se shuru hoti hai.</p>
+<div class="code-block"><span class="code-label">Java</span><pre><span class="kw">public class</span> <span class="fn">Hello</span> {
+    <span class="kw">public static void</span> <span class="fn">main</span>(String[] args) {
+        System.out.println(<span class="str">"Hello, World!"</span>);
     }
-}</pre>
-<div class="output"><strong>Output:</strong><br>Hello, World!</div>
+}</pre></div>
+<div class="explain-box">
+<strong>Step by step:</strong><br>
+<span data-lang="en">
+1. <code>public class Hello</code> - declares a public class named Hello. File must be Hello.java.<br>
+2. <code>public static void main(String[] args)</code> - entry point. JVM calls this first.<br>
+3. <code>System.out.println("Hello, World!")</code> - prints text to console and adds a new line.
+</span>
+<span data-lang="hi">
+1. <code>public class Hello</code> - ek public class declare karta hai Hello naam ki. File ka naam Hello.java hona chahiye.<br>
+2. <code>public static void main(String[] args)</code> - entry point. JVM sabse pehle isko call karta hai.<br>
+3. <code>System.out.println("Hello, World!")</code> - console pe text print karta hai aur new line add karta hai.
+</span>
 </div>
-<a href="terminal.html" class="try-btn">Try it Yourself &rarr;</a>
-</div>
+<a href="terminal.html" class="try-btn btn btn-outline" style="margin:1rem 0;display:inline-flex;">Try it Yourself &rarr;</a>
 
-<div class="topic">
-<h4>4. Variables and Data Types</h4>
-<p data-lang="en">Java has 8 primitive data types. You must declare the type before using a variable.</p>
-<p data-lang="hi">Java mein 8 primitive data types hain. Variable use karne se pehle type declare karna zaroori hai.</p>
-<div class="table-wrapper">
-<table>
-<tr><th>Type</th><th>Size</th><th>Example</th></tr>
-<tr><td>byte</td><td>1 byte</td><td>byte b = 100;</td></tr>
-<tr><td>short</td><td>2 bytes</td><td>short s = 5000;</td></tr>
-<tr><td>int</td><td>4 bytes</td><td>int x = 100000;</td></tr>
-<tr><td>long</td><td>8 bytes</td><td>long l = 999999L;</td></tr>
-<tr><td>float</td><td>4 bytes</td><td>float f = 3.14f;</td></tr>
-<tr><td>double</td><td>8 bytes</td><td>double d = 3.14159;</td></tr>
-<tr><td>char</td><td>2 bytes</td><td>char c = 'A';</td></tr>
-<tr><td>boolean</td><td>1 bit</td><td>boolean flag = true;</td></tr>
-</table>
-</div>
-<div class="example"><strong>Example:</strong>
-<pre class="code">public class DataTypes {
-    public static void main(String[] args) {
-        int age = 21;
-        double gpa = 8.5;
-        char grade = 'A';
-        boolean passed = true;
-        String name = "Rahul";
-
-        System.out.println(name + " age: " + age);
-        System.out.println("GPA: " + gpa);
-        System.out.println("Grade: " + grade);
-        System.out.println("Passed: " + passed);
+<h4>1.3 Variables and Data Types</h4>
+<p data-lang="en">Java is statically typed. You must declare the type of every variable before using it. There are 8 primitive types.</p>
+<p data-lang="hi">Java statically typed hai. Har variable ka type use karne se pehle declare karna padta hai. 8 primitive types hain.</p>
+<div class="code-block"><span class="code-label">Java</span><pre><span class="kw">public class</span> <span class="fn">Variables</span> {
+    <span class="kw">public static void</span> <span class="fn">main</span>(String[] args) {
+        <span class="kw">int</span> age = <span class="num">21</span>;
+        <span class="kw">double</span> gpa = <span class="num">8.5</span>;
+        <span class="kw">char</span> grade = <span class="str">'A'</span>;
+        <span class="kw">boolean</span> passed = <span class="kw">true</span>;
+        String name = <span class="str">"Rahul"</span>;
+        System.out.println(name + <span class="str">" scored "</span> + gpa);
     }
-}</pre>
-<div class="output"><strong>Output:</strong><br>Rahul age: 21<br>GPA: 8.5<br>Grade: A<br>Passed: true</div>
+}</pre></div>
+<div class="explain-box green">
+<strong>Step by step:</strong><br>
+<span data-lang="en">
+1. <code>int age = 21</code> - declares integer variable, 4 bytes, stores whole numbers.<br>
+2. <code>double gpa = 8.5</code> - declares decimal variable, 8 bytes.<br>
+3. <code>char grade = 'A'</code> - single character, uses single quotes.<br>
+4. <code>boolean passed = true</code> - stores true or false only.<br>
+5. <code>String name = "Rahul"</code> - String is an object (not primitive), uses double quotes.<br>
+6. <code>+</code> operator concatenates strings with other types.
+</span>
+<span data-lang="hi">
+1. <code>int age = 21</code> - integer variable declare karta hai, 4 bytes, whole numbers store karta hai.<br>
+2. <code>double gpa = 8.5</code> - decimal variable, 8 bytes.<br>
+3. <code>char grade = 'A'</code> - single character, single quotes use hote hain.<br>
+4. <code>boolean passed = true</code> - sirf true ya false store karta hai.<br>
+5. <code>String name = "Rahul"</code> - String ek object hai (primitive nahi), double quotes use hote hain.<br>
+6. <code>+</code> operator strings ko dusre types ke saath jodta hai.
+</span>
 </div>
-<a href="terminal.html" class="try-btn">Try it Yourself &rarr;</a>
-</div>
+<a href="terminal.html" class="try-btn btn btn-outline" style="margin:1rem 0;display:inline-flex;">Try it Yourself &rarr;</a>
 
-<div class="topic">
-<h4>5. Type Casting</h4>
-<p data-lang="en">Widening (automatic): small type to big type. Narrowing (manual): big type to small type using (type).</p>
-<p data-lang="hi">Widening (automatic): chhota type se bada type. Narrowing (manual): bada type se chhota type, (type) lagana padta hai.</p>
-<div class="syntax-box"><strong>Widening:</strong> byte &rarr; short &rarr; int &rarr; long &rarr; float &rarr; double (automatic)<br><strong>Narrowing:</strong> double &rarr; float &rarr; long &rarr; int &rarr; short &rarr; byte (manual cast needed)</div>
-<div class="example"><strong>Example:</strong>
-<pre class="code">public class Casting {
-    public static void main(String[] args) {
-        // Widening (automatic)
-        int a = 100;
-        double b = a;
-        System.out.println(b);  // 100.0
-
-        // Narrowing (manual)
-        double x = 9.78;
-        int y = (int) x;
-        System.out.println(y);  // 9
+<h4>1.4 Operators</h4>
+<p data-lang="en">Operators perform operations: arithmetic (+, -, *, /, %), comparison (==, !=, >, <), and logical (&&, ||, !).</p>
+<p data-lang="hi">Operators operations perform karte hain: arithmetic (+, -, *, /, %), comparison (==, !=, >, <), aur logical (&&, ||, !).</p>
+<div class="code-block"><span class="code-label">Java</span><pre><span class="kw">public class</span> <span class="fn">Ops</span> {
+    <span class="kw">public static void</span> <span class="fn">main</span>(String[] args) {
+        <span class="kw">int</span> a = <span class="num">10</span>, b = <span class="num">3</span>;
+        System.out.println(a + b);      <span class="cm">// 13</span>
+        System.out.println(a % b);      <span class="cm">// 1 (remainder)</span>
+        System.out.println(a > b);      <span class="cm">// true</span>
+        System.out.println(a == <span class="num">10</span> && b < <span class="num">5</span>); <span class="cm">// true</span>
     }
-}</pre>
-<div class="output"><strong>Output:</strong><br>100.0<br>9</div>
+}</pre></div>
+<div class="explain-box">
+<strong>Step by step:</strong><br>
+<span data-lang="en">
+1. <code>a + b</code> - addition, result is 13.<br>
+2. <code>a % b</code> - modulus (remainder), 10 divided by 3 leaves remainder 1.<br>
+3. <code>a > b</code> - comparison returns boolean true.<br>
+4. <code>&&</code> - logical AND, both conditions must be true.
+</span>
+<span data-lang="hi">
+1. <code>a + b</code> - addition, result 13.<br>
+2. <code>a % b</code> - modulus (remainder), 10 ko 3 se divide karne pe remainder 1 aata hai.<br>
+3. <code>a > b</code> - comparison boolean true return karta hai.<br>
+4. <code>&&</code> - logical AND, dono conditions true honi chahiye.
+</span>
 </div>
-<a href="terminal.html" class="try-btn">Try it Yourself &rarr;</a>
-</div>
+<a href="terminal.html" class="try-btn btn btn-outline" style="margin:1rem 0;display:inline-flex;">Try it Yourself &rarr;</a>
 
-<div class="topic">
-<h4>6. Operators</h4>
-<p data-lang="en">Operators perform operations on variables. Java has arithmetic, comparison, and logical operators.</p>
-<p data-lang="hi">Operators variables pe operations karte hain. Java mein arithmetic, comparison, aur logical operators hain.</p>
-<div class="syntax-box"><strong>Arithmetic:</strong> + - * / % ++ --<br><strong>Comparison:</strong> == != &gt; &lt; &gt;= &lt;= (returns true/false)<br><strong>Logical:</strong> &amp;&amp; (AND), || (OR), ! (NOT)</div>
-<div class="example"><strong>Example:</strong>
-<pre class="code">public class Operators {
-    public static void main(String[] args) {
-        int a = 10, b = 3;
-        System.out.println(a + b);   // 13
-        System.out.println(a % b);   // 1
-        System.out.println(a > b);   // true
-        System.out.println(a == 10 && b < 5);  // true
-    }
-}</pre>
-<div class="output"><strong>Output:</strong><br>13<br>1<br>true<br>true</div>
-</div>
-<a href="terminal.html" class="try-btn">Try it Yourself &rarr;</a>
-</div>
+<h4>1.5 Scanner (User Input)</h4>
+<p data-lang="en">The Scanner class reads user input from the console. Import java.util.Scanner to use it.</p>
+<p data-lang="hi">Scanner class user se console pe input read karta hai. java.util.Scanner import karna padta hai.</p>
+<div class="code-block"><span class="code-label">Java</span><pre><span class="kw">import</span> java.util.Scanner;
 
-<div class="topic">
-<h4>7. Scanner (User Input)</h4>
-<p data-lang="en">Scanner class reads input from the user. Import java.util.Scanner to use it.</p>
-<p data-lang="hi">Scanner class user se input read karta hai. java.util.Scanner import karo use karne ke liye.</p>
-<div class="syntax-box"><strong>Syntax:</strong><br><code>import java.util.Scanner;<br>Scanner sc = new Scanner(System.in);<br>int x = sc.nextInt();<br>String s = sc.nextLine();<br>double d = sc.nextDouble();</code></div>
-<div class="example"><strong>Example:</strong>
-<pre class="code">import java.util.Scanner;
-
-public class Input {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter name: ");
+<span class="kw">public class</span> <span class="fn">Input</span> {
+    <span class="kw">public static void</span> <span class="fn">main</span>(String[] args) {
+        Scanner sc = <span class="kw">new</span> Scanner(System.in);
+        System.out.print(<span class="str">"Enter name: "</span>);
         String name = sc.nextLine();
-        System.out.print("Enter age: ");
-        int age = sc.nextInt();
-        System.out.println("Hello " + name + ", age " + age);
+        System.out.print(<span class="str">"Enter age: "</span>);
+        <span class="kw">int</span> age = sc.nextInt();
+        System.out.println(<span class="str">"Hello "</span> + name + <span class="str">", age "</span> + age);
         sc.close();
     }
-}</pre>
-<div class="output"><strong>Output:</strong><br>Enter name: Rahul<br>Enter age: 21<br>Hello Rahul, age 21</div>
+}</pre></div>
+<div class="explain-box green">
+<strong>Step by step:</strong><br>
+<span data-lang="en">
+1. <code>import java.util.Scanner</code> - imports the Scanner class from java.util package.<br>
+2. <code>new Scanner(System.in)</code> - creates Scanner object that reads from keyboard.<br>
+3. <code>sc.nextLine()</code> - reads a full line of text.<br>
+4. <code>sc.nextInt()</code> - reads an integer value.<br>
+5. <code>sc.close()</code> - closes the scanner to free resources.
+</span>
+<span data-lang="hi">
+1. <code>import java.util.Scanner</code> - java.util package se Scanner class import karta hai.<br>
+2. <code>new Scanner(System.in)</code> - Scanner object banata hai jo keyboard se read karta hai.<br>
+3. <code>sc.nextLine()</code> - puri line ka text read karta hai.<br>
+4. <code>sc.nextInt()</code> - ek integer value read karta hai.<br>
+5. <code>sc.close()</code> - scanner close karta hai resources free karne ke liye.
+</span>
 </div>
-<a href="terminal.html" class="try-btn">Try it Yourself &rarr;</a>
-</div>
+<a href="terminal.html" class="try-btn btn btn-outline" style="margin:1rem 0;display:inline-flex;">Try it Yourself &rarr;</a>
 
-<div class="topic">
-<h4>8. Arrays (1D and 2D)</h4>
-<p data-lang="en">An array stores multiple values of the same type. Index starts from 0.</p>
-<p data-lang="hi">Array ek hi type ke multiple values store karta hai. Index 0 se start hota hai.</p>
-<div class="syntax-box"><strong>1D Array:</strong><br><code>int[] arr = {10, 20, 30};<br>int[] arr = new int[5];</code><br><strong>2D Array:</strong><br><code>int[][] matrix = {{1,2},{3,4}};<br>int[][] matrix = new int[3][3];</code></div>
-<div class="example"><strong>Example:</strong>
-<pre class="code">public class Arrays {
-    public static void main(String[] args) {
-        // 1D Array
-        int[] marks = {85, 90, 78, 92};
-        for (int m : marks) {
-            System.out.print(m + " ");
+<h4>1.6 Arrays</h4>
+<p data-lang="en">An array stores multiple values of the same type in a fixed-size container. Index starts from 0.</p>
+<p data-lang="hi">Array ek fixed-size container mein same type ke multiple values store karta hai. Index 0 se start hota hai.</p>
+<div class="code-block"><span class="code-label">Java</span><pre><span class="kw">public class</span> <span class="fn">MyArray</span> {
+    <span class="kw">public static void</span> <span class="fn">main</span>(String[] args) {
+        <span class="kw">int</span>[] marks = {<span class="num">85</span>, <span class="num">90</span>, <span class="num">78</span>, <span class="num">92</span>, <span class="num">88</span>};
+        <span class="kw">int</span> sum = <span class="num">0</span>;
+        <span class="kw">for</span> (<span class="kw">int</span> m : marks) {
+            sum += m;
         }
-        System.out.println();
-
-        // 2D Array
-        int[][] matrix = {{1, 2, 3}, {4, 5, 6}};
-        for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix[i].length; j++) {
-                System.out.print(matrix[i][j] + " ");
-            }
-            System.out.println();
-        }
+        System.out.println(<span class="str">"Average: "</span> + sum / marks.length);
     }
-}</pre>
-<div class="output"><strong>Output:</strong><br>85 90 78 92<br>1 2 3<br>4 5 6</div>
+}</pre></div>
+<div class="explain-box">
+<strong>Step by step:</strong><br>
+<span data-lang="en">
+1. <code>int[] marks = {85, 90, 78, 92, 88}</code> - declares and initializes an array of 5 integers.<br>
+2. <code>int sum = 0</code> - variable to accumulate total.<br>
+3. <code>for (int m : marks)</code> - enhanced for-each loop, m takes each value one by one.<br>
+4. <code>sum += m</code> - adds current element to sum.<br>
+5. <code>marks.length</code> - gives the size of the array (5).
+</span>
+<span data-lang="hi">
+1. <code>int[] marks = {85, 90, 78, 92, 88}</code> - 5 integers ka array declare aur initialize karta hai.<br>
+2. <code>int sum = 0</code> - total jodne ke liye variable.<br>
+3. <code>for (int m : marks)</code> - enhanced for-each loop, m ek ek value leta hai.<br>
+4. <code>sum += m</code> - current element ko sum mein add karta hai.<br>
+5. <code>marks.length</code> - array ka size deta hai (5).
+</span>
 </div>
-<a href="terminal.html" class="try-btn">Try it Yourself &rarr;</a>
-</div>
+<a href="terminal.html" class="try-btn btn btn-outline" style="margin:1rem 0;display:inline-flex;">Try it Yourself &rarr;</a>
 
 <!-- Activity Unit 1 -->
-<div class="activity"><h4>Activity - Unit 1</h4>
-<div class="mcq"><p class="q">Q1. What is the size of int in Java?</p><button class="opt" onclick="ck(this,false)">2 bytes</button><button class="opt" onclick="ck(this,true)">4 bytes</button><button class="opt" onclick="ck(this,false)">8 bytes</button><span class="ans"></span></div>
-<div class="mcq"><p class="q">Q2. Which converts double to int?</p><button class="opt" onclick="ck(this,true)">(int) myDouble</button><button class="opt" onclick="ck(this,false)">int(myDouble)</button><button class="opt" onclick="ck(this,false)">Integer.parse(myDouble)</button><span class="ans"></span></div>
-<div class="mcq"><p class="q">Q3. JVM stands for?</p><button class="opt" onclick="ck(this,false)">Java Variable Machine</button><button class="opt" onclick="ck(this,true)">Java Virtual Machine</button><button class="opt" onclick="ck(this,false)">Java Visual Method</button><span class="ans"></span></div>
-<div class="coding-task"><p class="q">Coding Task: Create an array of 5 student marks. Find and print the average using a for loop.</p><a href="terminal.html" class="try-btn">Try in Terminal &rarr;</a></div>
+<div class="activity" style="margin-top:2rem;padding:1.5rem;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);">
+<h4 style="color:var(--green);margin-bottom:1rem;">Activity: Unit 1 MCQs</h4>
+<div class="mcq"><p><strong>Q1.</strong> What is the size of int in Java?</p><button class="opt" onclick="ck(this,false)">2 bytes</button><button class="opt" onclick="ck(this,true)">4 bytes</button><button class="opt" onclick="ck(this,false)">8 bytes</button><span class="ans"></span></div>
+<div class="mcq" style="margin-top:1rem;"><p><strong>Q2.</strong> Which method reads a full line from Scanner?</p><button class="opt" onclick="ck(this,false)">next()</button><button class="opt" onclick="ck(this,true)">nextLine()</button><button class="opt" onclick="ck(this,false)">readLine()</button><span class="ans"></span></div>
+<div class="mcq" style="margin-top:1rem;"><p><strong>Q3.</strong> Array index starts from?</p><button class="opt" onclick="ck(this,true)">0</button><button class="opt" onclick="ck(this,false)">1</button><button class="opt" onclick="ck(this,false)">-1</button><span class="ans"></span></div>
 </div>
 
 </div></div>
 
-<!-- ===== UNIT 2: OOP in Java ===== -->
+<!-- ===== UNIT 2: OOP Concepts ===== -->
 <div class="unit-section">
 <div class="unit-header" onclick="toggleUnit(this)">
 <div class="unit-number orange">2</div>
-<div class="unit-title">OOP in Java</div>
+<div class="unit-title">Unit 2: OOP Concepts</div>
 <div class="unit-toggle">&#9660;</div>
 </div>
 <div class="unit-content">
 
-<div class="topic">
-<h4>1. Classes and Objects</h4>
-<p data-lang="en">A class is a blueprint for objects. An object is an instance of a class with its own data.</p>
-<p data-lang="hi">Class ek blueprint hai objects ke liye. Object class ka ek instance hai jismein apna data hota hai.</p>
-<div class="syntax-box"><strong>Syntax:</strong><br><code>class ClassName {<br>&nbsp;&nbsp;&nbsp;&nbsp;// fields<br>&nbsp;&nbsp;&nbsp;&nbsp;// methods<br>}<br>ClassName obj = new ClassName();</code></div>
-<div class="example"><strong>Example:</strong>
-<pre class="code">class Student {
+<h4>2.1 Classes and Objects</h4>
+<p data-lang="en">A class is a blueprint that defines fields and methods. An object is a real instance created from that class.</p>
+<p data-lang="hi">Class ek blueprint hai jo fields aur methods define karta hai. Object us class se bana hua real instance hai.</p>
+<div class="code-block"><span class="code-label">Java</span><pre><span class="kw">class</span> <span class="fn">Student</span> {
     String name;
-    int roll;
-
-    void display() {
-        System.out.println(roll + ": " + name);
+    <span class="kw">int</span> roll;
+    <span class="kw">void</span> <span class="fn">display</span>() {
+        System.out.println(roll + <span class="str">": "</span> + name);
     }
 }
-
-public class Main {
-    public static void main(String[] args) {
-        Student s1 = new Student();
-        s1.name = "Rahul";
-        s1.roll = 101;
-        s1.display();
+<span class="kw">public class</span> <span class="fn">Main</span> {
+    <span class="kw">public static void</span> <span class="fn">main</span>(String[] args) {
+        Student s = <span class="kw">new</span> Student();
+        s.name = <span class="str">"Rahul"</span>;
+        s.roll = <span class="num">101</span>;
+        s.display();
     }
-}</pre>
-<div class="output"><strong>Output:</strong><br>101: Rahul</div>
+}</pre></div>
+<div class="explain-box orange">
+<strong>Step by step:</strong><br>
+<span data-lang="en">
+1. <code>class Student</code> - defines a class with fields name and roll.<br>
+2. <code>void display()</code> - a method that prints student info.<br>
+3. <code>new Student()</code> - creates a new object in memory (heap).<br>
+4. <code>s.name = "Rahul"</code> - assigns value to the object's field.<br>
+5. <code>s.display()</code> - calls the method on that object.
+</span>
+<span data-lang="hi">
+1. <code>class Student</code> - ek class define karta hai jismein name aur roll fields hain.<br>
+2. <code>void display()</code> - ek method jo student info print karta hai.<br>
+3. <code>new Student()</code> - memory (heap) mein naya object banata hai.<br>
+4. <code>s.name = "Rahul"</code> - object ke field mein value assign karta hai.<br>
+5. <code>s.display()</code> - us object pe method call karta hai.
+</span>
 </div>
-<a href="terminal.html" class="try-btn">Try it Yourself &rarr;</a>
-</div>
+<a href="terminal.html" class="try-btn btn btn-outline" style="margin:1rem 0;display:inline-flex;">Try it Yourself &rarr;</a>
 
-<div class="topic">
-<h4>2. Constructors</h4>
-<p data-lang="en">A constructor is a special method that runs when an object is created. It has the same name as the class.</p>
-<p data-lang="hi">Constructor ek special method hai jo object banate waqt chalta hai. Iska naam class ke naam jaisa hota hai.</p>
-<div class="syntax-box"><strong>Default Constructor:</strong><br><code>ClassName() { }</code><br><strong>Parameterized Constructor:</strong><br><code>ClassName(int a, String b) { this.a = a; this.b = b; }</code></div>
-<div class="example"><strong>Example:</strong>
-<pre class="code">class Car {
+<h4>2.2 Constructors</h4>
+<p data-lang="en">A constructor is a special method that runs automatically when an object is created. It has the same name as the class and no return type.</p>
+<p data-lang="hi">Constructor ek special method hai jo object banate waqt automatically chalta hai. Iska naam class ke naam jaisa hota hai aur koi return type nahi hota.</p>
+<div class="code-block"><span class="code-label">Java</span><pre><span class="kw">class</span> <span class="fn">Car</span> {
     String brand;
-    int speed;
-
-    // Default constructor
-    Car() {
-        brand = "Unknown";
-        speed = 0;
+    <span class="kw">int</span> speed;
+    <span class="fn">Car</span>(String brand, <span class="kw">int</span> speed) {
+        <span class="kw">this</span>.brand = brand;
+        <span class="kw">this</span>.speed = speed;
     }
-
-    // Parameterized constructor
-    Car(String brand, int speed) {
-        this.brand = brand;
-        this.speed = speed;
-    }
-
-    void show() {
-        System.out.println(brand + " - " + speed + " km/h");
+    <span class="kw">void</span> <span class="fn">show</span>() {
+        System.out.println(brand + <span class="str">" - "</span> + speed + <span class="str">" km/h"</span>);
     }
 }
-
-public class Main {
-    public static void main(String[] args) {
-        Car c1 = new Car();
-        Car c2 = new Car("Toyota", 180);
-        c1.show();
-        c2.show();
+<span class="kw">public class</span> <span class="fn">Main</span> {
+    <span class="kw">public static void</span> <span class="fn">main</span>(String[] args) {
+        Car c = <span class="kw">new</span> Car(<span class="str">"Toyota"</span>, <span class="num">180</span>);
+        c.show();
     }
-}</pre>
-<div class="output"><strong>Output:</strong><br>Unknown - 0 km/h<br>Toyota - 180 km/h</div>
+}</pre></div>
+<div class="explain-box orange">
+<strong>Step by step:</strong><br>
+<span data-lang="en">
+1. <code>Car(String brand, int speed)</code> - parameterized constructor, receives values at creation time.<br>
+2. <code>this.brand = brand</code> - "this" refers to the object's field, distinguishing it from the parameter.<br>
+3. <code>new Car("Toyota", 180)</code> - creates object AND calls constructor with arguments.
+</span>
+<span data-lang="hi">
+1. <code>Car(String brand, int speed)</code> - parameterized constructor, banate waqt values receive karta hai.<br>
+2. <code>this.brand = brand</code> - "this" object ke field ko refer karta hai, parameter se alag batata hai.<br>
+3. <code>new Car("Toyota", 180)</code> - object banata hai AUR constructor ko arguments ke saath call karta hai.
+</span>
 </div>
-<a href="terminal.html" class="try-btn">Try it Yourself &rarr;</a>
-</div>
+<a href="terminal.html" class="try-btn btn btn-outline" style="margin:1rem 0;display:inline-flex;">Try it Yourself &rarr;</a>
 
-<div class="topic">
-<h4>3. this Keyword</h4>
-<p data-lang="en">this refers to the current object. It is used to avoid confusion between class fields and parameters with the same name.</p>
-<p data-lang="hi">this current object ko refer karta hai. Jab field aur parameter ka naam same ho tab confusion avoid karne ke liye use hota hai.</p>
-<div class="syntax-box"><strong>Syntax:</strong><br><code>this.fieldName = parameterName;</code></div>
-<div class="example"><strong>Example:</strong>
-<pre class="code">class Employee {
-    String name;
-    int salary;
-
-    Employee(String name, int salary) {
-        this.name = name;      // this.name = field
-        this.salary = salary;  // name = parameter
-    }
-
-    void show() {
-        System.out.println(this.name + ": Rs." + this.salary);
-    }
+<h4>2.3 Inheritance</h4>
+<p data-lang="en">Inheritance allows a child class to reuse fields and methods of a parent class using the extends keyword.</p>
+<p data-lang="hi">Inheritance child class ko parent class ke fields aur methods reuse karne deta hai, extends keyword se.</p>
+<div class="code-block"><span class="code-label">Java</span><pre><span class="kw">class</span> <span class="fn">Animal</span> {
+    <span class="kw">void</span> <span class="fn">eat</span>() { System.out.println(<span class="str">"Eating..."</span>); }
 }
-
-public class Main {
-    public static void main(String[] args) {
-        Employee e = new Employee("Manoj", 50000);
-        e.show();
-    }
-}</pre>
-<div class="output"><strong>Output:</strong><br>Manoj: Rs.50000</div>
-</div>
-<a href="terminal.html" class="try-btn">Try it Yourself &rarr;</a>
-</div>
-
-<div class="topic">
-<h4>4. static Keyword</h4>
-<p data-lang="en">static belongs to the class, not to any object. You can call it without creating an object.</p>
-<p data-lang="hi">static class ka hota hai, kisi object ka nahi. Bina object banaye call kar sakte ho.</p>
-<div class="syntax-box"><strong>Syntax:</strong><br><code>static int count;<br>static void method() { }</code></div>
-<div class="example"><strong>Example:</strong>
-<pre class="code">class Counter {
-    static int count = 0;
-
-    Counter() {
-        count++;
-    }
-
-    static void showCount() {
-        System.out.println("Objects created: " + count);
-    }
+<span class="kw">class</span> <span class="fn">Dog</span> <span class="kw">extends</span> <span class="fn">Animal</span> {
+    <span class="kw">void</span> <span class="fn">bark</span>() { System.out.println(<span class="str">"Barking..."</span>); }
 }
-
-public class Main {
-    public static void main(String[] args) {
-        new Counter();
-        new Counter();
-        new Counter();
-        Counter.showCount();
+<span class="kw">public class</span> <span class="fn">Main</span> {
+    <span class="kw">public static void</span> <span class="fn">main</span>(String[] args) {
+        Dog d = <span class="kw">new</span> Dog();
+        d.eat();
+        d.bark();
     }
-}</pre>
-<div class="output"><strong>Output:</strong><br>Objects created: 3</div>
+}</pre></div>
+<div class="explain-box orange">
+<strong>Step by step:</strong><br>
+<span data-lang="en">
+1. <code>class Animal</code> - parent class with eat() method.<br>
+2. <code>class Dog extends Animal</code> - Dog inherits everything from Animal.<br>
+3. <code>d.eat()</code> - Dog object can call parent's method without rewriting it.<br>
+4. <code>d.bark()</code> - Dog also has its own methods.
+</span>
+<span data-lang="hi">
+1. <code>class Animal</code> - parent class jismein eat() method hai.<br>
+2. <code>class Dog extends Animal</code> - Dog ko Animal ki sari cheezein milti hain.<br>
+3. <code>d.eat()</code> - Dog object parent ka method bina likhey call kar sakta hai.<br>
+4. <code>d.bark()</code> - Dog ke apne bhi methods hain.
+</span>
 </div>
-<a href="terminal.html" class="try-btn">Try it Yourself &rarr;</a>
-</div>
+<a href="terminal.html" class="try-btn btn btn-outline" style="margin:1rem 0;display:inline-flex;">Try it Yourself &rarr;</a>
 
-<div class="topic">
-<h4>5. Inheritance</h4>
-<p data-lang="en">Inheritance lets a child class get properties and methods from a parent class. Use the extends keyword.</p>
-<p data-lang="hi">Inheritance se child class ko parent class ki properties aur methods milti hain. extends keyword use karo.</p>
-<div class="syntax-box"><strong>Syntax:</strong><br><code>class Child extends Parent {<br>&nbsp;&nbsp;&nbsp;&nbsp;// child can use parent methods<br>}</code><br><strong>Types:</strong> Single, Multilevel, Hierarchical (Java does not support multiple inheritance with classes)</div>
-<div class="example"><strong>Example:</strong>
-<pre class="code">class Animal {
-    void eat() {
-        System.out.println("Eating...");
-    }
+<h4>2.4 Polymorphism</h4>
+<p data-lang="en">Polymorphism means "many forms." Overloading = same method name, different parameters. Overriding = child replaces parent's method.</p>
+<p data-lang="hi">Polymorphism ka matlab "many forms." Overloading = same naam, alag parameters. Overriding = child parent ka method replace karta hai.</p>
+<div class="code-block"><span class="code-label">Java</span><pre><span class="kw">class</span> <span class="fn">Shape</span> {
+    <span class="kw">void</span> <span class="fn">draw</span>() { System.out.println(<span class="str">"Drawing shape"</span>); }
 }
-
-class Dog extends Animal {
-    void bark() {
-        System.out.println("Barking...");
-    }
+<span class="kw">class</span> <span class="fn">Circle</span> <span class="kw">extends</span> <span class="fn">Shape</span> {
+    <span class="kw">void</span> <span class="fn">draw</span>() { System.out.println(<span class="str">"Drawing circle"</span>); }
 }
-
-public class Main {
-    public static void main(String[] args) {
-        Dog d = new Dog();
-        d.eat();   // inherited from Animal
-        d.bark();  // own method
-    }
-}</pre>
-<div class="output"><strong>Output:</strong><br>Eating...<br>Barking...</div>
-</div>
-<a href="terminal.html" class="try-btn">Try it Yourself &rarr;</a>
-</div>
-
-<div class="topic">
-<h4>6. Polymorphism</h4>
-<p data-lang="en">Polymorphism means "many forms". Overloading = same method name, different parameters. Overriding = child redefines parent method.</p>
-<p data-lang="hi">Polymorphism ka matlab hai "many forms". Overloading = same method naam, alag parameters. Overriding = child parent ke method ko redefine karta hai.</p>
-<div class="syntax-box"><strong>Overloading (compile time):</strong><br><code>void add(int a, int b) { }<br>void add(double a, double b) { }</code><br><strong>Overriding (runtime):</strong><br><code>class Parent { void show() {} }<br>class Child extends Parent { void show() {} }</code></div>
-<div class="example"><strong>Example:</strong>
-<pre class="code">// Method Overloading
-class Calculator {
-    int add(int a, int b) { return a + b; }
-    double add(double a, double b) { return a + b; }
-}
-
-// Method Overriding
-class Shape {
-    void draw() { System.out.println("Drawing shape"); }
-}
-class Circle extends Shape {
-    void draw() { System.out.println("Drawing circle"); }
-}
-
-public class Main {
-    public static void main(String[] args) {
-        Calculator calc = new Calculator();
-        System.out.println(calc.add(5, 3));
-        System.out.println(calc.add(2.5, 3.5));
-
-        Shape s = new Circle();
+<span class="kw">public class</span> <span class="fn">Main</span> {
+    <span class="kw">public static void</span> <span class="fn">main</span>(String[] args) {
+        Shape s = <span class="kw">new</span> Circle();
         s.draw();
     }
-}</pre>
-<div class="output"><strong>Output:</strong><br>8<br>6.0<br>Drawing circle</div>
+}</pre></div>
+<div class="explain-box orange">
+<strong>Step by step:</strong><br>
+<span data-lang="en">
+1. <code>class Shape</code> - parent with draw() method.<br>
+2. <code>class Circle extends Shape</code> - child overrides draw() with its own version.<br>
+3. <code>Shape s = new Circle()</code> - parent reference, child object (runtime polymorphism).<br>
+4. <code>s.draw()</code> - calls Circle's draw(), not Shape's. JVM decides at runtime.
+</span>
+<span data-lang="hi">
+1. <code>class Shape</code> - parent jismein draw() hai.<br>
+2. <code>class Circle extends Shape</code> - child apna draw() override karta hai.<br>
+3. <code>Shape s = new Circle()</code> - parent reference, child object (runtime polymorphism).<br>
+4. <code>s.draw()</code> - Circle ka draw() call hota hai, Shape ka nahi. JVM runtime pe decide karta hai.
+</span>
 </div>
-<a href="terminal.html" class="try-btn">Try it Yourself &rarr;</a>
-</div>
+<a href="terminal.html" class="try-btn btn btn-outline" style="margin:1rem 0;display:inline-flex;">Try it Yourself &rarr;</a>
 
-<div class="topic">
-<h4>7. Abstract Classes</h4>
-<p data-lang="en">An abstract class cannot be instantiated. It can have abstract methods (no body) that child classes must implement.</p>
-<p data-lang="hi">Abstract class ka object nahi ban sakta. Ismein abstract methods (bina body) hote hain jo child classes ko implement karne hote hain.</p>
-<div class="syntax-box"><strong>Syntax:</strong><br><code>abstract class ClassName {<br>&nbsp;&nbsp;&nbsp;&nbsp;abstract void method();<br>&nbsp;&nbsp;&nbsp;&nbsp;void normalMethod() { }<br>}</code></div>
-<div class="example"><strong>Example:</strong>
-<pre class="code">abstract class Vehicle {
-    abstract void start();
-
-    void stop() {
-        System.out.println("Vehicle stopped");
-    }
+<h4>2.5 Abstract Classes</h4>
+<p data-lang="en">An abstract class cannot be instantiated. It has abstract methods (no body) that child classes must implement.</p>
+<p data-lang="hi">Abstract class ka object nahi ban sakta. Ismein abstract methods hote hain (bina body) jo child classes ko implement karne padte hain.</p>
+<div class="code-block"><span class="code-label">Java</span><pre><span class="kw">abstract class</span> <span class="fn">Vehicle</span> {
+    <span class="kw">abstract void</span> <span class="fn">start</span>();
+    <span class="kw">void</span> <span class="fn">stop</span>() { System.out.println(<span class="str">"Stopped"</span>); }
 }
-
-class Bike extends Vehicle {
-    void start() {
-        System.out.println("Bike started with kick");
-    }
+<span class="kw">class</span> <span class="fn">Bike</span> <span class="kw">extends</span> <span class="fn">Vehicle</span> {
+    <span class="kw">void</span> <span class="fn">start</span>() { System.out.println(<span class="str">"Kick start"</span>); }
 }
-
-public class Main {
-    public static void main(String[] args) {
-        Bike b = new Bike();
+<span class="kw">public class</span> <span class="fn">Main</span> {
+    <span class="kw">public static void</span> <span class="fn">main</span>(String[] args) {
+        Bike b = <span class="kw">new</span> Bike();
         b.start();
         b.stop();
     }
-}</pre>
-<div class="output"><strong>Output:</strong><br>Bike started with kick<br>Vehicle stopped</div>
+}</pre></div>
+<div class="explain-box orange">
+<strong>Step by step:</strong><br>
+<span data-lang="en">
+1. <code>abstract class Vehicle</code> - cannot create <code>new Vehicle()</code>.<br>
+2. <code>abstract void start()</code> - no body, child MUST provide implementation.<br>
+3. <code>void stop()</code> - non-abstract method, child inherits it as-is.<br>
+4. <code>class Bike extends Vehicle</code> - provides body for start().
+</span>
+<span data-lang="hi">
+1. <code>abstract class Vehicle</code> - <code>new Vehicle()</code> nahi bana sakte.<br>
+2. <code>abstract void start()</code> - body nahi hai, child ko implementation dena zaroori hai.<br>
+3. <code>void stop()</code> - normal method, child ko as-is mil jaata hai.<br>
+4. <code>class Bike extends Vehicle</code> - start() ka body deta hai.
+</span>
 </div>
-<a href="terminal.html" class="try-btn">Try it Yourself &rarr;</a>
-</div>
+<a href="terminal.html" class="try-btn btn btn-outline" style="margin:1rem 0;display:inline-flex;">Try it Yourself &rarr;</a>
 
-<div class="topic">
-<h4>8. Interfaces</h4>
-<p data-lang="en">An interface is a contract. All methods are abstract by default. A class can implement multiple interfaces.</p>
-<p data-lang="hi">Interface ek contract hai. Sab methods by default abstract hote hain. Ek class multiple interfaces implement kar sakti hai.</p>
-<div class="syntax-box"><strong>Syntax:</strong><br><code>interface MyInterface {<br>&nbsp;&nbsp;&nbsp;&nbsp;void method1();<br>&nbsp;&nbsp;&nbsp;&nbsp;void method2();<br>}<br>class MyClass implements MyInterface { }</code></div>
-<div class="example"><strong>Example:</strong>
-<pre class="code">interface Printable {
-    void print();
+<h4>2.6 Interfaces</h4>
+<p data-lang="en">An interface is a 100% abstract contract. All methods are abstract by default. A class can implement multiple interfaces.</p>
+<p data-lang="hi">Interface ek 100% abstract contract hai. Sab methods by default abstract hote hain. Ek class multiple interfaces implement kar sakti hai.</p>
+<div class="code-block"><span class="code-label">Java</span><pre><span class="kw">interface</span> <span class="fn">Printable</span> {
+    <span class="kw">void</span> <span class="fn">print</span>();
 }
-
-interface Showable {
-    void show();
+<span class="kw">interface</span> <span class="fn">Showable</span> {
+    <span class="kw">void</span> <span class="fn">show</span>();
 }
-
-class Document implements Printable, Showable {
-    public void print() {
-        System.out.println("Printing document...");
-    }
-    public void show() {
-        System.out.println("Showing document...");
-    }
+<span class="kw">class</span> <span class="fn">Doc</span> <span class="kw">implements</span> <span class="fn">Printable</span>, <span class="fn">Showable</span> {
+    <span class="kw">public void</span> <span class="fn">print</span>() { System.out.println(<span class="str">"Printing"</span>); }
+    <span class="kw">public void</span> <span class="fn">show</span>() { System.out.println(<span class="str">"Showing"</span>); }
 }
-
-public class Main {
-    public static void main(String[] args) {
-        Document doc = new Document();
-        doc.print();
-        doc.show();
+<span class="kw">public class</span> <span class="fn">Main</span> {
+    <span class="kw">public static void</span> <span class="fn">main</span>(String[] args) {
+        Doc d = <span class="kw">new</span> Doc();
+        d.print();
+        d.show();
     }
-}</pre>
-<div class="output"><strong>Output:</strong><br>Printing document...<br>Showing document...</div>
+}</pre></div>
+<div class="explain-box orange">
+<strong>Step by step:</strong><br>
+<span data-lang="en">
+1. <code>interface Printable</code> - declares a contract with print() method.<br>
+2. <code>implements Printable, Showable</code> - Doc class must provide bodies for ALL methods.<br>
+3. Methods must be <code>public</code> when implementing interface methods.<br>
+4. Java supports multiple interface inheritance (unlike classes).
+</span>
+<span data-lang="hi">
+1. <code>interface Printable</code> - ek contract declare karta hai jismein print() method hai.<br>
+2. <code>implements Printable, Showable</code> - Doc class ko sab methods ka body dena zaroori hai.<br>
+3. Interface methods implement karte waqt <code>public</code> likhna zaroori hai.<br>
+4. Java multiple interface inheritance support karta hai (classes ke saath nahi).
+</span>
 </div>
-<a href="terminal.html" class="try-btn">Try it Yourself &rarr;</a>
-</div>
+<a href="terminal.html" class="try-btn btn btn-outline" style="margin:1rem 0;display:inline-flex;">Try it Yourself &rarr;</a>
 
 <!-- Activity Unit 2 -->
-<div class="activity"><h4>Activity - Unit 2</h4>
-<div class="mcq"><p class="q">Q1. Which keyword is used for inheritance?</p><button class="opt" onclick="ck(this,true)">extends</button><button class="opt" onclick="ck(this,false)">implements</button><button class="opt" onclick="ck(this,false)">inherits</button><span class="ans"></span></div>
-<div class="mcq"><p class="q">Q2. Method overloading is which type of polymorphism?</p><button class="opt" onclick="ck(this,true)">Compile-time</button><button class="opt" onclick="ck(this,false)">Runtime</button><button class="opt" onclick="ck(this,false)">Neither</button><span class="ans"></span></div>
-<div class="mcq"><p class="q">Q3. Can we create an object of an abstract class?</p><button class="opt" onclick="ck(this,false)">Yes</button><button class="opt" onclick="ck(this,true)">No</button><button class="opt" onclick="ck(this,false)">Sometimes</button><span class="ans"></span></div>
-<div class="coding-task"><p class="q">Coding Task: Create a Shape interface with area() method. Implement it in Rectangle and Circle classes.</p><a href="terminal.html" class="try-btn">Try in Terminal &rarr;</a></div>
+<div class="activity" style="margin-top:2rem;padding:1.5rem;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);">
+<h4 style="color:var(--orange);margin-bottom:1rem;">Activity: Unit 2 MCQs</h4>
+<div class="mcq"><p><strong>Q1.</strong> Which keyword is used for inheritance?</p><button class="opt" onclick="ck(this,true)">extends</button><button class="opt" onclick="ck(this,false)">implements</button><button class="opt" onclick="ck(this,false)">inherits</button><span class="ans"></span></div>
+<div class="mcq" style="margin-top:1rem;"><p><strong>Q2.</strong> Can we create object of abstract class?</p><button class="opt" onclick="ck(this,false)">Yes</button><button class="opt" onclick="ck(this,true)">No</button><button class="opt" onclick="ck(this,false)">Sometimes</button><span class="ans"></span></div>
+<div class="mcq" style="margin-top:1rem;"><p><strong>Q3.</strong> Runtime polymorphism is achieved by?</p><button class="opt" onclick="ck(this,false)">Overloading</button><button class="opt" onclick="ck(this,true)">Overriding</button><button class="opt" onclick="ck(this,false)">Hiding</button><span class="ans"></span></div>
 </div>
 
 </div></div>
@@ -520,178 +454,128 @@ public class Main {
 <div class="unit-section">
 <div class="unit-header" onclick="toggleUnit(this)">
 <div class="unit-number purple">3</div>
-<div class="unit-title">Packages and Exceptions</div>
+<div class="unit-title">Unit 3: Packages and Exceptions</div>
 <div class="unit-toggle">&#9660;</div>
 </div>
 <div class="unit-content">
 
-<div class="topic">
-<h4>1. Packages</h4>
-<p data-lang="en">A package is a folder that groups related classes. Use package keyword to create, and import to use.</p>
-<p data-lang="hi">Package ek folder hai jo related classes ko group karta hai. package keyword se banao, import se use karo.</p>
-<div class="syntax-box"><strong>Create:</strong><br><code>package mypackage;</code><br><strong>Import:</strong><br><code>import java.util.ArrayList;<br>import java.util.*;</code></div>
-<div class="example"><strong>Example:</strong>
-<pre class="code">// File: mypackage/Calculator.java
-package mypackage;
-
-public class Calculator {
-    public int add(int a, int b) {
-        return a + b;
-    }
+<h4>3.1 Packages</h4>
+<p data-lang="en">A package is a folder that groups related classes. It avoids name conflicts and organizes large projects.</p>
+<p data-lang="hi">Package ek folder hai jo related classes ko group karta hai. Ye name conflicts avoid karta hai aur bade projects ko organize karta hai.</p>
+<div class="code-block"><span class="code-label">Java</span><pre><span class="cm">// File: mypack/Calculator.java</span>
+<span class="kw">package</span> mypack;
+<span class="kw">public class</span> <span class="fn">Calculator</span> {
+    <span class="kw">public int</span> <span class="fn">add</span>(<span class="kw">int</span> a, <span class="kw">int</span> b) { <span class="kw">return</span> a + b; }
 }
 
-// File: Main.java
-import mypackage.Calculator;
-
-public class Main {
-    public static void main(String[] args) {
-        Calculator c = new Calculator();
-        System.out.println(c.add(5, 3));
+<span class="cm">// File: Main.java</span>
+<span class="kw">import</span> mypack.Calculator;
+<span class="kw">public class</span> <span class="fn">Main</span> {
+    <span class="kw">public static void</span> <span class="fn">main</span>(String[] args) {
+        Calculator c = <span class="kw">new</span> Calculator();
+        System.out.println(c.add(<span class="num">5</span>, <span class="num">3</span>));
     }
-}</pre>
-<div class="output"><strong>Output:</strong><br>8</div>
+}</pre></div>
+<div class="explain-box">
+<strong>Step by step:</strong><br>
+<span data-lang="en">
+1. <code>package mypack;</code> - declares this class belongs to "mypack" package.<br>
+2. <code>import mypack.Calculator;</code> - makes Calculator available in Main.java.<br>
+3. Compile: <code>javac -d . mypack/Calculator.java Main.java</code>
+</span>
+<span data-lang="hi">
+1. <code>package mypack;</code> - ye class "mypack" package ki hai ye declare karta hai.<br>
+2. <code>import mypack.Calculator;</code> - Main.java mein Calculator use karne deta hai.<br>
+3. Compile: <code>javac -d . mypack/Calculator.java Main.java</code>
+</span>
 </div>
-<a href="terminal.html" class="try-btn">Try it Yourself &rarr;</a>
-</div>
+<a href="terminal.html" class="try-btn btn btn-outline" style="margin:1rem 0;display:inline-flex;">Try it Yourself &rarr;</a>
 
-<div class="topic">
-<h4>2. Access Modifiers</h4>
-<p data-lang="en">Access modifiers control visibility of classes, methods, and fields.</p>
-<p data-lang="hi">Access modifiers classes, methods, aur fields ki visibility control karte hain.</p>
+<h4>3.2 Access Modifiers</h4>
+<p data-lang="en">Access modifiers control where a field/method can be accessed from.</p>
+<p data-lang="hi">Access modifiers control karte hain ki field/method kahan se access ho sakta hai.</p>
 <div class="table-wrapper">
 <table>
 <tr><th>Modifier</th><th>Class</th><th>Package</th><th>Subclass</th><th>World</th></tr>
 <tr><td>public</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
 <tr><td>protected</td><td>Yes</td><td>Yes</td><td>Yes</td><td>No</td></tr>
-<tr><td>default (no keyword)</td><td>Yes</td><td>Yes</td><td>No</td><td>No</td></tr>
+<tr><td>default</td><td>Yes</td><td>Yes</td><td>No</td><td>No</td></tr>
 <tr><td>private</td><td>Yes</td><td>No</td><td>No</td><td>No</td></tr>
 </table>
 </div>
-</div>
 
-<div class="topic">
-<h4>3. Exception Handling (try/catch/finally)</h4>
-<p data-lang="en">Exceptions are runtime errors. Use try/catch to handle them. finally always runs.</p>
-<p data-lang="hi">Exceptions runtime errors hain. try/catch se handle karo. finally hamesha chalta hai.</p>
-<div class="syntax-box"><strong>Syntax:</strong><br><code>try {<br>&nbsp;&nbsp;&nbsp;&nbsp;// risky code<br>} catch (ExceptionType e) {<br>&nbsp;&nbsp;&nbsp;&nbsp;// handle error<br>} finally {<br>&nbsp;&nbsp;&nbsp;&nbsp;// always runs<br>}</code></div>
-<div class="example"><strong>Example:</strong>
-<pre class="code">public class Main {
-    public static void main(String[] args) {
-        try {
-            int result = 10 / 0;
-        } catch (ArithmeticException e) {
-            System.out.println("Error: " + e.getMessage());
-        } finally {
-            System.out.println("Finally block executed");
+<h4>3.3 try / catch / finally</h4>
+<p data-lang="en">Exceptions are runtime errors. Use try/catch to handle them gracefully. The finally block always executes.</p>
+<p data-lang="hi">Exceptions runtime errors hain. try/catch se gracefully handle karo. finally block hamesha execute hota hai.</p>
+<div class="code-block"><span class="code-label">Java</span><pre><span class="kw">public class</span> <span class="fn">Main</span> {
+    <span class="kw">public static void</span> <span class="fn">main</span>(String[] args) {
+        <span class="kw">try</span> {
+            <span class="kw">int</span> result = <span class="num">10</span> / <span class="num">0</span>;
+        } <span class="kw">catch</span> (ArithmeticException e) {
+            System.out.println(<span class="str">"Error: "</span> + e.getMessage());
+        } <span class="kw">finally</span> {
+            System.out.println(<span class="str">"Always runs"</span>);
         }
     }
-}</pre>
-<div class="output"><strong>Output:</strong><br>Error: / by zero<br>Finally block executed</div>
+}</pre></div>
+<div class="explain-box">
+<strong>Step by step:</strong><br>
+<span data-lang="en">
+1. <code>try { }</code> - risky code goes here. If error occurs, jumps to catch.<br>
+2. <code>catch (ArithmeticException e)</code> - catches that specific exception type.<br>
+3. <code>e.getMessage()</code> - gets the error description string.<br>
+4. <code>finally { }</code> - runs whether exception occurred or not. Used for cleanup.
+</span>
+<span data-lang="hi">
+1. <code>try { }</code> - risky code yahan likhte hain. Error aaye toh catch pe jump karta hai.<br>
+2. <code>catch (ArithmeticException e)</code> - us specific exception type ko catch karta hai.<br>
+3. <code>e.getMessage()</code> - error description string deta hai.<br>
+4. <code>finally { }</code> - exception aaye ya na aaye, hamesha chalta hai. Cleanup ke liye use hota hai.
+</span>
 </div>
-<a href="terminal.html" class="try-btn">Try it Yourself &rarr;</a>
-</div>
+<a href="terminal.html" class="try-btn btn btn-outline" style="margin:1rem 0;display:inline-flex;">Try it Yourself &rarr;</a>
 
-<div class="topic">
-<h4>4. throw and throws</h4>
-<p data-lang="en">throw is used to manually throw an exception. throws declares that a method might throw an exception.</p>
-<p data-lang="hi">throw manually exception throw karne ke liye hai. throws declare karta hai ki method exception throw kar sakta hai.</p>
-<div class="syntax-box"><strong>throw:</strong><br><code>throw new ExceptionType("message");</code><br><strong>throws:</strong><br><code>void method() throws IOException { }</code></div>
-<div class="example"><strong>Example:</strong>
-<pre class="code">class AgeValidator {
-    static void checkAge(int age) throws Exception {
-        if (age < 18) {
-            throw new Exception("Age must be 18+");
-        }
-        System.out.println("Valid age: " + age);
-    }
+<h4>3.4 Custom Exceptions</h4>
+<p data-lang="en">You can create your own exception class by extending Exception. Use throw to trigger it.</p>
+<p data-lang="hi">Aap apni exception class bana sakte ho Exception ko extend karke. throw se trigger karo.</p>
+<div class="code-block"><span class="code-label">Java</span><pre><span class="kw">class</span> <span class="fn">AgeException</span> <span class="kw">extends</span> Exception {
+    <span class="fn">AgeException</span>(String msg) { <span class="kw">super</span>(msg); }
 }
-
-public class Main {
-    public static void main(String[] args) {
-        try {
-            AgeValidator.checkAge(15);
-        } catch (Exception e) {
-            System.out.println("Caught: " + e.getMessage());
-        }
+<span class="kw">public class</span> <span class="fn">Main</span> {
+    <span class="kw">static void</span> <span class="fn">check</span>(<span class="kw">int</span> age) <span class="kw">throws</span> AgeException {
+        <span class="kw">if</span> (age < <span class="num">18</span>) <span class="kw">throw new</span> AgeException(<span class="str">"Too young!"</span>);
+        System.out.println(<span class="str">"Valid"</span>);
     }
-}</pre>
-<div class="output"><strong>Output:</strong><br>Caught: Age must be 18+</div>
-</div>
-<a href="terminal.html" class="try-btn">Try it Yourself &rarr;</a>
-</div>
-
-<div class="topic">
-<h4>5. Custom Exceptions</h4>
-<p data-lang="en">You can create your own exception class by extending Exception.</p>
-<p data-lang="hi">Aap apni exception class bana sakte ho Exception ko extend karke.</p>
-<div class="syntax-box"><strong>Syntax:</strong><br><code>class MyException extends Exception {<br>&nbsp;&nbsp;&nbsp;&nbsp;MyException(String msg) { super(msg); }<br>}</code></div>
-<div class="example"><strong>Example:</strong>
-<pre class="code">class InsufficientFundsException extends Exception {
-    InsufficientFundsException(String msg) {
-        super(msg);
+    <span class="kw">public static void</span> <span class="fn">main</span>(String[] args) {
+        <span class="kw">try</span> { check(<span class="num">15</span>); }
+        <span class="kw">catch</span> (AgeException e) { System.out.println(e.getMessage()); }
     }
-}
-
-class Bank {
-    int balance = 1000;
-
-    void withdraw(int amount) throws InsufficientFundsException {
-        if (amount > balance) {
-            throw new InsufficientFundsException("Not enough balance!");
-        }
-        balance -= amount;
-        System.out.println("Withdrawn: " + amount);
-    }
-}
-
-public class Main {
-    public static void main(String[] args) {
-        Bank b = new Bank();
-        try {
-            b.withdraw(1500);
-        } catch (InsufficientFundsException e) {
-            System.out.println(e.getMessage());
-        }
-    }
-}</pre>
-<div class="output"><strong>Output:</strong><br>Not enough balance!</div>
+}</pre></div>
+<div class="explain-box">
+<strong>Step by step:</strong><br>
+<span data-lang="en">
+1. <code>class AgeException extends Exception</code> - custom exception class.<br>
+2. <code>super(msg)</code> - passes message to parent Exception class.<br>
+3. <code>throws AgeException</code> - declares this method may throw it.<br>
+4. <code>throw new AgeException("Too young!")</code> - manually throws the exception.<br>
+5. Caller must handle it with try/catch.
+</span>
+<span data-lang="hi">
+1. <code>class AgeException extends Exception</code> - custom exception class.<br>
+2. <code>super(msg)</code> - message ko parent Exception class ko pass karta hai.<br>
+3. <code>throws AgeException</code> - declare karta hai ki ye method exception throw kar sakta hai.<br>
+4. <code>throw new AgeException("Too young!")</code> - manually exception throw karta hai.<br>
+5. Caller ko try/catch se handle karna padta hai.
+</span>
 </div>
-<a href="terminal.html" class="try-btn">Try it Yourself &rarr;</a>
-</div>
-
-<div class="topic">
-<h4>6. try-with-resources</h4>
-<p data-lang="en">try-with-resources automatically closes resources like files and streams. No need for finally block.</p>
-<p data-lang="hi">try-with-resources automatically resources (files, streams) ko close karta hai. finally block ki zaroorat nahi.</p>
-<div class="syntax-box"><strong>Syntax:</strong><br><code>try (Resource r = new Resource()) {<br>&nbsp;&nbsp;&nbsp;&nbsp;// use resource<br>} catch (Exception e) {<br>&nbsp;&nbsp;&nbsp;&nbsp;// handle<br>}</code></div>
-<div class="example"><strong>Example:</strong>
-<pre class="code">import java.io.*;
-
-public class Main {
-    public static void main(String[] args) {
-        try (BufferedReader br = new BufferedReader(
-                new FileReader("test.txt"))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                System.out.println(line);
-            }
-        } catch (IOException e) {
-            System.out.println("File error: " + e.getMessage());
-        }
-        // br is automatically closed here
-    }
-}</pre>
-<div class="output"><strong>Output:</strong><br>(contents of test.txt or error message)</div>
-</div>
-<a href="terminal.html" class="try-btn">Try it Yourself &rarr;</a>
-</div>
+<a href="terminal.html" class="try-btn btn btn-outline" style="margin:1rem 0;display:inline-flex;">Try it Yourself &rarr;</a>
 
 <!-- Activity Unit 3 -->
-<div class="activity"><h4>Activity - Unit 3</h4>
-<div class="mcq"><p class="q">Q1. Which keyword manually throws an exception?</p><button class="opt" onclick="ck(this,true)">throw</button><button class="opt" onclick="ck(this,false)">throws</button><button class="opt" onclick="ck(this,false)">catch</button><span class="ans"></span></div>
-<div class="mcq"><p class="q">Q2. Which access modifier gives access only within the same class?</p><button class="opt" onclick="ck(this,false)">public</button><button class="opt" onclick="ck(this,false)">protected</button><button class="opt" onclick="ck(this,true)">private</button><span class="ans"></span></div>
-<div class="mcq"><p class="q">Q3. try-with-resources automatically does what?</p><button class="opt" onclick="ck(this,false)">Catches errors</button><button class="opt" onclick="ck(this,true)">Closes resources</button><button class="opt" onclick="ck(this,false)">Throws exceptions</button><span class="ans"></span></div>
-<div class="coding-task"><p class="q">Coding Task: Create a custom InvalidMarksException. Throw it if marks are less than 0 or greater than 100.</p><a href="terminal.html" class="try-btn">Try in Terminal &rarr;</a></div>
+<div class="activity" style="margin-top:2rem;padding:1.5rem;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);">
+<h4 style="color:var(--purple);margin-bottom:1rem;">Activity: Unit 3 MCQs</h4>
+<div class="mcq"><p><strong>Q1.</strong> Which block always executes?</p><button class="opt" onclick="ck(this,false)">try</button><button class="opt" onclick="ck(this,false)">catch</button><button class="opt" onclick="ck(this,true)">finally</button><span class="ans"></span></div>
+<div class="mcq" style="margin-top:1rem;"><p><strong>Q2.</strong> Which modifier gives access only inside the class?</p><button class="opt" onclick="ck(this,true)">private</button><button class="opt" onclick="ck(this,false)">protected</button><button class="opt" onclick="ck(this,false)">default</button><span class="ans"></span></div>
+<div class="mcq" style="margin-top:1rem;"><p><strong>Q3.</strong> throw vs throws?</p><button class="opt" onclick="ck(this,true)">throw creates, throws declares</button><button class="opt" onclick="ck(this,false)">Same thing</button><button class="opt" onclick="ck(this,false)">throws creates exception</button><span class="ans"></span></div>
 </div>
 
 </div></div>
@@ -700,401 +584,298 @@ public class Main {
 <div class="unit-section">
 <div class="unit-header" onclick="toggleUnit(this)">
 <div class="unit-number pink">4</div>
-<div class="unit-title">Collections and Threads</div>
+<div class="unit-title">Unit 4: Collections and Threads</div>
 <div class="unit-toggle">&#9660;</div>
 </div>
 <div class="unit-content">
 
-<div class="topic">
-<h4>1. ArrayList</h4>
-<p data-lang="en">ArrayList is a resizable array. It stores objects and grows automatically when you add elements.</p>
-<p data-lang="hi">ArrayList ek resizable array hai. Ye objects store karta hai aur elements add karne pe automatically bada hota hai.</p>
-<div class="syntax-box"><strong>Syntax:</strong><br><code>import java.util.ArrayList;<br>ArrayList&lt;Type&gt; list = new ArrayList&lt;&gt;();<br>list.add(item);<br>list.get(index);<br>list.remove(index);<br>list.size();</code></div>
-<div class="example"><strong>Example:</strong>
-<pre class="code">import java.util.ArrayList;
-
-public class Main {
-    public static void main(String[] args) {
-        ArrayList&lt;String&gt; fruits = new ArrayList&lt;&gt;();
-        fruits.add("Apple");
-        fruits.add("Banana");
-        fruits.add("Mango");
-
-        System.out.println(fruits.get(0));
-        System.out.println("Size: " + fruits.size());
-
-        fruits.remove(1);
-        for (String f : fruits) {
-            System.out.println(f);
-        }
+<h4>4.1 ArrayList</h4>
+<p data-lang="en">ArrayList is a resizable array from java.util. Unlike arrays, it can grow and shrink dynamically.</p>
+<p data-lang="hi">ArrayList ek resizable array hai java.util se. Arrays ke opposite, ye dynamically grow aur shrink ho sakta hai.</p>
+<div class="code-block"><span class="code-label">Java</span><pre><span class="kw">import</span> java.util.ArrayList;
+<span class="kw">public class</span> <span class="fn">Main</span> {
+    <span class="kw">public static void</span> <span class="fn">main</span>(String[] args) {
+        ArrayList&lt;String&gt; list = <span class="kw">new</span> ArrayList&lt;&gt;();
+        list.add(<span class="str">"Java"</span>);
+        list.add(<span class="str">"Python"</span>);
+        list.add(<span class="str">"C++"</span>);
+        list.remove(<span class="num">1</span>);
+        System.out.println(list);
+        System.out.println(<span class="str">"Size: "</span> + list.size());
     }
-}</pre>
-<div class="output"><strong>Output:</strong><br>Apple<br>Size: 3<br>Apple<br>Mango</div>
+}</pre></div>
+<div class="explain-box cyan">
+<strong>Step by step:</strong><br>
+<span data-lang="en">
+1. <code>ArrayList&lt;String&gt;</code> - type-safe list that holds only Strings.<br>
+2. <code>list.add("Java")</code> - appends element to end.<br>
+3. <code>list.remove(1)</code> - removes element at index 1 ("Python").<br>
+4. <code>list.size()</code> - returns current number of elements.
+</span>
+<span data-lang="hi">
+1. <code>ArrayList&lt;String&gt;</code> - type-safe list jo sirf Strings hold karta hai.<br>
+2. <code>list.add("Java")</code> - end mein element add karta hai.<br>
+3. <code>list.remove(1)</code> - index 1 pe element ("Python") remove karta hai.<br>
+4. <code>list.size()</code> - current element count return karta hai.
+</span>
 </div>
-<a href="terminal.html" class="try-btn">Try it Yourself &rarr;</a>
-</div>
+<a href="terminal.html" class="try-btn btn btn-outline" style="margin:1rem 0;display:inline-flex;">Try it Yourself &rarr;</a>
 
-<div class="topic">
-<h4>2. HashMap</h4>
-<p data-lang="en">HashMap stores key-value pairs. Keys must be unique. Access values using keys.</p>
-<p data-lang="hi">HashMap key-value pairs store karta hai. Keys unique honi chahiye. Values ko keys se access karo.</p>
-<div class="syntax-box"><strong>Syntax:</strong><br><code>import java.util.HashMap;<br>HashMap&lt;KeyType, ValueType&gt; map = new HashMap&lt;&gt;();<br>map.put(key, value);<br>map.get(key);<br>map.containsKey(key);</code></div>
-<div class="example"><strong>Example:</strong>
-<pre class="code">import java.util.HashMap;
-
-public class Main {
-    public static void main(String[] args) {
-        HashMap&lt;String, Integer&gt; marks = new HashMap&lt;&gt;();
-        marks.put("Rahul", 85);
-        marks.put("Priya", 92);
-        marks.put("Amit", 78);
-
-        System.out.println("Rahul: " + marks.get("Rahul"));
-        System.out.println("Has Priya? " + marks.containsKey("Priya"));
-
-        for (String key : marks.keySet()) {
-            System.out.println(key + " = " + marks.get(key));
-        }
+<h4>4.2 HashMap</h4>
+<p data-lang="en">HashMap stores key-value pairs. Keys must be unique. Access is very fast (O(1) average).</p>
+<p data-lang="hi">HashMap key-value pairs store karta hai. Keys unique honi chahiye. Access bahut fast hai (O(1) average).</p>
+<div class="code-block"><span class="code-label">Java</span><pre><span class="kw">import</span> java.util.HashMap;
+<span class="kw">public class</span> <span class="fn">Main</span> {
+    <span class="kw">public static void</span> <span class="fn">main</span>(String[] args) {
+        HashMap&lt;String, Integer&gt; marks = <span class="kw">new</span> HashMap&lt;&gt;();
+        marks.put(<span class="str">"Java"</span>, <span class="num">90</span>);
+        marks.put(<span class="str">"Python"</span>, <span class="num">85</span>);
+        marks.put(<span class="str">"OOSE"</span>, <span class="num">88</span>);
+        System.out.println(marks.get(<span class="str">"Java"</span>));
+        System.out.println(marks.containsKey(<span class="str">"Python"</span>));
     }
-}</pre>
-<div class="output"><strong>Output:</strong><br>Rahul: 85<br>Has Priya? true<br>Rahul = 85<br>Priya = 92<br>Amit = 78</div>
+}</pre></div>
+<div class="explain-box cyan">
+<strong>Step by step:</strong><br>
+<span data-lang="en">
+1. <code>HashMap&lt;String, Integer&gt;</code> - keys are String, values are Integer.<br>
+2. <code>marks.put("Java", 90)</code> - inserts a key-value pair.<br>
+3. <code>marks.get("Java")</code> - retrieves value for given key (90).<br>
+4. <code>marks.containsKey("Python")</code> - checks if key exists, returns boolean.
+</span>
+<span data-lang="hi">
+1. <code>HashMap&lt;String, Integer&gt;</code> - keys String hain, values Integer hain.<br>
+2. <code>marks.put("Java", 90)</code> - ek key-value pair insert karta hai.<br>
+3. <code>marks.get("Java")</code> - given key ki value return karta hai (90).<br>
+4. <code>marks.containsKey("Python")</code> - check karta hai key exist karti hai ya nahi, boolean return karta hai.
+</span>
 </div>
-<a href="terminal.html" class="try-btn">Try it Yourself &rarr;</a>
-</div>
+<a href="terminal.html" class="try-btn btn btn-outline" style="margin:1rem 0;display:inline-flex;">Try it Yourself &rarr;</a>
 
-<div class="topic">
-<h4>3. HashSet</h4>
-<p data-lang="en">HashSet stores unique elements only. Duplicates are automatically removed.</p>
-<p data-lang="hi">HashSet sirf unique elements store karta hai. Duplicates automatically hat jaate hain.</p>
-<div class="syntax-box"><strong>Syntax:</strong><br><code>import java.util.HashSet;<br>HashSet&lt;Type&gt; set = new HashSet&lt;&gt;();<br>set.add(item);<br>set.contains(item);<br>set.remove(item);</code></div>
-<div class="example"><strong>Example:</strong>
-<pre class="code">import java.util.HashSet;
-
-public class Main {
-    public static void main(String[] args) {
-        HashSet&lt;String&gt; cities = new HashSet&lt;&gt;();
-        cities.add("Delhi");
-        cities.add("Mumbai");
-        cities.add("Delhi");  // duplicate, ignored
-
-        System.out.println("Size: " + cities.size());
-        System.out.println("Has Delhi? " + cities.contains("Delhi"));
-
-        for (String city : cities) {
-            System.out.println(city);
-        }
+<h4>4.3 Threads</h4>
+<p data-lang="en">A thread is a lightweight process. Java supports multithreading by extending Thread or implementing Runnable.</p>
+<p data-lang="hi">Thread ek lightweight process hai. Java multithreading support karta hai Thread extend karke ya Runnable implement karke.</p>
+<div class="code-block"><span class="code-label">Java</span><pre><span class="kw">class</span> <span class="fn">MyThread</span> <span class="kw">extends</span> Thread {
+    <span class="kw">public void</span> <span class="fn">run</span>() {
+        <span class="kw">for</span> (<span class="kw">int</span> i = <span class="num">1</span>; i <= <span class="num">3</span>; i++)
+            System.out.println(getName() + <span class="str">": "</span> + i);
     }
-}</pre>
-<div class="output"><strong>Output:</strong><br>Size: 2<br>Has Delhi? true<br>Delhi<br>Mumbai</div>
+}
+<span class="kw">public class</span> <span class="fn">Main</span> {
+    <span class="kw">public static void</span> <span class="fn">main</span>(String[] args) {
+        MyThread t1 = <span class="kw">new</span> MyThread();
+        MyThread t2 = <span class="kw">new</span> MyThread();
+        t1.start();
+        t2.start();
+    }
+}</pre></div>
+<div class="explain-box cyan">
+<strong>Step by step:</strong><br>
+<span data-lang="en">
+1. <code>extends Thread</code> - makes this class a thread.<br>
+2. <code>public void run()</code> - code that runs in the new thread.<br>
+3. <code>t1.start()</code> - creates new thread and calls run(). Do NOT call run() directly.<br>
+4. Both threads run concurrently; output order may vary.
+</span>
+<span data-lang="hi">
+1. <code>extends Thread</code> - is class ko thread banata hai.<br>
+2. <code>public void run()</code> - naye thread mein ye code chalta hai.<br>
+3. <code>t1.start()</code> - naya thread banata hai aur run() call karta hai. Directly run() mat call karo.<br>
+4. Dono threads concurrently chalte hain; output order alag ho sakta hai.
+</span>
 </div>
-<a href="terminal.html" class="try-btn">Try it Yourself &rarr;</a>
-</div>
+<a href="terminal.html" class="try-btn btn btn-outline" style="margin:1rem 0;display:inline-flex;">Try it Yourself &rarr;</a>
 
-<div class="topic">
-<h4>4. Iterator</h4>
-<p data-lang="en">Iterator is used to loop through collections. It has hasNext() and next() methods.</p>
-<p data-lang="hi">Iterator collections ke through loop karne ke liye use hota hai. Isme hasNext() aur next() methods hain.</p>
-<div class="syntax-box"><strong>Syntax:</strong><br><code>Iterator&lt;Type&gt; it = collection.iterator();<br>while (it.hasNext()) {<br>&nbsp;&nbsp;&nbsp;&nbsp;Type item = it.next();<br>}</code></div>
-<div class="example"><strong>Example:</strong>
-<pre class="code">import java.util.ArrayList;
-import java.util.Iterator;
-
-public class Main {
-    public static void main(String[] args) {
-        ArrayList&lt;Integer&gt; nums = new ArrayList&lt;&gt;();
-        nums.add(10);
-        nums.add(20);
-        nums.add(30);
-
+<h4>4.4 Iterator</h4>
+<p data-lang="en">Iterator provides a safe way to traverse and remove elements from a collection during iteration.</p>
+<p data-lang="hi">Iterator collection ke elements ko safely traverse aur remove karne ka tarika deta hai iteration ke dauran.</p>
+<div class="code-block"><span class="code-label">Java</span><pre><span class="kw">import</span> java.util.*;
+<span class="kw">public class</span> <span class="fn">Main</span> {
+    <span class="kw">public static void</span> <span class="fn">main</span>(String[] args) {
+        ArrayList&lt;Integer&gt; nums = <span class="kw">new</span> ArrayList&lt;&gt;(Arrays.asList(<span class="num">1</span>,<span class="num">2</span>,<span class="num">3</span>,<span class="num">4</span>,<span class="num">5</span>));
         Iterator&lt;Integer&gt; it = nums.iterator();
-        while (it.hasNext()) {
-            System.out.println(it.next());
+        <span class="kw">while</span> (it.hasNext()) {
+            <span class="kw">int</span> n = it.next();
+            <span class="kw">if</span> (n % <span class="num">2</span> == <span class="num">0</span>) it.remove();
         }
+        System.out.println(nums);
     }
-}</pre>
-<div class="output"><strong>Output:</strong><br>10<br>20<br>30</div>
+}</pre></div>
+<div class="explain-box cyan">
+<strong>Step by step:</strong><br>
+<span data-lang="en">
+1. <code>nums.iterator()</code> - gets an Iterator object for the list.<br>
+2. <code>it.hasNext()</code> - returns true if more elements exist.<br>
+3. <code>it.next()</code> - returns current element and moves pointer forward.<br>
+4. <code>it.remove()</code> - safely removes last returned element. Using list.remove() during for-each would throw ConcurrentModificationException.
+</span>
+<span data-lang="hi">
+1. <code>nums.iterator()</code> - list ke liye Iterator object deta hai.<br>
+2. <code>it.hasNext()</code> - true return karta hai agar aur elements hain.<br>
+3. <code>it.next()</code> - current element return karta hai aur pointer aage badhata hai.<br>
+4. <code>it.remove()</code> - safely last returned element remove karta hai. for-each ke andar list.remove() use karte toh ConcurrentModificationException aata.
+</span>
 </div>
-<a href="terminal.html" class="try-btn">Try it Yourself &rarr;</a>
-</div>
-
-<div class="topic">
-<h4>5. Threads</h4>
-<p data-lang="en">A thread is a lightweight process. You can create threads by extending Thread class or implementing Runnable interface.</p>
-<p data-lang="hi">Thread ek lightweight process hai. Thread class extend karke ya Runnable interface implement karke threads bana sakte ho.</p>
-<div class="syntax-box"><strong>Method 1 (extend Thread):</strong><br><code>class MyThread extends Thread {<br>&nbsp;&nbsp;&nbsp;&nbsp;public void run() { }<br>}</code><br><strong>Method 2 (implement Runnable):</strong><br><code>class MyRunnable implements Runnable {<br>&nbsp;&nbsp;&nbsp;&nbsp;public void run() { }<br>}</code><br><strong>Lifecycle:</strong> New &rarr; Runnable &rarr; Running &rarr; Blocked/Waiting &rarr; Terminated</div>
-<div class="example"><strong>Example:</strong>
-<pre class="code">class MyThread extends Thread {
-    public void run() {
-        for (int i = 1; i <= 3; i++) {
-            System.out.println(getName() + ": " + i);
-        }
-    }
-}
-
-public class Main {
-    public static void main(String[] args) {
-        MyThread t1 = new MyThread();
-        MyThread t2 = new MyThread();
-        t1.start();
-        t2.start();
-    }
-}</pre>
-<div class="output"><strong>Output:</strong><br>Thread-0: 1<br>Thread-0: 2<br>Thread-0: 3<br>Thread-1: 1<br>Thread-1: 2<br>Thread-1: 3</div>
-</div>
-<a href="terminal.html" class="try-btn">Try it Yourself &rarr;</a>
-</div>
-
-<div class="topic">
-<h4>6. Synchronization</h4>
-<p data-lang="en">Synchronization prevents multiple threads from accessing the same resource at the same time. Use synchronized keyword.</p>
-<p data-lang="hi">Synchronization multiple threads ko ek hi resource ek saath access karne se rokta hai. synchronized keyword use karo.</p>
-<div class="syntax-box"><strong>Syntax:</strong><br><code>synchronized void method() { }<br>// or<br>synchronized (object) { }</code></div>
-<div class="example"><strong>Example:</strong>
-<pre class="code">class Counter {
-    int count = 0;
-
-    synchronized void increment() {
-        count++;
-    }
-}
-
-public class Main {
-    public static void main(String[] args) throws Exception {
-        Counter c = new Counter();
-
-        Thread t1 = new Thread(() -> {
-            for (int i = 0; i < 1000; i++) c.increment();
-        });
-        Thread t2 = new Thread(() -> {
-            for (int i = 0; i < 1000; i++) c.increment();
-        });
-
-        t1.start();
-        t2.start();
-        t1.join();
-        t2.join();
-
-        System.out.println("Count: " + c.count);
-    }
-}</pre>
-<div class="output"><strong>Output:</strong><br>Count: 2000</div>
-</div>
-<a href="terminal.html" class="try-btn">Try it Yourself &rarr;</a>
-</div>
+<a href="terminal.html" class="try-btn btn btn-outline" style="margin:1rem 0;display:inline-flex;">Try it Yourself &rarr;</a>
 
 <!-- Activity Unit 4 -->
-<div class="activity"><h4>Activity - Unit 4</h4>
-<div class="mcq"><p class="q">Q1. Which collection stores only unique elements?</p><button class="opt" onclick="ck(this,false)">ArrayList</button><button class="opt" onclick="ck(this,true)">HashSet</button><button class="opt" onclick="ck(this,false)">HashMap</button><span class="ans"></span></div>
-<div class="mcq"><p class="q">Q2. Which method starts a thread?</p><button class="opt" onclick="ck(this,false)">run()</button><button class="opt" onclick="ck(this,true)">start()</button><button class="opt" onclick="ck(this,false)">execute()</button><span class="ans"></span></div>
-<div class="mcq"><p class="q">Q3. HashMap stores data as?</p><button class="opt" onclick="ck(this,false)">Index-value</button><button class="opt" onclick="ck(this,true)">Key-value pairs</button><button class="opt" onclick="ck(this,false)">Ordered list</button><span class="ans"></span></div>
-<div class="coding-task"><p class="q">Coding Task: Create an ArrayList of student names. Add 5 names, remove one, and print the list using Iterator.</p><a href="terminal.html" class="try-btn">Try in Terminal &rarr;</a></div>
+<div class="activity" style="margin-top:2rem;padding:1.5rem;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);">
+<h4 style="color:var(--pink);margin-bottom:1rem;">Activity: Unit 4 MCQs</h4>
+<div class="mcq"><p><strong>Q1.</strong> ArrayList belongs to which package?</p><button class="opt" onclick="ck(this,false)">java.lang</button><button class="opt" onclick="ck(this,true)">java.util</button><button class="opt" onclick="ck(this,false)">java.io</button><span class="ans"></span></div>
+<div class="mcq" style="margin-top:1rem;"><p><strong>Q2.</strong> Which method starts a thread?</p><button class="opt" onclick="ck(this,false)">run()</button><button class="opt" onclick="ck(this,true)">start()</button><button class="opt" onclick="ck(this,false)">execute()</button><span class="ans"></span></div>
+<div class="mcq" style="margin-top:1rem;"><p><strong>Q3.</strong> HashMap stores data as?</p><button class="opt" onclick="ck(this,false)">Index-value</button><button class="opt" onclick="ck(this,true)">Key-value pairs</button><button class="opt" onclick="ck(this,false)">Linked nodes</button><span class="ans"></span></div>
 </div>
 
 </div></div>
 
-<!-- ===== UNIT 5: GUI and Design Patterns ===== -->
+<!-- ===== UNIT 5: Design Patterns ===== -->
 <div class="unit-section">
 <div class="unit-header" onclick="toggleUnit(this)">
 <div class="unit-number cyan">5</div>
-<div class="unit-title">GUI and Design Patterns</div>
+<div class="unit-title">Unit 5: Design Patterns</div>
 <div class="unit-toggle">&#9660;</div>
 </div>
 <div class="unit-content">
 
-<div class="topic">
-<h4>1. AWT Basics</h4>
-<p data-lang="en">AWT (Abstract Window Toolkit) is Java's original GUI library. It uses Frame, Button, Label, and TextField.</p>
-<p data-lang="hi">AWT (Abstract Window Toolkit) Java ki original GUI library hai. Ye Frame, Button, Label, aur TextField use karti hai.</p>
-<div class="syntax-box"><strong>Syntax:</strong><br><code>import java.awt.*;<br>Frame f = new Frame("Title");<br>Button b = new Button("Click");<br>f.add(b);<br>f.setSize(400, 300);<br>f.setVisible(true);</code></div>
-<div class="example"><strong>Example:</strong>
-<pre class="code">import java.awt.*;
-
-public class MyAWT {
-    public static void main(String[] args) {
-        Frame f = new Frame("AWT Example");
-        Label l = new Label("Hello AWT!");
-        Button b = new Button("Click Me");
-
-        l.setBounds(50, 50, 100, 30);
-        b.setBounds(50, 100, 80, 30);
-
-        f.add(l);
-        f.add(b);
-        f.setSize(300, 200);
-        f.setLayout(null);
-        f.setVisible(true);
-    }
-}</pre>
-<div class="output"><strong>Output:</strong><br>(A window with label "Hello AWT!" and a button)</div>
-</div>
-</div>
-
-<div class="topic">
-<h4>2. Swing (JFrame, JButton)</h4>
-<p data-lang="en">Swing is an improved GUI library. It uses JFrame, JButton, JLabel, and JTextField. It is lightweight and more flexible than AWT.</p>
-<p data-lang="hi">Swing ek improved GUI library hai. Ye JFrame, JButton, JLabel, aur JTextField use karti hai. Ye AWT se lightweight aur flexible hai.</p>
-<div class="syntax-box"><strong>Syntax:</strong><br><code>import javax.swing.*;<br>JFrame frame = new JFrame("Title");<br>JButton btn = new JButton("Click");<br>frame.add(btn);<br>frame.setSize(400, 300);<br>frame.setVisible(true);</code></div>
-<div class="example"><strong>Example:</strong>
-<pre class="code">import javax.swing.*;
-
-public class MySwing {
-    public static void main(String[] args) {
-        JFrame frame = new JFrame("Swing Example");
-        JLabel label = new JLabel("Hello Swing!");
-        JButton btn = new JButton("Click Me");
-
-        label.setBounds(50, 30, 150, 30);
-        btn.setBounds(50, 80, 100, 30);
-
-        frame.add(label);
-        frame.add(btn);
-        frame.setSize(300, 200);
-        frame.setLayout(null);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setVisible(true);
-    }
-}</pre>
-<div class="output"><strong>Output:</strong><br>(A window with label "Hello Swing!" and a button)</div>
-</div>
-</div>
-
-<div class="topic">
-<h4>3. Event Handling (ActionListener)</h4>
-<p data-lang="en">Event handling responds to user actions like button clicks. Implement ActionListener interface and override actionPerformed().</p>
-<p data-lang="hi">Event handling user actions (jaise button click) pe respond karta hai. ActionListener interface implement karo aur actionPerformed() override karo.</p>
-<div class="syntax-box"><strong>Syntax:</strong><br><code>import java.awt.event.*;<br>button.addActionListener(new ActionListener() {<br>&nbsp;&nbsp;&nbsp;&nbsp;public void actionPerformed(ActionEvent e) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// handle event<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>});</code></div>
-<div class="example"><strong>Example:</strong>
-<pre class="code">import javax.swing.*;
-import java.awt.event.*;
-
-public class EventDemo {
-    public static void main(String[] args) {
-        JFrame f = new JFrame("Event Demo");
-        JButton btn = new JButton("Click");
-        JLabel lbl = new JLabel("...");
-
-        btn.setBounds(50, 50, 100, 30);
-        lbl.setBounds(50, 100, 200, 30);
-
-        btn.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                lbl.setText("Button clicked!");
-            }
-        });
-
-        f.add(btn);
-        f.add(lbl);
-        f.setSize(300, 200);
-        f.setLayout(null);
-        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        f.setVisible(true);
-    }
-}</pre>
-<div class="output"><strong>Output:</strong><br>(Clicking button shows "Button clicked!" in the label)</div>
-</div>
-</div>
-
-<div class="topic">
-<h4>4. Singleton Pattern</h4>
-<p data-lang="en">Singleton ensures only one object of a class is created. It uses a private constructor and a static method to get the instance.</p>
-<p data-lang="hi">Singleton ensure karta hai ki class ka sirf ek object bane. Private constructor aur static method se instance milta hai.</p>
-<div class="syntax-box"><strong>Syntax:</strong><br><code>class Singleton {<br>&nbsp;&nbsp;&nbsp;&nbsp;private static Singleton instance;<br>&nbsp;&nbsp;&nbsp;&nbsp;private Singleton() { }<br>&nbsp;&nbsp;&nbsp;&nbsp;public static Singleton getInstance() {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (instance == null) instance = new Singleton();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return instance;<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}</code></div>
-<div class="example"><strong>Example:</strong>
-<pre class="code">class Database {
-    private static Database instance;
-    private String connection;
-
-    private Database() {
-        connection = "Connected to DB";
-    }
-
-    public static Database getInstance() {
-        if (instance == null) {
-            instance = new Database();
-        }
-        return instance;
-    }
-
-    public String getConnection() {
-        return connection;
+<h4>5.1 Singleton Pattern</h4>
+<p data-lang="en">Singleton ensures only ONE instance of a class exists in the entire application. Private constructor prevents external creation.</p>
+<p data-lang="hi">Singleton ensure karta hai ki puri application mein class ka sirf EK instance ho. Private constructor bahar se object banana rokta hai.</p>
+<div class="code-block"><span class="code-label">Java</span><pre><span class="kw">class</span> <span class="fn">Database</span> {
+    <span class="kw">private static</span> Database instance;
+    <span class="kw">private</span> <span class="fn">Database</span>() { System.out.println(<span class="str">"Connected"</span>); }
+    <span class="kw">public static</span> Database <span class="fn">getInstance</span>() {
+        <span class="kw">if</span> (instance == <span class="kw">null</span>) instance = <span class="kw">new</span> Database();
+        <span class="kw">return</span> instance;
     }
 }
-
-public class Main {
-    public static void main(String[] args) {
+<span class="kw">public class</span> <span class="fn">Main</span> {
+    <span class="kw">public static void</span> <span class="fn">main</span>(String[] args) {
         Database db1 = Database.getInstance();
         Database db2 = Database.getInstance();
-        System.out.println(db1.getConnection());
-        System.out.println(db1 == db2);  // same object
+        System.out.println(db1 == db2); <span class="cm">// true</span>
     }
-}</pre>
-<div class="output"><strong>Output:</strong><br>Connected to DB<br>true</div>
+}</pre></div>
+<div class="explain-box cyan">
+<strong>Step by step:</strong><br>
+<span data-lang="en">
+1. <code>private static Database instance</code> - holds the single instance.<br>
+2. <code>private Database()</code> - private constructor, nobody outside can call new Database().<br>
+3. <code>getInstance()</code> - creates instance only if null, otherwise returns existing one.<br>
+4. <code>db1 == db2</code> - both variables point to same object, prints true.
+</span>
+<span data-lang="hi">
+1. <code>private static Database instance</code> - single instance ko hold karta hai.<br>
+2. <code>private Database()</code> - private constructor, bahar se koi new Database() nahi kar sakta.<br>
+3. <code>getInstance()</code> - sirf null hone pe instance banata hai, warna existing return karta hai.<br>
+4. <code>db1 == db2</code> - dono variables same object pe point karte hain, true print hota hai.
+</span>
 </div>
-<a href="terminal.html" class="try-btn">Try it Yourself &rarr;</a>
-</div>
+<a href="terminal.html" class="try-btn btn btn-outline" style="margin:1rem 0;display:inline-flex;">Try it Yourself &rarr;</a>
 
-<div class="topic">
-<h4>5. Factory Pattern</h4>
-<p data-lang="en">Factory pattern creates objects without specifying the exact class. A factory method decides which class to instantiate.</p>
-<p data-lang="hi">Factory pattern objects banata hai bina exact class specify kiye. Factory method decide karta hai ki kaunsi class ka object banega.</p>
-<div class="syntax-box"><strong>Syntax:</strong><br><code>interface Product { }<br>class ConcreteProduct implements Product { }<br>class Factory {<br>&nbsp;&nbsp;&nbsp;&nbsp;Product create(String type) { ... }<br>}</code></div>
-<div class="example"><strong>Example:</strong>
-<pre class="code">interface Shape {
-    void draw();
-}
+<h4>5.2 Factory Pattern</h4>
+<p data-lang="en">Factory Pattern creates objects without exposing creation logic. A factory method decides which class to instantiate based on input.</p>
+<p data-lang="hi">Factory Pattern objects banata hai bina creation logic expose kiye. Factory method input ke basis pe decide karta hai kaun si class instantiate karna hai.</p>
+<div class="code-block"><span class="code-label">Java</span><pre><span class="kw">interface</span> <span class="fn">Shape</span> { <span class="kw">void</span> <span class="fn">draw</span>(); }
+<span class="kw">class</span> <span class="fn">Circle</span> <span class="kw">implements</span> Shape { <span class="kw">public void</span> draw() { System.out.println(<span class="str">"Circle"</span>); } }
+<span class="kw">class</span> <span class="fn">Square</span> <span class="kw">implements</span> Shape { <span class="kw">public void</span> draw() { System.out.println(<span class="str">"Square"</span>); } }
 
-class Circle implements Shape {
-    public void draw() { System.out.println("Drawing Circle"); }
-}
-
-class Rectangle implements Shape {
-    public void draw() { System.out.println("Drawing Rectangle"); }
-}
-
-class ShapeFactory {
-    Shape getShape(String type) {
-        if (type.equals("circle")) return new Circle();
-        if (type.equals("rectangle")) return new Rectangle();
-        return null;
+<span class="kw">class</span> <span class="fn">ShapeFactory</span> {
+    <span class="kw">static</span> Shape <span class="fn">create</span>(String type) {
+        <span class="kw">if</span> (type.equals(<span class="str">"circle"</span>)) <span class="kw">return new</span> Circle();
+        <span class="kw">if</span> (type.equals(<span class="str">"square"</span>)) <span class="kw">return new</span> Square();
+        <span class="kw">return null</span>;
     }
 }
-
-public class Main {
-    public static void main(String[] args) {
-        ShapeFactory factory = new ShapeFactory();
-        Shape s1 = factory.getShape("circle");
-        Shape s2 = factory.getShape("rectangle");
-        s1.draw();
-        s2.draw();
+<span class="kw">public class</span> <span class="fn">Main</span> {
+    <span class="kw">public static void</span> <span class="fn">main</span>(String[] args) {
+        Shape s = ShapeFactory.create(<span class="str">"circle"</span>);
+        s.draw();
     }
-}</pre>
-<div class="output"><strong>Output:</strong><br>Drawing Circle<br>Drawing Rectangle</div>
+}</pre></div>
+<div class="explain-box cyan">
+<strong>Step by step:</strong><br>
+<span data-lang="en">
+1. <code>interface Shape</code> - common type for all shapes.<br>
+2. <code>ShapeFactory.create("circle")</code> - client does not call new Circle() directly.<br>
+3. Factory decides which concrete class to return based on the string parameter.<br>
+4. Adding new shapes only changes the factory, not client code.
+</span>
+<span data-lang="hi">
+1. <code>interface Shape</code> - sab shapes ke liye common type.<br>
+2. <code>ShapeFactory.create("circle")</code> - client directly new Circle() nahi call karta.<br>
+3. Factory string parameter ke basis pe decide karta hai kaun si class return karna hai.<br>
+4. Nayi shapes add karne pe sirf factory change hoti hai, client code nahi.
+</span>
 </div>
-<a href="terminal.html" class="try-btn">Try it Yourself &rarr;</a>
-</div>
+<a href="terminal.html" class="try-btn btn btn-outline" style="margin:1rem 0;display:inline-flex;">Try it Yourself &rarr;</a>
 
-<div class="topic">
-<h4>6. SOLID Principles</h4>
-<p data-lang="en">SOLID is a set of 5 design principles for writing clean, maintainable code.</p>
-<p data-lang="hi">SOLID 5 design principles ka set hai jo clean aur maintainable code likhne mein madad karta hai.</p>
+<h4>5.3 Observer Pattern</h4>
+<p data-lang="en">Observer Pattern: when one object (subject) changes state, all dependent objects (observers) are notified automatically.</p>
+<p data-lang="hi">Observer Pattern: jab ek object (subject) ki state change hoti hai, sab dependent objects (observers) ko automatically notify kiya jaata hai.</p>
+<div class="code-block"><span class="code-label">Java</span><pre><span class="kw">import</span> java.util.*;
+<span class="kw">interface</span> <span class="fn">Observer</span> { <span class="kw">void</span> <span class="fn">update</span>(String msg); }
+
+<span class="kw">class</span> <span class="fn">Channel</span> {
+    List&lt;Observer&gt; subs = <span class="kw">new</span> ArrayList&lt;&gt;();
+    <span class="kw">void</span> <span class="fn">subscribe</span>(Observer o) { subs.add(o); }
+    <span class="kw">void</span> <span class="fn">publish</span>(String msg) {
+        <span class="kw">for</span> (Observer o : subs) o.update(msg);
+    }
+}
+<span class="kw">class</span> <span class="fn">User</span> <span class="kw">implements</span> Observer {
+    String name;
+    <span class="fn">User</span>(String n) { name = n; }
+    <span class="kw">public void</span> <span class="fn">update</span>(String msg) {
+        System.out.println(name + <span class="str">" got: "</span> + msg);
+    }
+}
+<span class="kw">public class</span> <span class="fn">Main</span> {
+    <span class="kw">public static void</span> <span class="fn">main</span>(String[] args) {
+        Channel ch = <span class="kw">new</span> Channel();
+        ch.subscribe(<span class="kw">new</span> User(<span class="str">"Rahul"</span>));
+        ch.subscribe(<span class="kw">new</span> User(<span class="str">"Priya"</span>));
+        ch.publish(<span class="str">"New video!"</span>);
+    }
+}</pre></div>
+<div class="explain-box cyan">
+<strong>Step by step:</strong><br>
+<span data-lang="en">
+1. <code>interface Observer</code> - contract: every observer must have update().<br>
+2. <code>Channel</code> - subject that maintains a list of subscribers.<br>
+3. <code>subscribe()</code> - adds observer to the list.<br>
+4. <code>publish()</code> - loops through all observers and calls update() on each.<br>
+5. Adding/removing observers does not change Channel's publish logic.
+</span>
+<span data-lang="hi">
+1. <code>interface Observer</code> - contract: har observer mein update() hona chahiye.<br>
+2. <code>Channel</code> - subject jo subscribers ki list maintain karta hai.<br>
+3. <code>subscribe()</code> - observer ko list mein add karta hai.<br>
+4. <code>publish()</code> - sab observers pe loop karke har ek pe update() call karta hai.<br>
+5. Observers add/remove karne se Channel ki publish logic nahi badalti.
+</span>
+</div>
+<a href="terminal.html" class="try-btn btn btn-outline" style="margin:1rem 0;display:inline-flex;">Try it Yourself &rarr;</a>
+
+<h4>5.4 SOLID Principles</h4>
+<p data-lang="en">SOLID is a set of 5 principles for writing clean, maintainable object-oriented code.</p>
+<p data-lang="hi">SOLID 5 principles ka set hai jo clean, maintainable object-oriented code likhne mein madad karta hai.</p>
 <div class="table-wrapper">
 <table>
 <tr><th>Letter</th><th>Principle</th><th>Meaning</th></tr>
-<tr><td>S</td><td>Single Responsibility</td><td>A class should have only one reason to change.</td></tr>
-<tr><td>O</td><td>Open/Closed</td><td>Open for extension, closed for modification.</td></tr>
-<tr><td>L</td><td>Liskov Substitution</td><td>Child class should work anywhere parent is used.</td></tr>
-<tr><td>I</td><td>Interface Segregation</td><td>Many small interfaces are better than one big interface.</td></tr>
-<tr><td>D</td><td>Dependency Inversion</td><td>Depend on abstractions, not on concrete classes.</td></tr>
+<tr><td><strong>S</strong></td><td>Single Responsibility</td><td>One class = one job only</td></tr>
+<tr><td><strong>O</strong></td><td>Open/Closed</td><td>Open for extension, closed for modification</td></tr>
+<tr><td><strong>L</strong></td><td>Liskov Substitution</td><td>Child can replace parent without breaking code</td></tr>
+<tr><td><strong>I</strong></td><td>Interface Segregation</td><td>Many small interfaces better than one big one</td></tr>
+<tr><td><strong>D</strong></td><td>Dependency Inversion</td><td>Depend on abstractions, not concrete classes</td></tr>
 </table>
-</div>
 </div>
 
 <!-- Activity Unit 5 -->
-<div class="activity"><h4>Activity - Unit 5</h4>
-<div class="mcq"><p class="q">Q1. Singleton pattern ensures how many objects?</p><button class="opt" onclick="ck(this,true)">Only one</button><button class="opt" onclick="ck(this,false)">Two</button><button class="opt" onclick="ck(this,false)">Unlimited</button><span class="ans"></span></div>
-<div class="mcq"><p class="q">Q2. Which is NOT a SOLID principle?</p><button class="opt" onclick="ck(this,false)">Single Responsibility</button><button class="opt" onclick="ck(this,true)">Simple Inheritance</button><button class="opt" onclick="ck(this,false)">Dependency Inversion</button><span class="ans"></span></div>
-<div class="mcq"><p class="q">Q3. ActionListener is used for?</p><button class="opt" onclick="ck(this,true)">Handling button clicks</button><button class="opt" onclick="ck(this,false)">Creating threads</button><button class="opt" onclick="ck(this,false)">File reading</button><span class="ans"></span></div>
-<div class="coding-task"><p class="q">Coding Task: Implement a Factory pattern for creating Animal objects (Dog, Cat) based on a string input.</p><a href="terminal.html" class="try-btn">Try in Terminal &rarr;</a></div>
+<div class="activity" style="margin-top:2rem;padding:1.5rem;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);">
+<h4 style="color:var(--cyan);margin-bottom:1rem;">Activity: Unit 5 MCQs</h4>
+<div class="mcq"><p><strong>Q1.</strong> Singleton pattern ensures how many instances?</p><button class="opt" onclick="ck(this,true)">One</button><button class="opt" onclick="ck(this,false)">Two</button><button class="opt" onclick="ck(this,false)">Unlimited</button><span class="ans"></span></div>
+<div class="mcq" style="margin-top:1rem;"><p><strong>Q2.</strong> What does 'S' in SOLID stand for?</p><button class="opt" onclick="ck(this,true)">Single Responsibility</button><button class="opt" onclick="ck(this,false)">Static Methods</button><button class="opt" onclick="ck(this,false)">Structured Design</button><span class="ans"></span></div>
+<div class="mcq" style="margin-top:1rem;"><p><strong>Q3.</strong> Factory Pattern hides what from client?</p><button class="opt" onclick="ck(this,false)">Interface</button><button class="opt" onclick="ck(this,true)">Object creation logic</button><button class="opt" onclick="ck(this,false)">Method names</button><span class="ans"></span></div>
 </div>
 
 </div></div>
@@ -1102,19 +883,33 @@ public class Main {
 </main>
 
 <footer class="footer">
-<div class="footer-brand">Prof. Manoj Purohit - MCA Learning Hub - GGSIPU</div>
-<p>&copy; 2024 All Rights Reserved</p>
+<div class="footer-brand">Prof. Manoj Purohit | MCA Learning Hub | GGSIPU</div>
+<p>Built for MCA students. Learn Java step by step.</p>
 </footer>
 
 <script>
-function toggleUnit(header){const s=header.parentElement;s.classList.toggle('open')}
-function ck(b,c){const m=b.closest('.mcq'),a=m.querySelector('.ans');m.querySelectorAll('.opt').forEach(o=>{o.disabled=true;});if(c){b.style.background='rgba(16,185,129,.2)';b.style.borderColor='#10B981';a.textContent='Correct!';a.style.color='#10B981';}else{b.style.background='rgba(239,68,68,.2)';b.style.borderColor='#ef4444';a.textContent='Wrong!';a.style.color='#ef4444';}}
+function toggleUnit(el){
+    const sec=el.parentElement;
+    sec.classList.toggle('open');
+}
+function ck(btn,correct){
+    const mcq=btn.closest('.mcq');
+    const ans=mcq.querySelector('.ans');
+    if(correct){btn.style.background='rgba(16,185,129,.2)';btn.style.color='#10b981';ans.textContent=' Correct!';}
+    else{btn.style.background='rgba(239,68,68,.2)';btn.style.color='#ef4444';ans.textContent=' Try again';}
+}
+// Language toggle
 const langBtn=document.getElementById('langToggle');
-let isHindi=false;
-langBtn.addEventListener('click',()=>{isHindi=!isHindi;document.body.classList.toggle('hinglish',isHindi);const spans=langBtn.querySelectorAll('span');spans[0].classList.toggle('active',!isHindi);spans[2].classList.toggle('active',isHindi)});
+langBtn.addEventListener('click',()=>{
+    document.body.classList.toggle('hinglish');
+    const spans=langBtn.querySelectorAll('span');
+    spans[0].classList.toggle('active');
+    spans[2].classList.toggle('active');
+});
+// Hamburger
 const hamburger=document.getElementById('hamburger');
 const mobileMenu=document.getElementById('mobileMenu');
-hamburger.addEventListener('click',()=>mobileMenu.classList.toggle('open'));
+hamburger.addEventListener('click',()=>{mobileMenu.classList.toggle('open');});
 </script>
 </body>
 </html>
