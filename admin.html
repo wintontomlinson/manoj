@@ -69,9 +69,9 @@
         <div class="dash-content" id="tab-students">
             <div class="dash-card">
                 <h3 style="margin-bottom:1rem;color:var(--green);">➕ Add Students</h3>
-                <p style="color:var(--text-secondary);font-size:.85rem;margin-bottom:1rem;">Paste enrollment numbers (one per line). Format: enrollment,name (name is optional)</p>
+                <p style="color:var(--text-secondary);font-size:.85rem;margin-bottom:1rem;">Enter student details (one per line). Format: <code style="color:var(--cyan);">enrollment,student_name,father_name</code></p>
                 <div class="form-group">
-                    <textarea id="studentInput" rows="5" placeholder="04616402023,Rahul Kumar&#10;04616402024,Priya Sharma&#10;04616402025"></textarea>
+                    <textarea id="studentInput" rows="5" placeholder="Enter student details (one per line):&#10;04616402023,Rahul Kumar,Rajesh Kumar&#10;04616402024,Priya Sharma,Vikram Sharma&#10;04616402025,Amit Singh,Suresh Singh"></textarea>
                 </div>
                 <button class="btn btn-primary" onclick="uploadStudents()">Upload Students</button>
                 <span id="studentCount" style="margin-left:1rem;color:var(--text-secondary);font-size:.85rem;"></span>
@@ -89,6 +89,7 @@
                                 <th>S.No</th>
                                 <th>Enrollment</th>
                                 <th>Name</th>
+                                <th>Father's Name</th>
                                 <th>Password</th>
                                 <th>Added On</th>
                                 <th>Action</th>
@@ -188,7 +189,7 @@
                 <div style="display:grid;gap:1rem;">
                     <div class="asgn-card">
                         <h4 style="margin-bottom:.5rem;">Student Data</h4>
-                        <p style="color:var(--text-secondary);font-size:.85rem;margin-bottom:1rem;">Download complete student list with enrollment, name, and password info.</p>
+                        <p style="color:var(--text-secondary);font-size:.85rem;margin-bottom:1rem;">Download complete student list with enrollment, name, father's name and password info.</p>
                         <button class="btn btn-primary" style="padding:.6rem 1.2rem;font-size:.85rem;" onclick="downloadStudentCSV()">Download Student List (CSV) ↓</button>
                     </div>
                     <div class="asgn-card">
@@ -231,11 +232,11 @@
         function initDemoData() {
             if (!localStorage.getItem('demoInitialized')) {
                 const students = [
-                    {enrollment: "04616402023", name: "Rahul Kumar", addedOn: "2024-01-15"},
-                    {enrollment: "04616402024", name: "Priya Sharma", addedOn: "2024-01-15"},
-                    {enrollment: "04616402025", name: "Amit Singh", addedOn: "2024-01-16"},
-                    {enrollment: "04616402026", name: "Neha Gupta", addedOn: "2024-01-16"},
-                    {enrollment: "04616402027", name: "Vikram Joshi", addedOn: "2024-01-17"}
+                    {enrollment: "04616402023", name: "Rahul Kumar", fatherName: "Rajesh Kumar", customPassword: null, addedOn: "2024-01-15"},
+                    {enrollment: "04616402024", name: "Priya Sharma", fatherName: "Vikram Sharma", customPassword: null, addedOn: "2024-01-15"},
+                    {enrollment: "04616402025", name: "Amit Singh", fatherName: "Suresh Singh", customPassword: null, addedOn: "2024-01-16"},
+                    {enrollment: "04616402026", name: "Neha Gupta", fatherName: "Arun Gupta", customPassword: null, addedOn: "2024-01-16"},
+                    {enrollment: "04616402027", name: "Rohan Verma", fatherName: "Dinesh Verma", customPassword: null, addedOn: "2024-01-17"}
                 ];
 
                 const assignments = [
@@ -331,17 +332,32 @@
             let added = 0;
             
             lines.forEach(line => {
-                const parts = line.trim().split(',');
-                const enrollment = parts[0].trim();
-                const name = parts[1] ? parts[1].trim() : 'Student ' + enrollment.slice(-4);
-                
-                if (enrollment && !students.find(s => s.enrollment === enrollment)) {
-                    students.push({
-                        enrollment,
-                        name,
-                        addedOn: new Date().toISOString().split('T')[0]
-                    });
-                    added++;
+                const parts = line.split(',').map(s => s.trim());
+                if (parts.length >= 3) {
+                    const [enrollment, name, fatherName] = parts;
+                    if (enrollment && !students.find(s => s.enrollment === enrollment)) {
+                        students.push({
+                            enrollment,
+                            name,
+                            fatherName,
+                            customPassword: null,
+                            addedOn: new Date().toISOString().split('T')[0]
+                        });
+                        added++;
+                    }
+                } else if (parts.length === 2) {
+                    // Backward compatible: enrollment,name (no father name)
+                    const [enrollment, name] = parts;
+                    if (enrollment && !students.find(s => s.enrollment === enrollment)) {
+                        students.push({
+                            enrollment,
+                            name,
+                            fatherName: '',
+                            customPassword: null,
+                            addedOn: new Date().toISOString().split('T')[0]
+                        });
+                        added++;
+                    }
                 }
             });
             
@@ -364,24 +380,35 @@
             }
             
             noMsg.style.display = 'none';
-            tbody.innerHTML = students.map((s, i) => `
+            tbody.innerHTML = students.map((s, i) => {
+                const hasCustomPwd = s.customPassword ? true : false;
+                const pwdBadge = hasCustomPwd ? ' <span style="background:rgba(245,158,11,.15);color:var(--yellow);padding:.1rem .4rem;border-radius:4px;font-size:.65rem;font-weight:600;">(Changed)</span>' : '';
+                return `
                 <tr>
                     <td>${i + 1}</td>
                     <td><code style="color:var(--cyan);font-family:var(--font-mono);font-size:.8rem;">${s.enrollment}</code></td>
                     <td>${s.name}</td>
+                    <td style="color:var(--text-secondary);font-size:.85rem;">${s.fatherName || '-'}</td>
                     <td>
-                        <span class="password-mask" id="pwd-${i}" style="cursor:pointer;color:var(--text-muted);" onclick="togglePwd(${i}, '${s.enrollment}')">••••••••</span>
+                        <span class="password-mask" id="pwd-${i}" style="cursor:pointer;color:var(--text-muted);" onclick="togglePwd(${i})">••••••••</span>${pwdBadge}
                     </td>
                     <td style="color:var(--text-muted);font-size:.8rem;">${s.addedOn}</td>
                     <td><button style="color:#ef4444;background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.2);padding:.3rem .6rem;border-radius:6px;font-size:.75rem;cursor:pointer;" onclick="deleteStudent('${s.enrollment}')">Delete</button></td>
                 </tr>
-            `).join('');
+            `}).join('');
         }
 
-        function togglePwd(index, enrollment) {
+        function togglePwd(index) {
+            const students = getStudents();
+            const s = students[index];
             const el = document.getElementById('pwd-' + index);
             if (el.textContent === '••••••••') {
-                el.textContent = enrollment.slice(-4).split('').reverse().join('') + '@mca';
+                // Show actual password
+                if (s.customPassword) {
+                    el.textContent = s.customPassword;
+                } else {
+                    el.textContent = s.fatherName ? s.fatherName.toUpperCase() : 'N/A';
+                }
                 el.style.color = 'var(--green)';
                 el.style.fontFamily = 'var(--font-mono)';
             } else {
@@ -609,9 +636,11 @@
 
         function downloadStudentCSV() {
             const students = getStudents();
-            const data = [['S.No', 'Enrollment', 'Name', 'Password', 'Added On']];
+            const data = [['S.No', 'Enrollment', 'Name', 'Father Name', 'Password', 'Password Changed', 'Added On']];
             students.forEach((s, i) => {
-                data.push([i + 1, s.enrollment, s.name, s.enrollment.slice(-4).split('').reverse().join('') + '@mca', s.addedOn]);
+                const pwd = s.customPassword ? s.customPassword : (s.fatherName ? s.fatherName.toUpperCase() : 'N/A');
+                const changed = s.customPassword ? 'Yes' : 'No';
+                data.push([i + 1, s.enrollment, s.name, s.fatherName || '', pwd, changed, s.addedOn]);
             });
             downloadCSV(data, 'students_list.csv');
         }
