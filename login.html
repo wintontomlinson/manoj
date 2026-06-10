@@ -55,12 +55,12 @@
             
             <!-- Tabs -->
             <div class="login-tabs">
-                <button class="login-tab active" onclick="switchTab('admin')">Admin</button>
-                <button class="login-tab" onclick="switchTab('student')">Student</button>
+                <button class="login-tab" onclick="switchTab('admin')">Admin</button>
+                <button class="login-tab active" onclick="switchTab('student')">Student</button>
             </div>
 
             <!-- Admin Form -->
-            <div id="adminForm" class="login-form">
+            <div id="adminForm" class="login-form" style="display:none;">
                 <div class="form-group">
                     <label>Username</label>
                     <input type="text" id="adminUsername" placeholder="Enter admin username">
@@ -74,7 +74,7 @@
             </div>
 
             <!-- Student Form -->
-            <div id="studentForm" class="login-form" style="display:none;">
+            <div id="studentForm" class="login-form">
                 <div class="form-group">
                     <label>Enrollment Number</label>
                     <input type="text" id="studentEnrollment" placeholder="e.g., 04616402023">

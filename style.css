@@ -1058,3 +1058,19 @@ span[data-lang="en"] { display: inline; }
     .data-table th, .data-table td { padding: .5rem .4rem; }
     .summary-grid { grid-template-columns: repeat(2, 1fr); }
 }
+
+
+/* Student Login Button in Nav */
+.nav-student-btn {
+    background: linear-gradient(135deg, var(--green), var(--cyan)) !important;
+    color: #fff !important;
+    padding: .4rem 1rem !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    font-size: .8rem !important;
+    transition: all .2s !important;
+}
+.nav-student-btn:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 15px rgba(16, 185, 129, .3) !important;
+}
