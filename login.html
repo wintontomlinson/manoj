@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login · MCA Hub · Prof. Manoj Purohit</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Blobs -->
+    <div class="blob blob-purple"></div>
+    <div class="blob blob-pink"></div>
+    <div class="blob blob-cyan"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">
+                <div class="nav-badge">MP</div>
+                <span>Prof. Manoj Purohit</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="python.html">Python</a></li>
+                <li><a href="java.html">Java</a></li>
+                <li><a href="oose.html">OOSE</a></li>
+                <li><a href="terminal.html">Terminal</a></li>
+                <li><a href="login.html" class="nav-login-btn active">Login</a></li>
+            </ul>
+            <div class="nav-right">
+                <div class="hamburger" id="hamburger">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="python.html">Python</a>
+        <a href="java.html">Java</a>
+        <a href="oose.html">OOSE</a>
+        <a href="terminal.html">Terminal</a>
+        <a href="login.html" class="active">Login</a>
+    </div>
+
+    <!-- Login Content -->
+    <div class="login-container">
+        <div class="login-card">
+            <h2 style="text-align:center;font-family:var(--font-display);font-weight:800;margin-bottom:1.5rem;background:linear-gradient(135deg,var(--purple),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Login to MCA Hub</h2>
+            
+            <!-- Tabs -->
+            <div class="login-tabs">
+                <button class="login-tab active" onclick="switchTab('admin')">Admin</button>
+                <button class="login-tab" onclick="switchTab('student')">Student</button>
+            </div>
+
+            <!-- Admin Form -->
+            <div id="adminForm" class="login-form">
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" id="adminUsername" placeholder="Enter admin username">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="adminPassword" placeholder="Enter password">
+                </div>
+                <div class="error-msg" id="adminError">Invalid credentials. Please try again.</div>
+                <button class="btn btn-primary" style="width:100%;justify-content:center;margin-top:1rem;" onclick="handleAdminLogin()">Login as Admin →</button>
+            </div>
+
+            <!-- Student Form -->
+            <div id="studentForm" class="login-form" style="display:none;">
+                <div class="form-group">
+                    <label>Enrollment Number</label>
+                    <input type="text" id="studentEnrollment" placeholder="e.g., 04616402023">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="studentPassword" placeholder="First 4 digits of enrollment + mca">
+                </div>
+                <div class="error-msg" id="studentError">Invalid enrollment or password.</div>
+                <button class="btn btn-primary" style="width:100%;justify-content:center;margin-top:1rem;" onclick="handleStudentLogin()">Login as Student →</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-brand">Prof. Manoj Purohit · MCA Learning Hub · GGSIPU</div>
+        <p>© 2024 All Rights Reserved</p>
+    </footer>
+
+    <script>
+        // Auto-redirect if already logged in
+        (function() {
+            const role = sessionStorage.getItem('role');
+            if (role === 'admin') window.location.href = 'admin.html';
+            if (role === 'student') window.location.href = 'student.html';
+        })();
+
+        // Tab switching
+        function switchTab(tab) {
+            document.querySelectorAll('.login-tab').forEach(t => t.classList.remove('active'));
+            document.getElementById('adminForm').style.display = 'none';
+            document.getElementById('studentForm').style.display = 'none';
+            document.getElementById('adminError').classList.remove('show');
+            document.getElementById('studentError').classList.remove('show');
+            
+            if (tab === 'admin') {
+                document.querySelector('.login-tab:first-child').classList.add('active');
+                document.getElementById('adminForm').style.display = 'block';
+            } else {
+                document.querySelector('.login-tab:last-child').classList.add('active');
+                document.getElementById('studentForm').style.display = 'block';
+            }
+        }
+
+        // Admin login
+        function handleAdminLogin() {
+            const username = document.getElementById('adminUsername').value.trim();
+            const password = document.getElementById('adminPassword').value;
+            
+            if (username === 'admin' && password === 'manoj2017') {
+                sessionStorage.setItem('role', 'admin');
+                sessionStorage.setItem('user', 'Prof. Manoj Purohit');
+                window.location.href = 'admin.html';
+            } else {
+                document.getElementById('adminError').classList.add('show');
+                setTimeout(() => document.getElementById('adminError').classList.remove('show'), 3000);
+            }
+        }
+
+        // Student login
+        function handleStudentLogin() {
+            const enrollment = document.getElementById('studentEnrollment').value.trim();
+            const password = document.getElementById('studentPassword').value;
+            const students = JSON.parse(localStorage.getItem('students') || '[]');
+            const student = students.find(s => s.enrollment === enrollment);
+            
+            if (student && password === enrollment.slice(0, 4) + 'mca') {
+                sessionStorage.setItem('role', 'student');
+                sessionStorage.setItem('user', student.name || enrollment);
+                sessionStorage.setItem('enrollment', enrollment);
+                window.location.href = 'student.html';
+            } else {
+                document.getElementById('studentError').classList.add('show');
+                setTimeout(() => document.getElementById('studentError').classList.remove('show'), 3000);
+            }
+        }
+
+        // Enter key support
+        document.getElementById('adminPassword').addEventListener('keypress', e => { if (e.key === 'Enter') handleAdminLogin(); });
+        document.getElementById('studentPassword').addEventListener('keypress', e => { if (e.key === 'Enter') handleStudentLogin(); });
+
+        // Hamburger
+        document.getElementById('hamburger').addEventListener('click', () => {
+            document.getElementById('mobileMenu').classList.toggle('open');
+        });
+    </script>
+</body>
+</html>

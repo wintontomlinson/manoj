@@ -986,3 +986,75 @@ span[data-lang="en"] { display: inline; }
     
     .snippet-grid { grid-template-columns: repeat(2, 1fr); }
 }
+
+
+
+/* ===== LOGIN PAGE ===== */
+.login-container { max-width: 450px; margin: 8rem auto 4rem; padding: 2rem; }
+.login-card { background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.08); border-radius: 20px; padding: 2.5rem; }
+.login-tabs { display: flex; gap: 0; margin-bottom: 2rem; border-radius: 10px; overflow: hidden; border: 1px solid rgba(255,255,255,.1); }
+.login-tab { flex: 1; padding: .8rem; text-align: center; cursor: pointer; background: transparent; border: none; color: #94a3b8; font-weight: 600; transition: all .2s; font-family: var(--font-body); font-size: .9rem; }
+.login-tab.active { background: var(--purple); color: #fff; }
+.login-tab:hover:not(.active) { background: rgba(124,58,237,.1); }
+.form-group { margin-bottom: 1.5rem; }
+.form-group label { display: block; font-size: .85rem; color: #94a3b8; margin-bottom: .5rem; font-weight: 500; }
+.form-group input, .form-group textarea, .form-group select { width: 100%; padding: .8rem 1rem; border-radius: 10px; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1); color: #e2e8f0; font-size: .9rem; transition: border-color .2s; outline: none; font-family: var(--font-body); }
+.form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--purple); }
+.form-group select { cursor: pointer; }
+.error-msg { color: #ef4444; font-size: .8rem; margin-top: .5rem; display: none; }
+.error-msg.show { display: block; }
+
+/* ===== DASHBOARD ===== */
+.dashboard { padding-top: 5rem; min-height: 100vh; max-width: 1200px; margin: 0 auto; padding-left: 1.5rem; padding-right: 1.5rem; padding-bottom: 4rem; }
+.dash-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; padding: 0; flex-wrap: wrap; gap: 1rem; }
+.dash-header h2 { font-size: 1.5rem; }
+.logout-btn { padding: .5rem 1rem; border-radius: 8px; background: rgba(239,68,68,.15); border: 1px solid rgba(239,68,68,.3); color: #ef4444; cursor: pointer; font-weight: 500; transition: all .2s; font-family: var(--font-body); font-size: .85rem; }
+.logout-btn:hover { background: rgba(239,68,68,.25); }
+.dash-tabs { display: flex; gap: .5rem; margin-bottom: 2rem; padding: 0; flex-wrap: wrap; }
+.dash-tab { padding: .6rem 1.2rem; border-radius: 8px; background: rgba(255,255,255,.05); border: 1px solid transparent; color: #94a3b8; cursor: pointer; font-size: .85rem; font-weight: 500; transition: all .2s; font-family: var(--font-body); }
+.dash-tab:hover { background: rgba(124,58,237,.1); }
+.dash-tab.active { background: rgba(124,58,237,.15); border-color: var(--purple); color: var(--purple); }
+.dash-content { padding: 0; }
+.dash-card { background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.08); border-radius: 16px; padding: 1.5rem; margin-bottom: 1rem; transition: all .2s; }
+.dash-card:hover { border-color: rgba(124,58,237,.2); }
+
+/* ===== DATA TABLES ===== */
+.data-table { width: 100%; border-collapse: collapse; font-size: .85rem; }
+.data-table th { text-align: left; padding: .8rem; color: #94a3b8; font-weight: 600; border-bottom: 1px solid rgba(255,255,255,.1); }
+.data-table td { padding: .8rem; border-bottom: 1px solid rgba(255,255,255,.05); }
+.data-table tr:hover td { background: rgba(124,58,237,.05); }
+
+/* ===== STATUS BADGES ===== */
+.badge-submitted { background: rgba(16,185,129,.15); color: var(--green); padding: .2rem .6rem; border-radius: 4px; font-size: .75rem; font-weight: 600; }
+.badge-pending { background: rgba(239,68,68,.15); color: #ef4444; padding: .2rem .6rem; border-radius: 4px; font-size: .75rem; font-weight: 600; }
+.badge-graded { background: rgba(6,182,212,.15); color: var(--cyan); padding: .2rem .6rem; border-radius: 4px; font-size: .75rem; font-weight: 600; }
+.badge-late { background: rgba(245,158,11,.15); color: var(--yellow); padding: .2rem .6rem; border-radius: 4px; font-size: .75rem; font-weight: 600; }
+
+/* ===== ASSIGNMENT CARDS ===== */
+.asgn-card { background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.08); border-radius: 12px; padding: 1.2rem; margin-bottom: 1rem; transition: border-color .2s; }
+.asgn-card:hover { border-color: rgba(124,58,237,.3); }
+.asgn-card .subject-badge { display: inline-block; padding: .2rem .6rem; border-radius: 4px; font-size: .7rem; font-weight: 600; }
+.asgn-card .subject-badge.python, .subject-badge.python { background: rgba(16,185,129,.15); color: var(--green); }
+.asgn-card .subject-badge.java, .subject-badge.java { background: rgba(249,115,22,.15); color: var(--orange); }
+.asgn-card .subject-badge.oose, .subject-badge.oose { background: rgba(124,58,237,.15); color: var(--purple); }
+
+/* ===== NAV LOGIN BUTTON ===== */
+.nav-login-btn { background: var(--purple) !important; color: #fff !important; padding: .4rem 1rem !important; border-radius: 8px !important; font-weight: 600 !important; }
+.nav-login-btn:hover { background: #6d28d9 !important; }
+
+/* ===== SUMMARY STATS ===== */
+.summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+.summary-item { background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.08); border-radius: 12px; padding: 1rem; text-align: center; }
+.summary-item .num { font-size: 1.5rem; font-weight: 800; background: linear-gradient(135deg, var(--purple), var(--cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.summary-item .lbl { font-size: .75rem; color: #64748b; margin-top: .25rem; }
+
+/* ===== RESPONSIVE (Dashboard) ===== */
+@media (max-width: 768px) {
+    .login-container { margin: 6rem auto 2rem; padding: 1rem; }
+    .login-card { padding: 1.5rem; }
+    .dashboard { padding-top: 4.5rem; padding-left: 1rem; padding-right: 1rem; }
+    .dash-header { flex-direction: column; align-items: flex-start; }
+    .data-table { font-size: .75rem; }
+    .data-table th, .data-table td { padding: .5rem .4rem; }
+    .summary-grid { grid-template-columns: repeat(2, 1fr); }
+}

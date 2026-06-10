@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard · MCA Hub · Prof. Manoj Purohit</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Blobs -->
+    <div class="blob blob-purple"></div>
+    <div class="blob blob-pink"></div>
+    <div class="blob blob-cyan"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">
+                <div class="nav-badge">MP</div>
+                <span id="navStudentName">Student</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="python.html">Python</a></li>
+                <li><a href="java.html">Java</a></li>
+                <li><a href="oose.html">OOSE</a></li>
+                <li><a href="terminal.html">Terminal</a></li>
+            </ul>
+            <div class="nav-right">
+                <button class="logout-btn" onclick="logout()">Logout ✕</button>
+                <div class="hamburger" id="hamburger">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="python.html">Python</a>
+        <a href="java.html">Java</a>
+        <a href="oose.html">OOSE</a>
+        <a href="terminal.html">Terminal</a>
+        <a href="#" onclick="logout()">Logout</a>
+    </div>
+
+    <!-- Dashboard -->
+    <div class="dashboard">
+        <div class="dash-header">
+            <div>
+                <h2 id="welcomeText" style="font-family:var(--font-display);background:linear-gradient(135deg,var(--green),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Welcome, Student</h2>
+                <p id="enrollmentText" style="color:var(--text-secondary);font-size:.9rem;">Enrollment: --</p>
+            </div>
+            <button class="logout-btn" onclick="logout()">Logout ✕</button>
+        </div>
+
+        <!-- Tabs -->
+        <div class="dash-tabs">
+            <button class="dash-tab active" onclick="switchStudentTab('assignments')">📝 My Assignments</button>
+            <button class="dash-tab" onclick="switchStudentTab('profile')">👤 My Profile</button>
+        </div>
+
+        <!-- Assignments Tab -->
+        <div class="dash-content" id="tab-assignments">
+            <div id="assignmentCards"></div>
+            <p id="noAssignmentsStudent" style="text-align:center;color:var(--text-muted);padding:3rem;display:none;">No assignments available yet. Check back later!</p>
+        </div>
+
+        <!-- Submit Modal -->
+        <div id="submitModal" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.8);z-index:2000;display:none;align-items:center;justify-content:center;padding:1rem;">
+            <div class="dash-card" style="max-width:600px;width:100%;max-height:90vh;overflow-y:auto;">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;">
+                    <h3 style="color:var(--purple);">Submit Assignment</h3>
+                    <button style="color:var(--text-muted);font-size:1.5rem;cursor:pointer;background:none;border:none;" onclick="closeModal()">✕</button>
+                </div>
+                <div id="modalAssignmentDetails"></div>
+                <div class="form-group" style="margin-top:1rem;">
+                    <label>Your Answer (min 100 characters)</label>
+                    <textarea id="submissionText" rows="8" placeholder="Write your answer here..."></textarea>
+                    <small id="charCount" style="color:var(--text-muted);font-size:.75rem;">0 / 100 characters minimum</small>
+                </div>
+                <div id="lateWarning" style="display:none;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.3);border-radius:8px;padding:.8rem;margin-bottom:1rem;">
+                    <span style="color:var(--yellow);font-size:.85rem;">⚠️ Late submission - Due date has passed</span>
+                </div>
+                <button class="btn btn-primary" style="width:100%;justify-content:center;" onclick="submitAssignment()">Submit Assignment ✓</button>
+            </div>
+        </div>
+
+        <!-- Profile Tab -->
+        <div class="dash-content" id="tab-profile" style="display:none;">
+            <div class="dash-card">
+                <h3 style="color:var(--purple);margin-bottom:1rem;">👤 My Profile</h3>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem;">
+                    <div>
+                        <div style="color:var(--text-muted);font-size:.8rem;">Name</div>
+                        <div id="profileName" style="font-weight:600;margin-top:.25rem;">-</div>
+                    </div>
+                    <div>
+                        <div style="color:var(--text-muted);font-size:.8rem;">Enrollment</div>
+                        <div id="profileEnrollment" style="font-weight:600;font-family:var(--font-mono);color:var(--cyan);margin-top:.25rem;">-</div>
+                    </div>
+                    <div>
+                        <div style="color:var(--text-muted);font-size:.8rem;">Subjects</div>
+                        <div style="margin-top:.25rem;"><span class="subject-badge python">Python</span> <span class="subject-badge java">Java</span> <span class="subject-badge oose">OOSE</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary-grid" style="margin-top:1.5rem;" id="profileStats"></div>
+
+            <div class="dash-card" style="margin-top:1.5rem;">
+                <h4 style="color:var(--cyan);margin-bottom:1rem;">📊 Submission History</h4>
+                <div style="overflow-x:auto;">
+                    <table class="data-table" id="historyTable">
+                        <thead>
+                            <tr>
+                                <th>Assignment</th>
+                                <th>Subject</th>
+                                <th>Submitted</th>
+                                <th>Marks</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+                <p id="noHistory" style="text-align:center;color:var(--text-muted);padding:1.5rem;display:none;">No submissions yet.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-brand">Prof. Manoj Purohit · MCA Learning Hub · GGSIPU</div>
+        <p>© 2024 All Rights Reserved</p>
+    </footer>
+
+    <script>
+        // === PROTECTION ===
+        (function() {
+            const role = sessionStorage.getItem('role');
+            if (role !== 'student') {
+                window.location.href = 'login.html';
+                return;
+            }
+        })();
+
+        const currentUser = sessionStorage.getItem('user') || 'Student';
+        const currentEnrollment = sessionStorage.getItem('enrollment') || '';
+        let currentAssignmentId = null;
+
+        // Set user info
+        document.getElementById('navStudentName').textContent = currentUser;
+        document.getElementById('welcomeText').textContent = 'Welcome, ' + currentUser;
+        document.getElementById('enrollmentText').textContent = 'Enrollment: ' + currentEnrollment;
+
+        // === TAB SWITCHING ===
+        function switchStudentTab(tab) {
+            document.querySelectorAll('.dash-tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.dash-content').forEach(c => c.style.display = 'none');
+            event.target.classList.add('active');
+            document.getElementById('tab-' + tab).style.display = 'block';
+
+            if (tab === 'assignments') renderStudentAssignments();
+            if (tab === 'profile') renderProfile();
+        }
+
+        // === ASSIGNMENTS ===
+        function getAssignments() {
+            return JSON.parse(localStorage.getItem('assignments') || '[]');
+        }
+
+        function getSubmissions() {
+            return JSON.parse(localStorage.getItem('submissions') || '[]');
+        }
+
+        function renderStudentAssignments() {
+            const assignments = getAssignments();
+            const submissions = getSubmissions();
+            const container = document.getElementById('assignmentCards');
+            const noMsg = document.getElementById('noAssignmentsStudent');
+
+            if (assignments.length === 0) {
+                container.innerHTML = '';
+                noMsg.style.display = 'block';
+                return;
+            }
+
+            noMsg.style.display = 'none';
+            container.innerHTML = assignments.map(a => {
+                const mySub = submissions.find(s => s.assignmentId === a.id && s.enrollment === currentEnrollment);
+                const subjectClass = a.subject.toLowerCase();
+                let statusHTML = '';
+                let actionHTML = '';
+
+                if (!mySub) {
+                    statusHTML = '<span class="badge-pending">Not Submitted</span>';
+                    actionHTML = `<button class="btn btn-primary" style="padding:.5rem 1rem;font-size:.8rem;margin-top:1rem;" onclick="openSubmitModal('${a.id}')">Submit Assignment →</button>`;
+                } else if (mySub.status === 'graded') {
+                    statusHTML = `<span class="badge-graded">Graded: ${mySub.marks}/${a.maxMarks}</span>`;
+                    actionHTML = `<div style="margin-top:1rem;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.05);border-radius:8px;padding:.8rem;"><div style="color:var(--text-muted);font-size:.75rem;margin-bottom:.3rem;">Your submission:</div><pre style="font-family:var(--font-mono);font-size:.8rem;color:var(--text-secondary);white-space:pre-wrap;word-break:break-all;">${mySub.content.substring(0, 200)}${mySub.content.length > 200 ? '...' : ''}</pre></div>`;
+                } else {
+                    const badge = mySub.status === 'late' ? 'badge-late' : 'badge-submitted';
+                    const label = mySub.status === 'late' ? 'Submitted (Late)' : 'Submitted';
+                    statusHTML = `<span class="${badge}">${label}</span>`;
+                    actionHTML = `<div style="margin-top:1rem;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.05);border-radius:8px;padding:.8rem;"><div style="color:var(--text-muted);font-size:.75rem;margin-bottom:.3rem;">Your submission (${mySub.submittedOn}):</div><pre style="font-family:var(--font-mono);font-size:.8rem;color:var(--text-secondary);white-space:pre-wrap;word-break:break-all;">${mySub.content.substring(0, 200)}${mySub.content.length > 200 ? '...' : ''}</pre></div>`;
+                }
+
+                const isPastDue = new Date(a.dueDate) < new Date();
+                const dueDateColor = isPastDue ? 'var(--yellow)' : 'var(--text-muted)';
+
+                return `
+                    <div class="asgn-card">
+                        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:.5rem;">
+                            <div style="flex:1;">
+                                <div style="display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;">
+                                    <span class="subject-badge ${subjectClass}">${a.subject}</span>
+                                    ${statusHTML}
+                                </div>
+                                <h4 style="margin-top:.5rem;">${a.title}</h4>
+                                <p style="color:var(--text-secondary);font-size:.85rem;margin-top:.3rem;">${a.description || 'No description'}</p>
+                            </div>
+                            <div style="text-align:right;min-width:120px;">
+                                <div style="color:${dueDateColor};font-size:.8rem;">Due: ${a.dueDate}</div>
+                                <div style="color:var(--text-muted);font-size:.75rem;margin-top:.2rem;">Max: ${a.maxMarks} marks</div>
+                            </div>
+                        </div>
+                        ${actionHTML}
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // === SUBMIT MODAL ===
+        function openSubmitModal(asgnId) {
+            currentAssignmentId = asgnId;
+            const assignment = getAssignments().find(a => a.id === asgnId);
+            if (!assignment) return;
+
+            const isPastDue = new Date(assignment.dueDate) < new Date();
+            document.getElementById('lateWarning').style.display = isPastDue ? 'block' : 'none';
+
+            document.getElementById('modalAssignmentDetails').innerHTML = `
+                <div style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.05);border-radius:8px;padding:1rem;">
+                    <span class="subject-badge ${assignment.subject.toLowerCase()}">${assignment.subject}</span>
+                    <h4 style="margin-top:.5rem;">${assignment.title}</h4>
+                    <p style="color:var(--text-secondary);font-size:.85rem;margin-top:.3rem;">${assignment.description}</p>
+                    <div style="color:var(--text-muted);font-size:.8rem;margin-top:.5rem;">Due: ${assignment.dueDate} | Max Marks: ${assignment.maxMarks}</div>
+                </div>
+            `;
+
+            document.getElementById('submissionText').value = '';
+            document.getElementById('charCount').textContent = '0 / 100 characters minimum';
+            document.getElementById('submitModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('submitModal').style.display = 'none';
+            currentAssignmentId = null;
+        }
+
+        // Character count
+        document.getElementById('submissionText').addEventListener('input', function() {
+            const len = this.value.length;
+            const countEl = document.getElementById('charCount');
+            countEl.textContent = len + ' / 100 characters minimum';
+            countEl.style.color = len >= 100 ? 'var(--green)' : 'var(--text-muted)';
+        });
+
+        function submitAssignment() {
+            const text = document.getElementById('submissionText').value.trim();
+            
+            if (text.length < 100) {
+                alert('Please write at least 100 characters.');
+                return;
+            }
+
+            if (!confirm('Are you sure you want to submit? You cannot edit after submission.')) return;
+
+            const assignment = getAssignments().find(a => a.id === currentAssignmentId);
+            const isPastDue = new Date(assignment.dueDate) < new Date();
+            
+            let submissions = getSubmissions();
+            submissions.push({
+                id: 'sub_' + Date.now(),
+                assignmentId: currentAssignmentId,
+                enrollment: currentEnrollment,
+                studentName: currentUser,
+                submittedOn: new Date().toISOString().split('T')[0],
+                content: text,
+                marks: null,
+                status: isPastDue ? 'late' : 'submitted'
+            });
+
+            localStorage.setItem('submissions', JSON.stringify(submissions));
+            closeModal();
+            renderStudentAssignments();
+            alert('✓ Assignment submitted successfully!');
+        }
+
+        // === PROFILE ===
+        function renderProfile() {
+            document.getElementById('profileName').textContent = currentUser;
+            document.getElementById('profileEnrollment').textContent = currentEnrollment;
+
+            const assignments = getAssignments();
+            const submissions = getSubmissions().filter(s => s.enrollment === currentEnrollment);
+            const graded = submissions.filter(s => s.status === 'graded');
+            const avgMarks = graded.length > 0 ? (graded.reduce((sum, s) => sum + (s.marks || 0), 0) / graded.length).toFixed(1) : '-';
+
+            document.getElementById('profileStats').innerHTML = `
+                <div class="summary-item"><div class="num">${assignments.length}</div><div class="lbl">Total Assignments</div></div>
+                <div class="summary-item"><div class="num">${submissions.length}</div><div class="lbl">Submitted</div></div>
+                <div class="summary-item"><div class="num">${graded.length}</div><div class="lbl">Graded</div></div>
+                <div class="summary-item"><div class="num">${avgMarks}</div><div class="lbl">Avg Marks</div></div>
+            `;
+
+            // History table
+            const tbody = document.querySelector('#historyTable tbody');
+            const noHistory = document.getElementById('noHistory');
+
+            if (submissions.length === 0) {
+                tbody.innerHTML = '';
+                noHistory.style.display = 'block';
+                return;
+            }
+
+            noHistory.style.display = 'none';
+            tbody.innerHTML = submissions.map(s => {
+                const asgn = assignments.find(a => a.id === s.assignmentId);
+                const statusBadge = s.status === 'graded' ? 'badge-graded' : s.status === 'late' ? 'badge-late' : 'badge-submitted';
+                const statusText = s.status === 'graded' ? `${s.marks}/${asgn ? asgn.maxMarks : '?'}` : s.status.charAt(0).toUpperCase() + s.status.slice(1);
+                return `
+                    <tr>
+                        <td>${asgn ? asgn.title : 'Unknown'}</td>
+                        <td><span class="subject-badge ${asgn ? asgn.subject.toLowerCase() : ''}">${asgn ? asgn.subject : '-'}</span></td>
+                        <td style="font-size:.8rem;">${s.submittedOn}</td>
+                        <td>${s.status === 'graded' ? s.marks : '-'}</td>
+                        <td><span class="${statusBadge}">${statusText}</span></td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        // === LOGOUT ===
+        function logout() {
+            sessionStorage.clear();
+            window.location.href = 'login.html';
+        }
+
+        // === INIT ===
+        renderStudentAssignments();
+
+        // Hamburger
+        document.getElementById('hamburger').addEventListener('click', () => {
+            document.getElementById('mobileMenu').classList.toggle('open');
+        });
+
+        // Close modal on outside click
+        document.getElementById('submitModal').addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+    </script>
+</body>
+</html>

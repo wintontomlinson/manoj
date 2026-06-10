@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard · MCA Hub · Prof. Manoj Purohit</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Blobs -->
+    <div class="blob blob-purple"></div>
+    <div class="blob blob-pink"></div>
+    <div class="blob blob-cyan"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">
+                <div class="nav-badge">MP</div>
+                <span>Admin Dashboard</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="python.html">Python</a></li>
+                <li><a href="java.html">Java</a></li>
+                <li><a href="oose.html">OOSE</a></li>
+                <li><a href="login.html" class="nav-login-btn">Login</a></li>
+            </ul>
+            <div class="nav-right">
+                <button class="logout-btn" onclick="logout()">Logout ✕</button>
+                <div class="hamburger" id="hamburger">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="python.html">Python</a>
+        <a href="java.html">Java</a>
+        <a href="oose.html">OOSE</a>
+        <a href="#" onclick="logout()">Logout</a>
+    </div>
+
+    <!-- Dashboard -->
+    <div class="dashboard">
+        <div class="dash-header">
+            <div>
+                <h2 style="font-family:var(--font-display);background:linear-gradient(135deg,var(--purple),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Welcome, Prof. Manoj Purohit</h2>
+                <p style="color:var(--text-secondary);font-size:.9rem;">Admin Dashboard · Manage Students & Assignments</p>
+            </div>
+            <button class="logout-btn" onclick="logout()" style="display:none;" id="logoutDesktop">Logout ✕</button>
+        </div>
+
+        <!-- Tabs -->
+        <div class="dash-tabs">
+            <button class="dash-tab active" onclick="switchDashTab('students')">👥 Manage Students</button>
+            <button class="dash-tab" onclick="switchDashTab('assignments')">📝 Assignments</button>
+            <button class="dash-tab" onclick="switchDashTab('submissions')">📊 Submissions</button>
+            <button class="dash-tab" onclick="switchDashTab('export')">📥 Export Data</button>
+        </div>
+
+        <!-- Students Tab -->
+        <div class="dash-content" id="tab-students">
+            <div class="dash-card">
+                <h3 style="margin-bottom:1rem;color:var(--green);">➕ Add Students</h3>
+                <p style="color:var(--text-secondary);font-size:.85rem;margin-bottom:1rem;">Paste enrollment numbers (one per line). Format: enrollment,name (name is optional)</p>
+                <div class="form-group">
+                    <textarea id="studentInput" rows="5" placeholder="04616402023,Rahul Kumar&#10;04616402024,Priya Sharma&#10;04616402025"></textarea>
+                </div>
+                <button class="btn btn-primary" onclick="uploadStudents()">Upload Students</button>
+                <span id="studentCount" style="margin-left:1rem;color:var(--text-secondary);font-size:.85rem;"></span>
+            </div>
+
+            <div class="dash-card" style="margin-top:1.5rem;">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;flex-wrap:wrap;gap:.5rem;">
+                    <h3 style="color:var(--cyan);">📋 Student List</h3>
+                    <button class="btn btn-outline" style="padding:.5rem 1rem;font-size:.8rem;" onclick="downloadStudentCSV()">Download Excel (CSV) ↓</button>
+                </div>
+                <div style="overflow-x:auto;">
+                    <table class="data-table" id="studentTable">
+                        <thead>
+                            <tr>
+                                <th>S.No</th>
+                                <th>Enrollment</th>
+                                <th>Name</th>
+                                <th>Password</th>
+                                <th>Added On</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+                <p id="noStudents" style="text-align:center;color:var(--text-muted);padding:2rem;display:none;">No students added yet.</p>
+            </div>
+        </div>
+
+        <!-- Assignments Tab -->
+        <div class="dash-content" id="tab-assignments" style="display:none;">
+            <div class="dash-card">
+                <h3 style="margin-bottom:1rem;color:var(--orange);">📝 Create New Assignment</h3>
+                <div class="form-group">
+                    <label>Assignment Title</label>
+                    <input type="text" id="asgnTitle" placeholder="e.g., Python OOP Assignment">
+                </div>
+                <div class="form-group">
+                    <label>Subject</label>
+                    <select id="asgnSubject">
+                        <option value="Python">Python</option>
+                        <option value="Java">Java</option>
+                        <option value="OOSE">OOSE</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea id="asgnDesc" rows="3" placeholder="Describe the assignment..."></textarea>
+                </div>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+                    <div class="form-group">
+                        <label>Due Date</label>
+                        <input type="date" id="asgnDue">
+                    </div>
+                    <div class="form-group">
+                        <label>Max Marks</label>
+                        <input type="number" id="asgnMarks" value="10" min="1" max="100">
+                    </div>
+                </div>
+                <button class="btn btn-primary" onclick="createAssignment()">Create Assignment ✓</button>
+            </div>
+
+            <div class="dash-card" style="margin-top:1.5rem;">
+                <h3 style="margin-bottom:1rem;color:var(--purple);">📚 All Assignments</h3>
+                <div id="assignmentList"></div>
+                <p id="noAssignments" style="text-align:center;color:var(--text-muted);padding:2rem;display:none;">No assignments created yet.</p>
+            </div>
+        </div>
+
+        <!-- Submissions Tab -->
+        <div class="dash-content" id="tab-submissions" style="display:none;">
+            <div class="dash-card">
+                <h3 style="margin-bottom:1rem;color:var(--pink);">📊 View Submissions</h3>
+                <div class="form-group">
+                    <label>Select Assignment</label>
+                    <select id="submissionAssignment" onchange="loadSubmissions()">
+                        <option value="">-- Select Assignment --</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="submissionStats" class="summary-grid" style="display:none;margin-top:1rem;"></div>
+
+            <div class="dash-card" style="margin-top:1rem;" id="submissionTableCard" >
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;flex-wrap:wrap;gap:.5rem;">
+                    <h4 style="color:var(--cyan);">Submission Details</h4>
+                    <button class="btn btn-outline" style="padding:.5rem 1rem;font-size:.8rem;" onclick="downloadSubmissionsCSV()">Download CSV ↓</button>
+                </div>
+                <div style="overflow-x:auto;">
+                    <table class="data-table" id="submissionTable">
+                        <thead>
+                            <tr>
+                                <th>S.No</th>
+                                <th>Enrollment</th>
+                                <th>Student Name</th>
+                                <th>Submitted</th>
+                                <th>Content</th>
+                                <th>Marks</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+                <p id="noSubmissions" style="text-align:center;color:var(--text-muted);padding:2rem;">Select an assignment to view submissions.</p>
+            </div>
+        </div>
+
+        <!-- Export Tab -->
+        <div class="dash-content" id="tab-export" style="display:none;">
+            <div class="dash-card">
+                <h3 style="margin-bottom:1.5rem;color:var(--yellow);">📥 Export & Download Data</h3>
+                <div style="display:grid;gap:1rem;">
+                    <div class="asgn-card">
+                        <h4 style="margin-bottom:.5rem;">Student Data</h4>
+                        <p style="color:var(--text-secondary);font-size:.85rem;margin-bottom:1rem;">Download complete student list with enrollment, name, and password info.</p>
+                        <button class="btn btn-primary" style="padding:.6rem 1.2rem;font-size:.85rem;" onclick="downloadStudentCSV()">Download Student List (CSV) ↓</button>
+                    </div>
+                    <div class="asgn-card">
+                        <h4 style="margin-bottom:.5rem;">Assignment Submissions</h4>
+                        <p style="color:var(--text-secondary);font-size:.85rem;margin-bottom:1rem;">Download all submissions for a specific assignment.</p>
+                        <div class="form-group" style="margin-bottom:1rem;">
+                            <select id="exportAssignment">
+                                <option value="">-- Select Assignment --</option>
+                            </select>
+                        </div>
+                        <button class="btn btn-primary" style="padding:.6rem 1.2rem;font-size:.85rem;" onclick="downloadSubmissionsCSVExport()">Download Submissions (CSV) ↓</button>
+                    </div>
+                    <div class="asgn-card">
+                        <h4 style="margin-bottom:.5rem;">All Assignments</h4>
+                        <p style="color:var(--text-secondary);font-size:.85rem;margin-bottom:1rem;">Download list of all assignments with details.</p>
+                        <button class="btn btn-primary" style="padding:.6rem 1.2rem;font-size:.85rem;" onclick="downloadAssignmentsCSV()">Download Assignments (CSV) ↓</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-brand">Prof. Manoj Purohit · MCA Learning Hub · GGSIPU</div>
+        <p>© 2024 All Rights Reserved</p>
+    </footer>
+
+    <script>
+        // === PROTECTION ===
+        (function() {
+            const role = sessionStorage.getItem('role');
+            if (role !== 'admin') {
+                window.location.href = 'login.html';
+                return;
+            }
+        })();
+
+        // === DEMO DATA (only on first visit) ===
+        function initDemoData() {
+            if (!localStorage.getItem('demoInitialized')) {
+                const students = [
+                    {enrollment: "04616402023", name: "Rahul Kumar", addedOn: "2024-01-15"},
+                    {enrollment: "04616402024", name: "Priya Sharma", addedOn: "2024-01-15"},
+                    {enrollment: "04616402025", name: "Amit Singh", addedOn: "2024-01-16"},
+                    {enrollment: "04616402026", name: "Neha Gupta", addedOn: "2024-01-16"},
+                    {enrollment: "04616402027", name: "Vikram Joshi", addedOn: "2024-01-17"}
+                ];
+
+                const assignments = [
+                    {
+                        id: "asgn_1",
+                        title: "Python OOP Assignment",
+                        subject: "Python",
+                        description: "Create a Student Management System using classes and inheritance. Implement add, delete, search and display operations.",
+                        dueDate: "2024-02-15",
+                        maxMarks: 10,
+                        createdOn: "2024-01-10"
+                    },
+                    {
+                        id: "asgn_2",
+                        title: "Java Collections Framework",
+                        subject: "Java",
+                        description: "Implement a Library Management System using ArrayList, HashMap, and TreeSet. Handle book issue/return.",
+                        dueDate: "2024-02-20",
+                        maxMarks: 10,
+                        createdOn: "2024-01-12"
+                    }
+                ];
+
+                const submissions = [
+                    {
+                        id: "sub_1",
+                        assignmentId: "asgn_1",
+                        enrollment: "04616402023",
+                        studentName: "Rahul Kumar",
+                        submittedOn: "2024-02-10",
+                        content: "class Student:\n    def __init__(self, name, roll):\n        self.name = name\n        self.roll = roll\n\nclass StudentMS(Student):\n    students = []\n    def add(self, s):\n        self.students.append(s)\n    def search(self, roll):\n        return next((s for s in self.students if s.roll == roll), None)",
+                        marks: 8,
+                        status: "graded"
+                    },
+                    {
+                        id: "sub_2",
+                        assignmentId: "asgn_1",
+                        enrollment: "04616402024",
+                        studentName: "Priya Sharma",
+                        submittedOn: "2024-02-12",
+                        content: "class Student:\n    def __init__(self, name, enrollment):\n        self.name = name\n        self.enrollment = enrollment\n\nclass Management:\n    def __init__(self):\n        self.students = []\n    def add_student(self, student):\n        self.students.append(student)\n    def display_all(self):\n        for s in self.students:\n            print(f'{s.name} - {s.enrollment}')",
+                        marks: null,
+                        status: "submitted"
+                    },
+                    {
+                        id: "sub_3",
+                        assignmentId: "asgn_2",
+                        enrollment: "04616402025",
+                        studentName: "Amit Singh",
+                        submittedOn: "2024-02-22",
+                        content: "import java.util.*;\npublic class Library {\n    HashMap<String, String> books = new HashMap<>();\n    public void addBook(String id, String title) {\n        books.put(id, title);\n    }\n    public void issueBook(String id) {\n        if(books.containsKey(id)) {\n            System.out.println(\"Book issued: \" + books.get(id));\n        }\n    }\n}",
+                        marks: null,
+                        status: "late"
+                    }
+                ];
+
+                localStorage.setItem('students', JSON.stringify(students));
+                localStorage.setItem('assignments', JSON.stringify(assignments));
+                localStorage.setItem('submissions', JSON.stringify(submissions));
+                localStorage.setItem('demoInitialized', 'true');
+            }
+        }
+        initDemoData();
+
+        // === TAB SWITCHING ===
+        function switchDashTab(tab) {
+            document.querySelectorAll('.dash-tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.dash-content').forEach(c => c.style.display = 'none');
+            event.target.classList.add('active');
+            document.getElementById('tab-' + tab).style.display = 'block';
+            
+            if (tab === 'students') renderStudents();
+            if (tab === 'assignments') renderAssignments();
+            if (tab === 'submissions') populateAssignmentDropdowns();
+            if (tab === 'export') populateAssignmentDropdowns();
+        }
+
+        // === STUDENTS ===
+        function getStudents() {
+            return JSON.parse(localStorage.getItem('students') || '[]');
+        }
+
+        function saveStudents(students) {
+            localStorage.setItem('students', JSON.stringify(students));
+        }
+
+        function uploadStudents() {
+            const input = document.getElementById('studentInput').value.trim();
+            if (!input) return;
+            
+            const lines = input.split('\n').filter(l => l.trim());
+            const students = getStudents();
+            let added = 0;
+            
+            lines.forEach(line => {
+                const parts = line.trim().split(',');
+                const enrollment = parts[0].trim();
+                const name = parts[1] ? parts[1].trim() : 'Student ' + enrollment.slice(-4);
+                
+                if (enrollment && !students.find(s => s.enrollment === enrollment)) {
+                    students.push({
+                        enrollment,
+                        name,
+                        addedOn: new Date().toISOString().split('T')[0]
+                    });
+                    added++;
+                }
+            });
+            
+            saveStudents(students);
+            document.getElementById('studentInput').value = '';
+            document.getElementById('studentCount').textContent = `✓ ${added} student(s) added. Total: ${students.length}`;
+            renderStudents();
+            setTimeout(() => document.getElementById('studentCount').textContent = '', 3000);
+        }
+
+        function renderStudents() {
+            const students = getStudents();
+            const tbody = document.querySelector('#studentTable tbody');
+            const noMsg = document.getElementById('noStudents');
+            
+            if (students.length === 0) {
+                tbody.innerHTML = '';
+                noMsg.style.display = 'block';
+                return;
+            }
+            
+            noMsg.style.display = 'none';
+            tbody.innerHTML = students.map((s, i) => `
+                <tr>
+                    <td>${i + 1}</td>
+                    <td><code style="color:var(--cyan);font-family:var(--font-mono);font-size:.8rem;">${s.enrollment}</code></td>
+                    <td>${s.name}</td>
+                    <td>
+                        <span class="password-mask" id="pwd-${i}" style="cursor:pointer;color:var(--text-muted);" onclick="togglePwd(${i}, '${s.enrollment}')">••••••••</span>
+                    </td>
+                    <td style="color:var(--text-muted);font-size:.8rem;">${s.addedOn}</td>
+                    <td><button style="color:#ef4444;background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.2);padding:.3rem .6rem;border-radius:6px;font-size:.75rem;cursor:pointer;" onclick="deleteStudent('${s.enrollment}')">Delete</button></td>
+                </tr>
+            `).join('');
+        }
+
+        function togglePwd(index, enrollment) {
+            const el = document.getElementById('pwd-' + index);
+            if (el.textContent === '••••••••') {
+                el.textContent = enrollment.slice(0, 4) + 'mca';
+                el.style.color = 'var(--green)';
+                el.style.fontFamily = 'var(--font-mono)';
+            } else {
+                el.textContent = '••••••••';
+                el.style.color = 'var(--text-muted)';
+                el.style.fontFamily = 'inherit';
+            }
+        }
+
+        function deleteStudent(enrollment) {
+            if (!confirm('Delete student ' + enrollment + '?')) return;
+            let students = getStudents();
+            students = students.filter(s => s.enrollment !== enrollment);
+            saveStudents(students);
+            renderStudents();
+        }
+
+        // === ASSIGNMENTS ===
+        function getAssignments() {
+            return JSON.parse(localStorage.getItem('assignments') || '[]');
+        }
+
+        function saveAssignments(assignments) {
+            localStorage.setItem('assignments', JSON.stringify(assignments));
+        }
+
+        function createAssignment() {
+            const title = document.getElementById('asgnTitle').value.trim();
+            const subject = document.getElementById('asgnSubject').value;
+            const description = document.getElementById('asgnDesc').value.trim();
+            const dueDate = document.getElementById('asgnDue').value;
+            const maxMarks = parseInt(document.getElementById('asgnMarks').value) || 10;
+
+            if (!title || !dueDate) {
+                alert('Please fill in Title and Due Date.');
+                return;
+            }
+
+            const assignments = getAssignments();
+            assignments.push({
+                id: 'asgn_' + Date.now(),
+                title,
+                subject,
+                description,
+                dueDate,
+                maxMarks,
+                createdOn: new Date().toISOString().split('T')[0]
+            });
+            saveAssignments(assignments);
+
+            // Clear form
+            document.getElementById('asgnTitle').value = '';
+            document.getElementById('asgnDesc').value = '';
+            document.getElementById('asgnDue').value = '';
+            document.getElementById('asgnMarks').value = '10';
+
+            renderAssignments();
+        }
+
+        function renderAssignments() {
+            const assignments = getAssignments();
+            const submissions = JSON.parse(localStorage.getItem('submissions') || '[]');
+            const container = document.getElementById('assignmentList');
+            const noMsg = document.getElementById('noAssignments');
+
+            if (assignments.length === 0) {
+                container.innerHTML = '';
+                noMsg.style.display = 'block';
+                return;
+            }
+
+            noMsg.style.display = 'none';
+            container.innerHTML = assignments.map(a => {
+                const subCount = submissions.filter(s => s.assignmentId === a.id).length;
+                const subjectClass = a.subject.toLowerCase();
+                return `
+                    <div class="asgn-card">
+                        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:.5rem;">
+                            <div>
+                                <span class="subject-badge ${subjectClass}">${a.subject}</span>
+                                <h4 style="margin-top:.5rem;">${a.title}</h4>
+                                <p style="color:var(--text-secondary);font-size:.8rem;margin-top:.3rem;">${a.description || 'No description'}</p>
+                            </div>
+                            <div style="text-align:right;">
+                                <div style="color:var(--text-muted);font-size:.75rem;">Due: ${a.dueDate}</div>
+                                <div style="color:var(--cyan);font-size:.8rem;margin-top:.25rem;">Marks: ${a.maxMarks} | Submissions: ${subCount}</div>
+                            </div>
+                        </div>
+                        <div style="margin-top:1rem;display:flex;gap:.5rem;flex-wrap:wrap;">
+                            <button class="btn btn-outline" style="padding:.4rem .8rem;font-size:.75rem;" onclick="viewSubmissionsFor('${a.id}')">View Submissions</button>
+                            <button style="color:#ef4444;background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.2);padding:.4rem .8rem;border-radius:6px;font-size:.75rem;cursor:pointer;" onclick="deleteAssignment('${a.id}')">Delete</button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function deleteAssignment(id) {
+            if (!confirm('Delete this assignment and all its submissions?')) return;
+            let assignments = getAssignments();
+            assignments = assignments.filter(a => a.id !== id);
+            saveAssignments(assignments);
+
+            let submissions = JSON.parse(localStorage.getItem('submissions') || '[]');
+            submissions = submissions.filter(s => s.assignmentId !== id);
+            localStorage.setItem('submissions', JSON.stringify(submissions));
+
+            renderAssignments();
+        }
+
+        function viewSubmissionsFor(id) {
+            // Switch to submissions tab
+            document.querySelectorAll('.dash-tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.dash-content').forEach(c => c.style.display = 'none');
+            document.querySelectorAll('.dash-tab')[2].classList.add('active');
+            document.getElementById('tab-submissions').style.display = 'block';
+            populateAssignmentDropdowns();
+            document.getElementById('submissionAssignment').value = id;
+            loadSubmissions();
+        }
+
+        // === SUBMISSIONS ===
+        function populateAssignmentDropdowns() {
+            const assignments = getAssignments();
+            const options = '<option value="">-- Select Assignment --</option>' + 
+                assignments.map(a => `<option value="${a.id}">${a.title} (${a.subject})</option>`).join('');
+            
+            document.getElementById('submissionAssignment').innerHTML = options;
+            if (document.getElementById('exportAssignment')) {
+                document.getElementById('exportAssignment').innerHTML = options;
+            }
+        }
+
+        function loadSubmissions() {
+            const asgnId = document.getElementById('submissionAssignment').value;
+            const tbody = document.querySelector('#submissionTable tbody');
+            const noMsg = document.getElementById('noSubmissions');
+            const statsEl = document.getElementById('submissionStats');
+
+            if (!asgnId) {
+                tbody.innerHTML = '';
+                noMsg.style.display = 'block';
+                noMsg.textContent = 'Select an assignment to view submissions.';
+                statsEl.style.display = 'none';
+                return;
+            }
+
+            const submissions = JSON.parse(localStorage.getItem('submissions') || '[]');
+            const students = getStudents();
+            const assignment = getAssignments().find(a => a.id === asgnId);
+            const asgnSubs = submissions.filter(s => s.assignmentId === asgnId);
+
+            // Stats
+            const totalStudents = students.length;
+            const submitted = asgnSubs.length;
+            const pending = totalStudents - submitted;
+            const graded = asgnSubs.filter(s => s.status === 'graded');
+            const avgMarks = graded.length > 0 ? (graded.reduce((sum, s) => sum + (s.marks || 0), 0) / graded.length).toFixed(1) : '-';
+
+            statsEl.style.display = 'grid';
+            statsEl.innerHTML = `
+                <div class="summary-item"><div class="num">${totalStudents}</div><div class="lbl">Total Students</div></div>
+                <div class="summary-item"><div class="num">${submitted}</div><div class="lbl">Submitted</div></div>
+                <div class="summary-item"><div class="num">${pending}</div><div class="lbl">Pending</div></div>
+                <div class="summary-item"><div class="num">${avgMarks}</div><div class="lbl">Avg Marks</div></div>
+            `;
+
+            if (asgnSubs.length === 0) {
+                tbody.innerHTML = '';
+                noMsg.style.display = 'block';
+                noMsg.textContent = 'No submissions for this assignment yet.';
+                return;
+            }
+
+            noMsg.style.display = 'none';
+            tbody.innerHTML = asgnSubs.map((s, i) => {
+                const statusBadge = s.status === 'graded' ? 'badge-graded' : s.status === 'late' ? 'badge-late' : 'badge-submitted';
+                const statusText = s.status === 'graded' ? `Graded: ${s.marks}/${assignment.maxMarks}` : s.status.charAt(0).toUpperCase() + s.status.slice(1);
+                return `
+                    <tr>
+                        <td>${i + 1}</td>
+                        <td><code style="font-size:.8rem;color:var(--cyan);">${s.enrollment}</code></td>
+                        <td>${s.studentName}</td>
+                        <td style="font-size:.8rem;">${s.submittedOn}</td>
+                        <td><button style="background:rgba(124,58,237,.1);border:1px solid rgba(124,58,237,.2);color:var(--purple);padding:.2rem .5rem;border-radius:4px;font-size:.7rem;cursor:pointer;" onclick="alert('${s.content.replace(/'/g, "\\'").replace(/\n/g, "\\n")}')">View</button></td>
+                        <td><input type="number" min="0" max="${assignment.maxMarks}" value="${s.marks || ''}" style="width:50px;padding:.3rem;border-radius:4px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:#e2e8f0;font-size:.8rem;" id="marks-${s.id}"></td>
+                        <td><span class="${statusBadge}">${statusText}</span></td>
+                        <td><button style="background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.2);color:var(--green);padding:.3rem .6rem;border-radius:4px;font-size:.7rem;cursor:pointer;" onclick="giveMarks('${s.id}', '${asgnId}')">Give Marks</button></td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        function giveMarks(subId, asgnId) {
+            const marksInput = document.getElementById('marks-' + subId);
+            const marks = parseInt(marksInput.value);
+            const assignment = getAssignments().find(a => a.id === asgnId);
+
+            if (isNaN(marks) || marks < 0 || marks > assignment.maxMarks) {
+                alert('Please enter valid marks (0-' + assignment.maxMarks + ')');
+                return;
+            }
+
+            let submissions = JSON.parse(localStorage.getItem('submissions') || '[]');
+            const sub = submissions.find(s => s.id === subId);
+            if (sub) {
+                sub.marks = marks;
+                sub.status = 'graded';
+                localStorage.setItem('submissions', JSON.stringify(submissions));
+                loadSubmissions();
+            }
+        }
+
+        // === CSV DOWNLOADS ===
+        function downloadCSV(data, filename) {
+            const csv = data.map(row => row.map(cell => `"${String(cell).replace(/"/g, '""')}"`).join(',')).join('\n');
+            const blob = new Blob([csv], {type: 'text/csv'});
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        function downloadStudentCSV() {
+            const students = getStudents();
+            const data = [['S.No', 'Enrollment', 'Name', 'Password', 'Added On']];
+            students.forEach((s, i) => {
+                data.push([i + 1, s.enrollment, s.name, s.enrollment.slice(0, 4) + 'mca', s.addedOn]);
+            });
+            downloadCSV(data, 'students_list.csv');
+        }
+
+        function downloadSubmissionsCSV() {
+            const asgnId = document.getElementById('submissionAssignment').value;
+            if (!asgnId) { alert('Select an assignment first.'); return; }
+            exportSubmissionsForAssignment(asgnId);
+        }
+
+        function downloadSubmissionsCSVExport() {
+            const asgnId = document.getElementById('exportAssignment').value;
+            if (!asgnId) { alert('Select an assignment first.'); return; }
+            exportSubmissionsForAssignment(asgnId);
+        }
+
+        function exportSubmissionsForAssignment(asgnId) {
+            const submissions = JSON.parse(localStorage.getItem('submissions') || '[]');
+            const assignment = getAssignments().find(a => a.id === asgnId);
+            const asgnSubs = submissions.filter(s => s.assignmentId === asgnId);
+            const data = [['S.No', 'Enrollment', 'Student Name', 'Submitted On', 'Marks', 'Status', 'Content']];
+            asgnSubs.forEach((s, i) => {
+                data.push([i + 1, s.enrollment, s.studentName, s.submittedOn, s.marks || 'N/A', s.status, s.content.substring(0, 200)]);
+            });
+            downloadCSV(data, `submissions_${assignment ? assignment.title.replace(/\s+/g, '_') : 'export'}.csv`);
+        }
+
+        function downloadAssignmentsCSV() {
+            const assignments = getAssignments();
+            const data = [['S.No', 'Title', 'Subject', 'Due Date', 'Max Marks', 'Created On', 'Description']];
+            assignments.forEach((a, i) => {
+                data.push([i + 1, a.title, a.subject, a.dueDate, a.maxMarks, a.createdOn, a.description]);
+            });
+            downloadCSV(data, 'assignments_list.csv');
+        }
+
+        // === LOGOUT ===
+        function logout() {
+            sessionStorage.clear();
+            window.location.href = 'login.html';
+        }
+
+        // === INIT ===
+        renderStudents();
+        renderAssignments();
+        populateAssignmentDropdowns();
+
+        // Hamburger
+        document.getElementById('hamburger').addEventListener('click', () => {
+            document.getElementById('mobileMenu').classList.toggle('open');
+        });
+    </script>
+</body>
+</html>
