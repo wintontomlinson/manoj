@@ -3,42 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Python Programming | Prof. Manoj Purohit | MCA Notes</title>
+    <title>Python Programming · Prof. Manoj Purohit</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="page-green">
-    <!-- Background Blobs -->
-    <div class="bg-blobs">
-        <div class="blob blob-1" style="background: var(--green);"></div>
-        <div class="blob blob-2" style="background: var(--cyan);"></div>
-        <div class="blob blob-3" style="background: var(--green);"></div>
-        <div class="blob blob-4" style="background: var(--purple);"></div>
-    </div>
+<body>
+    <div class="blob blob-purple"></div>
+    <div class="blob blob-pink"></div>
+    <div class="blob blob-cyan"></div>
 
-    <!-- Navigation -->
-    <nav class="nav">
+    <!-- Navbar -->
+    <nav class="navbar">
         <div class="nav-container">
-            <a href="index.html" class="nav-logo">
-                <div class="nav-logo-badge">MP</div>
-                <span>Manoj Purohit</span>
+            <a href="index.html" class="nav-brand">
+                <div class="nav-badge">MP</div>
+                <span>Prof. Manoj Purohit</span>
             </a>
             <ul class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="python.html" class="active">Python</a>
-                <a href="java.html">Java</a>
-                <a href="oose.html">OOSE</a>
-                <a href="terminal.html">Terminal</a>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="python.html" class="active">Python</a></li>
+                <li><a href="java.html">Java</a></li>
+                <li><a href="oose.html">OOSE</a></li>
+                <li><a href="terminal.html">Terminal</a></li>
             </ul>
-            <div class="hamburger" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
+            <div class="nav-right">
+                <button class="lang-toggle" id="langToggle">
+                    <span class="active">EN</span><span>|</span><span>हिंग्लिश</span>
+                </button>
+                <div class="hamburger" id="hamburger">
+                    <span></span><span></span><span></span>
+                </div>
             </div>
         </div>
     </nav>
-
-    <!-- Mobile Nav -->
-    <div class="mobile-nav" id="mobileNav">
+    <div class="mobile-menu" id="mobileMenu">
         <a href="index.html">Home</a>
         <a href="python.html" class="active">Python</a>
         <a href="java.html">Java</a>
@@ -46,559 +46,377 @@
         <a href="terminal.html">Terminal</a>
     </div>
 
-    <!-- Main Content -->
-    <main class="main">
+    <main class="main-content">
         <!-- Page Header -->
-        <div class="page-header">
-            <h1 class="gradient-text-green">&#x1F40D; Python Programming &mdash; MCA Notes</h1>
-            <p>Complete syllabus notes with examples for GGSIPU MCA students</p>
-        </div>
+        <section class="page-header">
+            <h1 class="green-gradient">🐍 Python Programming</h1>
+            <p class="subtitle" data-lang="en">Complete MCA Syllabus with Examples</p>
+            <p class="subtitle" data-lang="hi">MCA Syllabus ke according puri Python easy tarike se</p>
+        </section>
 
         <!-- UNIT 1 -->
-        <div class="unit active" onclick="toggleUnit(this)">
-            <div class="unit-header">
-                <span class="unit-badge unit-badge-green">Unit 1</span>
-                <span class="unit-title">Introduction to Python</span>
-                <span class="unit-toggle">+</span>
+        <div class="unit-section open">
+            <div class="unit-header" onclick="toggleUnit(this)">
+                <div class="unit-number green">1</div>
+                <div class="unit-title">Introduction to Python</div>
+                <div class="unit-toggle">▼</div>
             </div>
             <div class="unit-content">
-                <div class="unit-body">
-                    <div class="topics">
-                        <span class="pill pill-green">Python Features</span>
-                        <span class="pill pill-cyan">Variables</span>
-                        <span class="pill pill-green">Data Types</span>
-                        <span class="pill pill-cyan">Operators</span>
-                        <span class="pill pill-green">Input/Output</span>
-                        <span class="pill pill-cyan">Type Casting</span>
-                    </div>
+                <p data-lang="en">Python is a high-level, interpreted programming language known for its simplicity. Let's start from basics.</p>
+                <p data-lang="hi">Python ek high-level programming language hai jo bahut simple hai. Isko seekhna easy hai kyunki ye almost English jaisi dikhti hai. Chalo basics se shuru karte hain.</p>
 
-                    <h3 class="content-heading">What is Python?</h3>
-                    <p class="content-text">Python is a <strong>high-level, interpreted, general-purpose</strong> programming language created by Guido van Rossum in 1991. It emphasizes code readability with significant indentation and supports multiple programming paradigms including procedural, object-oriented, and functional programming.</p>
+                <div class="pills">
+                    <span class="pill green">Variables</span>
+                    <span class="pill green">Data Types</span>
+                    <span class="pill green">Operators</span>
+                    <span class="pill green">Input/Output</span>
+                    <span class="pill green">Type Casting</span>
+                </div>
 
-                    <h4 class="content-subheading">Key Features of Python</h4>
-                    <p class="content-text">
-                        <strong>Easy to Learn:</strong> Simple syntax similar to English language<br>
-                        <strong>Interpreted:</strong> Executes code line by line (no compilation needed)<br>
-                        <strong>Dynamically Typed:</strong> No need to declare variable types<br>
-                        <strong>Platform Independent:</strong> Runs on Windows, Mac, Linux<br>
-                        <strong>Extensive Libraries:</strong> NumPy, Pandas, Django, Flask, etc.<br>
-                        <strong>Object-Oriented:</strong> Supports classes, inheritance, polymorphism
-                    </p>
+                <div class="code-block">
+                    <span class="code-label">Python</span>
+                    <pre><span class="cm"># Variables and Data Types</span>
+<span class="var">name</span> <span class="op">=</span> <span class="str">"Manoj"</span>        <span class="cm"># String (text)</span>
+<span class="var">age</span> <span class="op">=</span> <span class="num">35</span>              <span class="cm"># Integer (whole number)</span>
+<span class="var">height</span> <span class="op">=</span> <span class="num">5.8</span>          <span class="cm"># Float (decimal)</span>
+<span class="var">is_teacher</span> <span class="op">=</span> <span class="kw">True</span>     <span class="cm"># Boolean (True/False)</span>
+<span class="var">subjects</span> <span class="op">=</span> [<span class="str">"Python"</span>, <span class="str">"Java"</span>, <span class="str">"OOSE"</span>]  <span class="cm"># List</span>
 
-                    <h4 class="content-subheading">Variables & Data Types</h4>
-                    <p class="content-text">In Python, variables are created when you assign a value. No explicit declaration is needed. Python has the following built-in data types:</p>
+<span class="cm"># Print using f-string</span>
+<span class="fn">print</span>(<span class="str">f"Name: </span><span class="op">{</span><span class="var">name</span><span class="op">}</span><span class="str">"</span>)
+<span class="fn">print</span>(<span class="str">f"Age: </span><span class="op">{</span><span class="var">age</span><span class="op">}</span><span class="str">"</span>)
+<span class="fn">print</span>(<span class="str">f"Subjects: </span><span class="op">{</span><span class="var">subjects</span><span class="op">}</span><span class="str">"</span>)
+<span class="fn">print</span>(<span class="str">f"Type of name: </span><span class="op">{</span><span class="fn">type</span>(<span class="var">name</span>)<span class="op">}</span><span class="str">"</span>)</pre>
+                </div>
 
-                    <div class="table-wrapper">
-                        <table>
-                            <tr><th>Category</th><th>Type</th><th>Example</th></tr>
-                            <tr><td>Numeric</td><td>int, float, complex</td><td>x = 10, y = 3.14, z = 2+3j</td></tr>
-                            <tr><td>String</td><td>str</td><td>name = "Manoj"</td></tr>
-                            <tr><td>Boolean</td><td>bool</td><td>is_valid = True</td></tr>
-                            <tr><td>Sequence</td><td>list, tuple, range</td><td>[1,2,3], (1,2,3)</td></tr>
-                            <tr><td>Mapping</td><td>dict</td><td>{"key": "value"}</td></tr>
-                            <tr><td>Set</td><td>set, frozenset</td><td>{1, 2, 3}</td></tr>
-                        </table>
-                    </div>
+                <div class="explain-box green" data-lang="en">In this example, we created variables of different types. Python automatically detects the type - you don't need to declare it like Java or C++.</div>
+                <div class="explain-box green" data-lang="hi">Is example mein humne alag-alag types ke variables banaye. Python automatically type detect kar leta hai - Java ya C++ ki tarah declare karne ki zaroorat nahi.</div>
 
-                    <div class="code-block">
-                        <div class="code-header">
-                            <div class="code-dots"><span></span><span></span><span></span></div>
-                            <span class="code-lang">Python</span>
-                        </div>
-                        <div class="code-body"><pre><span class="cm"># Data Types in Python</span>
-<span class="nb">name</span> = <span class="st">"Manoj Purohit"</span>   <span class="cm"># String</span>
-<span class="nb">age</span> = <span class="num">35</span>                  <span class="cm"># Integer</span>
-<span class="nb">cgpa</span> = <span class="num">9.2</span>               <span class="cm"># Float</span>
-<span class="nb">subjects</span> = [<span class="st">"Python"</span>, <span class="st">"Java"</span>, <span class="st">"OOSE"</span>]  <span class="cm"># List</span>
-<span class="nb">is_teacher</span> = <span class="kw">True</span>         <span class="cm"># Boolean</span>
-
-<span class="fn">print</span>(<span class="st">f"Professor: </span>{name}<span class="st">"</span>)
-<span class="fn">print</span>(<span class="st">f"Subjects: </span>{<span class="st">', '</span>.join(subjects)}<span class="st">"</span>)
-<span class="fn">print</span>(<span class="st">f"Type of subjects: </span>{<span class="fn">type</span>(subjects)}<span class="st">"</span>)</pre></div>
-                    </div>
-
-                    <h4 class="content-subheading">Operators in Python</h4>
-                    <div class="table-wrapper">
-                        <table>
-                            <tr><th>Type</th><th>Operators</th><th>Example</th></tr>
-                            <tr><td>Arithmetic</td><td>+, -, *, /, //, %, **</td><td>10 // 3 = 3, 2**3 = 8</td></tr>
-                            <tr><td>Comparison</td><td>==, !=, &gt;, &lt;, &gt;=, &lt;=</td><td>5 == 5 &rarr; True</td></tr>
-                            <tr><td>Logical</td><td>and, or, not</td><td>True and False &rarr; False</td></tr>
-                            <tr><td>Bitwise</td><td>&amp;, |, ^, ~, &lt;&lt;, &gt;&gt;</td><td>5 &amp; 3 = 1</td></tr>
-                            <tr><td>Assignment</td><td>=, +=, -=, *=, /=</td><td>x += 5</td></tr>
-                            <tr><td>Identity</td><td>is, is not</td><td>x is None</td></tr>
-                            <tr><td>Membership</td><td>in, not in</td><td>"a" in "apple"</td></tr>
-                        </table>
-                    </div>
-
-                    <h4 class="content-subheading">Input/Output</h4>
-                    <div class="code-block">
-                        <div class="code-header">
-                            <div class="code-dots"><span></span><span></span><span></span></div>
-                            <span class="code-lang">Python</span>
-                        </div>
-                        <div class="code-body"><pre><span class="cm"># Input/Output in Python</span>
-<span class="nb">name</span> = <span class="fn">input</span>(<span class="st">"Enter your name: "</span>)
-<span class="nb">age</span> = <span class="fn">int</span>(<span class="fn">input</span>(<span class="st">"Enter your age: "</span>))
-
-<span class="fn">print</span>(<span class="st">"Hello,"</span>, name)
-<span class="fn">print</span>(<span class="st">f"You are </span>{age}<span class="st"> years old"</span>)
-<span class="fn">print</span>(<span class="st">"Name: %s, Age: %d"</span> % (name, age))</pre></div>
-                    </div>
-
-                    <a href="terminal.html" class="btn btn-green btn-sm">Try in Terminal &rarr;</a>
+                <!-- Operators Table -->
+                <h3 style="margin-top:2rem; color: var(--green);">Operators</h3>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Operator</th>
+                                <th>Example</th>
+                                <th>Result</th>
+                                <th data-lang="en">Description</th>
+                                <th data-lang="hi">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><code>+</code></td><td>5 + 3</td><td>8</td><td data-lang="en">Addition</td><td data-lang="hi">Jodna</td></tr>
+                            <tr><td><code>-</code></td><td>5 - 3</td><td>2</td><td data-lang="en">Subtraction</td><td data-lang="hi">Ghatana</td></tr>
+                            <tr><td><code>*</code></td><td>5 * 3</td><td>15</td><td data-lang="en">Multiplication</td><td data-lang="hi">Guna</td></tr>
+                            <tr><td><code>/</code></td><td>5 / 3</td><td>1.67</td><td data-lang="en">Division</td><td data-lang="hi">Bhag</td></tr>
+                            <tr><td><code>//</code></td><td>5 // 3</td><td>1</td><td data-lang="en">Floor Division</td><td data-lang="hi">Floor Division (sirf integer)</td></tr>
+                            <tr><td><code>%</code></td><td>5 % 3</td><td>2</td><td data-lang="en">Modulus (remainder)</td><td data-lang="hi">Remainder (shesh)</td></tr>
+                            <tr><td><code>**</code></td><td>5 ** 3</td><td>125</td><td data-lang="en">Power</td><td data-lang="hi">Power (ghat)</td></tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
 
         <!-- UNIT 2 -->
-        <div class="unit" onclick="toggleUnit(this)">
-            <div class="unit-header">
-                <span class="unit-badge unit-badge-cyan">Unit 2</span>
-                <span class="unit-title">Control Flow & Functions</span>
-                <span class="unit-toggle">+</span>
+        <div class="unit-section">
+            <div class="unit-header" onclick="toggleUnit(this)">
+                <div class="unit-number green">2</div>
+                <div class="unit-title">Control Flow & Functions</div>
+                <div class="unit-toggle">▼</div>
             </div>
             <div class="unit-content">
-                <div class="unit-body">
-                    <div class="topics">
-                        <span class="pill pill-cyan">if/elif/else</span>
-                        <span class="pill pill-green">for loop</span>
-                        <span class="pill pill-cyan">while loop</span>
-                        <span class="pill pill-green">Functions</span>
-                        <span class="pill pill-cyan">Lambda</span>
-                        <span class="pill pill-green">Map/Filter/Reduce</span>
-                        <span class="pill pill-cyan">Recursion</span>
-                    </div>
+                <p data-lang="en">Control flow determines which code runs based on conditions. Functions help organize code into reusable blocks.</p>
+                <p data-lang="hi">Control flow decide karta hai ki kaunsa code kab chalega. Functions code ko reusable blocks mein organize karte hain.</p>
 
-                    <h3 class="content-heading">Conditional Statements</h3>
-                    <p class="content-text">Python uses <strong>if</strong>, <strong>elif</strong>, and <strong>else</strong> for decision making. Indentation (4 spaces) is mandatory in Python to define blocks.</p>
-
-                    <div class="code-block">
-                        <div class="code-header">
-                            <div class="code-dots"><span></span><span></span><span></span></div>
-                            <span class="code-lang">Python</span>
-                        </div>
-                        <div class="code-body"><pre><span class="cm"># Conditional Statements</span>
-<span class="nb">marks</span> = <span class="num">85</span>
-
-<span class="kw">if</span> marks >= <span class="num">90</span>:
-    <span class="nb">grade</span> = <span class="st">"A+"</span>
-<span class="kw">elif</span> marks >= <span class="num">80</span>:
-    <span class="nb">grade</span> = <span class="st">"A"</span>
-<span class="kw">elif</span> marks >= <span class="num">70</span>:
-    <span class="nb">grade</span> = <span class="st">"B"</span>
-<span class="kw">elif</span> marks >= <span class="num">60</span>:
-    <span class="nb">grade</span> = <span class="st">"C"</span>
-<span class="kw">else</span>:
-    <span class="nb">grade</span> = <span class="st">"F"</span>
-
-<span class="fn">print</span>(<span class="st">f"Marks: </span>{marks}<span class="st">, Grade: </span>{grade}<span class="st">"</span>)</pre></div>
-                    </div>
-
-                    <h3 class="content-heading">Loops</h3>
-                    <p class="content-text">Python supports <strong>for</strong> loops (iterate over sequences) and <strong>while</strong> loops (condition-based). The <strong>range()</strong> function generates number sequences.</p>
-
-                    <div class="code-block">
-                        <div class="code-header">
-                            <div class="code-dots"><span></span><span></span><span></span></div>
-                            <span class="code-lang">Python</span>
-                        </div>
-                        <div class="code-body"><pre><span class="cm"># Pattern Printing</span>
-<span class="nb">n</span> = <span class="num">5</span>
-<span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(<span class="num">1</span>, n+<span class="num">1</span>):
-    <span class="fn">print</span>(<span class="st">"* "</span> * i)
-
-<span class="cm"># Output:</span>
-<span class="cm"># *</span>
-<span class="cm"># * *</span>
-<span class="cm"># * * *</span>
-<span class="cm"># * * * *</span>
-<span class="cm"># * * * * *</span>
-
-<span class="cm"># Factorial using recursion</span>
-<span class="kw">def</span> <span class="fn">factorial</span>(n):
-    <span class="kw">if</span> n <= <span class="num">1</span>:
-        <span class="kw">return</span> <span class="num">1</span>
-    <span class="kw">return</span> n * <span class="fn">factorial</span>(n - <span class="num">1</span>)
-
-<span class="fn">print</span>(<span class="st">f"5! = </span>{<span class="fn">factorial</span>(<span class="num">5</span>)}<span class="st">"</span>)  <span class="cm"># Output: 120</span></pre></div>
-                    </div>
-
-                    <h3 class="content-heading">Functions</h3>
-                    <p class="content-text">Functions in Python are defined using the <strong>def</strong> keyword. They support default arguments, *args (variable positional arguments), and **kwargs (variable keyword arguments).</p>
-
-                    <div class="code-block">
-                        <div class="code-header">
-                            <div class="code-dots"><span></span><span></span><span></span></div>
-                            <span class="code-lang">Python</span>
-                        </div>
-                        <div class="code-body"><pre><span class="cm"># Functions with *args and **kwargs</span>
-<span class="kw">def</span> <span class="fn">student_info</span>(name, *subjects, **details):
-    <span class="fn">print</span>(<span class="st">f"Name: </span>{name}<span class="st">"</span>)
-    <span class="fn">print</span>(<span class="st">f"Subjects: </span>{<span class="st">', '</span>.join(subjects)}<span class="st">"</span>)
-    <span class="kw">for</span> key, value <span class="kw">in</span> details.items():
-        <span class="fn">print</span>(<span class="st">f"  </span>{key}<span class="st">: </span>{value}<span class="st">"</span>)
-
-<span class="fn">student_info</span>(<span class="st">"Rahul"</span>, <span class="st">"Python"</span>, <span class="st">"Java"</span>, roll=<span class="num">101</span>, semester=<span class="num">2</span>)</pre></div>
-                    </div>
-
-                    <h3 class="content-heading">Lambda, Map, Filter, Reduce</h3>
-                    <p class="content-text"><strong>Lambda</strong> creates anonymous (unnamed) functions in a single line. Combined with <strong>map()</strong>, <strong>filter()</strong>, and <strong>reduce()</strong>, they enable functional programming in Python.</p>
-
-                    <div class="code-block">
-                        <div class="code-header">
-                            <div class="code-dots"><span></span><span></span><span></span></div>
-                            <span class="code-lang">Python</span>
-                        </div>
-                        <div class="code-body"><pre><span class="cm"># Lambda, Map, Filter, Reduce</span>
-<span class="nb">numbers</span> = [<span class="num">1</span>, <span class="num">2</span>, <span class="num">3</span>, <span class="num">4</span>, <span class="num">5</span>, <span class="num">6</span>, <span class="num">7</span>, <span class="num">8</span>, <span class="num">9</span>, <span class="num">10</span>]
-
-<span class="cm"># Filter even numbers</span>
-<span class="nb">evens</span> = <span class="fn">list</span>(<span class="fn">filter</span>(<span class="kw">lambda</span> x: x % <span class="num">2</span> == <span class="num">0</span>, numbers))
-<span class="fn">print</span>(<span class="st">f"Even: </span>{evens}<span class="st">"</span>)  <span class="cm"># [2, 4, 6, 8, 10]</span>
-
-<span class="cm"># Map - square each number</span>
-<span class="nb">squares</span> = <span class="fn">list</span>(<span class="fn">map</span>(<span class="kw">lambda</span> x: x**<span class="num">2</span>, numbers))
-<span class="fn">print</span>(<span class="st">f"Squares: </span>{squares}<span class="st">"</span>)  <span class="cm"># [1, 4, 9, 16, ...]</span>
-
-<span class="cm"># Reduce - sum all</span>
-<span class="kw">from</span> functools <span class="kw">import</span> reduce
-<span class="nb">total</span> = <span class="fn">reduce</span>(<span class="kw">lambda</span> a, b: a + b, numbers)
-<span class="fn">print</span>(<span class="st">f"Sum: </span>{total}<span class="st">"</span>)  <span class="cm"># 55</span>
-
-<span class="cm"># Lambda with sorted</span>
-<span class="nb">students</span> = [(<span class="st">"Rahul"</span>, <span class="num">85</span>), (<span class="st">"Priya"</span>, <span class="num">92</span>), (<span class="st">"Amit"</span>, <span class="num">78</span>)]
-<span class="nb">sorted_students</span> = <span class="fn">sorted</span>(students, key=<span class="kw">lambda</span> x: x[<span class="num">1</span>], reverse=<span class="kw">True</span>)
-<span class="fn">print</span>(sorted_students)  <span class="cm"># Sorted by marks descending</span></pre></div>
-                    </div>
-
-                    <a href="terminal.html" class="btn btn-green btn-sm">Try in Terminal &rarr;</a>
+                <div class="pills">
+                    <span class="pill green">if/elif/else</span>
+                    <span class="pill green">for loop</span>
+                    <span class="pill green">while loop</span>
+                    <span class="pill green">Functions</span>
+                    <span class="pill green">Lambda</span>
+                    <span class="pill green">Map/Filter/Reduce</span>
                 </div>
+
+                <div class="code-block">
+                    <span class="code-label">Python</span>
+                    <pre><span class="cm"># If-Elif-Else</span>
+<span class="var">marks</span> <span class="op">=</span> <span class="num">85</span>
+
+<span class="kw">if</span> <span class="var">marks</span> <span class="op">>=</span> <span class="num">90</span>:
+    <span class="var">grade</span> <span class="op">=</span> <span class="str">"A+"</span>
+<span class="kw">elif</span> <span class="var">marks</span> <span class="op">>=</span> <span class="num">80</span>:
+    <span class="var">grade</span> <span class="op">=</span> <span class="str">"A"</span>
+<span class="kw">elif</span> <span class="var">marks</span> <span class="op">>=</span> <span class="num">70</span>:
+    <span class="var">grade</span> <span class="op">=</span> <span class="str">"B"</span>
+<span class="kw">else</span>:
+    <span class="var">grade</span> <span class="op">=</span> <span class="str">"C"</span>
+
+<span class="fn">print</span>(<span class="str">f"Marks: </span><span class="op">{</span><span class="var">marks</span><span class="op">}</span><span class="str">, Grade: </span><span class="op">{</span><span class="var">grade</span><span class="op">}</span><span class="str">"</span>)</pre>
+                </div>
+
+                <div class="explain-box green" data-lang="en">The if-elif-else checks conditions from top to bottom. First true condition executes its block.</div>
+                <div class="explain-box green" data-lang="hi">if-elif-else upar se neeche conditions check karta hai. Jo pehli condition True hoti hai, uska block run hota hai.</div>
+
+                <div class="code-block">
+                    <span class="code-label">Python</span>
+                    <pre><span class="cm"># Functions</span>
+<span class="kw">def</span> <span class="fn">factorial</span>(<span class="var">n</span>):
+    <span class="str">"""Calculate factorial of n"""</span>
+    <span class="kw">if</span> <span class="var">n</span> <span class="op"><=</span> <span class="num">1</span>:
+        <span class="kw">return</span> <span class="num">1</span>
+    <span class="kw">return</span> <span class="var">n</span> <span class="op">*</span> <span class="fn">factorial</span>(<span class="var">n</span> <span class="op">-</span> <span class="num">1</span>)
+
+<span class="cm"># Lambda, Map, Filter</span>
+<span class="var">numbers</span> <span class="op">=</span> [<span class="num">1</span>, <span class="num">2</span>, <span class="num">3</span>, <span class="num">4</span>, <span class="num">5</span>, <span class="num">6</span>, <span class="num">7</span>, <span class="num">8</span>, <span class="num">9</span>, <span class="num">10</span>]
+
+<span class="cm"># Filter: sirf even numbers</span>
+<span class="var">evens</span> <span class="op">=</span> <span class="fn">list</span>(<span class="fn">filter</span>(<span class="kw">lambda</span> <span class="var">x</span>: <span class="var">x</span> <span class="op">%</span> <span class="num">2</span> <span class="op">==</span> <span class="num">0</span>, <span class="var">numbers</span>))
+<span class="fn">print</span>(<span class="str">f"Even numbers: </span><span class="op">{</span><span class="var">evens</span><span class="op">}</span><span class="str">"</span>)
+
+<span class="cm"># Map: sabka square</span>
+<span class="var">squares</span> <span class="op">=</span> <span class="fn">list</span>(<span class="fn">map</span>(<span class="kw">lambda</span> <span class="var">x</span>: <span class="var">x</span><span class="op">**</span><span class="num">2</span>, <span class="var">numbers</span>))
+<span class="fn">print</span>(<span class="str">f"Squares: </span><span class="op">{</span><span class="var">squares</span><span class="op">}</span><span class="str">"</span>)
+
+<span class="cm"># Reduce: sab ka sum</span>
+<span class="kw">from</span> functools <span class="kw">import</span> reduce
+<span class="var">total</span> <span class="op">=</span> <span class="fn">reduce</span>(<span class="kw">lambda</span> <span class="var">a</span>, <span class="var">b</span>: <span class="var">a</span> <span class="op">+</span> <span class="var">b</span>, <span class="var">numbers</span>)
+<span class="fn">print</span>(<span class="str">f"Total: </span><span class="op">{</span><span class="var">total</span><span class="op">}</span><span class="str">"</span>)</pre>
+                </div>
+
+                <div class="explain-box green" data-lang="en">Lambda creates small anonymous functions. Map applies a function to each element. Filter keeps elements that satisfy a condition. Reduce combines all elements into one value.</div>
+                <div class="explain-box green" data-lang="hi">Lambda se chhote anonymous functions bante hain. Map har element pe function apply karta hai. Filter wo elements rakhta hai jo condition satisfy kare. Reduce saare elements ko ek value mein combine karta hai.</div>
             </div>
         </div>
 
         <!-- UNIT 3 -->
-        <div class="unit" onclick="toggleUnit(this)">
-            <div class="unit-header">
-                <span class="unit-badge unit-badge-green">Unit 3</span>
-                <span class="unit-title">Data Structures in Python</span>
-                <span class="unit-toggle">+</span>
+        <div class="unit-section">
+            <div class="unit-header" onclick="toggleUnit(this)">
+                <div class="unit-number green">3</div>
+                <div class="unit-title">Data Structures</div>
+                <div class="unit-toggle">▼</div>
             </div>
             <div class="unit-content">
-                <div class="unit-body">
-                    <div class="topics">
-                        <span class="pill pill-green">Strings</span>
-                        <span class="pill pill-cyan">Lists</span>
-                        <span class="pill pill-green">Tuples</span>
-                        <span class="pill pill-cyan">Sets</span>
-                        <span class="pill pill-green">Dictionaries</span>
-                        <span class="pill pill-cyan">Comprehensions</span>
-                    </div>
+                <p data-lang="en">Python has powerful built-in data structures. Lists are ordered and mutable. Tuples are ordered but immutable. Sets have unique elements. Dictionaries store key-value pairs.</p>
+                <p data-lang="hi">Python mein built-in data structures bahut powerful hain. Lists ordered hain aur change ho sakti hain. Tuples ordered hain par change nahi hoti. Sets mein unique elements hote hain. Dictionaries mein key-value pairs store hote hain.</p>
 
-                    <h3 class="content-heading">Strings</h3>
-                    <p class="content-text">Strings are <strong>immutable sequences</strong> of characters. Python provides powerful string methods and formatting options.</p>
+                <div class="pills">
+                    <span class="pill green">Lists</span>
+                    <span class="pill green">Tuples</span>
+                    <span class="pill green">Sets</span>
+                    <span class="pill green">Dictionaries</span>
+                    <span class="pill green">Comprehensions</span>
+                </div>
 
-                    <div class="table-wrapper">
-                        <table>
-                            <tr><th>Method</th><th>Description</th><th>Example</th></tr>
-                            <tr><td>upper()</td><td>Converts to uppercase</td><td>"hello".upper() &rarr; "HELLO"</td></tr>
-                            <tr><td>lower()</td><td>Converts to lowercase</td><td>"HELLO".lower() &rarr; "hello"</td></tr>
-                            <tr><td>strip()</td><td>Removes whitespace</td><td>" hi ".strip() &rarr; "hi"</td></tr>
-                            <tr><td>split()</td><td>Splits into list</td><td>"a,b".split(",") &rarr; ["a","b"]</td></tr>
-                            <tr><td>join()</td><td>Joins list to string</td><td>",".join(["a","b"]) &rarr; "a,b"</td></tr>
-                            <tr><td>replace()</td><td>Replaces substring</td><td>"hi".replace("h","H") &rarr; "Hi"</td></tr>
-                            <tr><td>find()</td><td>Finds index of substr</td><td>"hello".find("ll") &rarr; 2</td></tr>
-                        </table>
-                    </div>
+                <div class="code-block">
+                    <span class="code-label">Python</span>
+                    <pre><span class="cm"># List Comprehension</span>
+<span class="var">squares</span> <span class="op">=</span> [<span class="var">x</span><span class="op">**</span><span class="num">2</span> <span class="kw">for</span> <span class="var">x</span> <span class="kw">in</span> <span class="fn">range</span>(<span class="num">10</span>)]
+<span class="fn">print</span>(<span class="str">f"Squares: </span><span class="op">{</span><span class="var">squares</span><span class="op">}</span><span class="str">"</span>)
 
-                    <h3 class="content-heading">Lists & Comprehensions</h3>
-                    <p class="content-text">Lists are <strong>mutable, ordered</strong> collections. List comprehensions provide a concise way to create new lists.</p>
-
-                    <div class="code-block">
-                        <div class="code-header">
-                            <div class="code-dots"><span></span><span></span><span></span></div>
-                            <span class="code-lang">Python</span>
-                        </div>
-                        <div class="code-body"><pre><span class="cm"># List Comprehension</span>
-<span class="nb">squares</span> = [x**<span class="num">2</span> <span class="kw">for</span> x <span class="kw">in</span> <span class="fn">range</span>(<span class="num">10</span>)]
-<span class="nb">evens</span> = [x <span class="kw">for</span> x <span class="kw">in</span> <span class="fn">range</span>(<span class="num">20</span>) <span class="kw">if</span> x % <span class="num">2</span> == <span class="num">0</span>]
-
-<span class="cm"># Dictionary Comprehension</span>
-<span class="nb">students</span> = {<span class="st">"Rahul"</span>: <span class="num">85</span>, <span class="st">"Priya"</span>: <span class="num">92</span>, <span class="st">"Amit"</span>: <span class="num">78</span>}
-<span class="nb">toppers</span> = {k: v <span class="kw">for</span> k, v <span class="kw">in</span> students.items() <span class="kw">if</span> v >= <span class="num">85</span>}
-<span class="fn">print</span>(<span class="st">f"Toppers: </span>{toppers}<span class="st">"</span>)
-
-<span class="cm"># Nested Data Structures</span>
-<span class="nb">college</span> = {
-    <span class="st">"name"</span>: <span class="st">"GGSIPU"</span>,
-    <span class="st">"courses"</span>: [<span class="st">"MCA"</span>, <span class="st">"BCA"</span>, <span class="st">"BTech"</span>],
-    <span class="st">"faculty"</span>: [
-        {<span class="st">"name"</span>: <span class="st">"Manoj Purohit"</span>, <span class="st">"subject"</span>: <span class="st">"Python"</span>},
-        {<span class="st">"name"</span>: <span class="st">"Faculty 2"</span>, <span class="st">"subject"</span>: <span class="st">"DBMS"</span>}
-    ]
+<span class="cm"># Dictionary</span>
+<span class="var">student</span> <span class="op">=</span> {
+    <span class="str">"name"</span>: <span class="str">"Rahul"</span>,
+    <span class="str">"roll"</span>: <span class="num">101</span>,
+    <span class="str">"marks"</span>: {<span class="str">"Python"</span>: <span class="num">85</span>, <span class="str">"Java"</span>: <span class="num">90</span>, <span class="str">"OOSE"</span>: <span class="num">78</span>}
 }
 
-<span class="cm"># Accessing nested data</span>
-<span class="fn">print</span>(college[<span class="st">"faculty"</span>][<span class="num">0</span>][<span class="st">"name"</span>])  <span class="cm"># Manoj Purohit</span></pre></div>
-                    </div>
+<span class="cm"># Access nested data</span>
+<span class="kw">for</span> <span class="var">subject</span>, <span class="var">marks</span> <span class="kw">in</span> <span class="var">student</span>[<span class="str">"marks"</span>].<span class="fn">items</span>():
+    <span class="fn">print</span>(<span class="str">f"</span><span class="op">{</span><span class="var">subject</span><span class="op">}</span><span class="str">: </span><span class="op">{</span><span class="var">marks</span><span class="op">}</span><span class="str">"</span>)
 
-                    <h3 class="content-heading">Tuples and Sets</h3>
-                    <p class="content-text"><strong>Tuples</strong> are immutable ordered collections (created with parentheses). <strong>Sets</strong> are unordered collections of unique elements (created with curly braces).</p>
-
-                    <div class="code-block">
-                        <div class="code-header">
-                            <div class="code-dots"><span></span><span></span><span></span></div>
-                            <span class="code-lang">Python</span>
-                        </div>
-                        <div class="code-body"><pre><span class="cm"># Tuples - Immutable</span>
-<span class="nb">coordinates</span> = (<span class="num">10</span>, <span class="num">20</span>, <span class="num">30</span>)
-<span class="nb">x</span>, <span class="nb">y</span>, <span class="nb">z</span> = coordinates  <span class="cm"># Tuple unpacking</span>
-<span class="fn">print</span>(<span class="st">f"x=</span>{x}<span class="st">, y=</span>{y}<span class="st">, z=</span>{z}<span class="st">"</span>)
-
-<span class="cm"># Sets - Unique elements, unordered</span>
-<span class="nb">set_a</span> = {<span class="num">1</span>, <span class="num">2</span>, <span class="num">3</span>, <span class="num">4</span>, <span class="num">5</span>}
-<span class="nb">set_b</span> = {<span class="num">4</span>, <span class="num">5</span>, <span class="num">6</span>, <span class="num">7</span>, <span class="num">8</span>}
-
-<span class="fn">print</span>(<span class="st">f"Union: </span>{set_a | set_b}<span class="st">"</span>)
-<span class="fn">print</span>(<span class="st">f"Intersection: </span>{set_a & set_b}<span class="st">"</span>)
-<span class="fn">print</span>(<span class="st">f"Difference: </span>{set_a - set_b}<span class="st">"</span>)</pre></div>
-                    </div>
-
-                    <a href="terminal.html" class="btn btn-green btn-sm">Try in Terminal &rarr;</a>
+<span class="cm"># Set Operations</span>
+<span class="var">set_a</span> <span class="op">=</span> {<span class="num">1</span>, <span class="num">2</span>, <span class="num">3</span>, <span class="num">4</span>, <span class="num">5</span>}
+<span class="var">set_b</span> <span class="op">=</span> {<span class="num">4</span>, <span class="num">5</span>, <span class="num">6</span>, <span class="num">7</span>, <span class="num">8</span>}
+<span class="fn">print</span>(<span class="str">f"Union: </span><span class="op">{</span><span class="var">set_a</span> <span class="op">|</span> <span class="var">set_b</span><span class="op">}</span><span class="str">"</span>)
+<span class="fn">print</span>(<span class="str">f"Intersection: </span><span class="op">{</span><span class="var">set_a</span> <span class="op">&</span> <span class="var">set_b</span><span class="op">}</span><span class="str">"</span>)</pre>
                 </div>
+
+                <div class="explain-box green" data-lang="en">List comprehension creates lists in one line. Dictionaries can be nested for complex data. Sets support mathematical operations like union and intersection.</div>
+                <div class="explain-box green" data-lang="hi">List comprehension se ek line mein list ban jaati hai. Dictionaries nested ho sakti hain complex data ke liye. Sets pe mathematical operations jaise union aur intersection lag sakte hain.</div>
             </div>
         </div>
 
         <!-- UNIT 4 -->
-        <div class="unit" onclick="toggleUnit(this)">
-            <div class="unit-header">
-                <span class="unit-badge unit-badge-pink">Unit 4</span>
-                <span class="unit-title">Object Oriented Programming</span>
-                <span class="unit-toggle">+</span>
+        <div class="unit-section">
+            <div class="unit-header" onclick="toggleUnit(this)">
+                <div class="unit-number green">4</div>
+                <div class="unit-title">Object Oriented Programming</div>
+                <div class="unit-toggle">▼</div>
             </div>
             <div class="unit-content">
-                <div class="unit-body">
-                    <div class="topics">
-                        <span class="pill pill-pink">Classes</span>
-                        <span class="pill pill-purple">Objects</span>
-                        <span class="pill pill-pink">Inheritance</span>
-                        <span class="pill pill-purple">Polymorphism</span>
-                        <span class="pill pill-pink">Encapsulation</span>
-                        <span class="pill pill-purple">Abstraction</span>
+                <p data-lang="en">OOP organizes code into classes (blueprints) and objects (instances). Key concepts: Encapsulation, Inheritance, Polymorphism, Abstraction.</p>
+                <p data-lang="hi">OOP mein code ko classes (blueprint) aur objects (instances) mein organize karte hain. Key concepts: Encapsulation, Inheritance, Polymorphism, Abstraction.</p>
+
+                <div class="pills">
+                    <span class="pill green">Classes</span>
+                    <span class="pill green">Objects</span>
+                    <span class="pill green">Inheritance</span>
+                    <span class="pill green">Polymorphism</span>
+                    <span class="pill green">Encapsulation</span>
+                </div>
+
+                <!-- Class Diagram -->
+                <div class="class-diagram">
+                    <div class="class-box">
+                        <div class="class-name">Student</div>
+                        <div class="class-attrs">+ name: str<br>+ roll: int<br>+ marks: dict</div>
+                        <div class="class-methods">+ add_marks()<br>+ percentage()<br>+ display()</div>
                     </div>
-
-                    <h3 class="content-heading">Classes and Objects</h3>
-                    <p class="content-text">A <strong>class</strong> is a blueprint for creating objects. It defines attributes (data) and methods (functions). The <strong>__init__</strong> method is the constructor that initializes the object.</p>
-
-                    <h4 class="content-subheading">4 Pillars of OOP</h4>
-                    <div class="table-wrapper">
-                        <table>
-                            <tr><th>Pillar</th><th>Description</th></tr>
-                            <tr><td>Encapsulation</td><td>Bundling data and methods within a class, restricting direct access (using _ and __)</td></tr>
-                            <tr><td>Inheritance</td><td>Creating new classes from existing ones (child inherits parent properties)</td></tr>
-                            <tr><td>Polymorphism</td><td>Same method name behaves differently in different classes (method overriding)</td></tr>
-                            <tr><td>Abstraction</td><td>Hiding complex implementation, showing only necessary features (using ABC module)</td></tr>
-                        </table>
-                    </div>
-
-                    <div class="code-block">
-                        <div class="code-header">
-                            <div class="code-dots"><span></span><span></span><span></span></div>
-                            <span class="code-lang">Python</span>
+                    <div class="inheritance-arrow">▲<br>|</div>
+                    <div class="class-children">
+                        <div class="class-box">
+                            <div class="class-name">MCAStudent</div>
+                            <div class="class-attrs">+ semester: int</div>
+                            <div class="class-methods">+ display()</div>
                         </div>
-                        <div class="code-body"><pre><span class="cm"># OOP Example - Student Management</span>
+                    </div>
+                </div>
+
+                <div class="code-block">
+                    <span class="code-label">Python</span>
+                    <pre><span class="cm"># OOP - Student Management</span>
 <span class="kw">class</span> <span class="fn">Student</span>:
-    <span class="kw">def</span> <span class="fn">__init__</span>(self, name, roll, course=<span class="st">"MCA"</span>):
-        self.name = name
-        self.roll = roll
-        self.course = course
-        self.marks = {}
-
-    <span class="kw">def</span> <span class="fn">add_marks</span>(self, subject, marks):
-        self.marks[subject] = marks
-
-    <span class="kw">def</span> <span class="fn">get_percentage</span>(self):
-        <span class="kw">if not</span> self.marks:
+    <span class="kw">def</span> <span class="fn">__init__</span>(<span class="var">self</span>, <span class="var">name</span>, <span class="var">roll</span>):
+        <span class="var">self</span>.<span class="var">name</span> <span class="op">=</span> <span class="var">name</span>
+        <span class="var">self</span>.<span class="var">roll</span> <span class="op">=</span> <span class="var">roll</span>
+        <span class="var">self</span>.<span class="var">marks</span> <span class="op">=</span> {}
+    
+    <span class="kw">def</span> <span class="fn">add_marks</span>(<span class="var">self</span>, <span class="var">subject</span>, <span class="var">marks</span>):
+        <span class="var">self</span>.<span class="var">marks</span>[<span class="var">subject</span>] <span class="op">=</span> <span class="var">marks</span>
+    
+    <span class="kw">def</span> <span class="fn">percentage</span>(<span class="var">self</span>):
+        <span class="kw">if</span> <span class="kw">not</span> <span class="var">self</span>.<span class="var">marks</span>:
             <span class="kw">return</span> <span class="num">0</span>
-        <span class="kw">return</span> <span class="fn">sum</span>(self.marks.values()) / <span class="fn">len</span>(self.marks)
-
-    <span class="kw">def</span> <span class="fn">display</span>(self):
-        <span class="fn">print</span>(<span class="st">f"Name: </span>{self.name}<span class="st">"</span>)
-        <span class="fn">print</span>(<span class="st">f"Roll: </span>{self.roll}<span class="st">"</span>)
-        <span class="fn">print</span>(<span class="st">f"Course: </span>{self.course}<span class="st">"</span>)
-        <span class="fn">print</span>(<span class="st">f"Percentage: </span>{self.<span class="fn">get_percentage</span>():.2f}<span class="st">%"</span>)
+        <span class="kw">return</span> <span class="fn">sum</span>(<span class="var">self</span>.<span class="var">marks</span>.<span class="fn">values</span>()) <span class="op">/</span> <span class="fn">len</span>(<span class="var">self</span>.<span class="var">marks</span>)
+    
+    <span class="kw">def</span> <span class="fn">display</span>(<span class="var">self</span>):
+        <span class="fn">print</span>(<span class="str">f"Name: </span><span class="op">{</span><span class="var">self</span>.<span class="var">name</span><span class="op">}</span><span class="str">, Roll: </span><span class="op">{</span><span class="var">self</span>.<span class="var">roll</span><span class="op">}</span><span class="str">"</span>)
+        <span class="fn">print</span>(<span class="str">f"Percentage: </span><span class="op">{</span><span class="var">self</span>.<span class="fn">percentage</span>()<span class="op">}</span><span class="str">:.1f}%"</span>)
 
 <span class="cm"># Inheritance</span>
 <span class="kw">class</span> <span class="fn">MCAStudent</span>(<span class="fn">Student</span>):
-    <span class="kw">def</span> <span class="fn">__init__</span>(self, name, roll, semester):
-        <span class="fn">super</span>().__init__(name, roll, <span class="st">"MCA"</span>)
-        self.semester = semester
+    <span class="kw">def</span> <span class="fn">__init__</span>(<span class="var">self</span>, <span class="var">name</span>, <span class="var">roll</span>, <span class="var">semester</span>):
+        <span class="fn">super</span>().<span class="fn">__init__</span>(<span class="var">name</span>, <span class="var">roll</span>)
+        <span class="var">self</span>.<span class="var">semester</span> <span class="op">=</span> <span class="var">semester</span>
+    
+    <span class="kw">def</span> <span class="fn">display</span>(<span class="var">self</span>):
+        <span class="fn">super</span>().<span class="fn">display</span>()
+        <span class="fn">print</span>(<span class="str">f"Semester: </span><span class="op">{</span><span class="var">self</span>.<span class="var">semester</span><span class="op">}</span><span class="str">"</span>)
 
-    <span class="kw">def</span> <span class="fn">display</span>(self):
-        <span class="fn">super</span>().display()
-        <span class="fn">print</span>(<span class="st">f"Semester: </span>{self.semester}<span class="st">"</span>)
-
-<span class="nb">s1</span> = <span class="fn">MCAStudent</span>(<span class="st">"Rahul"</span>, <span class="num">101</span>, <span class="num">2</span>)
-s1.<span class="fn">add_marks</span>(<span class="st">"Python"</span>, <span class="num">85</span>)
-s1.<span class="fn">add_marks</span>(<span class="st">"Java"</span>, <span class="num">90</span>)
-s1.<span class="fn">display</span>()</pre></div>
-                    </div>
-
-                    <h4 class="content-subheading">Types of Inheritance</h4>
-                    <p class="content-text">
-                        <strong>Single Inheritance:</strong> One child, one parent (class B(A))<br>
-                        <strong>Multiple Inheritance:</strong> One child, multiple parents (class C(A, B))<br>
-                        <strong>Multilevel Inheritance:</strong> Chain of inheritance (A &rarr; B &rarr; C)<br>
-                        <strong>Hierarchical:</strong> Multiple children, one parent<br>
-                        <strong>Hybrid:</strong> Combination of above types
-                    </p>
-
-                    <a href="terminal.html" class="btn btn-green btn-sm">Try in Terminal &rarr;</a>
+<span class="cm"># Usage</span>
+<span class="var">s1</span> <span class="op">=</span> <span class="fn">MCAStudent</span>(<span class="str">"Rahul"</span>, <span class="num">101</span>, <span class="num">2</span>)
+<span class="var">s1</span>.<span class="fn">add_marks</span>(<span class="str">"Python"</span>, <span class="num">85</span>)
+<span class="var">s1</span>.<span class="fn">add_marks</span>(<span class="str">"Java"</span>, <span class="num">92</span>)
+<span class="var">s1</span>.<span class="fn">display</span>()</pre>
                 </div>
+
+                <div class="explain-box green" data-lang="en">OOP organizes code into classes (blueprints) and objects (instances). Inheritance allows a class to inherit properties from another. super() calls the parent class method.</div>
+                <div class="explain-box green" data-lang="hi">OOP mein code ko classes (blueprint) aur objects (instances) mein organize karte hain. Inheritance se ek class doosri class ki properties le sakti hai. super() parent class ka method call karta hai.</div>
             </div>
         </div>
 
         <!-- UNIT 5 -->
-        <div class="unit" onclick="toggleUnit(this)">
-            <div class="unit-header">
-                <span class="unit-badge unit-badge-purple">Unit 5</span>
-                <span class="unit-title">File Handling, Modules & Advanced Topics</span>
-                <span class="unit-toggle">+</span>
+        <div class="unit-section">
+            <div class="unit-header" onclick="toggleUnit(this)">
+                <div class="unit-number green">5</div>
+                <div class="unit-title">File Handling & Advanced Topics</div>
+                <div class="unit-toggle">▼</div>
             </div>
             <div class="unit-content">
-                <div class="unit-body">
-                    <div class="topics">
-                        <span class="pill pill-purple">File I/O</span>
-                        <span class="pill pill-pink">Exceptions</span>
-                        <span class="pill pill-purple">NumPy</span>
-                        <span class="pill pill-pink">Decorators</span>
-                        <span class="pill pill-purple">Modules</span>
-                        <span class="pill pill-pink">Generators</span>
-                    </div>
+                <p data-lang="en">File handling, exception handling, and decorators are essential for building real applications.</p>
+                <p data-lang="hi">File handling, exception handling, aur decorators real applications banane ke liye zaroori hain.</p>
 
-                    <h3 class="content-heading">File Handling</h3>
-                    <p class="content-text">Python provides built-in functions to read and write files. The <strong>with</strong> statement ensures proper file closing. File modes: 'r' (read), 'w' (write), 'a' (append), 'r+' (read/write).</p>
+                <div class="pills">
+                    <span class="pill green">File I/O</span>
+                    <span class="pill green">Exception Handling</span>
+                    <span class="pill green">Decorators</span>
+                    <span class="pill green">Generators</span>
+                    <span class="pill green">NumPy</span>
+                </div>
 
-                    <div class="code-block">
-                        <div class="code-header">
-                            <div class="code-dots"><span></span><span></span><span></span></div>
-                            <span class="code-lang">Python</span>
-                        </div>
-                        <div class="code-body"><pre><span class="cm"># File Handling</span>
-<span class="cm"># Writing to a file</span>
-<span class="kw">with</span> <span class="fn">open</span>(<span class="st">"students.txt"</span>, <span class="st">"w"</span>) <span class="kw">as</span> f:
-    f.write(<span class="st">"Rahul - 85\n"</span>)
-    f.write(<span class="st">"Priya - 92\n"</span>)
-    f.write(<span class="st">"Amit - 78\n"</span>)
+                <div class="code-block">
+                    <span class="code-label">Python</span>
+                    <pre><span class="cm"># File Handling</span>
+<span class="kw">with</span> <span class="fn">open</span>(<span class="str">"students.txt"</span>, <span class="str">"w"</span>) <span class="kw">as</span> <span class="var">f</span>:
+    <span class="var">f</span>.<span class="fn">write</span>(<span class="str">"Rahul,85\n"</span>)
+    <span class="var">f</span>.<span class="fn">write</span>(<span class="str">"Priya,92\n"</span>)
 
-<span class="cm"># Reading from a file</span>
-<span class="kw">with</span> <span class="fn">open</span>(<span class="st">"students.txt"</span>, <span class="st">"r"</span>) <span class="kw">as</span> f:
-    <span class="kw">for</span> line <span class="kw">in</span> f:
-        <span class="fn">print</span>(line.strip())</pre></div>
-                    </div>
+<span class="kw">with</span> <span class="fn">open</span>(<span class="str">"students.txt"</span>, <span class="str">"r"</span>) <span class="kw">as</span> <span class="var">f</span>:
+    <span class="kw">for</span> <span class="var">line</span> <span class="kw">in</span> <span class="var">f</span>:
+        <span class="var">name</span>, <span class="var">marks</span> <span class="op">=</span> <span class="var">line</span>.<span class="fn">strip</span>().<span class="fn">split</span>(<span class="str">","</span>)
+        <span class="fn">print</span>(<span class="str">f"</span><span class="op">{</span><span class="var">name</span><span class="op">}</span><span class="str">: </span><span class="op">{</span><span class="var">marks</span><span class="op">}</span><span class="str">"</span>)
 
-                    <h3 class="content-heading">Exception Handling</h3>
-                    <p class="content-text">Exceptions are runtime errors. Python uses <strong>try/except/else/finally</strong> blocks. You can <strong>raise</strong> custom exceptions and create custom exception classes.</p>
-
-                    <div class="code-block">
-                        <div class="code-header">
-                            <div class="code-dots"><span></span><span></span><span></span></div>
-                            <span class="code-lang">Python</span>
-                        </div>
-                        <div class="code-body"><pre><span class="cm"># Exception Handling</span>
-<span class="kw">def</span> <span class="fn">divide</span>(a, b):
+<span class="cm"># Exception Handling</span>
+<span class="kw">def</span> <span class="fn">divide</span>(<span class="var">a</span>, <span class="var">b</span>):
     <span class="kw">try</span>:
-        <span class="nb">result</span> = a / b
+        <span class="var">result</span> <span class="op">=</span> <span class="var">a</span> <span class="op">/</span> <span class="var">b</span>
     <span class="kw">except</span> <span class="fn">ZeroDivisionError</span>:
-        <span class="fn">print</span>(<span class="st">"Error: Cannot divide by zero!"</span>)
+        <span class="fn">print</span>(<span class="str">"Error: Cannot divide by zero!"</span>)
         <span class="kw">return</span> <span class="kw">None</span>
     <span class="kw">except</span> <span class="fn">TypeError</span>:
-        <span class="fn">print</span>(<span class="st">"Error: Invalid data types!"</span>)
+        <span class="fn">print</span>(<span class="str">"Error: Invalid types!"</span>)
         <span class="kw">return</span> <span class="kw">None</span>
-    <span class="kw">else</span>:
-        <span class="fn">print</span>(<span class="st">f"</span>{a}<span class="st"> / </span>{b}<span class="st"> = </span>{result}<span class="st">"</span>)
-        <span class="kw">return</span> result
     <span class="kw">finally</span>:
-        <span class="fn">print</span>(<span class="st">"Operation complete."</span>)
+        <span class="fn">print</span>(<span class="str">"Operation attempted."</span>)
+    <span class="kw">return</span> <span class="var">result</span>
 
-<span class="fn">divide</span>(<span class="num">10</span>, <span class="num">2</span>)   <span class="cm"># 10 / 2 = 5.0</span>
-<span class="fn">divide</span>(<span class="num">10</span>, <span class="num">0</span>)   <span class="cm"># Error: Cannot divide by zero!</span></pre></div>
-                    </div>
+<span class="cm"># Decorator</span>
+<span class="kw">def</span> <span class="fn">timer</span>(<span class="var">func</span>):
+    <span class="kw">import</span> time
+    <span class="kw">def</span> <span class="fn">wrapper</span>(<span class="op">*</span><span class="var">args</span>):
+        <span class="var">start</span> <span class="op">=</span> time.<span class="fn">time</span>()
+        <span class="var">result</span> <span class="op">=</span> <span class="var">func</span>(<span class="op">*</span><span class="var">args</span>)
+        <span class="fn">print</span>(<span class="str">f"</span><span class="op">{</span><span class="var">func</span>.<span class="var">__name__</span><span class="op">}</span><span class="str"> took </span><span class="op">{</span>time.<span class="fn">time</span>()<span class="op">-</span><span class="var">start</span><span class="op">}</span><span class="str">:.4f}s"</span>)
+        <span class="kw">return</span> <span class="var">result</span>
+    <span class="kw">return</span> <span class="var">wrapper</span>
 
-                    <h3 class="content-heading">Decorators</h3>
-                    <p class="content-text">A <strong>decorator</strong> is a function that takes another function as an argument and extends its behavior without modifying it. Denoted by <strong>@</strong> symbol.</p>
-
-                    <div class="code-block">
-                        <div class="code-header">
-                            <div class="code-dots"><span></span><span></span><span></span></div>
-                            <span class="code-lang">Python</span>
-                        </div>
-                        <div class="code-body"><pre><span class="cm"># Decorator Example</span>
-<span class="kw">def</span> <span class="fn">timer</span>(func):
-    <span class="kw">def</span> <span class="fn">wrapper</span>(*args, **kwargs):
-        <span class="kw">import</span> time
-        <span class="nb">start</span> = time.time()
-        <span class="nb">result</span> = <span class="fn">func</span>(*args, **kwargs)
-        <span class="nb">end</span> = time.time()
-        <span class="fn">print</span>(<span class="st">f"</span>{func.__name__}<span class="st"> took </span>{end-start:.4f}<span class="st">s"</span>)
-        <span class="kw">return</span> result
-    <span class="kw">return</span> wrapper
-
-<span class="dec">@timer</span>
-<span class="kw">def</span> <span class="fn">slow_function</span>():
-    <span class="nb">total</span> = <span class="fn">sum</span>(<span class="fn">range</span>(<span class="num">1000000</span>))
-    <span class="kw">return</span> total
-
-<span class="fn">slow_function</span>()</pre></div>
-                    </div>
-
-                    <h3 class="content-heading">NumPy Basics</h3>
-                    <p class="content-text"><strong>NumPy</strong> (Numerical Python) is a library for numerical computations. It provides n-dimensional arrays (ndarray) which are faster and more memory-efficient than Python lists.</p>
-
-                    <div class="code-block">
-                        <div class="code-header">
-                            <div class="code-dots"><span></span><span></span><span></span></div>
-                            <span class="code-lang">Python</span>
-                        </div>
-                        <div class="code-body"><pre><span class="cm"># NumPy Basics</span>
-<span class="kw">import</span> numpy <span class="kw">as</span> np
-
-<span class="cm"># Creating arrays</span>
-<span class="nb">arr</span> = np.array([<span class="num">1</span>, <span class="num">2</span>, <span class="num">3</span>, <span class="num">4</span>, <span class="num">5</span>])
-<span class="nb">matrix</span> = np.array([[<span class="num">1</span>, <span class="num">2</span>, <span class="num">3</span>], [<span class="num">4</span>, <span class="num">5</span>, <span class="num">6</span>]])
-
-<span class="cm"># Operations</span>
-<span class="fn">print</span>(<span class="st">f"Shape: </span>{matrix.shape}<span class="st">"</span>)   <span class="cm"># (2, 3)</span>
-<span class="fn">print</span>(<span class="st">f"Mean: </span>{arr.mean()}<span class="st">"</span>)      <span class="cm"># 3.0</span>
-<span class="fn">print</span>(<span class="st">f"Sum: </span>{arr.sum()}<span class="st">"</span>)        <span class="cm"># 15</span>
-<span class="fn">print</span>(<span class="st">f"Std: </span>{arr.std():.2f}<span class="st">"</span>)   <span class="cm"># 1.41</span>
-
-<span class="cm"># Array operations (element-wise)</span>
-<span class="fn">print</span>(arr * <span class="num">2</span>)     <span class="cm"># [2, 4, 6, 8, 10]</span>
-<span class="fn">print</span>(arr ** <span class="num">2</span>)    <span class="cm"># [1, 4, 9, 16, 25]</span></pre></div>
-                    </div>
-
-                    <a href="terminal.html" class="btn btn-green btn-sm">Try in Terminal &rarr;</a>
+<span class="op">@</span><span class="fn">timer</span>
+<span class="kw">def</span> <span class="fn">slow_add</span>(<span class="var">a</span>, <span class="var">b</span>):
+    <span class="kw">return</span> <span class="var">a</span> <span class="op">+</span> <span class="var">b</span></pre>
                 </div>
+
+                <div class="explain-box green" data-lang="en">File handling uses 'with' statement for safe file operations. Exception handling catches errors gracefully. Decorators add functionality to functions without modifying them.</div>
+                <div class="explain-box green" data-lang="hi">'with' statement se file safely open/close hoti hai. Exception handling se errors gracefully handle hote hain bina program crash kiye. Decorators functions mein extra functionality add karte hain bina unhe modify kiye.</div>
             </div>
         </div>
     </main>
 
-    <!-- Footer -->
     <footer class="footer">
-        <p class="footer-text">Prof. Manoj Purohit &middot; MCA Learning Hub &middot; GGSIPU</p>
-        <p class="footer-copy">&copy; 2024 All Rights Reserved</p>
+        <div class="footer-brand">Prof. Manoj Purohit · MCA Learning Hub · GGSIPU</div>
+        <p>© 2024 All Rights Reserved</p>
     </footer>
 
     <script>
-        function toggleMenu() {
-            document.querySelector('.hamburger').classList.toggle('active');
-            document.getElementById('mobileNav').classList.toggle('show');
+        // Unit toggle
+        function toggleUnit(header) {
+            const section = header.parentElement;
+            section.classList.toggle('open');
         }
 
-        function toggleUnit(el) {
-            el.classList.toggle('active');
+        // Language Toggle
+        const langBtn = document.getElementById('langToggle');
+        function updateLangButton() {
+            const isHi = document.body.classList.contains('hinglish');
+            langBtn.innerHTML = isHi 
+                ? '<span>EN</span><span>|</span><span class="active">हिंग्लिश</span>' 
+                : '<span class="active">EN</span><span>|</span><span>हिंग्लिश</span>';
         }
+        langBtn.addEventListener('click', () => {
+            document.body.classList.toggle('hinglish');
+            updateLangButton();
+            localStorage.setItem('lang', document.body.classList.contains('hinglish') ? 'hi' : 'en');
+        });
+        if (localStorage.getItem('lang') === 'hi') {
+            document.body.classList.add('hinglish');
+            updateLangButton();
+        }
+
+        // Hamburger
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
     </script>
 </body>
 </html>
