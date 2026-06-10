@@ -1,613 +1,617 @@
 <!DOCTYPE html>
-<html lang="en" class="page-oose">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OOSE - Manoj Purohit</title>
+    <title>OOSE | Prof. Manoj Purohit | MCA Notes</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <!-- Animated Background Blobs -->
+<body class="page-purple">
+    <!-- Background Blobs -->
     <div class="bg-blobs">
         <div class="blob blob-1" style="background: var(--purple);"></div>
         <div class="blob blob-2" style="background: var(--pink);"></div>
-        <div class="blob blob-3" style="background: var(--cyan);"></div>
-        <div class="blob blob-4" style="background: var(--purple);"></div>
+        <div class="blob blob-3" style="background: var(--purple);"></div>
+        <div class="blob blob-4" style="background: var(--cyan);"></div>
     </div>
 
     <!-- Navigation -->
-    <nav class="navbar">
-        <a href="index.html" class="nav-brand">
-            <div class="nav-logo">MP</div>
-            <span class="nav-brand-text">Manoj Purohit</span>
-        </a>
-        <div class="nav-links" id="navLinks">
-            <a href="index.html" class="nav-link">Home</a>
-            <a href="python.html" class="nav-link">Python</a>
-            <a href="java.html" class="nav-link">Java</a>
-            <a href="oose.html" class="nav-link active">OOSE</a>
-            <a href="terminal.html" class="nav-link">Terminal</a>
-        </div>
-        <div class="hamburger" id="hamburger" onclick="toggleMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <div class="nav-logo-badge">MP</div>
+                <span>Manoj Purohit</span>
+            </a>
+            <ul class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="python.html">Python</a>
+                <a href="java.html">Java</a>
+                <a href="oose.html" class="active">OOSE</a>
+                <a href="terminal.html">Terminal</a>
+            </ul>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </nav>
 
+    <!-- Mobile Nav -->
+    <div class="mobile-nav" id="mobileNav">
+        <a href="index.html">Home</a>
+        <a href="python.html">Python</a>
+        <a href="java.html">Java</a>
+        <a href="oose.html" class="active">OOSE</a>
+        <a href="terminal.html">Terminal</a>
+    </div>
+
     <!-- Main Content -->
-    <main class="main-content">
-        <div class="container">
-            <!-- Page Header -->
-            <div class="page-header">
-                <h1 class="gradient-text-purple">🏗️ Object Oriented Software Engineering</h1>
-                <p class="subtitle">UML Diagrams, Design Patterns & Agile &middot; Prof. Manoj Purohit &middot; GGSIPU</p>
+    <main class="main">
+        <!-- Page Header -->
+        <div class="page-header">
+            <h1 class="gradient-text-purple">&#x1F3D7;&#xFE0F; Object Oriented Software Engineering &mdash; MCA Notes</h1>
+            <p>UML Diagrams, Design Patterns, Agile Methodology, Testing & SOLID Principles</p>
+        </div>
+
+        <!-- UNIT 1 -->
+        <div class="unit active" onclick="toggleUnit(this)">
+            <div class="unit-header">
+                <span class="unit-badge unit-badge-purple">Unit 1</span>
+                <span class="unit-title">Software Engineering Fundamentals</span>
+                <span class="unit-toggle">+</span>
             </div>
+            <div class="unit-content">
+                <div class="unit-body">
+                    <div class="topics">
+                        <span class="pill pill-purple">SDLC</span>
+                        <span class="pill pill-pink">Waterfall</span>
+                        <span class="pill pill-purple">Agile</span>
+                        <span class="pill pill-pink">Scrum</span>
+                        <span class="pill pill-purple">Requirements</span>
+                        <span class="pill pill-pink">Feasibility</span>
+                    </div>
 
-            <!-- UNIT 1 -->
-            <div class="unit active" onclick="toggleUnit(this)">
-                <div class="unit-header">
-                    <div class="unit-badge">U1</div>
-                    <div class="unit-title">Software Engineering Fundamentals</div>
-                    <div class="unit-toggle">▼</div>
-                </div>
-                <div class="unit-content" onclick="event.stopPropagation()">
-                    <div class="content-card">
-                        <h3>SDLC Models</h3>
-                        <div class="diagram">
-                            <div style="font-family: var(--font-heading); font-weight: 700; color: var(--purple); margin-bottom: 1rem;">Waterfall Model</div>
-                            <div class="diagram-box" style="background: rgba(124, 58, 237, 0.15); border: 2px solid var(--purple); color: var(--purple);">Requirements</div>
-                            <div class="diagram-arrow">↓</div>
-                            <div class="diagram-box" style="background: rgba(236, 72, 153, 0.15); border: 2px solid var(--pink); color: var(--pink);">Design</div>
-                            <div class="diagram-arrow">↓</div>
-                            <div class="diagram-box" style="background: rgba(6, 182, 212, 0.15); border: 2px solid var(--cyan); color: var(--cyan);">Implementation</div>
-                            <div class="diagram-arrow">↓</div>
-                            <div class="diagram-box" style="background: rgba(16, 185, 129, 0.15); border: 2px solid var(--green); color: var(--green);">Testing</div>
-                            <div class="diagram-arrow">↓</div>
-                            <div class="diagram-box" style="background: rgba(249, 115, 22, 0.15); border: 2px solid var(--orange); color: var(--orange);">Deployment & Maintenance</div>
-                        </div>
-                        <div class="topic-list">
-                            <span class="pill pill-purple">Sequential</span>
-                            <span class="pill pill-pink">No Going Back</span>
-                            <span class="pill pill-cyan">Documentation Heavy</span>
-                            <span class="pill pill-orange">Best for Small Projects</span>
+                    <h3 class="content-heading">Software Development Life Cycle (SDLC)</h3>
+                    <p class="content-text">SDLC is a structured process for planning, creating, testing, and deploying software. It defines phases that ensure quality and correctness of the software.</p>
+
+                    <!-- Waterfall Diagram -->
+                    <div class="diagram">
+                        <div class="diagram-title">Waterfall Model</div>
+                        <div style="display:flex; flex-direction:column; gap:4px; align-items:center;">
+                            <div style="padding:12px 40px; background:rgba(124,58,237,0.15); border:2px solid var(--purple); border-radius:8px; color:var(--purple-light); font-weight:600; width:80%; text-align:center;">1. Requirements Gathering</div>
+                            <div style="color:var(--text-muted);">&darr;</div>
+                            <div style="padding:12px 40px; background:rgba(236,72,153,0.15); border:2px solid var(--pink); border-radius:8px; color:var(--pink-light); font-weight:600; width:70%; text-align:center;">2. System Design</div>
+                            <div style="color:var(--text-muted);">&darr;</div>
+                            <div style="padding:12px 40px; background:rgba(6,182,212,0.15); border:2px solid var(--cyan); border-radius:8px; color:var(--cyan-light); font-weight:600; width:60%; text-align:center;">3. Implementation</div>
+                            <div style="color:var(--text-muted);">&darr;</div>
+                            <div style="padding:12px 40px; background:rgba(16,185,129,0.15); border:2px solid var(--green); border-radius:8px; color:var(--green-light); font-weight:600; width:50%; text-align:center;">4. Testing</div>
+                            <div style="color:var(--text-muted);">&darr;</div>
+                            <div style="padding:12px 40px; background:rgba(249,115,22,0.15); border:2px solid var(--orange); border-radius:8px; color:var(--orange-light); font-weight:600; width:40%; text-align:center;">5. Deployment</div>
+                            <div style="color:var(--text-muted);">&darr;</div>
+                            <div style="padding:12px 40px; background:rgba(245,158,11,0.15); border:2px solid var(--yellow); border-radius:8px; color:var(--yellow-light); font-weight:600; width:35%; text-align:center;">6. Maintenance</div>
                         </div>
                     </div>
 
-                    <div class="content-card">
-                        <h3>Agile Methodology</h3>
-                        <div class="diagram">
-                            <div style="font-family: var(--font-heading); font-weight: 700; color: var(--green); margin-bottom: 1rem;">Scrum Framework</div>
-                            <div class="diagram-row">
-                                <div class="diagram-box" style="background: rgba(124, 58, 237, 0.15); border: 2px solid var(--purple); color: var(--purple);">
-                                    <strong>Product Backlog</strong><br>
-                                    <small style="color: var(--text-secondary);">User Stories</small>
-                                </div>
-                                <div class="diagram-arrow">→</div>
-                                <div class="diagram-box" style="background: rgba(6, 182, 212, 0.15); border: 2px solid var(--cyan); color: var(--cyan);">
-                                    <strong>Sprint Planning</strong><br>
-                                    <small style="color: var(--text-secondary);">2-4 weeks</small>
-                                </div>
-                                <div class="diagram-arrow">→</div>
-                                <div class="diagram-box" style="background: rgba(16, 185, 129, 0.15); border: 2px solid var(--green); color: var(--green);">
-                                    <strong>Sprint</strong><br>
-                                    <small style="color: var(--text-secondary);">Development</small>
-                                </div>
-                                <div class="diagram-arrow">→</div>
-                                <div class="diagram-box" style="background: rgba(249, 115, 22, 0.15); border: 2px solid var(--orange); color: var(--orange);">
-                                    <strong>Review</strong><br>
-                                    <small style="color: var(--text-secondary);">Demo & Retro</small>
-                                </div>
+                    <h3 class="content-heading">Agile Methodology</h3>
+                    <p class="content-text">Agile is an <strong>iterative and incremental</strong> approach to software development. It emphasizes collaboration, customer feedback, and small rapid releases. <strong>Scrum</strong> is the most popular Agile framework.</p>
+
+                    <!-- Scrum Board -->
+                    <div class="diagram">
+                        <div class="diagram-title">Scrum Board</div>
+                        <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:12px;">
+                            <div style="text-align:center;">
+                                <div style="padding:8px; background:rgba(124,58,237,0.2); border-radius:6px; font-weight:700; font-size:0.8rem; color:var(--purple-light); margin-bottom:8px;">BACKLOG</div>
+                                <div style="padding:8px; background:var(--bg-card); border:1px solid var(--border); border-radius:6px; font-size:0.75rem; color:var(--text-secondary); margin-bottom:4px;">User Login</div>
+                                <div style="padding:8px; background:var(--bg-card); border:1px solid var(--border); border-radius:6px; font-size:0.75rem; color:var(--text-secondary); margin-bottom:4px;">Dashboard</div>
                             </div>
-                        </div>
-                        <div class="topic-list">
-                            <span class="pill pill-green">Iterative</span>
-                            <span class="pill pill-cyan">Customer Collaboration</span>
-                            <span class="pill pill-purple">Working Software</span>
-                            <span class="pill pill-orange">Responding to Change</span>
-                        </div>
-                        <p style="color: var(--text-secondary); margin-top: 1rem; line-height: 1.8;"><strong style="color: var(--text-primary);">Key Roles:</strong> Product Owner (defines requirements), Scrum Master (facilitates process), Development Team (builds product)</p>
-                    </div>
-
-                    <div class="content-card">
-                        <h3>Spiral Model</h3>
-                        <div class="diagram">
-                            <div class="diagram-row">
-                                <div class="diagram-box" style="background: rgba(124, 58, 237, 0.15); border: 2px solid var(--purple); color: var(--purple);">1. Planning</div>
-                                <div class="diagram-arrow">→</div>
-                                <div class="diagram-box" style="background: rgba(239, 68, 68, 0.15); border: 2px solid var(--red); color: var(--red);">2. Risk Analysis</div>
-                                <div class="diagram-arrow">→</div>
-                                <div class="diagram-box" style="background: rgba(16, 185, 129, 0.15); border: 2px solid var(--green); color: var(--green);">3. Engineering</div>
-                                <div class="diagram-arrow">→</div>
-                                <div class="diagram-box" style="background: rgba(245, 158, 11, 0.15); border: 2px solid var(--yellow); color: var(--yellow);">4. Evaluation</div>
+                            <div style="text-align:center;">
+                                <div style="padding:8px; background:rgba(6,182,212,0.2); border-radius:6px; font-weight:700; font-size:0.8rem; color:var(--cyan-light); margin-bottom:8px;">TO DO</div>
+                                <div style="padding:8px; background:var(--bg-card); border:1px solid var(--border); border-radius:6px; font-size:0.75rem; color:var(--text-secondary); margin-bottom:4px;">API Design</div>
                             </div>
-                            <div class="diagram-arrow">↻ Repeat each iteration</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- UNIT 2 -->
-            <div class="unit" onclick="toggleUnit(this)">
-                <div class="unit-header">
-                    <div class="unit-badge">U2</div>
-                    <div class="unit-title">UML Diagrams</div>
-                    <div class="unit-toggle">▼</div>
-                </div>
-                <div class="unit-content" onclick="event.stopPropagation()">
-                    <div class="content-card">
-                        <h3>Use Case Diagram</h3>
-                        <p style="color: var(--text-secondary); margin-bottom: 1rem;">Shows interactions between actors (users) and the system's use cases (functionalities).</p>
-                        <div class="diagram">
-                            <div style="font-family: var(--font-heading); font-weight: 700; color: var(--purple);">Library Management System</div>
-                            <div class="diagram-row">
-                                <div class="diagram-box" style="background: rgba(236, 72, 153, 0.15); border: 2px solid var(--pink); color: var(--pink); border-radius: var(--radius-full);">
-                                    👤 Student
-                                </div>
-                                <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-                                    <div class="diagram-box" style="background: rgba(124, 58, 237, 0.1); border: 2px solid var(--purple); color: var(--purple); border-radius: var(--radius-full); padding: 8px 20px;">Search Book</div>
-                                    <div class="diagram-box" style="background: rgba(124, 58, 237, 0.1); border: 2px solid var(--purple); color: var(--purple); border-radius: var(--radius-full); padding: 8px 20px;">Borrow Book</div>
-                                    <div class="diagram-box" style="background: rgba(124, 58, 237, 0.1); border: 2px solid var(--purple); color: var(--purple); border-radius: var(--radius-full); padding: 8px 20px;">Return Book</div>
-                                    <div class="diagram-box" style="background: rgba(124, 58, 237, 0.1); border: 2px solid var(--purple); color: var(--purple); border-radius: var(--radius-full); padding: 8px 20px;">Pay Fine</div>
-                                </div>
-                                <div class="diagram-box" style="background: rgba(16, 185, 129, 0.15); border: 2px solid var(--green); color: var(--green); border-radius: var(--radius-full);">
-                                    👤 Librarian
-                                </div>
+                            <div style="text-align:center;">
+                                <div style="padding:8px; background:rgba(245,158,11,0.2); border-radius:6px; font-weight:700; font-size:0.8rem; color:var(--yellow-light); margin-bottom:8px;">IN PROGRESS</div>
+                                <div style="padding:8px; background:var(--bg-card); border:1px solid var(--border); border-radius:6px; font-size:0.75rem; color:var(--text-secondary); margin-bottom:4px;">Database</div>
+                            </div>
+                            <div style="text-align:center;">
+                                <div style="padding:8px; background:rgba(16,185,129,0.2); border-radius:6px; font-weight:700; font-size:0.8rem; color:var(--green-light); margin-bottom:8px;">DONE</div>
+                                <div style="padding:8px; background:var(--bg-card); border:1px solid var(--border); border-radius:6px; font-size:0.75rem; color:var(--text-secondary); margin-bottom:4px;">Setup</div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="content-card">
-                        <h3>Class Diagram</h3>
-                        <p style="color: var(--text-secondary); margin-bottom: 1rem;">Shows classes, attributes, methods, and relationships between classes.</p>
-                        <div class="diagram">
-                            <div class="diagram-row">
-                                <div class="diagram-box" style="background: rgba(124, 58, 237, 0.15); border: 2px solid var(--purple); color: var(--text-primary); text-align: left;">
-                                    <strong style="color: var(--purple);">Book</strong><br>
-                                    <small>- isbn: String</small><br>
-                                    <small>- title: String</small><br>
-                                    <small>- author: String</small><br>
-                                    <small style="color: var(--cyan);">+ getDetails(): String</small><br>
-                                    <small style="color: var(--cyan);">+ isAvailable(): boolean</small>
-                                </div>
-                                <div class="diagram-box" style="background: rgba(236, 72, 153, 0.15); border: 2px solid var(--pink); color: var(--text-primary); text-align: left;">
-                                    <strong style="color: var(--pink);">Member</strong><br>
-                                    <small>- memberId: int</small><br>
-                                    <small>- name: String</small><br>
-                                    <small>- email: String</small><br>
-                                    <small style="color: var(--cyan);">+ borrowBook(Book): void</small><br>
-                                    <small style="color: var(--cyan);">+ returnBook(Book): void</small>
-                                </div>
-                            </div>
-                            <div style="color: var(--text-secondary); font-size: 0.85rem; font-family: var(--font-mono);">Member ———— borrows ————> Book (1..*)</div>
-                        </div>
-                    </div>
+                    <h4 class="content-subheading">Agile Principles (Key Points)</h4>
+                    <p class="content-text">
+                        <strong>Individuals over Processes:</strong> People and interactions matter more than tools<br>
+                        <strong>Working Software over Documentation:</strong> Deliver functional product frequently<br>
+                        <strong>Customer Collaboration:</strong> Continuous feedback from stakeholders<br>
+                        <strong>Respond to Change:</strong> Welcome changing requirements even late in development
+                    </p>
 
-                    <div class="content-card">
-                        <h3>Sequence Diagram</h3>
-                        <p style="color: var(--text-secondary); margin-bottom: 1rem;">Shows object interactions in time sequence for a particular use case.</p>
-                        <div class="diagram">
-                            <div style="font-family: var(--font-heading); font-weight: 700; color: var(--cyan);">Book Borrowing Sequence</div>
-                            <div class="diagram-row" style="gap: 2rem;">
-                                <div style="text-align: center;">
-                                    <div class="diagram-box" style="background: rgba(236, 72, 153, 0.15); border: 2px solid var(--pink); color: var(--pink); padding: 8px 16px;">Student</div>
-                                    <div style="width: 2px; height: 30px; background: var(--pink); margin: 0 auto;"></div>
-                                </div>
-                                <div style="text-align: center;">
-                                    <div class="diagram-box" style="background: rgba(124, 58, 237, 0.15); border: 2px solid var(--purple); color: var(--purple); padding: 8px 16px;">System</div>
-                                    <div style="width: 2px; height: 30px; background: var(--purple); margin: 0 auto;"></div>
-                                </div>
-                                <div style="text-align: center;">
-                                    <div class="diagram-box" style="background: rgba(16, 185, 129, 0.15); border: 2px solid var(--green); color: var(--green); padding: 8px 16px;">Database</div>
-                                    <div style="width: 2px; height: 30px; background: var(--green); margin: 0 auto;"></div>
-                                </div>
-                            </div>
-                            <div style="color: var(--text-secondary); font-size: 0.85rem; font-family: var(--font-mono); text-align: left; width: 100%;">
-                                1. Student → System: searchBook(title)<br>
-                                2. System → Database: query(title)<br>
-                                3. Database → System: bookDetails<br>
-                                4. System → Student: displayResults<br>
-                                5. Student → System: borrowBook(isbn)<br>
-                                6. System → Database: updateStatus(isbn)<br>
-                                7. System → Student: confirmBorrow()
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="content-card">
-                        <h3>State Diagram</h3>
-                        <p style="color: var(--text-secondary); margin-bottom: 1rem;">Shows states of an object and transitions between states.</p>
-                        <div class="diagram">
-                            <div style="font-family: var(--font-heading); font-weight: 700; color: var(--orange);">Book States</div>
-                            <div class="diagram-row">
-                                <div class="diagram-box" style="background: rgba(16, 185, 129, 0.15); border: 2px solid var(--green); color: var(--green); border-radius: var(--radius-full);">Available</div>
-                                <div class="diagram-arrow" style="color: var(--text-secondary);">→ borrow</div>
-                                <div class="diagram-box" style="background: rgba(249, 115, 22, 0.15); border: 2px solid var(--orange); color: var(--orange); border-radius: var(--radius-full);">Borrowed</div>
-                                <div class="diagram-arrow" style="color: var(--text-secondary);">→ return</div>
-                                <div class="diagram-box" style="background: rgba(124, 58, 237, 0.15); border: 2px solid var(--purple); color: var(--purple); border-radius: var(--radius-full);">Returned</div>
-                            </div>
-                            <div class="diagram-row" style="margin-top: 1rem;">
-                                <div class="diagram-box" style="background: rgba(239, 68, 68, 0.15); border: 2px solid var(--red); color: var(--red); border-radius: var(--radius-full);">Overdue</div>
-                                <div class="diagram-arrow" style="color: var(--text-secondary);">→ pay fine →</div>
-                                <div class="diagram-box" style="background: rgba(16, 185, 129, 0.15); border: 2px solid var(--green); color: var(--green); border-radius: var(--radius-full);">Available</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="content-card">
-                        <h3>Activity Diagram</h3>
-                        <p style="color: var(--text-secondary); margin-bottom: 1rem;">Shows workflow of activities, similar to flowcharts but with support for parallel activities.</p>
-                        <div class="diagram">
-                            <div style="font-family: var(--font-heading); font-weight: 700; color: var(--green);">Online Shopping Activity</div>
-                            <div class="diagram-box" style="background: rgba(0,0,0,0.3); border: 2px solid var(--text-muted); color: var(--text-secondary); width: 20px; height: 20px; min-width: 20px; border-radius: 50%; padding: 0;">●</div>
-                            <div class="diagram-arrow">↓</div>
-                            <div class="diagram-box" style="background: rgba(124, 58, 237, 0.15); border: 2px solid var(--purple); color: var(--purple);">Browse Products</div>
-                            <div class="diagram-arrow">↓</div>
-                            <div class="diagram-box" style="background: rgba(6, 182, 212, 0.15); border: 2px solid var(--cyan); color: var(--cyan);">Add to Cart</div>
-                            <div class="diagram-arrow">↓</div>
-                            <div class="diagram-box" style="background: rgba(245, 158, 11, 0.15); border: 2px solid var(--yellow); color: var(--yellow);">◇ Decision: Checkout?</div>
-                            <div class="diagram-row">
-                                <div>
-                                    <div class="diagram-arrow">↓ Yes</div>
-                                    <div class="diagram-box" style="background: rgba(16, 185, 129, 0.15); border: 2px solid var(--green); color: var(--green);">Make Payment</div>
-                                </div>
-                            </div>
-                            <div class="diagram-arrow">↓</div>
-                            <div class="diagram-box" style="background: rgba(236, 72, 153, 0.15); border: 2px solid var(--pink); color: var(--pink);">Order Confirmed</div>
-                        </div>
-                    </div>
-
-                    <div class="content-card">
-                        <h3>Package Diagram</h3>
-                        <p style="color: var(--text-secondary); margin-bottom: 1rem;">Groups related classes and shows dependencies between packages.</p>
-                        <div class="diagram">
-                            <div class="diagram-row">
-                                <div class="diagram-box" style="background: rgba(124, 58, 237, 0.15); border: 2px solid var(--purple); color: var(--purple); text-align: left;">
-                                    <strong>📦 UI Layer</strong><br>
-                                    <small style="color: var(--text-secondary);">LoginForm, Dashboard</small>
-                                </div>
-                                <div class="diagram-box" style="background: rgba(6, 182, 212, 0.15); border: 2px solid var(--cyan); color: var(--cyan); text-align: left;">
-                                    <strong>📦 Business Logic</strong><br>
-                                    <small style="color: var(--text-secondary);">UserService, BookService</small>
-                                </div>
-                                <div class="diagram-box" style="background: rgba(16, 185, 129, 0.15); border: 2px solid var(--green); color: var(--green); text-align: left;">
-                                    <strong>📦 Data Access</strong><br>
-                                    <small style="color: var(--text-secondary);">UserDAO, BookDAO</small>
-                                </div>
-                            </div>
-                            <div style="color: var(--text-secondary); font-size: 0.85rem; font-family: var(--font-mono);">UI → Business Logic → Data Access</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- UNIT 3 -->
-            <div class="unit" onclick="toggleUnit(this)">
-                <div class="unit-header">
-                    <div class="unit-badge">U3</div>
-                    <div class="unit-title">Design Patterns</div>
-                    <div class="unit-toggle">▼</div>
-                </div>
-                <div class="unit-content" onclick="event.stopPropagation()">
-                    <div class="content-card">
-                        <h3>Creational Patterns</h3>
-                        <div class="topic-list">
-                            <span class="pill pill-purple">Singleton</span>
-                            <span class="pill pill-pink">Factory</span>
-                            <span class="pill pill-cyan">Builder</span>
-                        </div>
-                        <div class="code-block">
-                            <span class="code-label">Java - Builder Pattern</span>
-                            <code><span class="keyword">class</span> <span class="class-name">Student</span> {
-    <span class="keyword">private</span> <span class="class-name">String</span> name, branch, college;
-    <span class="keyword">private int</span> roll;
-    
-    <span class="keyword">static class</span> <span class="class-name">Builder</span> {
-        <span class="keyword">private</span> <span class="class-name">String</span> name, branch, college;
-        <span class="keyword">private int</span> roll;
-        
-        <span class="class-name">Builder</span> <span class="function">name</span>(<span class="class-name">String</span> n) { name = n; <span class="keyword">return this</span>; }
-        <span class="class-name">Builder</span> <span class="function">roll</span>(<span class="keyword">int</span> r) { roll = r; <span class="keyword">return this</span>; }
-        <span class="class-name">Builder</span> <span class="function">branch</span>(<span class="class-name">String</span> b) { branch = b; <span class="keyword">return this</span>; }
-        <span class="class-name">Builder</span> <span class="function">college</span>(<span class="class-name">String</span> c) { college = c; <span class="keyword">return this</span>; }
-        
-        <span class="class-name">Student</span> <span class="function">build</span>() { <span class="keyword">return new</span> <span class="class-name">Student</span>(<span class="keyword">this</span>); }
-    }
-    
-    <span class="keyword">private</span> <span class="function">Student</span>(<span class="class-name">Builder</span> b) {
-        name = b.name; roll = b.roll;
-        branch = b.branch; college = b.college;
-    }
-}
-
-<span class="comment">// Usage - readable & flexible</span>
-<span class="class-name">Student</span> s = <span class="keyword">new</span> <span class="class-name">Student.Builder</span>()
-    .<span class="function">name</span>(<span class="string">"Rahul"</span>)
-    .<span class="function">roll</span>(<span class="number">101</span>)
-    .<span class="function">branch</span>(<span class="string">"MCA"</span>)
-    .<span class="function">college</span>(<span class="string">"GGSIPU"</span>)
-    .<span class="function">build</span>();</code>
-                        </div>
-                    </div>
-
-                    <div class="content-card">
-                        <h3>Structural Patterns</h3>
-                        <div class="topic-list">
-                            <span class="pill pill-orange">Adapter</span>
-                            <span class="pill pill-green">Decorator</span>
-                        </div>
-                        <div class="code-block">
-                            <span class="code-label">Java - Decorator Pattern</span>
-                            <code><span class="keyword">interface</span> <span class="class-name">Coffee</span> {
-    <span class="class-name">String</span> <span class="function">getDescription</span>();
-    <span class="keyword">double</span> <span class="function">getCost</span>();
-}
-
-<span class="keyword">class</span> <span class="class-name">SimpleCoffee</span> <span class="keyword">implements</span> <span class="class-name">Coffee</span> {
-    <span class="keyword">public</span> <span class="class-name">String</span> <span class="function">getDescription</span>() { <span class="keyword">return</span> <span class="string">"Simple Coffee"</span>; }
-    <span class="keyword">public double</span> <span class="function">getCost</span>() { <span class="keyword">return</span> <span class="number">50.0</span>; }
-}
-
-<span class="keyword">class</span> <span class="class-name">MilkDecorator</span> <span class="keyword">implements</span> <span class="class-name">Coffee</span> {
-    <span class="keyword">private</span> <span class="class-name">Coffee</span> coffee;
-    <span class="class-name">MilkDecorator</span>(<span class="class-name">Coffee</span> c) { coffee = c; }
-    
-    <span class="keyword">public</span> <span class="class-name">String</span> <span class="function">getDescription</span>() {
-        <span class="keyword">return</span> coffee.<span class="function">getDescription</span>() + <span class="string">" + Milk"</span>;
-    }
-    <span class="keyword">public double</span> <span class="function">getCost</span>() { <span class="keyword">return</span> coffee.<span class="function">getCost</span>() + <span class="number">20.0</span>; }
-}
-
-<span class="comment">// Usage</span>
-<span class="class-name">Coffee</span> c = <span class="keyword">new</span> <span class="class-name">MilkDecorator</span>(<span class="keyword">new</span> <span class="class-name">SimpleCoffee</span>());
-<span class="comment">// "Simple Coffee + Milk" → ₹70.0</span></code>
-                        </div>
-                    </div>
-
-                    <div class="content-card">
-                        <h3>Behavioral Patterns</h3>
-                        <div class="topic-list">
-                            <span class="pill pill-yellow">Observer</span>
-                            <span class="pill pill-red">Strategy</span>
-                        </div>
-                        <div class="code-block">
-                            <span class="code-label">Java - Strategy Pattern</span>
-                            <code><span class="keyword">interface</span> <span class="class-name">SortStrategy</span> {
-    <span class="keyword">void</span> <span class="function">sort</span>(<span class="keyword">int</span>[] arr);
-}
-
-<span class="keyword">class</span> <span class="class-name">BubbleSort</span> <span class="keyword">implements</span> <span class="class-name">SortStrategy</span> {
-    <span class="keyword">public void</span> <span class="function">sort</span>(<span class="keyword">int</span>[] arr) {
-        <span class="comment">// Bubble sort implementation</span>
-        <span class="class-name">System</span>.out.<span class="function">println</span>(<span class="string">"Sorting with Bubble Sort"</span>);
-    }
-}
-
-<span class="keyword">class</span> <span class="class-name">QuickSort</span> <span class="keyword">implements</span> <span class="class-name">SortStrategy</span> {
-    <span class="keyword">public void</span> <span class="function">sort</span>(<span class="keyword">int</span>[] arr) {
-        <span class="comment">// Quick sort implementation</span>
-        <span class="class-name">System</span>.out.<span class="function">println</span>(<span class="string">"Sorting with Quick Sort"</span>);
-    }
-}
-
-<span class="keyword">class</span> <span class="class-name">Sorter</span> {
-    <span class="keyword">private</span> <span class="class-name">SortStrategy</span> strategy;
-    <span class="keyword">void</span> <span class="function">setStrategy</span>(<span class="class-name">SortStrategy</span> s) { strategy = s; }
-    <span class="keyword">void</span> <span class="function">sort</span>(<span class="keyword">int</span>[] arr) { strategy.<span class="function">sort</span>(arr); }
-}
-
-<span class="comment">// Swap strategy at runtime</span>
-<span class="class-name">Sorter</span> sorter = <span class="keyword">new</span> <span class="class-name">Sorter</span>();
-sorter.<span class="function">setStrategy</span>(<span class="keyword">new</span> <span class="class-name">QuickSort</span>());
-sorter.<span class="function">sort</span>(data);</code>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- UNIT 4 -->
-            <div class="unit" onclick="toggleUnit(this)">
-                <div class="unit-header">
-                    <div class="unit-badge">U4</div>
-                    <div class="unit-title">Software Testing</div>
-                    <div class="unit-toggle">▼</div>
-                </div>
-                <div class="unit-content" onclick="event.stopPropagation()">
-                    <div class="content-card">
-                        <h3>Testing Types</h3>
-                        <table class="styled-table">
-                            <tr><th>Type</th><th>Description</th><th>Who Tests?</th></tr>
-                            <tr><td>Unit Testing</td><td>Test individual methods/functions</td><td>Developer</td></tr>
-                            <tr><td>Integration Testing</td><td>Test module interactions</td><td>Developer/Tester</td></tr>
-                            <tr><td>System Testing</td><td>Test entire system</td><td>QA Team</td></tr>
-                            <tr><td>Acceptance Testing</td><td>Validate with user requirements</td><td>Client/User</td></tr>
-                            <tr><td>Regression Testing</td><td>Re-test after changes</td><td>Automated/QA</td></tr>
+                    <h4 class="content-subheading">Scrum Roles</h4>
+                    <div class="table-wrapper">
+                        <table>
+                            <tr><th>Role</th><th>Responsibility</th></tr>
+                            <tr><td>Product Owner</td><td>Defines priorities, manages backlog, represents stakeholders</td></tr>
+                            <tr><td>Scrum Master</td><td>Facilitates process, removes impediments, coaches team</td></tr>
+                            <tr><td>Development Team</td><td>Self-organizing, cross-functional, delivers increment</td></tr>
                         </table>
                     </div>
 
-                    <div class="content-card">
-                        <h3>Black Box vs White Box Testing</h3>
-                        <div class="diagram">
-                            <div class="diagram-row">
-                                <div class="diagram-box" style="background: rgba(0, 0, 0, 0.3); border: 2px solid var(--text-muted); color: var(--text-primary); text-align: left;">
-                                    <strong>⬛ Black Box</strong><br>
-                                    <small style="color: var(--text-secondary);">No code knowledge needed</small><br>
-                                    <small style="color: var(--text-secondary);">Test inputs vs outputs</small><br>
-                                    <small style="color: var(--text-secondary);">Boundary Value Analysis</small><br>
-                                    <small style="color: var(--text-secondary);">Equivalence Partitioning</small>
-                                </div>
-                                <div class="diagram-box" style="background: rgba(255, 255, 255, 0.05); border: 2px solid var(--text-primary); color: var(--text-primary); text-align: left;">
-                                    <strong>⬜ White Box</strong><br>
-                                    <small style="color: var(--text-secondary);">Code structure known</small><br>
-                                    <small style="color: var(--text-secondary);">Statement Coverage</small><br>
-                                    <small style="color: var(--text-secondary);">Branch Coverage</small><br>
-                                    <small style="color: var(--text-secondary);">Path Coverage</small>
-                                </div>
+                    <h4 class="content-subheading">Requirements Engineering</h4>
+                    <p class="content-text">
+                        <strong>Functional Requirements:</strong> What the system should do (features, operations)<br>
+                        <strong>Non-Functional Requirements:</strong> Quality attributes (performance, security, usability)<br>
+                        <strong>SRS Document:</strong> Software Requirements Specification - formal document listing all requirements
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- UNIT 2 -->
+        <div class="unit" onclick="toggleUnit(this)">
+            <div class="unit-header">
+                <span class="unit-badge unit-badge-pink">Unit 2</span>
+                <span class="unit-title">UML Diagrams</span>
+                <span class="unit-toggle">+</span>
+            </div>
+            <div class="unit-content">
+                <div class="unit-body">
+                    <div class="topics">
+                        <span class="pill pill-pink">Use Case</span>
+                        <span class="pill pill-purple">Class Diagram</span>
+                        <span class="pill pill-pink">Sequence</span>
+                        <span class="pill pill-purple">State</span>
+                        <span class="pill pill-pink">Activity</span>
+                        <span class="pill pill-purple">Package</span>
+                    </div>
+
+                    <h3 class="content-heading">What is UML?</h3>
+                    <p class="content-text"><strong>UML</strong> (Unified Modeling Language) is a standard notation for visualizing software design. It has <strong>Structural Diagrams</strong> (Class, Object, Package) and <strong>Behavioral Diagrams</strong> (Use Case, Sequence, Activity, State).</p>
+
+                    <h4 class="content-subheading">1. Use Case Diagram</h4>
+                    <p class="content-text">Shows the interaction between <strong>actors</strong> (users/external systems) and <strong>use cases</strong> (system functions). Used to capture functional requirements.</p>
+
+                    <!-- Use Case Diagram -->
+                    <div class="diagram">
+                        <div class="diagram-title">Use Case Diagram - Library Management System</div>
+                        <div style="display:flex; align-items:center; justify-content:center; gap:2rem; flex-wrap:wrap;">
+                            <div class="uml-actor">Student</div>
+                            <div style="display:flex; flex-direction:column; gap:8px; padding:1.5rem; border:2px dashed var(--border-light); border-radius:12px;">
+                                <div style="text-align:center; font-weight:600; font-size:0.8rem; color:var(--text-muted); margin-bottom:8px;">System Boundary</div>
+                                <div class="uml-usecase">Search Book</div>
+                                <div class="uml-usecase">Issue Book</div>
+                                <div class="uml-usecase">Return Book</div>
+                                <div class="uml-usecase">Pay Fine</div>
+                            </div>
+                            <div class="uml-actor">Librarian</div>
+                        </div>
+                    </div>
+
+                    <h4 class="content-subheading">2. Class Diagram</h4>
+                    <p class="content-text">Shows the <strong>structure</strong> of a system by depicting classes, their attributes, methods, and relationships (inheritance, association, aggregation, composition).</p>
+
+                    <!-- Class Diagram -->
+                    <div class="diagram">
+                        <div class="diagram-title">Class Diagram - Student Management</div>
+                        <div style="display:flex; justify-content:center; gap:1.5rem; flex-wrap:wrap;">
+                            <div class="uml-class">
+                                <div class="uml-class-name">Person</div>
+                                <div class="uml-class-attrs">- name: String<br>- age: int<br>- email: String</div>
+                                <div class="uml-class-methods">+ getName(): String<br>+ setName(n: String)<br>+ display(): void</div>
+                            </div>
+                            <div class="uml-class">
+                                <div class="uml-class-name">Student</div>
+                                <div class="uml-class-attrs">- rollNo: int<br>- course: String<br>- marks: int[]</div>
+                                <div class="uml-class-methods">+ enroll(): void<br>+ getGrade(): String<br>+ display(): void</div>
+                            </div>
+                            <div class="uml-class">
+                                <div class="uml-class-name">Course</div>
+                                <div class="uml-class-attrs">- courseId: String<br>- name: String<br>- credits: int</div>
+                                <div class="uml-class-methods">+ addStudent(): void<br>+ getSyllabus(): String</div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="content-card">
-                        <h3>Test Case Example</h3>
-                        <table class="styled-table">
-                            <tr><th>Test ID</th><th>Input</th><th>Expected Output</th><th>Status</th></tr>
-                            <tr><td>TC01</td><td>Login with valid credentials</td><td>Dashboard displayed</td><td style="color: var(--green);">PASS</td></tr>
-                            <tr><td>TC02</td><td>Login with wrong password</td><td>Error message shown</td><td style="color: var(--green);">PASS</td></tr>
-                            <tr><td>TC03</td><td>Login with empty fields</td><td>Validation error</td><td style="color: var(--green);">PASS</td></tr>
-                            <tr><td>TC04</td><td>SQL injection in username</td><td>Input sanitized</td><td style="color: var(--red);">FAIL</td></tr>
+                    <h4 class="content-subheading">3. Sequence Diagram</h4>
+                    <p class="content-text">Shows the <strong>time-ordered interaction</strong> between objects. Objects are shown at the top with vertical lifelines, and messages as horizontal arrows.</p>
+
+                    <!-- Sequence Diagram -->
+                    <div class="diagram">
+                        <div class="diagram-title">Sequence Diagram - Login Process</div>
+                        <div style="display:flex; justify-content:space-around; position:relative; padding:1rem 0;">
+                            <div style="text-align:center;">
+                                <div style="padding:8px 16px; background:rgba(124,58,237,0.15); border:2px solid var(--purple); border-radius:6px; font-size:0.8rem; font-weight:600; color:var(--purple-light);">User</div>
+                                <div style="width:2px; height:180px; background:var(--purple); margin:0 auto; position:relative;">
+                                    <div style="position:absolute; top:20px; left:10px; width:150px; font-size:0.7rem; color:var(--cyan-light);">1. Enter Credentials &rarr;</div>
+                                    <div style="position:absolute; top:70px; right:10px; width:150px; text-align:right; font-size:0.7rem; color:var(--green-light);">&larr; 3. Auth Token</div>
+                                    <div style="position:absolute; top:130px; left:10px; width:150px; font-size:0.7rem; color:var(--cyan-light);">4. Access Dashboard &rarr;</div>
+                                </div>
+                            </div>
+                            <div style="text-align:center;">
+                                <div style="padding:8px 16px; background:rgba(6,182,212,0.15); border:2px solid var(--cyan); border-radius:6px; font-size:0.8rem; font-weight:600; color:var(--cyan-light);">Server</div>
+                                <div style="width:2px; height:180px; background:var(--cyan); margin:0 auto; position:relative;">
+                                    <div style="position:absolute; top:40px; left:10px; width:120px; font-size:0.7rem; color:var(--yellow-light);">2. Validate &rarr;</div>
+                                </div>
+                            </div>
+                            <div style="text-align:center;">
+                                <div style="padding:8px 16px; background:rgba(16,185,129,0.15); border:2px solid var(--green); border-radius:6px; font-size:0.8rem; font-weight:600; color:var(--green-light);">Database</div>
+                                <div style="width:2px; height:180px; background:var(--green); margin:0 auto;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4 class="content-subheading">4. State Diagram</h4>
+                    <p class="content-text">Shows the <strong>different states</strong> of an object and transitions between them based on events/conditions.</p>
+
+                    <div class="diagram">
+                        <div class="diagram-title">State Diagram - Order Processing</div>
+                        <div style="display:flex; align-items:center; justify-content:center; gap:12px; flex-wrap:wrap;">
+                            <div style="width:14px; height:14px; background:var(--text-primary); border-radius:50%;"></div>
+                            <div style="color:var(--text-muted);">&rarr;</div>
+                            <div style="padding:10px 20px; border:2px solid var(--yellow); border-radius:20px; color:var(--yellow-light); font-size:0.8rem; font-weight:600;">Pending</div>
+                            <div style="color:var(--text-muted);">&rarr;</div>
+                            <div style="padding:10px 20px; border:2px solid var(--cyan); border-radius:20px; color:var(--cyan-light); font-size:0.8rem; font-weight:600;">Confirmed</div>
+                            <div style="color:var(--text-muted);">&rarr;</div>
+                            <div style="padding:10px 20px; border:2px solid var(--orange); border-radius:20px; color:var(--orange-light); font-size:0.8rem; font-weight:600;">Shipped</div>
+                            <div style="color:var(--text-muted);">&rarr;</div>
+                            <div style="padding:10px 20px; border:2px solid var(--green); border-radius:20px; color:var(--green-light); font-size:0.8rem; font-weight:600;">Delivered</div>
+                            <div style="color:var(--text-muted);">&rarr;</div>
+                            <div style="width:18px; height:18px; border:3px solid var(--text-primary); border-radius:50%; display:flex; align-items:center; justify-content:center;"><div style="width:8px; height:8px; background:var(--text-primary); border-radius:50%;"></div></div>
+                        </div>
+                    </div>
+
+                    <h4 class="content-subheading">5. Activity Diagram</h4>
+                    <p class="content-text">Similar to flowcharts. Shows the <strong>flow of activities/actions</strong> in a process. Includes decision points (diamond), forks/joins for parallel activities.</p>
+
+                    <h4 class="content-subheading">UML Relationships Summary</h4>
+                    <div class="table-wrapper">
+                        <table>
+                            <tr><th>Relationship</th><th>Symbol</th><th>Meaning</th></tr>
+                            <tr><td>Association</td><td>solid line</td><td>Objects are related</td></tr>
+                            <tr><td>Aggregation</td><td>hollow diamond</td><td>"Has-a" (weak, parts exist independently)</td></tr>
+                            <tr><td>Composition</td><td>filled diamond</td><td>"Has-a" (strong, parts can't exist alone)</td></tr>
+                            <tr><td>Inheritance</td><td>hollow arrow</td><td>"Is-a" (generalization)</td></tr>
+                            <tr><td>Dependency</td><td>dashed arrow</td><td>Uses temporarily</td></tr>
+                            <tr><td>Realization</td><td>dashed hollow arrow</td><td>Implements interface</td></tr>
                         </table>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <!-- UNIT 5 -->
-            <div class="unit" onclick="toggleUnit(this)">
-                <div class="unit-header">
-                    <div class="unit-badge">U5</div>
-                    <div class="unit-title">SOLID Design Principles</div>
-                    <div class="unit-toggle">▼</div>
+        <!-- UNIT 3 -->
+        <div class="unit" onclick="toggleUnit(this)">
+            <div class="unit-header">
+                <span class="unit-badge unit-badge-purple">Unit 3</span>
+                <span class="unit-title">Design Patterns</span>
+                <span class="unit-toggle">+</span>
+            </div>
+            <div class="unit-content">
+                <div class="unit-body">
+                    <div class="topics">
+                        <span class="pill pill-purple">Singleton</span>
+                        <span class="pill pill-pink">Factory</span>
+                        <span class="pill pill-purple">Adapter</span>
+                        <span class="pill pill-pink">Decorator</span>
+                        <span class="pill pill-purple">Observer</span>
+                        <span class="pill pill-pink">Strategy</span>
+                    </div>
+
+                    <h3 class="content-heading">What are Design Patterns?</h3>
+                    <p class="content-text">Design patterns are <strong>reusable solutions</strong> to common software design problems. They were documented by the "Gang of Four" (GoF) and are categorized into three types:</p>
+
+                    <div class="table-wrapper">
+                        <table>
+                            <tr><th>Category</th><th>Purpose</th><th>Patterns</th></tr>
+                            <tr><td>Creational</td><td>Object creation mechanisms</td><td>Singleton, Factory, Builder, Prototype</td></tr>
+                            <tr><td>Structural</td><td>Class/object composition</td><td>Adapter, Decorator, Facade, Proxy</td></tr>
+                            <tr><td>Behavioral</td><td>Object interaction/communication</td><td>Observer, Strategy, Command, Iterator</td></tr>
+                        </table>
+                    </div>
+
+                    <h4 class="content-subheading">Singleton Pattern (Creational)</h4>
+                    <p class="content-text">Ensures a class has <strong>only one instance</strong> and provides a global access point. Used for: Database connections, Logger, Configuration manager.</p>
+
+                    <div class="code-block">
+                        <div class="code-header">
+                            <div class="code-dots"><span></span><span></span><span></span></div>
+                            <span class="code-lang">Java</span>
+                        </div>
+                        <div class="code-body"><pre><span class="cm">// Singleton Pattern</span>
+<span class="kw">public class</span> <span class="fn">Database</span> {
+    <span class="kw">private static</span> <span class="fn">Database</span> instance;
+
+    <span class="kw">private</span> <span class="fn">Database</span>() {
+        <span class="cm">// Private constructor prevents external instantiation</span>
+    }
+
+    <span class="kw">public static synchronized</span> <span class="fn">Database</span> <span class="fn">getInstance</span>() {
+        <span class="kw">if</span> (instance == <span class="kw">null</span>) {
+            instance = <span class="kw">new</span> <span class="fn">Database</span>();
+        }
+        <span class="kw">return</span> instance;
+    }
+
+    <span class="kw">public void</span> <span class="fn">query</span>(<span class="nb">String</span> sql) {
+        System.out.<span class="fn">println</span>(<span class="st">"Executing: "</span> + sql);
+    }
+}</pre></div>
+                    </div>
+
+                    <h4 class="content-subheading">Factory Pattern (Creational)</h4>
+                    <p class="content-text">Provides an interface for creating objects without specifying the exact class. The factory method decides which class to instantiate.</p>
+
+                    <h4 class="content-subheading">Observer Pattern (Behavioral)</h4>
+                    <p class="content-text">Defines a <strong>one-to-many dependency</strong> between objects. When one object (subject) changes state, all dependents (observers) are notified automatically.</p>
+
+                    <div class="code-block">
+                        <div class="code-header">
+                            <div class="code-dots"><span></span><span></span><span></span></div>
+                            <span class="code-lang">Java</span>
+                        </div>
+                        <div class="code-body"><pre><span class="cm">// Observer Pattern</span>
+<span class="kw">interface</span> <span class="fn">Observer</span> {
+    <span class="kw">void</span> <span class="fn">update</span>(<span class="nb">String</span> message);
+}
+
+<span class="kw">class</span> <span class="fn">NotificationService</span> {
+    <span class="kw">private</span> <span class="nb">List</span>&lt;<span class="fn">Observer</span>&gt; observers = <span class="kw">new</span> <span class="fn">ArrayList</span>&lt;&gt;();
+
+    <span class="kw">public void</span> <span class="fn">subscribe</span>(<span class="fn">Observer</span> o) { observers.<span class="fn">add</span>(o); }
+    <span class="kw">public void</span> <span class="fn">unsubscribe</span>(<span class="fn">Observer</span> o) { observers.<span class="fn">remove</span>(o); }
+
+    <span class="kw">public void</span> <span class="fn">notify</span>(<span class="nb">String</span> msg) {
+        <span class="kw">for</span> (<span class="fn">Observer</span> o : observers) {
+            o.<span class="fn">update</span>(msg);
+        }
+    }
+}
+
+<span class="kw">class</span> <span class="fn">Student</span> <span class="kw">implements</span> <span class="fn">Observer</span> {
+    <span class="kw">private</span> <span class="nb">String</span> name;
+    <span class="fn">Student</span>(<span class="nb">String</span> n) { name = n; }
+
+    <span class="kw">public void</span> <span class="fn">update</span>(<span class="nb">String</span> msg) {
+        System.out.<span class="fn">println</span>(name + <span class="st">" received: "</span> + msg);
+    }
+}</pre></div>
+                    </div>
+
+                    <h4 class="content-subheading">Strategy Pattern (Behavioral)</h4>
+                    <p class="content-text">Defines a family of algorithms, encapsulates each one, and makes them interchangeable. The strategy can be selected at runtime.</p>
                 </div>
-                <div class="unit-content" onclick="event.stopPropagation()">
-                    <div class="content-card">
-                        <h3><span style="color: var(--purple);">S</span> - Single Responsibility Principle</h3>
-                        <p style="color: var(--text-secondary); margin-bottom: 1rem;">A class should have only one reason to change.</p>
-                        <div class="code-block">
-                            <span class="code-label">Java</span>
-                            <code><span class="comment">// BAD - class does too much</span>
-<span class="keyword">class</span> <span class="class-name">Student</span> {
-    <span class="keyword">void</span> <span class="function">saveToDatabase</span>() { ... }
-    <span class="keyword">void</span> <span class="function">generateReport</span>() { ... }
-    <span class="keyword">void</span> <span class="function">sendEmail</span>() { ... }
-}
+            </div>
+        </div>
 
-<span class="comment">// GOOD - separate responsibilities</span>
-<span class="keyword">class</span> <span class="class-name">Student</span> { <span class="comment">/* only student data */</span> }
-<span class="keyword">class</span> <span class="class-name">StudentRepository</span> { <span class="keyword">void</span> <span class="function">save</span>(<span class="class-name">Student</span> s) {} }
-<span class="keyword">class</span> <span class="class-name">ReportGenerator</span> { <span class="keyword">void</span> <span class="function">generate</span>(<span class="class-name">Student</span> s) {} }
-<span class="keyword">class</span> <span class="class-name">EmailService</span> { <span class="keyword">void</span> <span class="function">send</span>(<span class="class-name">String</span> to, <span class="class-name">String</span> msg) {} }</code>
-                        </div>
+        <!-- UNIT 4 -->
+        <div class="unit" onclick="toggleUnit(this)">
+            <div class="unit-header">
+                <span class="unit-badge unit-badge-cyan">Unit 4</span>
+                <span class="unit-title">Testing & Quality Assurance</span>
+                <span class="unit-toggle">+</span>
+            </div>
+            <div class="unit-content">
+                <div class="unit-body">
+                    <div class="topics">
+                        <span class="pill pill-cyan">Unit Testing</span>
+                        <span class="pill pill-purple">Integration</span>
+                        <span class="pill pill-cyan">Black Box</span>
+                        <span class="pill pill-purple">White Box</span>
+                        <span class="pill pill-cyan">Test Cases</span>
+                        <span class="pill pill-purple">Regression</span>
                     </div>
 
-                    <div class="content-card">
-                        <h3><span style="color: var(--pink);">O</span> - Open/Closed Principle</h3>
-                        <p style="color: var(--text-secondary); margin-bottom: 1rem;">Open for extension, closed for modification.</p>
-                        <div class="code-block">
-                            <span class="code-label">Java</span>
-                            <code><span class="comment">// Open for extension via interfaces</span>
-<span class="keyword">interface</span> <span class="class-name">DiscountStrategy</span> {
-    <span class="keyword">double</span> <span class="function">calculate</span>(<span class="keyword">double</span> amount);
-}
-
-<span class="keyword">class</span> <span class="class-name">StudentDiscount</span> <span class="keyword">implements</span> <span class="class-name">DiscountStrategy</span> {
-    <span class="keyword">public double</span> <span class="function">calculate</span>(<span class="keyword">double</span> amt) { <span class="keyword">return</span> amt * <span class="number">0.2</span>; }
-}
-
-<span class="keyword">class</span> <span class="class-name">FestivalDiscount</span> <span class="keyword">implements</span> <span class="class-name">DiscountStrategy</span> {
-    <span class="keyword">public double</span> <span class="function">calculate</span>(<span class="keyword">double</span> amt) { <span class="keyword">return</span> amt * <span class="number">0.3</span>; }
-}
-<span class="comment">// Add new discount types without modifying existing code!</span></code>
-                        </div>
+                    <h3 class="content-heading">Levels of Testing</h3>
+                    <div class="table-wrapper">
+                        <table>
+                            <tr><th>Level</th><th>Scope</th><th>Who Tests</th></tr>
+                            <tr><td>Unit Testing</td><td>Individual methods/functions</td><td>Developer</td></tr>
+                            <tr><td>Integration Testing</td><td>Interaction between modules</td><td>Developer/Tester</td></tr>
+                            <tr><td>System Testing</td><td>Complete system</td><td>QA Team</td></tr>
+                            <tr><td>Acceptance Testing</td><td>Business requirements met</td><td>Client/User</td></tr>
+                        </table>
                     </div>
 
-                    <div class="content-card">
-                        <h3><span style="color: var(--cyan);">L</span> - Liskov Substitution Principle</h3>
-                        <p style="color: var(--text-secondary); margin-bottom: 1rem;">Subtypes must be substitutable for their base types.</p>
-                        <div class="code-block">
-                            <span class="code-label">Java</span>
-                            <code><span class="keyword">class</span> <span class="class-name">Bird</span> {
-    <span class="keyword">void</span> <span class="function">eat</span>() { <span class="class-name">System</span>.out.<span class="function">println</span>(<span class="string">"Eating"</span>); }
-}
-
-<span class="keyword">interface</span> <span class="class-name">Flyable</span> {
-    <span class="keyword">void</span> <span class="function">fly</span>();
-}
-
-<span class="comment">// Sparrow can fly</span>
-<span class="keyword">class</span> <span class="class-name">Sparrow</span> <span class="keyword">extends</span> <span class="class-name">Bird</span> <span class="keyword">implements</span> <span class="class-name">Flyable</span> {
-    <span class="keyword">public void</span> <span class="function">fly</span>() { <span class="class-name">System</span>.out.<span class="function">println</span>(<span class="string">"Flying"</span>); }
-}
-
-<span class="comment">// Penguin cannot fly - no Flyable interface</span>
-<span class="keyword">class</span> <span class="class-name">Penguin</span> <span class="keyword">extends</span> <span class="class-name">Bird</span> {
-    <span class="keyword">void</span> <span class="function">swim</span>() { <span class="class-name">System</span>.out.<span class="function">println</span>(<span class="string">"Swimming"</span>); }
-}</code>
-                        </div>
+                    <h3 class="content-heading">Black Box vs White Box Testing</h3>
+                    <div class="table-wrapper">
+                        <table>
+                            <tr><th>Feature</th><th>Black Box</th><th>White Box</th></tr>
+                            <tr><td>Knowledge</td><td>No internal code knowledge</td><td>Full code knowledge</td></tr>
+                            <tr><td>Focus</td><td>Input/Output behavior</td><td>Code structure, paths</td></tr>
+                            <tr><td>Techniques</td><td>Equivalence Partitioning, BVA</td><td>Statement, Branch, Path coverage</td></tr>
+                            <tr><td>Done by</td><td>Testers</td><td>Developers</td></tr>
+                            <tr><td>Also called</td><td>Functional Testing</td><td>Structural Testing</td></tr>
+                        </table>
                     </div>
 
-                    <div class="content-card">
-                        <h3><span style="color: var(--green);">I</span> - Interface Segregation Principle</h3>
-                        <p style="color: var(--text-secondary); margin-bottom: 1rem;">Clients should not be forced to depend on interfaces they don't use.</p>
-                        <div class="code-block">
-                            <span class="code-label">Java</span>
-                            <code><span class="comment">// BAD - fat interface</span>
-<span class="keyword">interface</span> <span class="class-name">Worker</span> { <span class="keyword">void</span> <span class="function">work</span>(); <span class="keyword">void</span> <span class="function">eat</span>(); <span class="keyword">void</span> <span class="function">sleep</span>(); }
+                    <h4 class="content-subheading">Test Case Design Techniques</h4>
+                    <p class="content-text">
+                        <strong>Equivalence Partitioning:</strong> Divide input into valid/invalid classes, test one value from each<br>
+                        <strong>Boundary Value Analysis (BVA):</strong> Test at the boundaries (min, min+1, max-1, max)<br>
+                        <strong>Decision Table:</strong> For complex business rules with multiple conditions<br>
+                        <strong>State Transition:</strong> Test different states and transitions
+                    </p>
 
-<span class="comment">// GOOD - segregated interfaces</span>
-<span class="keyword">interface</span> <span class="class-name">Workable</span> { <span class="keyword">void</span> <span class="function">work</span>(); }
-<span class="keyword">interface</span> <span class="class-name">Eatable</span> { <span class="keyword">void</span> <span class="function">eat</span>(); }
-<span class="keyword">interface</span> <span class="class-name">Sleepable</span> { <span class="keyword">void</span> <span class="function">sleep</span>(); }
+                    <h4 class="content-subheading">Test Case Template</h4>
+                    <div class="table-wrapper">
+                        <table>
+                            <tr><th>Field</th><th>Description</th></tr>
+                            <tr><td>Test ID</td><td>TC_001</td></tr>
+                            <tr><td>Description</td><td>Verify login with valid credentials</td></tr>
+                            <tr><td>Pre-condition</td><td>User is registered, on login page</td></tr>
+                            <tr><td>Steps</td><td>1. Enter username 2. Enter password 3. Click Login</td></tr>
+                            <tr><td>Expected Result</td><td>User redirected to dashboard</td></tr>
+                            <tr><td>Actual Result</td><td>(Filled after execution)</td></tr>
+                            <tr><td>Status</td><td>Pass / Fail</td></tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-<span class="keyword">class</span> <span class="class-name">Human</span> <span class="keyword">implements</span> <span class="class-name">Workable</span>, <span class="class-name">Eatable</span>, <span class="class-name">Sleepable</span> { ... }
-<span class="keyword">class</span> <span class="class-name">Robot</span> <span class="keyword">implements</span> <span class="class-name">Workable</span> { ... } <span class="comment">// No eat/sleep!</span></code>
-                        </div>
+        <!-- UNIT 5 -->
+        <div class="unit" onclick="toggleUnit(this)">
+            <div class="unit-header">
+                <span class="unit-badge unit-badge-green">Unit 5</span>
+                <span class="unit-title">SOLID Principles</span>
+                <span class="unit-toggle">+</span>
+            </div>
+            <div class="unit-content">
+                <div class="unit-body">
+                    <div class="topics">
+                        <span class="pill pill-green">Single Responsibility</span>
+                        <span class="pill pill-cyan">Open/Closed</span>
+                        <span class="pill pill-green">Liskov</span>
+                        <span class="pill pill-cyan">Interface Segregation</span>
+                        <span class="pill pill-green">Dependency Inversion</span>
                     </div>
 
-                    <div class="content-card">
-                        <h3><span style="color: var(--orange);">D</span> - Dependency Inversion Principle</h3>
-                        <p style="color: var(--text-secondary); margin-bottom: 1rem;">Depend on abstractions, not concretions.</p>
-                        <div class="code-block">
-                            <span class="code-label">Java</span>
-                            <code><span class="comment">// Abstraction</span>
-<span class="keyword">interface</span> <span class="class-name">NotificationService</span> {
-    <span class="keyword">void</span> <span class="function">send</span>(<span class="class-name">String</span> message);
+                    <h3 class="content-heading">SOLID Principles</h3>
+                    <p class="content-text">SOLID is a set of five design principles that help developers write <strong>maintainable, scalable, and flexible</strong> object-oriented software. Introduced by Robert C. Martin (Uncle Bob).</p>
+
+                    <div class="solid-grid">
+                        <!-- S -->
+                        <div class="solid-item">
+                            <div class="solid-letter" style="color: var(--purple);">S</div>
+                            <div class="solid-name">Single Responsibility Principle</div>
+                            <div class="solid-desc">"A class should have only one reason to change." Each class should do ONE thing and do it well.</div>
+                            <div class="code-block" style="margin-top:1rem;">
+                                <div class="code-header">
+                                    <div class="code-dots"><span></span><span></span><span></span></div>
+                                    <span class="code-lang">Java</span>
+                                </div>
+                                <div class="code-body"><pre><span class="cm">// BAD - Multiple responsibilities</span>
+<span class="kw">class</span> <span class="fn">Student</span> {
+    <span class="kw">void</span> <span class="fn">saveToDatabase</span>() { }
+    <span class="kw">void</span> <span class="fn">generateReport</span>() { }
+    <span class="kw">void</span> <span class="fn">sendEmail</span>() { }
 }
 
-<span class="comment">// Concrete implementations</span>
-<span class="keyword">class</span> <span class="class-name">EmailNotification</span> <span class="keyword">implements</span> <span class="class-name">NotificationService</span> {
-    <span class="keyword">public void</span> <span class="function">send</span>(<span class="class-name">String</span> msg) { <span class="comment">/* send email */</span> }
+<span class="cm">// GOOD - Single responsibility each</span>
+<span class="kw">class</span> <span class="fn">Student</span> { <span class="cm">/* only student data */</span> }
+<span class="kw">class</span> <span class="fn">StudentRepository</span> { <span class="kw">void</span> <span class="fn">save</span>(<span class="fn">Student</span> s) { } }
+<span class="kw">class</span> <span class="fn">ReportGenerator</span> { <span class="kw">void</span> <span class="fn">generate</span>(<span class="fn">Student</span> s) { } }
+<span class="kw">class</span> <span class="fn">EmailService</span> { <span class="kw">void</span> <span class="fn">send</span>(<span class="nb">String</span> to) { } }</pre></div>
+                            </div>
+                        </div>
+
+                        <!-- O -->
+                        <div class="solid-item">
+                            <div class="solid-letter" style="color: var(--pink);">O</div>
+                            <div class="solid-name">Open/Closed Principle</div>
+                            <div class="solid-desc">"Software entities should be open for extension but closed for modification." Add new features by extending, not changing existing code.</div>
+                            <div class="code-block" style="margin-top:1rem;">
+                                <div class="code-header">
+                                    <div class="code-dots"><span></span><span></span><span></span></div>
+                                    <span class="code-lang">Java</span>
+                                </div>
+                                <div class="code-body"><pre><span class="cm">// Open for extension via interface</span>
+<span class="kw">interface</span> <span class="fn">DiscountStrategy</span> {
+    <span class="kw">double</span> <span class="fn">calculate</span>(<span class="kw">double</span> price);
 }
 
-<span class="keyword">class</span> <span class="class-name">SMSNotification</span> <span class="keyword">implements</span> <span class="class-name">NotificationService</span> {
-    <span class="keyword">public void</span> <span class="function">send</span>(<span class="class-name">String</span> msg) { <span class="comment">/* send SMS */</span> }
-}
-
-<span class="comment">// High-level module depends on abstraction</span>
-<span class="keyword">class</span> <span class="class-name">UserController</span> {
-    <span class="keyword">private</span> <span class="class-name">NotificationService</span> notifier;
-    
-    <span class="class-name">UserController</span>(<span class="class-name">NotificationService</span> ns) {
-        notifier = ns;  <span class="comment">// Inject dependency</span>
+<span class="kw">class</span> <span class="fn">StudentDiscount</span> <span class="kw">implements</span> <span class="fn">DiscountStrategy</span> {
+    <span class="kw">public double</span> <span class="fn">calculate</span>(<span class="kw">double</span> price) {
+        <span class="kw">return</span> price * <span class="num">0.8</span>;  <span class="cm">// 20% off</span>
     }
-    
-    <span class="keyword">void</span> <span class="function">register</span>() {
-        notifier.<span class="function">send</span>(<span class="string">"Welcome to MCA!"</span>);
+}
+
+<span class="kw">class</span> <span class="fn">FacultyDiscount</span> <span class="kw">implements</span> <span class="fn">DiscountStrategy</span> {
+    <span class="kw">public double</span> <span class="fn">calculate</span>(<span class="kw">double</span> price) {
+        <span class="kw">return</span> price * <span class="num">0.7</span>;  <span class="cm">// 30% off</span>
     }
-}</code>
+}</pre></div>
+                            </div>
+                        </div>
+
+                        <!-- L -->
+                        <div class="solid-item">
+                            <div class="solid-letter" style="color: var(--cyan);">L</div>
+                            <div class="solid-name">Liskov Substitution Principle</div>
+                            <div class="solid-desc">"Objects of a superclass should be replaceable with objects of a subclass without breaking the application." Child classes must not violate parent class behavior.</div>
+                        </div>
+
+                        <!-- I -->
+                        <div class="solid-item">
+                            <div class="solid-letter" style="color: var(--green);">I</div>
+                            <div class="solid-name">Interface Segregation Principle</div>
+                            <div class="solid-desc">"No client should be forced to depend on methods it does not use." Create specific, focused interfaces instead of one large interface.</div>
+                            <div class="code-block" style="margin-top:1rem;">
+                                <div class="code-header">
+                                    <div class="code-dots"><span></span><span></span><span></span></div>
+                                    <span class="code-lang">Java</span>
+                                </div>
+                                <div class="code-body"><pre><span class="cm">// BAD - Fat interface</span>
+<span class="kw">interface</span> <span class="fn">Worker</span> {
+    <span class="kw">void</span> <span class="fn">code</span>();
+    <span class="kw">void</span> <span class="fn">test</span>();
+    <span class="kw">void</span> <span class="fn">design</span>();
+    <span class="kw">void</span> <span class="fn">manage</span>();
+}
+
+<span class="cm">// GOOD - Segregated interfaces</span>
+<span class="kw">interface</span> <span class="fn">Coder</span> { <span class="kw">void</span> <span class="fn">code</span>(); }
+<span class="kw">interface</span> <span class="fn">Tester</span> { <span class="kw">void</span> <span class="fn">test</span>(); }
+<span class="kw">interface</span> <span class="fn">Designer</span> { <span class="kw">void</span> <span class="fn">design</span>(); }
+
+<span class="kw">class</span> <span class="fn">Developer</span> <span class="kw">implements</span> <span class="fn">Coder</span>, <span class="fn">Tester</span> {
+    <span class="kw">public void</span> <span class="fn">code</span>() { <span class="cm">/* ... */</span> }
+    <span class="kw">public void</span> <span class="fn">test</span>() { <span class="cm">/* ... */</span> }
+}</pre></div>
+                            </div>
+                        </div>
+
+                        <!-- D -->
+                        <div class="solid-item">
+                            <div class="solid-letter" style="color: var(--orange);">D</div>
+                            <div class="solid-name">Dependency Inversion Principle</div>
+                            <div class="solid-desc">"High-level modules should not depend on low-level modules. Both should depend on abstractions." Program to interfaces, not implementations.</div>
+                            <div class="code-block" style="margin-top:1rem;">
+                                <div class="code-header">
+                                    <div class="code-dots"><span></span><span></span><span></span></div>
+                                    <span class="code-lang">Java</span>
+                                </div>
+                                <div class="code-body"><pre><span class="cm">// Depend on abstraction, not concrete class</span>
+<span class="kw">interface</span> <span class="fn">MessageSender</span> {
+    <span class="kw">void</span> <span class="fn">send</span>(<span class="nb">String</span> message);
+}
+
+<span class="kw">class</span> <span class="fn">EmailSender</span> <span class="kw">implements</span> <span class="fn">MessageSender</span> {
+    <span class="kw">public void</span> <span class="fn">send</span>(<span class="nb">String</span> msg) {
+        System.out.<span class="fn">println</span>(<span class="st">"Email: "</span> + msg);
+    }
+}
+
+<span class="kw">class</span> <span class="fn">NotificationService</span> {
+    <span class="kw">private</span> <span class="fn">MessageSender</span> sender;  <span class="cm">// Depends on interface</span>
+
+    <span class="fn">NotificationService</span>(<span class="fn">MessageSender</span> sender) {
+        <span class="kw">this</span>.sender = sender;
+    }
+
+    <span class="kw">void</span> <span class="fn">notify</span>(<span class="nb">String</span> msg) {
+        sender.<span class="fn">send</span>(msg);
+    }
+}</pre></div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
     </main>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="footer-brand gradient-text">Manoj Purohit - MCA Learning Hub</div>
-        <div class="footer-links">
-            <a href="index.html" class="footer-link">Home</a>
-            <a href="python.html" class="footer-link">Python</a>
-            <a href="java.html" class="footer-link">Java</a>
-            <a href="oose.html" class="footer-link">OOSE</a>
-            <a href="terminal.html" class="footer-link">Terminal</a>
-        </div>
-        <p class="footer-copy">&copy; 2024 Prof. Manoj Purohit &middot; GGSIPU</p>
+        <p class="footer-text">Prof. Manoj Purohit &middot; MCA Learning Hub &middot; GGSIPU</p>
+        <p class="footer-copy">&copy; 2024 All Rights Reserved</p>
     </footer>
 
     <script>
         function toggleMenu() {
-            document.getElementById('navLinks').classList.toggle('active');
-            document.getElementById('hamburger').classList.toggle('active');
+            document.querySelector('.hamburger').classList.toggle('active');
+            document.getElementById('mobileNav').classList.toggle('show');
         }
 
         function toggleUnit(el) {

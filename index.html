@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manoj Purohit - MCA Learning Hub</title>
+    <title>Prof. Manoj Purohit | MCA Learning Hub | GGSIPU</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Animated Background Blobs -->
+    <!-- Background Blobs -->
     <div class="bg-blobs">
         <div class="blob blob-1"></div>
         <div class="blob blob-2"></div>
@@ -16,186 +16,138 @@
     </div>
 
     <!-- Navigation -->
-    <nav class="navbar">
-        <a href="index.html" class="nav-brand">
-            <div class="nav-logo">MP</div>
-            <span class="nav-brand-text">Manoj Purohit</span>
-        </a>
-        <div class="nav-links" id="navLinks">
-            <a href="index.html" class="nav-link active">Home</a>
-            <a href="python.html" class="nav-link">Python</a>
-            <a href="java.html" class="nav-link">Java</a>
-            <a href="oose.html" class="nav-link">OOSE</a>
-            <a href="terminal.html" class="nav-link">Terminal</a>
-        </div>
-        <div class="hamburger" id="hamburger" onclick="toggleMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <div class="nav-logo-badge">MP</div>
+                <span>Manoj Purohit</span>
+            </a>
+            <ul class="nav-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="python.html">Python</a>
+                <a href="java.html">Java</a>
+                <a href="oose.html">OOSE</a>
+                <a href="terminal.html">Terminal</a>
+            </ul>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </nav>
 
+    <!-- Mobile Nav -->
+    <div class="mobile-nav" id="mobileNav">
+        <a href="index.html" class="active">Home</a>
+        <a href="python.html">Python</a>
+        <a href="java.html">Java</a>
+        <a href="oose.html">OOSE</a>
+        <a href="terminal.html">Terminal</a>
+    </div>
+
     <!-- Main Content -->
-    <main class="main-content">
+    <main class="main">
         <!-- Hero Section -->
         <section class="hero">
             <div class="hero-badge">
-                <span>🎓</span> MCA &middot; IPU &middot; Computer Science
+                <span></span> MCA &middot; IPU &middot; Computer Science
             </div>
-            <h1>Learn. Code. Excel.</h1>
-            <p class="hero-subtitle">MCA Learning Hub by Prof. Manoj Purohit &middot; GGSIPU</p>
+            <h1 class="gradient-text">Learn from the Best</h1>
+            <p class="hero-subtitle">Prof. Manoj Purohit &middot; MCA Faculty &middot; GGSIPU &middot; Since 2017</p>
             <div class="hero-buttons">
-                <a href="python.html" class="btn btn-gradient">🚀 Start Learning</a>
-                <a href="terminal.html" class="btn btn-outline">💻 Try Terminal</a>
+                <a href="python.html" class="btn btn-primary">Start Learning &rarr;</a>
+                <a href="terminal.html" class="btn btn-outline">Practice Code &#9654;</a>
             </div>
         </section>
 
-        <!-- Subjects Grid Section -->
-        <section class="section">
-            <div class="container">
-                <h2 class="section-title gradient-text">Subjects I Teach</h2>
-                <p class="section-subtitle">Comprehensive MCA curriculum with notes, examples & diagrams</p>
+        <!-- Subjects Section -->
+        <section>
+            <h2 class="section-title gradient-text">Subjects</h2>
+            <p class="section-subtitle">Comprehensive notes, assignments & practice for MCA students</p>
 
-                <div class="subjects-grid">
-                    <!-- Python -->
-                    <div class="subject-card accent-green">
-                        <div class="subject-card-icon">🐍</div>
-                        <h3 class="subject-card-title">Python Programming</h3>
-                        <p class="subject-card-desc">Core Python, OOP, File Handling, Data Structures</p>
-                        <a href="python.html" class="subject-card-link">Learn More →</a>
-                    </div>
+            <div class="cards-grid">
+                <!-- Python -->
+                <a href="python.html" class="card card-green">
+                    <div class="card-icon">&#x1F40D;</div>
+                    <h3>Python Programming</h3>
+                    <p>Complete Python with NumPy, Decorators, Lambda, File Handling, OOP, Map, Filter, Reduce</p>
+                    <span class="card-link">View Notes &rarr;</span>
+                </a>
 
-                    <!-- Java -->
-                    <div class="subject-card accent-orange">
-                        <div class="subject-card-icon">☕</div>
-                        <h3 class="subject-card-title">Java / OOPJ</h3>
-                        <p class="subject-card-desc">OOP Concepts, Collections, Multithreading, AWT/Swing</p>
-                        <a href="java.html" class="subject-card-link">Learn More →</a>
-                    </div>
+                <!-- Java -->
+                <a href="java.html" class="card card-orange">
+                    <div class="card-icon">&#x2615;</div>
+                    <h3>Java / OOPJ</h3>
+                    <p>OOP Concepts, Collections, AWT/Swing, Packages, Exception Handling, Design Patterns</p>
+                    <span class="card-link">View Notes &rarr;</span>
+                </a>
 
-                    <!-- OOSE -->
-                    <div class="subject-card accent-purple">
-                        <div class="subject-card-icon">🏗️</div>
-                        <h3 class="subject-card-title">OOSE</h3>
-                        <p class="subject-card-desc">UML, Design Patterns, Agile, Testing</p>
-                        <a href="oose.html" class="subject-card-link">Learn More →</a>
-                    </div>
+                <!-- OOSE -->
+                <a href="oose.html" class="card card-purple">
+                    <div class="card-icon">&#x1F3D7;&#xFE0F;</div>
+                    <h3>OOSE</h3>
+                    <p>UML Diagrams, Design Patterns, Agile Methodology, Testing, SOLID Principles</p>
+                    <span class="card-link">View Notes &rarr;</span>
+                </a>
 
-                    <!-- C++ -->
-                    <div class="subject-card accent-cyan">
-                        <div class="subject-card-icon">⚡</div>
-                        <h3 class="subject-card-title">C++ Programming</h3>
-                        <p class="subject-card-desc">OOP, Templates, STL, Memory Management</p>
-                        <a href="#" class="subject-card-link">Learn More →</a>
-                    </div>
+                <!-- C# -->
+                <div class="card card-pink">
+                    <div class="card-icon">&#x1F48E;</div>
+                    <h3>C# Programming</h3>
+                    <p>C# Concepts, .NET Framework, OOP in C#, LINQ, Collections</p>
+                    <span class="card-link" style="color: var(--text-muted);">Coming Soon</span>
+                </div>
 
-                    <!-- C# -->
-                    <div class="subject-card accent-pink">
-                        <div class="subject-card-icon">💎</div>
-                        <h3 class="subject-card-title">C# Programming</h3>
-                        <p class="subject-card-desc">.NET Framework, LINQ, Delegates, WPF</p>
-                        <a href="#" class="subject-card-link">Learn More →</a>
-                    </div>
+                <!-- Cyber Security -->
+                <div class="card card-cyan">
+                    <div class="card-icon">&#x1F512;</div>
+                    <h3>Cyber Security</h3>
+                    <p>Cryptography, Network Security, Cyber Laws, Information Security</p>
+                    <span class="card-link" style="color: var(--text-muted);">Coming Soon</span>
+                </div>
 
-                    <!-- Data Structures -->
-                    <div class="subject-card accent-yellow">
-                        <div class="subject-card-icon">📊</div>
-                        <h3 class="subject-card-title">Data Structures</h3>
-                        <p class="subject-card-desc">Arrays, Trees, Graphs, Sorting, Searching</p>
-                        <a href="#" class="subject-card-link">Learn More →</a>
-                    </div>
-
-                    <!-- Cyber Security -->
-                    <div class="subject-card accent-red">
-                        <div class="subject-card-icon">🔒</div>
-                        <h3 class="subject-card-title">Cyber Security</h3>
-                        <p class="subject-card-desc">Cryptography, Network Security, Ethical Hacking</p>
-                        <a href="#" class="subject-card-link">Learn More →</a>
-                    </div>
-
-                    <!-- FOIT -->
-                    <div class="subject-card accent-teal">
-                        <div class="subject-card-icon">💻</div>
-                        <h3 class="subject-card-title">Fundamental of IT</h3>
-                        <p class="subject-card-desc">Computer Basics, Hardware, Software, Networks</p>
-                        <a href="#" class="subject-card-link">Learn More →</a>
-                    </div>
-
-                    <!-- DAA -->
-                    <div class="subject-card accent-blue">
-                        <div class="subject-card-icon">📐</div>
-                        <h3 class="subject-card-title">Design & Analysis of Algorithms</h3>
-                        <p class="subject-card-desc">Complexity, DP, Greedy, Divide & Conquer</p>
-                        <a href="#" class="subject-card-link">Learn More →</a>
-                    </div>
+                <!-- FOIT -->
+                <div class="card card-yellow">
+                    <div class="card-icon">&#x1F4BB;</div>
+                    <h3>FOIT</h3>
+                    <p>Computer Basics, Hardware, Software, IT Fundamentals, Operating Systems</p>
+                    <span class="card-link" style="color: var(--text-muted);">Coming Soon</span>
                 </div>
             </div>
         </section>
 
-        <!-- Stats Section -->
-        <section class="section">
-            <div class="container">
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-number gradient-text">9+</div>
-                        <div class="stat-label">Subjects</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number gradient-text">500+</div>
-                        <div class="stat-label">Students</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number gradient-text">Since 2017</div>
-                        <div class="stat-label">Teaching at IPU</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number gradient-text">IPU</div>
-                        <div class="stat-label">Expert Faculty</div>
-                    </div>
-                </div>
+        <!-- Stats -->
+        <section class="stats">
+            <div class="stat-card">
+                <div class="stat-number gradient-text">8000+</div>
+                <div class="stat-label">Blog Views</div>
             </div>
-        </section>
-
-        <!-- About Section -->
-        <section class="section">
-            <div class="container">
-                <h2 class="section-title gradient-text">About Prof. Manoj Purohit</h2>
-                <div class="about-content">
-                    <p class="about-text">
-                        Prof. Manoj Purohit is a dedicated educator at Guru Gobind Singh Indraprastha University (GGSIPU), teaching MCA students since 2017. He specializes in making complex computer science concepts simple and accessible through practical examples, hands-on coding exercises, and visual diagrams. His teaching covers the entire spectrum of MCA curriculum from programming fundamentals to advanced software engineering.
-                    </p>
-                    <div class="skill-pills">
-                        <span class="pill pill-green">Python</span>
-                        <span class="pill pill-orange">Java</span>
-                        <span class="pill pill-purple">OOSE</span>
-                        <span class="pill pill-cyan">C++</span>
-                        <span class="pill pill-pink">C#</span>
-                        <span class="pill pill-yellow">UML</span>
-                        <span class="pill pill-blue">Design Patterns</span>
-                        <span class="pill pill-teal">Agile</span>
-                        <span class="pill pill-red">Cyber Security</span>
-                    </div>
-                </div>
+            <div class="stat-card">
+                <div class="stat-number gradient-text">2017</div>
+                <div class="stat-label">Since</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number gradient-text">6+</div>
+                <div class="stat-label">Subjects</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number gradient-text">MCA</div>
+                <div class="stat-label">Expert Faculty</div>
             </div>
         </section>
     </main>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="footer-brand gradient-text">Manoj Purohit - MCA Learning Hub</div>
-        <div class="footer-links">
-            <a href="python.html" class="footer-link">Python</a>
-            <a href="java.html" class="footer-link">Java / OOPJ</a>
-            <a href="oose.html" class="footer-link">OOSE</a>
-            <a href="terminal.html" class="footer-link">Terminal</a>
-        </div>
-        <p class="footer-copy">&copy; 2024 Prof. Manoj Purohit &middot; GGSIPU</p>
+        <p class="footer-text">Prof. Manoj Purohit &middot; MCA Learning Hub &middot; GGSIPU</p>
+        <p class="footer-copy">&copy; 2024 All Rights Reserved</p>
     </footer>
 
     <script>
         function toggleMenu() {
-            document.getElementById('navLinks').classList.toggle('active');
-            document.getElementById('hamburger').classList.toggle('active');
+            document.querySelector('.hamburger').classList.toggle('active');
+            document.getElementById('mobileNav').classList.toggle('show');
         }
     </script>
 </body>

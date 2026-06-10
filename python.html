@@ -1,548 +1,599 @@
 <!DOCTYPE html>
-<html lang="en" class="page-python">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Python Programming - Manoj Purohit</title>
+    <title>Python Programming | Prof. Manoj Purohit | MCA Notes</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <!-- Animated Background Blobs -->
+<body class="page-green">
+    <!-- Background Blobs -->
     <div class="bg-blobs">
         <div class="blob blob-1" style="background: var(--green);"></div>
         <div class="blob blob-2" style="background: var(--cyan);"></div>
-        <div class="blob blob-3" style="background: var(--purple);"></div>
-        <div class="blob blob-4" style="background: var(--green);"></div>
+        <div class="blob blob-3" style="background: var(--green);"></div>
+        <div class="blob blob-4" style="background: var(--purple);"></div>
     </div>
 
     <!-- Navigation -->
-    <nav class="navbar">
-        <a href="index.html" class="nav-brand">
-            <div class="nav-logo">MP</div>
-            <span class="nav-brand-text">Manoj Purohit</span>
-        </a>
-        <div class="nav-links" id="navLinks">
-            <a href="index.html" class="nav-link">Home</a>
-            <a href="python.html" class="nav-link active">Python</a>
-            <a href="java.html" class="nav-link">Java</a>
-            <a href="oose.html" class="nav-link">OOSE</a>
-            <a href="terminal.html" class="nav-link">Terminal</a>
-        </div>
-        <div class="hamburger" id="hamburger" onclick="toggleMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <div class="nav-logo-badge">MP</div>
+                <span>Manoj Purohit</span>
+            </a>
+            <ul class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="python.html" class="active">Python</a>
+                <a href="java.html">Java</a>
+                <a href="oose.html">OOSE</a>
+                <a href="terminal.html">Terminal</a>
+            </ul>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </nav>
 
+    <!-- Mobile Nav -->
+    <div class="mobile-nav" id="mobileNav">
+        <a href="index.html">Home</a>
+        <a href="python.html" class="active">Python</a>
+        <a href="java.html">Java</a>
+        <a href="oose.html">OOSE</a>
+        <a href="terminal.html">Terminal</a>
+    </div>
+
     <!-- Main Content -->
-    <main class="main-content">
-        <div class="container">
-            <!-- Page Header -->
-            <div class="page-header">
-                <h1 class="gradient-text-green">🐍 Python Programming</h1>
-                <p class="subtitle">Complete MCA Syllabus with Examples &middot; Prof. Manoj Purohit &middot; GGSIPU</p>
+    <main class="main">
+        <!-- Page Header -->
+        <div class="page-header">
+            <h1 class="gradient-text-green">&#x1F40D; Python Programming &mdash; MCA Notes</h1>
+            <p>Complete syllabus notes with examples for GGSIPU MCA students</p>
+        </div>
+
+        <!-- UNIT 1 -->
+        <div class="unit active" onclick="toggleUnit(this)">
+            <div class="unit-header">
+                <span class="unit-badge unit-badge-green">Unit 1</span>
+                <span class="unit-title">Introduction to Python</span>
+                <span class="unit-toggle">+</span>
             </div>
-
-            <!-- UNIT 1 -->
-            <div class="unit active" onclick="toggleUnit(this)">
-                <div class="unit-header">
-                    <div class="unit-badge">U1</div>
-                    <div class="unit-title">Introduction to Python</div>
-                    <div class="unit-toggle">▼</div>
-                </div>
-                <div class="unit-content" onclick="event.stopPropagation()">
-                    <div class="content-card">
-                        <h3>What is Python?</h3>
-                        <p>Python is a high-level, interpreted, general-purpose programming language created by Guido van Rossum in 1991. It emphasizes code readability with its use of significant indentation.</p>
-                        <div class="topic-list">
-                            <span class="pill pill-green">Interpreted</span>
-                            <span class="pill pill-cyan">Dynamic Typing</span>
-                            <span class="pill pill-purple">Object Oriented</span>
-                            <span class="pill pill-orange">Cross Platform</span>
-                            <span class="pill pill-pink">Open Source</span>
-                        </div>
+            <div class="unit-content">
+                <div class="unit-body">
+                    <div class="topics">
+                        <span class="pill pill-green">Python Features</span>
+                        <span class="pill pill-cyan">Variables</span>
+                        <span class="pill pill-green">Data Types</span>
+                        <span class="pill pill-cyan">Operators</span>
+                        <span class="pill pill-green">Input/Output</span>
+                        <span class="pill pill-cyan">Type Casting</span>
                     </div>
 
-                    <div class="content-card">
-                        <h3>Installing Python</h3>
-                        <div class="code-block">
-                            <span class="code-label">Terminal</span>
-                            <code><span class="comment"># Download from python.org or use package manager</span>
-<span class="comment"># Windows:</span>
-<span class="string">python --version</span>
-<span class="comment"># Linux/Mac:</span>
-<span class="string">python3 --version</span>
+                    <h3 class="content-heading">What is Python?</h3>
+                    <p class="content-text">Python is a <strong>high-level, interpreted, general-purpose</strong> programming language created by Guido van Rossum in 1991. It emphasizes code readability with significant indentation and supports multiple programming paradigms including procedural, object-oriented, and functional programming.</p>
 
-<span class="comment"># Run Python interactive shell</span>
-<span class="string">python3</span>
-<span class="comment">>>> print("Hello, MCA Students!")</span></code>
-                        </div>
-                    </div>
+                    <h4 class="content-subheading">Key Features of Python</h4>
+                    <p class="content-text">
+                        <strong>Easy to Learn:</strong> Simple syntax similar to English language<br>
+                        <strong>Interpreted:</strong> Executes code line by line (no compilation needed)<br>
+                        <strong>Dynamically Typed:</strong> No need to declare variable types<br>
+                        <strong>Platform Independent:</strong> Runs on Windows, Mac, Linux<br>
+                        <strong>Extensive Libraries:</strong> NumPy, Pandas, Django, Flask, etc.<br>
+                        <strong>Object-Oriented:</strong> Supports classes, inheritance, polymorphism
+                    </p>
 
-                    <div class="content-card">
-                        <h3>Variables & Data Types</h3>
-                        <div class="code-block">
-                            <span class="code-label">Python</span>
-                            <code><span class="comment"># Variables and Data Types</span>
-<span class="builtin">name</span> = <span class="string">"Manoj"</span>        <span class="comment"># str</span>
-<span class="builtin">age</span> = <span class="number">35</span>              <span class="comment"># int</span>
-<span class="builtin">height</span> = <span class="number">5.8</span>          <span class="comment"># float</span>
-<span class="builtin">is_teacher</span> = <span class="keyword">True</span>     <span class="comment"># bool</span>
+                    <h4 class="content-subheading">Variables & Data Types</h4>
+                    <p class="content-text">In Python, variables are created when you assign a value. No explicit declaration is needed. Python has the following built-in data types:</p>
 
-<span class="function">print</span>(<span class="string">f"Name: {name}, Age: {age}"</span>)
-<span class="function">print</span>(<span class="string">f"Type of name: {type(name)}"</span>)</code>
-                        </div>
-                        <div class="topic-list">
-                            <span class="pill pill-green">str</span>
-                            <span class="pill pill-cyan">int</span>
-                            <span class="pill pill-orange">float</span>
-                            <span class="pill pill-pink">bool</span>
-                            <span class="pill pill-purple">list</span>
-                            <span class="pill pill-yellow">dict</span>
-                            <span class="pill pill-teal">tuple</span>
-                            <span class="pill pill-blue">set</span>
-                        </div>
-                    </div>
-
-                    <div class="content-card">
-                        <h3>Operators</h3>
-                        <table class="styled-table">
-                            <tr><th>Type</th><th>Operators</th><th>Example</th></tr>
-                            <tr><td>Arithmetic</td><td>+ &nbsp; - &nbsp; * &nbsp; / &nbsp; // &nbsp; % &nbsp; **</td><td>10 ** 2 = 100</td></tr>
-                            <tr><td>Comparison</td><td>== &nbsp; != &nbsp; > &nbsp; < &nbsp; >= &nbsp; <=</td><td>5 > 3 = True</td></tr>
-                            <tr><td>Logical</td><td>and &nbsp; or &nbsp; not</td><td>True and False = False</td></tr>
-                            <tr><td>Assignment</td><td>= &nbsp; += &nbsp; -= &nbsp; *= &nbsp; /=</td><td>x += 5</td></tr>
-                            <tr><td>Identity</td><td>is &nbsp; is not</td><td>x is None</td></tr>
-                            <tr><td>Membership</td><td>in &nbsp; not in</td><td>3 in [1,2,3]</td></tr>
+                    <div class="table-wrapper">
+                        <table>
+                            <tr><th>Category</th><th>Type</th><th>Example</th></tr>
+                            <tr><td>Numeric</td><td>int, float, complex</td><td>x = 10, y = 3.14, z = 2+3j</td></tr>
+                            <tr><td>String</td><td>str</td><td>name = "Manoj"</td></tr>
+                            <tr><td>Boolean</td><td>bool</td><td>is_valid = True</td></tr>
+                            <tr><td>Sequence</td><td>list, tuple, range</td><td>[1,2,3], (1,2,3)</td></tr>
+                            <tr><td>Mapping</td><td>dict</td><td>{"key": "value"}</td></tr>
+                            <tr><td>Set</td><td>set, frozenset</td><td>{1, 2, 3}</td></tr>
                         </table>
                     </div>
 
-                    <div class="content-card">
-                        <h3>Input / Output</h3>
-                        <div class="code-block">
-                            <span class="code-label">Python</span>
-                            <code><span class="comment"># Input from user</span>
-<span class="builtin">name</span> = <span class="function">input</span>(<span class="string">"Enter your name: "</span>)
-<span class="builtin">age</span> = <span class="function">int</span>(<span class="function">input</span>(<span class="string">"Enter your age: "</span>))
-
-<span class="comment"># Output</span>
-<span class="function">print</span>(<span class="string">"Hello,"</span>, name)
-<span class="function">print</span>(<span class="string">f"You are {age} years old"</span>)
-<span class="function">print</span>(<span class="string">"Age next year:"</span>, age + <span class="number">1</span>)</code>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <div class="code-dots"><span></span><span></span><span></span></div>
+                            <span class="code-lang">Python</span>
                         </div>
+                        <div class="code-body"><pre><span class="cm"># Data Types in Python</span>
+<span class="nb">name</span> = <span class="st">"Manoj Purohit"</span>   <span class="cm"># String</span>
+<span class="nb">age</span> = <span class="num">35</span>                  <span class="cm"># Integer</span>
+<span class="nb">cgpa</span> = <span class="num">9.2</span>               <span class="cm"># Float</span>
+<span class="nb">subjects</span> = [<span class="st">"Python"</span>, <span class="st">"Java"</span>, <span class="st">"OOSE"</span>]  <span class="cm"># List</span>
+<span class="nb">is_teacher</span> = <span class="kw">True</span>         <span class="cm"># Boolean</span>
+
+<span class="fn">print</span>(<span class="st">f"Professor: </span>{name}<span class="st">"</span>)
+<span class="fn">print</span>(<span class="st">f"Subjects: </span>{<span class="st">', '</span>.join(subjects)}<span class="st">"</span>)
+<span class="fn">print</span>(<span class="st">f"Type of subjects: </span>{<span class="fn">type</span>(subjects)}<span class="st">"</span>)</pre></div>
                     </div>
+
+                    <h4 class="content-subheading">Operators in Python</h4>
+                    <div class="table-wrapper">
+                        <table>
+                            <tr><th>Type</th><th>Operators</th><th>Example</th></tr>
+                            <tr><td>Arithmetic</td><td>+, -, *, /, //, %, **</td><td>10 // 3 = 3, 2**3 = 8</td></tr>
+                            <tr><td>Comparison</td><td>==, !=, &gt;, &lt;, &gt;=, &lt;=</td><td>5 == 5 &rarr; True</td></tr>
+                            <tr><td>Logical</td><td>and, or, not</td><td>True and False &rarr; False</td></tr>
+                            <tr><td>Bitwise</td><td>&amp;, |, ^, ~, &lt;&lt;, &gt;&gt;</td><td>5 &amp; 3 = 1</td></tr>
+                            <tr><td>Assignment</td><td>=, +=, -=, *=, /=</td><td>x += 5</td></tr>
+                            <tr><td>Identity</td><td>is, is not</td><td>x is None</td></tr>
+                            <tr><td>Membership</td><td>in, not in</td><td>"a" in "apple"</td></tr>
+                        </table>
+                    </div>
+
+                    <h4 class="content-subheading">Input/Output</h4>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <div class="code-dots"><span></span><span></span><span></span></div>
+                            <span class="code-lang">Python</span>
+                        </div>
+                        <div class="code-body"><pre><span class="cm"># Input/Output in Python</span>
+<span class="nb">name</span> = <span class="fn">input</span>(<span class="st">"Enter your name: "</span>)
+<span class="nb">age</span> = <span class="fn">int</span>(<span class="fn">input</span>(<span class="st">"Enter your age: "</span>))
+
+<span class="fn">print</span>(<span class="st">"Hello,"</span>, name)
+<span class="fn">print</span>(<span class="st">f"You are </span>{age}<span class="st"> years old"</span>)
+<span class="fn">print</span>(<span class="st">"Name: %s, Age: %d"</span> % (name, age))</pre></div>
+                    </div>
+
+                    <a href="terminal.html" class="btn btn-green btn-sm">Try in Terminal &rarr;</a>
                 </div>
             </div>
+        </div>
 
-            <!-- UNIT 2 -->
-            <div class="unit" onclick="toggleUnit(this)">
-                <div class="unit-header">
-                    <div class="unit-badge">U2</div>
-                    <div class="unit-title">Control Flow & Functions</div>
-                    <div class="unit-toggle">▼</div>
-                </div>
-                <div class="unit-content" onclick="event.stopPropagation()">
-                    <div class="content-card">
-                        <h3>if / elif / else</h3>
-                        <!-- Flowchart Diagram -->
-                        <div class="diagram">
-                            <div class="diagram-box" style="background: rgba(16, 185, 129, 0.15); border: 2px solid var(--green); color: var(--green);">Condition Check</div>
-                            <div class="diagram-row">
-                                <div class="diagram-arrow">↙️</div>
-                                <div class="diagram-arrow">↘️</div>
-                            </div>
-                            <div class="diagram-row">
-                                <div class="diagram-box" style="background: rgba(6, 182, 212, 0.15); border: 2px solid var(--cyan); color: var(--cyan);">True → Execute Block</div>
-                                <div class="diagram-box" style="background: rgba(249, 115, 22, 0.15); border: 2px solid var(--orange); color: var(--orange);">False → Next Check / Else</div>
-                            </div>
-                        </div>
-                        <div class="code-block">
-                            <span class="code-label">Python</span>
-                            <code><span class="comment"># Grade calculator</span>
-<span class="builtin">marks</span> = <span class="number">85</span>
-
-<span class="keyword">if</span> marks >= <span class="number">90</span>:
-    <span class="function">print</span>(<span class="string">"Grade: A+"</span>)
-<span class="keyword">elif</span> marks >= <span class="number">80</span>:
-    <span class="function">print</span>(<span class="string">"Grade: A"</span>)
-<span class="keyword">elif</span> marks >= <span class="number">70</span>:
-    <span class="function">print</span>(<span class="string">"Grade: B"</span>)
-<span class="keyword">elif</span> marks >= <span class="number">60</span>:
-    <span class="function">print</span>(<span class="string">"Grade: C"</span>)
-<span class="keyword">else</span>:
-    <span class="function">print</span>(<span class="string">"Grade: F"</span>)</code>
-                        </div>
+        <!-- UNIT 2 -->
+        <div class="unit" onclick="toggleUnit(this)">
+            <div class="unit-header">
+                <span class="unit-badge unit-badge-cyan">Unit 2</span>
+                <span class="unit-title">Control Flow & Functions</span>
+                <span class="unit-toggle">+</span>
+            </div>
+            <div class="unit-content">
+                <div class="unit-body">
+                    <div class="topics">
+                        <span class="pill pill-cyan">if/elif/else</span>
+                        <span class="pill pill-green">for loop</span>
+                        <span class="pill pill-cyan">while loop</span>
+                        <span class="pill pill-green">Functions</span>
+                        <span class="pill pill-cyan">Lambda</span>
+                        <span class="pill pill-green">Map/Filter/Reduce</span>
+                        <span class="pill pill-cyan">Recursion</span>
                     </div>
 
-                    <div class="content-card">
-                        <h3>Loops: for & while</h3>
-                        <div class="code-block">
-                            <span class="code-label">Python</span>
-                            <code><span class="comment"># For loop with range</span>
-<span class="keyword">for</span> i <span class="keyword">in</span> <span class="function">range</span>(<span class="number">1</span>, <span class="number">11</span>):
-    <span class="function">print</span>(<span class="string">f"{i} x 5 = {i*5}"</span>)
+                    <h3 class="content-heading">Conditional Statements</h3>
+                    <p class="content-text">Python uses <strong>if</strong>, <strong>elif</strong>, and <strong>else</strong> for decision making. Indentation (4 spaces) is mandatory in Python to define blocks.</p>
 
-<span class="comment"># While loop</span>
-<span class="builtin">n</span> = <span class="number">5</span>
-<span class="builtin">factorial</span> = <span class="number">1</span>
-<span class="keyword">while</span> n > <span class="number">0</span>:
-    factorial *= n
-    n -= <span class="number">1</span>
-<span class="function">print</span>(<span class="string">f"Factorial: {factorial}"</span>)</code>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <div class="code-dots"><span></span><span></span><span></span></div>
+                            <span class="code-lang">Python</span>
                         </div>
+                        <div class="code-body"><pre><span class="cm"># Conditional Statements</span>
+<span class="nb">marks</span> = <span class="num">85</span>
+
+<span class="kw">if</span> marks >= <span class="num">90</span>:
+    <span class="nb">grade</span> = <span class="st">"A+"</span>
+<span class="kw">elif</span> marks >= <span class="num">80</span>:
+    <span class="nb">grade</span> = <span class="st">"A"</span>
+<span class="kw">elif</span> marks >= <span class="num">70</span>:
+    <span class="nb">grade</span> = <span class="st">"B"</span>
+<span class="kw">elif</span> marks >= <span class="num">60</span>:
+    <span class="nb">grade</span> = <span class="st">"C"</span>
+<span class="kw">else</span>:
+    <span class="nb">grade</span> = <span class="st">"F"</span>
+
+<span class="fn">print</span>(<span class="st">f"Marks: </span>{marks}<span class="st">, Grade: </span>{grade}<span class="st">"</span>)</pre></div>
                     </div>
 
-                    <div class="content-card">
-                        <h3>Functions</h3>
-                        <div class="code-block">
-                            <span class="code-label">Python</span>
-                            <code><span class="keyword">def</span> <span class="function">fibonacci</span>(n):
-    <span class="builtin">a</span>, <span class="builtin">b</span> = <span class="number">0</span>, <span class="number">1</span>
-    <span class="builtin">result</span> = []
-    <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="function">range</span>(n):
-        result.<span class="function">append</span>(a)
-        a, b = b, a + b
-    <span class="keyword">return</span> result
+                    <h3 class="content-heading">Loops</h3>
+                    <p class="content-text">Python supports <strong>for</strong> loops (iterate over sequences) and <strong>while</strong> loops (condition-based). The <strong>range()</strong> function generates number sequences.</p>
 
-<span class="function">print</span>(<span class="function">fibonacci</span>(<span class="number">10</span>))
-<span class="comment"># Output: [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]</span></code>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <div class="code-dots"><span></span><span></span><span></span></div>
+                            <span class="code-lang">Python</span>
                         </div>
+                        <div class="code-body"><pre><span class="cm"># Pattern Printing</span>
+<span class="nb">n</span> = <span class="num">5</span>
+<span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(<span class="num">1</span>, n+<span class="num">1</span>):
+    <span class="fn">print</span>(<span class="st">"* "</span> * i)
+
+<span class="cm"># Output:</span>
+<span class="cm"># *</span>
+<span class="cm"># * *</span>
+<span class="cm"># * * *</span>
+<span class="cm"># * * * *</span>
+<span class="cm"># * * * * *</span>
+
+<span class="cm"># Factorial using recursion</span>
+<span class="kw">def</span> <span class="fn">factorial</span>(n):
+    <span class="kw">if</span> n <= <span class="num">1</span>:
+        <span class="kw">return</span> <span class="num">1</span>
+    <span class="kw">return</span> n * <span class="fn">factorial</span>(n - <span class="num">1</span>)
+
+<span class="fn">print</span>(<span class="st">f"5! = </span>{<span class="fn">factorial</span>(<span class="num">5</span>)}<span class="st">"</span>)  <span class="cm"># Output: 120</span></pre></div>
                     </div>
 
-                    <div class="content-card">
-                        <h3>Lambda, Map, Filter, Reduce</h3>
-                        <div class="code-block">
-                            <span class="code-label">Python</span>
-                            <code><span class="comment"># Lambda function</span>
-<span class="builtin">square</span> = <span class="keyword">lambda</span> x: x ** <span class="number">2</span>
-<span class="function">print</span>(<span class="function">square</span>(<span class="number">5</span>))  <span class="comment"># 25</span>
+                    <h3 class="content-heading">Functions</h3>
+                    <p class="content-text">Functions in Python are defined using the <strong>def</strong> keyword. They support default arguments, *args (variable positional arguments), and **kwargs (variable keyword arguments).</p>
 
-<span class="comment"># Map - apply function to all items</span>
-<span class="builtin">numbers</span> = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]
-<span class="builtin">squares</span> = <span class="function">list</span>(<span class="function">map</span>(<span class="keyword">lambda</span> x: x**<span class="number">2</span>, numbers))
-<span class="comment"># [1, 4, 9, 16, 25]</span>
-
-<span class="comment"># Filter - filter items based on condition</span>
-<span class="builtin">evens</span> = <span class="function">list</span>(<span class="function">filter</span>(<span class="keyword">lambda</span> x: x % <span class="number">2</span> == <span class="number">0</span>, numbers))
-<span class="comment"># [2, 4]</span>
-
-<span class="comment"># Reduce - reduce to single value</span>
-<span class="keyword">from</span> functools <span class="keyword">import</span> reduce
-<span class="builtin">total</span> = <span class="function">reduce</span>(<span class="keyword">lambda</span> a, b: a + b, numbers)
-<span class="comment"># 15</span></code>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <div class="code-dots"><span></span><span></span><span></span></div>
+                            <span class="code-lang">Python</span>
                         </div>
+                        <div class="code-body"><pre><span class="cm"># Functions with *args and **kwargs</span>
+<span class="kw">def</span> <span class="fn">student_info</span>(name, *subjects, **details):
+    <span class="fn">print</span>(<span class="st">f"Name: </span>{name}<span class="st">"</span>)
+    <span class="fn">print</span>(<span class="st">f"Subjects: </span>{<span class="st">', '</span>.join(subjects)}<span class="st">"</span>)
+    <span class="kw">for</span> key, value <span class="kw">in</span> details.items():
+        <span class="fn">print</span>(<span class="st">f"  </span>{key}<span class="st">: </span>{value}<span class="st">"</span>)
+
+<span class="fn">student_info</span>(<span class="st">"Rahul"</span>, <span class="st">"Python"</span>, <span class="st">"Java"</span>, roll=<span class="num">101</span>, semester=<span class="num">2</span>)</pre></div>
                     </div>
+
+                    <h3 class="content-heading">Lambda, Map, Filter, Reduce</h3>
+                    <p class="content-text"><strong>Lambda</strong> creates anonymous (unnamed) functions in a single line. Combined with <strong>map()</strong>, <strong>filter()</strong>, and <strong>reduce()</strong>, they enable functional programming in Python.</p>
+
+                    <div class="code-block">
+                        <div class="code-header">
+                            <div class="code-dots"><span></span><span></span><span></span></div>
+                            <span class="code-lang">Python</span>
+                        </div>
+                        <div class="code-body"><pre><span class="cm"># Lambda, Map, Filter, Reduce</span>
+<span class="nb">numbers</span> = [<span class="num">1</span>, <span class="num">2</span>, <span class="num">3</span>, <span class="num">4</span>, <span class="num">5</span>, <span class="num">6</span>, <span class="num">7</span>, <span class="num">8</span>, <span class="num">9</span>, <span class="num">10</span>]
+
+<span class="cm"># Filter even numbers</span>
+<span class="nb">evens</span> = <span class="fn">list</span>(<span class="fn">filter</span>(<span class="kw">lambda</span> x: x % <span class="num">2</span> == <span class="num">0</span>, numbers))
+<span class="fn">print</span>(<span class="st">f"Even: </span>{evens}<span class="st">"</span>)  <span class="cm"># [2, 4, 6, 8, 10]</span>
+
+<span class="cm"># Map - square each number</span>
+<span class="nb">squares</span> = <span class="fn">list</span>(<span class="fn">map</span>(<span class="kw">lambda</span> x: x**<span class="num">2</span>, numbers))
+<span class="fn">print</span>(<span class="st">f"Squares: </span>{squares}<span class="st">"</span>)  <span class="cm"># [1, 4, 9, 16, ...]</span>
+
+<span class="cm"># Reduce - sum all</span>
+<span class="kw">from</span> functools <span class="kw">import</span> reduce
+<span class="nb">total</span> = <span class="fn">reduce</span>(<span class="kw">lambda</span> a, b: a + b, numbers)
+<span class="fn">print</span>(<span class="st">f"Sum: </span>{total}<span class="st">"</span>)  <span class="cm"># 55</span>
+
+<span class="cm"># Lambda with sorted</span>
+<span class="nb">students</span> = [(<span class="st">"Rahul"</span>, <span class="num">85</span>), (<span class="st">"Priya"</span>, <span class="num">92</span>), (<span class="st">"Amit"</span>, <span class="num">78</span>)]
+<span class="nb">sorted_students</span> = <span class="fn">sorted</span>(students, key=<span class="kw">lambda</span> x: x[<span class="num">1</span>], reverse=<span class="kw">True</span>)
+<span class="fn">print</span>(sorted_students)  <span class="cm"># Sorted by marks descending</span></pre></div>
+                    </div>
+
+                    <a href="terminal.html" class="btn btn-green btn-sm">Try in Terminal &rarr;</a>
                 </div>
             </div>
+        </div>
 
-            <!-- UNIT 3 -->
-            <div class="unit" onclick="toggleUnit(this)">
-                <div class="unit-header">
-                    <div class="unit-badge">U3</div>
-                    <div class="unit-title">Data Structures</div>
-                    <div class="unit-toggle">▼</div>
-                </div>
-                <div class="unit-content" onclick="event.stopPropagation()">
-                    <div class="content-card">
-                        <h3>Lists</h3>
-                        <div class="code-block">
-                            <span class="code-label">Python</span>
-                            <code><span class="comment"># List operations</span>
-<span class="builtin">fruits</span> = [<span class="string">"apple"</span>, <span class="string">"banana"</span>, <span class="string">"cherry"</span>]
-fruits.<span class="function">append</span>(<span class="string">"mango"</span>)
-fruits.<span class="function">insert</span>(<span class="number">1</span>, <span class="string">"grape"</span>)
-fruits.<span class="function">pop</span>()  <span class="comment"># removes last item</span>
-
-<span class="comment"># List Comprehension</span>
-<span class="builtin">squares</span> = [x**<span class="number">2</span> <span class="keyword">for</span> x <span class="keyword">in</span> <span class="function">range</span>(<span class="number">1</span>, <span class="number">11</span>)]
-<span class="comment"># [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]</span>
-
-<span class="builtin">evens</span> = [x <span class="keyword">for</span> x <span class="keyword">in</span> <span class="function">range</span>(<span class="number">20</span>) <span class="keyword">if</span> x % <span class="number">2</span> == <span class="number">0</span>]
-<span class="comment"># [0, 2, 4, 6, 8, 10, 12, 14, 16, 18]</span>
-
-<span class="comment"># Slicing</span>
-<span class="function">print</span>(fruits[<span class="number">1</span>:<span class="number">3</span>])    <span class="comment"># items at index 1, 2</span>
-<span class="function">print</span>(fruits[::<span class="number">-1</span>])   <span class="comment"># reversed list</span></code>
-                        </div>
+        <!-- UNIT 3 -->
+        <div class="unit" onclick="toggleUnit(this)">
+            <div class="unit-header">
+                <span class="unit-badge unit-badge-green">Unit 3</span>
+                <span class="unit-title">Data Structures in Python</span>
+                <span class="unit-toggle">+</span>
+            </div>
+            <div class="unit-content">
+                <div class="unit-body">
+                    <div class="topics">
+                        <span class="pill pill-green">Strings</span>
+                        <span class="pill pill-cyan">Lists</span>
+                        <span class="pill pill-green">Tuples</span>
+                        <span class="pill pill-cyan">Sets</span>
+                        <span class="pill pill-green">Dictionaries</span>
+                        <span class="pill pill-cyan">Comprehensions</span>
                     </div>
 
-                    <div class="content-card">
-                        <h3>Tuples & Sets</h3>
-                        <div class="code-block">
-                            <span class="code-label">Python</span>
-                            <code><span class="comment"># Tuple - immutable sequence</span>
-<span class="builtin">point</span> = (<span class="number">10</span>, <span class="number">20</span>)
-<span class="builtin">x</span>, <span class="builtin">y</span> = point  <span class="comment"># unpacking</span>
-<span class="function">print</span>(<span class="string">f"x={x}, y={y}"</span>)
+                    <h3 class="content-heading">Strings</h3>
+                    <p class="content-text">Strings are <strong>immutable sequences</strong> of characters. Python provides powerful string methods and formatting options.</p>
 
-<span class="comment"># Set - unique values only</span>
-<span class="builtin">colors</span> = {<span class="string">"red"</span>, <span class="string">"blue"</span>, <span class="string">"red"</span>, <span class="string">"green"</span>}
-<span class="function">print</span>(colors)  <span class="comment"># {'red', 'blue', 'green'}</span>
-
-<span class="comment"># Set operations</span>
-<span class="builtin">a</span> = {<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>}
-<span class="builtin">b</span> = {<span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>}
-<span class="function">print</span>(a | b)   <span class="comment"># union: {1, 2, 3, 4, 5}</span>
-<span class="function">print</span>(a & b)   <span class="comment"># intersection: {3}</span>
-<span class="function">print</span>(a - b)   <span class="comment"># difference: {1, 2}</span></code>
-                        </div>
+                    <div class="table-wrapper">
+                        <table>
+                            <tr><th>Method</th><th>Description</th><th>Example</th></tr>
+                            <tr><td>upper()</td><td>Converts to uppercase</td><td>"hello".upper() &rarr; "HELLO"</td></tr>
+                            <tr><td>lower()</td><td>Converts to lowercase</td><td>"HELLO".lower() &rarr; "hello"</td></tr>
+                            <tr><td>strip()</td><td>Removes whitespace</td><td>" hi ".strip() &rarr; "hi"</td></tr>
+                            <tr><td>split()</td><td>Splits into list</td><td>"a,b".split(",") &rarr; ["a","b"]</td></tr>
+                            <tr><td>join()</td><td>Joins list to string</td><td>",".join(["a","b"]) &rarr; "a,b"</td></tr>
+                            <tr><td>replace()</td><td>Replaces substring</td><td>"hi".replace("h","H") &rarr; "Hi"</td></tr>
+                            <tr><td>find()</td><td>Finds index of substr</td><td>"hello".find("ll") &rarr; 2</td></tr>
+                        </table>
                     </div>
 
-                    <div class="content-card">
-                        <h3>Dictionaries</h3>
-                        <div class="code-block">
-                            <span class="code-label">Python</span>
-                            <code><span class="comment"># Dictionary - key:value pairs</span>
-<span class="builtin">student</span> = {
-    <span class="string">"name"</span>: <span class="string">"Rahul"</span>,
-    <span class="string">"roll"</span>: <span class="number">101</span>,
-    <span class="string">"branch"</span>: <span class="string">"MCA"</span>,
-    <span class="string">"marks"</span>: [<span class="number">85</span>, <span class="number">90</span>, <span class="number">78</span>]
+                    <h3 class="content-heading">Lists & Comprehensions</h3>
+                    <p class="content-text">Lists are <strong>mutable, ordered</strong> collections. List comprehensions provide a concise way to create new lists.</p>
+
+                    <div class="code-block">
+                        <div class="code-header">
+                            <div class="code-dots"><span></span><span></span><span></span></div>
+                            <span class="code-lang">Python</span>
+                        </div>
+                        <div class="code-body"><pre><span class="cm"># List Comprehension</span>
+<span class="nb">squares</span> = [x**<span class="num">2</span> <span class="kw">for</span> x <span class="kw">in</span> <span class="fn">range</span>(<span class="num">10</span>)]
+<span class="nb">evens</span> = [x <span class="kw">for</span> x <span class="kw">in</span> <span class="fn">range</span>(<span class="num">20</span>) <span class="kw">if</span> x % <span class="num">2</span> == <span class="num">0</span>]
+
+<span class="cm"># Dictionary Comprehension</span>
+<span class="nb">students</span> = {<span class="st">"Rahul"</span>: <span class="num">85</span>, <span class="st">"Priya"</span>: <span class="num">92</span>, <span class="st">"Amit"</span>: <span class="num">78</span>}
+<span class="nb">toppers</span> = {k: v <span class="kw">for</span> k, v <span class="kw">in</span> students.items() <span class="kw">if</span> v >= <span class="num">85</span>}
+<span class="fn">print</span>(<span class="st">f"Toppers: </span>{toppers}<span class="st">"</span>)
+
+<span class="cm"># Nested Data Structures</span>
+<span class="nb">college</span> = {
+    <span class="st">"name"</span>: <span class="st">"GGSIPU"</span>,
+    <span class="st">"courses"</span>: [<span class="st">"MCA"</span>, <span class="st">"BCA"</span>, <span class="st">"BTech"</span>],
+    <span class="st">"faculty"</span>: [
+        {<span class="st">"name"</span>: <span class="st">"Manoj Purohit"</span>, <span class="st">"subject"</span>: <span class="st">"Python"</span>},
+        {<span class="st">"name"</span>: <span class="st">"Faculty 2"</span>, <span class="st">"subject"</span>: <span class="st">"DBMS"</span>}
+    ]
 }
 
-<span class="function">print</span>(student[<span class="string">"name"</span>])  <span class="comment"># Rahul</span>
-student[<span class="string">"semester"</span>] = <span class="number">2</span>   <span class="comment"># add new key</span>
-
-<span class="comment"># Iterating</span>
-<span class="keyword">for</span> key, value <span class="keyword">in</span> student.<span class="function">items</span>():
-    <span class="function">print</span>(<span class="string">f"{key}: {value}"</span>)
-
-<span class="comment"># Dictionary Comprehension</span>
-<span class="builtin">squares_dict</span> = {x: x**<span class="number">2</span> <span class="keyword">for</span> x <span class="keyword">in</span> <span class="function">range</span>(<span class="number">1</span>, <span class="number">6</span>)}
-<span class="comment"># {1: 1, 2: 4, 3: 9, 4: 16, 5: 25}</span></code>
-                        </div>
+<span class="cm"># Accessing nested data</span>
+<span class="fn">print</span>(college[<span class="st">"faculty"</span>][<span class="num">0</span>][<span class="st">"name"</span>])  <span class="cm"># Manoj Purohit</span></pre></div>
                     </div>
 
-                    <div class="content-card">
-                        <h3>String Methods</h3>
-                        <table class="styled-table">
-                            <tr><th>Method</th><th>Description</th><th>Example</th></tr>
-                            <tr><td>upper()</td><td>Convert to uppercase</td><td>"hello".upper() → "HELLO"</td></tr>
-                            <tr><td>lower()</td><td>Convert to lowercase</td><td>"HELLO".lower() → "hello"</td></tr>
-                            <tr><td>strip()</td><td>Remove whitespace</td><td>" hi ".strip() → "hi"</td></tr>
-                            <tr><td>split()</td><td>Split into list</td><td>"a,b,c".split(",") → ["a","b","c"]</td></tr>
-                            <tr><td>join()</td><td>Join list to string</td><td>"-".join(["a","b"]) → "a-b"</td></tr>
-                            <tr><td>replace()</td><td>Replace substring</td><td>"hi".replace("h","H") → "Hi"</td></tr>
-                            <tr><td>find()</td><td>Find index</td><td>"hello".find("l") → 2</td></tr>
-                            <tr><td>count()</td><td>Count occurrences</td><td>"hello".count("l") → 2</td></tr>
+                    <h3 class="content-heading">Tuples and Sets</h3>
+                    <p class="content-text"><strong>Tuples</strong> are immutable ordered collections (created with parentheses). <strong>Sets</strong> are unordered collections of unique elements (created with curly braces).</p>
+
+                    <div class="code-block">
+                        <div class="code-header">
+                            <div class="code-dots"><span></span><span></span><span></span></div>
+                            <span class="code-lang">Python</span>
+                        </div>
+                        <div class="code-body"><pre><span class="cm"># Tuples - Immutable</span>
+<span class="nb">coordinates</span> = (<span class="num">10</span>, <span class="num">20</span>, <span class="num">30</span>)
+<span class="nb">x</span>, <span class="nb">y</span>, <span class="nb">z</span> = coordinates  <span class="cm"># Tuple unpacking</span>
+<span class="fn">print</span>(<span class="st">f"x=</span>{x}<span class="st">, y=</span>{y}<span class="st">, z=</span>{z}<span class="st">"</span>)
+
+<span class="cm"># Sets - Unique elements, unordered</span>
+<span class="nb">set_a</span> = {<span class="num">1</span>, <span class="num">2</span>, <span class="num">3</span>, <span class="num">4</span>, <span class="num">5</span>}
+<span class="nb">set_b</span> = {<span class="num">4</span>, <span class="num">5</span>, <span class="num">6</span>, <span class="num">7</span>, <span class="num">8</span>}
+
+<span class="fn">print</span>(<span class="st">f"Union: </span>{set_a | set_b}<span class="st">"</span>)
+<span class="fn">print</span>(<span class="st">f"Intersection: </span>{set_a & set_b}<span class="st">"</span>)
+<span class="fn">print</span>(<span class="st">f"Difference: </span>{set_a - set_b}<span class="st">"</span>)</pre></div>
+                    </div>
+
+                    <a href="terminal.html" class="btn btn-green btn-sm">Try in Terminal &rarr;</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- UNIT 4 -->
+        <div class="unit" onclick="toggleUnit(this)">
+            <div class="unit-header">
+                <span class="unit-badge unit-badge-pink">Unit 4</span>
+                <span class="unit-title">Object Oriented Programming</span>
+                <span class="unit-toggle">+</span>
+            </div>
+            <div class="unit-content">
+                <div class="unit-body">
+                    <div class="topics">
+                        <span class="pill pill-pink">Classes</span>
+                        <span class="pill pill-purple">Objects</span>
+                        <span class="pill pill-pink">Inheritance</span>
+                        <span class="pill pill-purple">Polymorphism</span>
+                        <span class="pill pill-pink">Encapsulation</span>
+                        <span class="pill pill-purple">Abstraction</span>
+                    </div>
+
+                    <h3 class="content-heading">Classes and Objects</h3>
+                    <p class="content-text">A <strong>class</strong> is a blueprint for creating objects. It defines attributes (data) and methods (functions). The <strong>__init__</strong> method is the constructor that initializes the object.</p>
+
+                    <h4 class="content-subheading">4 Pillars of OOP</h4>
+                    <div class="table-wrapper">
+                        <table>
+                            <tr><th>Pillar</th><th>Description</th></tr>
+                            <tr><td>Encapsulation</td><td>Bundling data and methods within a class, restricting direct access (using _ and __)</td></tr>
+                            <tr><td>Inheritance</td><td>Creating new classes from existing ones (child inherits parent properties)</td></tr>
+                            <tr><td>Polymorphism</td><td>Same method name behaves differently in different classes (method overriding)</td></tr>
+                            <tr><td>Abstraction</td><td>Hiding complex implementation, showing only necessary features (using ABC module)</td></tr>
                         </table>
                     </div>
-                </div>
-            </div>
 
-            <!-- UNIT 4 -->
-            <div class="unit" onclick="toggleUnit(this)">
-                <div class="unit-header">
-                    <div class="unit-badge">U4</div>
-                    <div class="unit-title">Object Oriented Programming in Python</div>
-                    <div class="unit-toggle">▼</div>
-                </div>
-                <div class="unit-content" onclick="event.stopPropagation()">
-                    <div class="content-card">
-                        <h3>Class Diagram</h3>
-                        <div class="diagram">
-                            <div class="diagram-box" style="background: rgba(16, 185, 129, 0.15); border: 2px solid var(--green); color: var(--green);">
-                                <strong>Animal</strong><br>
-                                <small style="color: var(--text-secondary);">name, sound</small><br>
-                                <small style="color: var(--cyan);">speak()</small>
-                            </div>
-                            <div class="diagram-arrow">↓ inherits</div>
-                            <div class="diagram-row">
-                                <div class="diagram-box" style="background: rgba(6, 182, 212, 0.15); border: 2px solid var(--cyan); color: var(--cyan);">
-                                    <strong>Dog</strong><br>
-                                    <small style="color: var(--text-secondary);">breed</small><br>
-                                    <small style="color: var(--green);">fetch()</small>
-                                </div>
-                                <div class="diagram-box" style="background: rgba(236, 72, 153, 0.15); border: 2px solid var(--pink); color: var(--pink);">
-                                    <strong>Cat</strong><br>
-                                    <small style="color: var(--text-secondary);">indoor</small><br>
-                                    <small style="color: var(--green);">purr()</small>
-                                </div>
-                            </div>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <div class="code-dots"><span></span><span></span><span></span></div>
+                            <span class="code-lang">Python</span>
                         </div>
-                    </div>
-
-                    <div class="content-card">
-                        <h3>Classes & Objects</h3>
-                        <div class="code-block">
-                            <span class="code-label">Python</span>
-                            <code><span class="keyword">class</span> <span class="class-name">Student</span>:
-    <span class="keyword">def</span> <span class="function">__init__</span>(self, name, roll, marks):
+                        <div class="code-body"><pre><span class="cm"># OOP Example - Student Management</span>
+<span class="kw">class</span> <span class="fn">Student</span>:
+    <span class="kw">def</span> <span class="fn">__init__</span>(self, name, roll, course=<span class="st">"MCA"</span>):
         self.name = name
         self.roll = roll
-        self.marks = marks
-    
-    <span class="keyword">def</span> <span class="function">average</span>(self):
-        <span class="keyword">return</span> <span class="function">sum</span>(self.marks) / <span class="function">len</span>(self.marks)
-    
-    <span class="keyword">def</span> <span class="function">display</span>(self):
-        <span class="function">print</span>(<span class="string">f"Name: {self.name}"</span>)
-        <span class="function">print</span>(<span class="string">f"Roll: {self.roll}"</span>)
-        <span class="function">print</span>(<span class="string">f"Average: {self.average():.2f}"</span>)
+        self.course = course
+        self.marks = {}
 
-<span class="comment"># Create object</span>
-<span class="builtin">s1</span> = <span class="class-name">Student</span>(<span class="string">"Rahul"</span>, <span class="number">101</span>, [<span class="number">85</span>, <span class="number">90</span>, <span class="number">78</span>])
-s1.<span class="function">display</span>()</code>
-                        </div>
+    <span class="kw">def</span> <span class="fn">add_marks</span>(self, subject, marks):
+        self.marks[subject] = marks
+
+    <span class="kw">def</span> <span class="fn">get_percentage</span>(self):
+        <span class="kw">if not</span> self.marks:
+            <span class="kw">return</span> <span class="num">0</span>
+        <span class="kw">return</span> <span class="fn">sum</span>(self.marks.values()) / <span class="fn">len</span>(self.marks)
+
+    <span class="kw">def</span> <span class="fn">display</span>(self):
+        <span class="fn">print</span>(<span class="st">f"Name: </span>{self.name}<span class="st">"</span>)
+        <span class="fn">print</span>(<span class="st">f"Roll: </span>{self.roll}<span class="st">"</span>)
+        <span class="fn">print</span>(<span class="st">f"Course: </span>{self.course}<span class="st">"</span>)
+        <span class="fn">print</span>(<span class="st">f"Percentage: </span>{self.<span class="fn">get_percentage</span>():.2f}<span class="st">%"</span>)
+
+<span class="cm"># Inheritance</span>
+<span class="kw">class</span> <span class="fn">MCAStudent</span>(<span class="fn">Student</span>):
+    <span class="kw">def</span> <span class="fn">__init__</span>(self, name, roll, semester):
+        <span class="fn">super</span>().__init__(name, roll, <span class="st">"MCA"</span>)
+        self.semester = semester
+
+    <span class="kw">def</span> <span class="fn">display</span>(self):
+        <span class="fn">super</span>().display()
+        <span class="fn">print</span>(<span class="st">f"Semester: </span>{self.semester}<span class="st">"</span>)
+
+<span class="nb">s1</span> = <span class="fn">MCAStudent</span>(<span class="st">"Rahul"</span>, <span class="num">101</span>, <span class="num">2</span>)
+s1.<span class="fn">add_marks</span>(<span class="st">"Python"</span>, <span class="num">85</span>)
+s1.<span class="fn">add_marks</span>(<span class="st">"Java"</span>, <span class="num">90</span>)
+s1.<span class="fn">display</span>()</pre></div>
                     </div>
 
-                    <div class="content-card">
-                        <h3>Inheritance & Polymorphism</h3>
-                        <div class="code-block">
-                            <span class="code-label">Python</span>
-                            <code><span class="keyword">class</span> <span class="class-name">Shape</span>:
-    <span class="keyword">def</span> <span class="function">area</span>(self):
-        <span class="keyword">pass</span>
+                    <h4 class="content-subheading">Types of Inheritance</h4>
+                    <p class="content-text">
+                        <strong>Single Inheritance:</strong> One child, one parent (class B(A))<br>
+                        <strong>Multiple Inheritance:</strong> One child, multiple parents (class C(A, B))<br>
+                        <strong>Multilevel Inheritance:</strong> Chain of inheritance (A &rarr; B &rarr; C)<br>
+                        <strong>Hierarchical:</strong> Multiple children, one parent<br>
+                        <strong>Hybrid:</strong> Combination of above types
+                    </p>
 
-<span class="keyword">class</span> <span class="class-name">Circle</span>(<span class="class-name">Shape</span>):
-    <span class="keyword">def</span> <span class="function">__init__</span>(self, radius):
-        self.radius = radius
-    
-    <span class="keyword">def</span> <span class="function">area</span>(self):
-        <span class="keyword">return</span> <span class="number">3.14159</span> * self.radius ** <span class="number">2</span>
-
-<span class="keyword">class</span> <span class="class-name">Rectangle</span>(<span class="class-name">Shape</span>):
-    <span class="keyword">def</span> <span class="function">__init__</span>(self, width, height):
-        self.width = width
-        self.height = height
-    
-    <span class="keyword">def</span> <span class="function">area</span>(self):
-        <span class="keyword">return</span> self.width * self.height
-
-<span class="comment"># Polymorphism in action</span>
-<span class="builtin">shapes</span> = [<span class="class-name">Circle</span>(<span class="number">5</span>), <span class="class-name">Rectangle</span>(<span class="number">4</span>, <span class="number">6</span>)]
-<span class="keyword">for</span> shape <span class="keyword">in</span> shapes:
-    <span class="function">print</span>(<span class="string">f"Area: {shape.area():.2f}"</span>)</code>
-                        </div>
-                    </div>
-
-                    <div class="content-card">
-                        <h3>Student Management System</h3>
-                        <div class="code-block">
-                            <span class="code-label">Python</span>
-                            <code><span class="keyword">class</span> <span class="class-name">StudentMS</span>:
-    <span class="keyword">def</span> <span class="function">__init__</span>(self):
-        self.students = {}
-    
-    <span class="keyword">def</span> <span class="function">add_student</span>(self, roll, name, marks):
-        self.students[roll] = {<span class="string">"name"</span>: name, <span class="string">"marks"</span>: marks}
-        <span class="function">print</span>(<span class="string">f"Added: {name}"</span>)
-    
-    <span class="keyword">def</span> <span class="function">get_topper</span>(self):
-        topper = <span class="function">max</span>(self.students.items(),
-                     key=<span class="keyword">lambda</span> x: <span class="function">sum</span>(x[<span class="number">1</span>][<span class="string">"marks"</span>]))
-        <span class="keyword">return</span> topper[<span class="number">1</span>][<span class="string">"name"</span>]
-    
-    <span class="keyword">def</span> <span class="function">display_all</span>(self):
-        <span class="keyword">for</span> roll, info <span class="keyword">in</span> self.students.<span class="function">items</span>():
-            avg = <span class="function">sum</span>(info[<span class="string">"marks"</span>]) / <span class="function">len</span>(info[<span class="string">"marks"</span>])
-            <span class="function">print</span>(<span class="string">f"{roll}: {info['name']} - Avg: {avg:.1f}"</span>)
-
-<span class="builtin">sms</span> = <span class="class-name">StudentMS</span>()
-sms.<span class="function">add_student</span>(<span class="number">101</span>, <span class="string">"Rahul"</span>, [<span class="number">85</span>, <span class="number">92</span>, <span class="number">78</span>])
-sms.<span class="function">add_student</span>(<span class="number">102</span>, <span class="string">"Priya"</span>, [<span class="number">90</span>, <span class="number">88</span>, <span class="number">95</span>])
-sms.<span class="function">display_all</span>()</code>
-                        </div>
-                    </div>
+                    <a href="terminal.html" class="btn btn-green btn-sm">Try in Terminal &rarr;</a>
                 </div>
             </div>
+        </div>
 
-            <!-- UNIT 5 -->
-            <div class="unit" onclick="toggleUnit(this)">
-                <div class="unit-header">
-                    <div class="unit-badge">U5</div>
-                    <div class="unit-title">File Handling & Modules</div>
-                    <div class="unit-toggle">▼</div>
-                </div>
-                <div class="unit-content" onclick="event.stopPropagation()">
-                    <div class="content-card">
-                        <h3>File Operations</h3>
-                        <div class="code-block">
-                            <span class="code-label">Python</span>
-                            <code><span class="comment"># Writing to a file</span>
-<span class="keyword">with</span> <span class="function">open</span>(<span class="string">"students.txt"</span>, <span class="string">"w"</span>) <span class="keyword">as</span> f:
-    f.<span class="function">write</span>(<span class="string">"Rahul - MCA - 85\n"</span>)
-    f.<span class="function">write</span>(<span class="string">"Priya - MCA - 90\n"</span>)
+        <!-- UNIT 5 -->
+        <div class="unit" onclick="toggleUnit(this)">
+            <div class="unit-header">
+                <span class="unit-badge unit-badge-purple">Unit 5</span>
+                <span class="unit-title">File Handling, Modules & Advanced Topics</span>
+                <span class="unit-toggle">+</span>
+            </div>
+            <div class="unit-content">
+                <div class="unit-body">
+                    <div class="topics">
+                        <span class="pill pill-purple">File I/O</span>
+                        <span class="pill pill-pink">Exceptions</span>
+                        <span class="pill pill-purple">NumPy</span>
+                        <span class="pill pill-pink">Decorators</span>
+                        <span class="pill pill-purple">Modules</span>
+                        <span class="pill pill-pink">Generators</span>
+                    </div>
 
-<span class="comment"># Reading from a file</span>
-<span class="keyword">with</span> <span class="function">open</span>(<span class="string">"students.txt"</span>, <span class="string">"r"</span>) <span class="keyword">as</span> f:
-    <span class="keyword">for</span> line <span class="keyword">in</span> f:
-        <span class="function">print</span>(line.strip())
+                    <h3 class="content-heading">File Handling</h3>
+                    <p class="content-text">Python provides built-in functions to read and write files. The <strong>with</strong> statement ensures proper file closing. File modes: 'r' (read), 'w' (write), 'a' (append), 'r+' (read/write).</p>
 
-<span class="comment"># Appending to a file</span>
-<span class="keyword">with</span> <span class="function">open</span>(<span class="string">"students.txt"</span>, <span class="string">"a"</span>) <span class="keyword">as</span> f:
-    f.<span class="function">write</span>(<span class="string">"Amit - MCA - 88\n"</span>)</code>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <div class="code-dots"><span></span><span></span><span></span></div>
+                            <span class="code-lang">Python</span>
                         </div>
+                        <div class="code-body"><pre><span class="cm"># File Handling</span>
+<span class="cm"># Writing to a file</span>
+<span class="kw">with</span> <span class="fn">open</span>(<span class="st">"students.txt"</span>, <span class="st">"w"</span>) <span class="kw">as</span> f:
+    f.write(<span class="st">"Rahul - 85\n"</span>)
+    f.write(<span class="st">"Priya - 92\n"</span>)
+    f.write(<span class="st">"Amit - 78\n"</span>)
+
+<span class="cm"># Reading from a file</span>
+<span class="kw">with</span> <span class="fn">open</span>(<span class="st">"students.txt"</span>, <span class="st">"r"</span>) <span class="kw">as</span> f:
+    <span class="kw">for</span> line <span class="kw">in</span> f:
+        <span class="fn">print</span>(line.strip())</pre></div>
                     </div>
 
-                    <div class="content-card">
-                        <h3>Exception Handling</h3>
-                        <div class="code-block">
-                            <span class="code-label">Python</span>
-                            <code><span class="keyword">try</span>:
-    <span class="builtin">num</span> = <span class="function">int</span>(<span class="function">input</span>(<span class="string">"Enter a number: "</span>))
-    <span class="builtin">result</span> = <span class="number">100</span> / num
-    <span class="function">print</span>(<span class="string">f"Result: {result}"</span>)
-<span class="keyword">except</span> <span class="class-name">ValueError</span>:
-    <span class="function">print</span>(<span class="string">"Error: Invalid input! Enter a number."</span>)
-<span class="keyword">except</span> <span class="class-name">ZeroDivisionError</span>:
-    <span class="function">print</span>(<span class="string">"Error: Cannot divide by zero!"</span>)
-<span class="keyword">finally</span>:
-    <span class="function">print</span>(<span class="string">"Execution complete."</span>)</code>
+                    <h3 class="content-heading">Exception Handling</h3>
+                    <p class="content-text">Exceptions are runtime errors. Python uses <strong>try/except/else/finally</strong> blocks. You can <strong>raise</strong> custom exceptions and create custom exception classes.</p>
+
+                    <div class="code-block">
+                        <div class="code-header">
+                            <div class="code-dots"><span></span><span></span><span></span></div>
+                            <span class="code-lang">Python</span>
                         </div>
+                        <div class="code-body"><pre><span class="cm"># Exception Handling</span>
+<span class="kw">def</span> <span class="fn">divide</span>(a, b):
+    <span class="kw">try</span>:
+        <span class="nb">result</span> = a / b
+    <span class="kw">except</span> <span class="fn">ZeroDivisionError</span>:
+        <span class="fn">print</span>(<span class="st">"Error: Cannot divide by zero!"</span>)
+        <span class="kw">return</span> <span class="kw">None</span>
+    <span class="kw">except</span> <span class="fn">TypeError</span>:
+        <span class="fn">print</span>(<span class="st">"Error: Invalid data types!"</span>)
+        <span class="kw">return</span> <span class="kw">None</span>
+    <span class="kw">else</span>:
+        <span class="fn">print</span>(<span class="st">f"</span>{a}<span class="st"> / </span>{b}<span class="st"> = </span>{result}<span class="st">"</span>)
+        <span class="kw">return</span> result
+    <span class="kw">finally</span>:
+        <span class="fn">print</span>(<span class="st">"Operation complete."</span>)
+
+<span class="fn">divide</span>(<span class="num">10</span>, <span class="num">2</span>)   <span class="cm"># 10 / 2 = 5.0</span>
+<span class="fn">divide</span>(<span class="num">10</span>, <span class="num">0</span>)   <span class="cm"># Error: Cannot divide by zero!</span></pre></div>
                     </div>
 
-                    <div class="content-card">
-                        <h3>Important Modules</h3>
-                        <div class="code-block">
-                            <span class="code-label">Python</span>
-                            <code><span class="keyword">import</span> os
-<span class="keyword">import</span> sys
-<span class="keyword">import</span> math
-<span class="keyword">import</span> random
+                    <h3 class="content-heading">Decorators</h3>
+                    <p class="content-text">A <strong>decorator</strong> is a function that takes another function as an argument and extends its behavior without modifying it. Denoted by <strong>@</strong> symbol.</p>
 
-<span class="comment"># os module</span>
-<span class="function">print</span>(os.<span class="function">getcwd</span>())          <span class="comment"># current directory</span>
-<span class="function">print</span>(os.<span class="function">listdir</span>(<span class="string">"."</span>))      <span class="comment"># list files</span>
-
-<span class="comment"># math module</span>
-<span class="function">print</span>(math.<span class="function">sqrt</span>(<span class="number">16</span>))        <span class="comment"># 4.0</span>
-<span class="function">print</span>(math.<span class="function">factorial</span>(<span class="number">5</span>))    <span class="comment"># 120</span>
-<span class="function">print</span>(math.pi)              <span class="comment"># 3.14159...</span>
-
-<span class="comment"># random module</span>
-<span class="function">print</span>(random.<span class="function">randint</span>(<span class="number">1</span>, <span class="number">100</span>))   <span class="comment"># random int</span>
-<span class="function">print</span>(random.<span class="function">choice</span>([<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>]))  <span class="comment"># random pick</span></code>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <div class="code-dots"><span></span><span></span><span></span></div>
+                            <span class="code-lang">Python</span>
                         </div>
+                        <div class="code-body"><pre><span class="cm"># Decorator Example</span>
+<span class="kw">def</span> <span class="fn">timer</span>(func):
+    <span class="kw">def</span> <span class="fn">wrapper</span>(*args, **kwargs):
+        <span class="kw">import</span> time
+        <span class="nb">start</span> = time.time()
+        <span class="nb">result</span> = <span class="fn">func</span>(*args, **kwargs)
+        <span class="nb">end</span> = time.time()
+        <span class="fn">print</span>(<span class="st">f"</span>{func.__name__}<span class="st"> took </span>{end-start:.4f}<span class="st">s"</span>)
+        <span class="kw">return</span> result
+    <span class="kw">return</span> wrapper
+
+<span class="dec">@timer</span>
+<span class="kw">def</span> <span class="fn">slow_function</span>():
+    <span class="nb">total</span> = <span class="fn">sum</span>(<span class="fn">range</span>(<span class="num">1000000</span>))
+    <span class="kw">return</span> total
+
+<span class="fn">slow_function</span>()</pre></div>
                     </div>
 
-                    <div class="content-card" style="text-align: center; padding: 2rem;">
-                        <a href="terminal.html" class="btn btn-gradient">🖥️ Try it in Terminal →</a>
+                    <h3 class="content-heading">NumPy Basics</h3>
+                    <p class="content-text"><strong>NumPy</strong> (Numerical Python) is a library for numerical computations. It provides n-dimensional arrays (ndarray) which are faster and more memory-efficient than Python lists.</p>
+
+                    <div class="code-block">
+                        <div class="code-header">
+                            <div class="code-dots"><span></span><span></span><span></span></div>
+                            <span class="code-lang">Python</span>
+                        </div>
+                        <div class="code-body"><pre><span class="cm"># NumPy Basics</span>
+<span class="kw">import</span> numpy <span class="kw">as</span> np
+
+<span class="cm"># Creating arrays</span>
+<span class="nb">arr</span> = np.array([<span class="num">1</span>, <span class="num">2</span>, <span class="num">3</span>, <span class="num">4</span>, <span class="num">5</span>])
+<span class="nb">matrix</span> = np.array([[<span class="num">1</span>, <span class="num">2</span>, <span class="num">3</span>], [<span class="num">4</span>, <span class="num">5</span>, <span class="num">6</span>]])
+
+<span class="cm"># Operations</span>
+<span class="fn">print</span>(<span class="st">f"Shape: </span>{matrix.shape}<span class="st">"</span>)   <span class="cm"># (2, 3)</span>
+<span class="fn">print</span>(<span class="st">f"Mean: </span>{arr.mean()}<span class="st">"</span>)      <span class="cm"># 3.0</span>
+<span class="fn">print</span>(<span class="st">f"Sum: </span>{arr.sum()}<span class="st">"</span>)        <span class="cm"># 15</span>
+<span class="fn">print</span>(<span class="st">f"Std: </span>{arr.std():.2f}<span class="st">"</span>)   <span class="cm"># 1.41</span>
+
+<span class="cm"># Array operations (element-wise)</span>
+<span class="fn">print</span>(arr * <span class="num">2</span>)     <span class="cm"># [2, 4, 6, 8, 10]</span>
+<span class="fn">print</span>(arr ** <span class="num">2</span>)    <span class="cm"># [1, 4, 9, 16, 25]</span></pre></div>
                     </div>
+
+                    <a href="terminal.html" class="btn btn-green btn-sm">Try in Terminal &rarr;</a>
                 </div>
             </div>
-
         </div>
     </main>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="footer-brand gradient-text">Manoj Purohit - MCA Learning Hub</div>
-        <div class="footer-links">
-            <a href="index.html" class="footer-link">Home</a>
-            <a href="python.html" class="footer-link">Python</a>
-            <a href="java.html" class="footer-link">Java</a>
-            <a href="oose.html" class="footer-link">OOSE</a>
-            <a href="terminal.html" class="footer-link">Terminal</a>
-        </div>
-        <p class="footer-copy">&copy; 2024 Prof. Manoj Purohit &middot; GGSIPU</p>
+        <p class="footer-text">Prof. Manoj Purohit &middot; MCA Learning Hub &middot; GGSIPU</p>
+        <p class="footer-copy">&copy; 2024 All Rights Reserved</p>
     </footer>
 
     <script>
         function toggleMenu() {
-            document.getElementById('navLinks').classList.toggle('active');
-            document.getElementById('hamburger').classList.toggle('active');
+            document.querySelector('.hamburger').classList.toggle('active');
+            document.getElementById('mobileNav').classList.toggle('show');
         }
 
         function toggleUnit(el) {
