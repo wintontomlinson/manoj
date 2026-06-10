@@ -3,175 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PyMCA - Master Python Programming | MCA at GGSIPU</title>
+    <title>Manoj Purohit - MCA Learning Hub</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        .hero {
-            min-height: 90vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 6rem 2rem 4rem;
-            position: relative;
-        }
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.5rem 1.2rem;
-            background: rgba(124, 58, 237, 0.15);
-            border: 1px solid rgba(124, 58, 237, 0.3);
-            border-radius: 30px;
-            font-size: 0.85rem;
-            color: var(--purple);
-            font-weight: 600;
-            margin-bottom: 2rem;
-            animation: pulse 2s ease-in-out infinite;
-        }
-        .hero-title {
-            font-size: 3.5rem;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            max-width: 800px;
-            background: linear-gradient(135deg, #7C3AED, #EC4899, #06B6D4, #10B981, #F59E0B);
-            background-size: 300% 300%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: gradientShift 5s ease infinite;
-        }
-        .hero-subtitle {
-            font-size: 1.2rem;
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin-bottom: 2.5rem;
-        }
-        .hero-stats {
-            display: flex;
-            gap: 2rem;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-top: 3rem;
-        }
-        .hero-stat {
-            padding: 1.2rem 2rem;
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            text-align: center;
-            min-width: 140px;
-            transition: all 0.3s ease;
-        }
-        .hero-stat:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--glow-purple);
-        }
-        .hero-stat:nth-child(1) { border-color: rgba(124, 58, 237, 0.3); }
-        .hero-stat:nth-child(2) { border-color: rgba(236, 72, 153, 0.3); }
-        .hero-stat:nth-child(3) { border-color: rgba(6, 182, 212, 0.3); }
-        .hero-stat:nth-child(4) { border-color: rgba(16, 185, 129, 0.3); }
-        .hero-stat .number {
-            font-size: 1.8rem;
-            font-weight: 800;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-        }
-        .hero-stat:nth-child(1) .number { color: var(--purple); }
-        .hero-stat:nth-child(2) .number { color: var(--pink); }
-        .hero-stat:nth-child(3) .number { color: var(--cyan); }
-        .hero-stat:nth-child(4) .number { color: var(--green); }
-        .hero-stat .label {
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            margin-top: 0.3rem;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-        .feature-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 2rem;
-            text-align: center;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            transition: opacity 0.3s;
-        }
-        .feature-card:nth-child(1)::before { background: linear-gradient(90deg, var(--purple), var(--pink)); }
-        .feature-card:nth-child(2)::before { background: linear-gradient(90deg, var(--orange), var(--yellow)); }
-        .feature-card:nth-child(3)::before { background: linear-gradient(90deg, var(--green), var(--cyan)); }
-        .feature-card:nth-child(4)::before { background: linear-gradient(90deg, var(--pink), var(--purple)); }
-        .feature-card:hover {
-            transform: translateY(-6px);
-            border-color: rgba(124, 58, 237, 0.4);
-        }
-        .feature-card:nth-child(1):hover { box-shadow: var(--glow-purple); }
-        .feature-card:nth-child(2):hover { box-shadow: var(--glow-pink); }
-        .feature-card:nth-child(3):hover { box-shadow: var(--glow-green); }
-        .feature-card:nth-child(4):hover { box-shadow: var(--glow-cyan); }
-        .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-        .feature-title {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-        }
-        .feature-desc {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        .cta-section {
-            margin-top: 4rem;
-        }
-        .cta-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.2rem;
-        }
-        .cta-card {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 1.5rem;
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            transition: all 0.3s ease;
-            text-align: center;
-        }
-        .cta-card:hover {
-            transform: translateY(-4px);
-            background: var(--bg-card-hover);
-        }
-        .cta-card:nth-child(1):hover { box-shadow: 0 0 25px rgba(6, 182, 212, 0.3); border-color: var(--cyan); }
-        .cta-card:nth-child(2):hover { box-shadow: 0 0 25px rgba(249, 115, 22, 0.3); border-color: var(--orange); }
-        .cta-card:nth-child(3):hover { box-shadow: 0 0 25px rgba(16, 185, 129, 0.3); border-color: var(--green); }
-        .cta-card:nth-child(4):hover { box-shadow: 0 0 25px rgba(236, 72, 153, 0.3); border-color: var(--pink); }
-        .cta-emoji { font-size: 2rem; margin-bottom: 0.5rem; }
-        .cta-title { font-weight: 700; margin-bottom: 0.3rem; }
-        .cta-desc { font-size: 0.8rem; color: var(--text-secondary); }
-    </style>
 </head>
-<body class="page-home">
-    <!-- Background Blobs -->
+<body>
+    <!-- Animated Background Blobs -->
     <div class="bg-blobs">
         <div class="blob blob-1"></div>
         <div class="blob blob-2"></div>
@@ -181,18 +17,21 @@
 
     <!-- Navigation -->
     <nav class="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="nav-logo">PyMCA</a>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="syllabus.html">Syllabus</a></li>
-                <li><a href="pyq.html">PYQ</a></li>
-                <li><a href="terminal.html">Terminal</a></li>
-                <li><a href="instructor.html">Instructor</a></li>
-            </ul>
-            <div class="hamburger" id="hamburger" onclick="toggleMenu()">
-                <span></span><span></span><span></span>
-            </div>
+        <a href="index.html" class="nav-brand">
+            <div class="nav-logo">MP</div>
+            <span class="nav-brand-text">Manoj Purohit</span>
+        </a>
+        <div class="nav-links" id="navLinks">
+            <a href="index.html" class="nav-link active">Home</a>
+            <a href="python.html" class="nav-link">Python</a>
+            <a href="java.html" class="nav-link">Java</a>
+            <a href="oose.html" class="nav-link">OOSE</a>
+            <a href="terminal.html" class="nav-link">Terminal</a>
+        </div>
+        <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
     </nav>
 
@@ -201,99 +40,162 @@
         <!-- Hero Section -->
         <section class="hero">
             <div class="hero-badge">
-                <span>🎓</span> GGSIPU MCA Program
+                <span>🎓</span> MCA &middot; IPU &middot; Computer Science
             </div>
-            <h1 class="hero-title">Master Python Programming for MCA at IPU</h1>
-            <p class="hero-subtitle">Complete course material, previous year papers, live coding terminal, and expert guidance by Manoj Purohit</p>
-            <div style="display:flex; gap:1rem; flex-wrap:wrap; justify-content:center;">
-                <a href="syllabus.html" class="btn btn-primary">📚 View Syllabus</a>
+            <h1>Learn. Code. Excel.</h1>
+            <p class="hero-subtitle">MCA Learning Hub by Prof. Manoj Purohit &middot; GGSIPU</p>
+            <div class="hero-buttons">
+                <a href="python.html" class="btn btn-gradient">🚀 Start Learning</a>
                 <a href="terminal.html" class="btn btn-outline">💻 Try Terminal</a>
             </div>
-            <div class="hero-stats">
-                <div class="hero-stat">
-                    <div class="number">5</div>
-                    <div class="label">Units Covered</div>
+        </section>
+
+        <!-- Subjects Grid Section -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title gradient-text">Subjects I Teach</h2>
+                <p class="section-subtitle">Comprehensive MCA curriculum with notes, examples & diagrams</p>
+
+                <div class="subjects-grid">
+                    <!-- Python -->
+                    <div class="subject-card accent-green">
+                        <div class="subject-card-icon">🐍</div>
+                        <h3 class="subject-card-title">Python Programming</h3>
+                        <p class="subject-card-desc">Core Python, OOP, File Handling, Data Structures</p>
+                        <a href="python.html" class="subject-card-link">Learn More →</a>
+                    </div>
+
+                    <!-- Java -->
+                    <div class="subject-card accent-orange">
+                        <div class="subject-card-icon">☕</div>
+                        <h3 class="subject-card-title">Java / OOPJ</h3>
+                        <p class="subject-card-desc">OOP Concepts, Collections, Multithreading, AWT/Swing</p>
+                        <a href="java.html" class="subject-card-link">Learn More →</a>
+                    </div>
+
+                    <!-- OOSE -->
+                    <div class="subject-card accent-purple">
+                        <div class="subject-card-icon">🏗️</div>
+                        <h3 class="subject-card-title">OOSE</h3>
+                        <p class="subject-card-desc">UML, Design Patterns, Agile, Testing</p>
+                        <a href="oose.html" class="subject-card-link">Learn More →</a>
+                    </div>
+
+                    <!-- C++ -->
+                    <div class="subject-card accent-cyan">
+                        <div class="subject-card-icon">⚡</div>
+                        <h3 class="subject-card-title">C++ Programming</h3>
+                        <p class="subject-card-desc">OOP, Templates, STL, Memory Management</p>
+                        <a href="#" class="subject-card-link">Learn More →</a>
+                    </div>
+
+                    <!-- C# -->
+                    <div class="subject-card accent-pink">
+                        <div class="subject-card-icon">💎</div>
+                        <h3 class="subject-card-title">C# Programming</h3>
+                        <p class="subject-card-desc">.NET Framework, LINQ, Delegates, WPF</p>
+                        <a href="#" class="subject-card-link">Learn More →</a>
+                    </div>
+
+                    <!-- Data Structures -->
+                    <div class="subject-card accent-yellow">
+                        <div class="subject-card-icon">📊</div>
+                        <h3 class="subject-card-title">Data Structures</h3>
+                        <p class="subject-card-desc">Arrays, Trees, Graphs, Sorting, Searching</p>
+                        <a href="#" class="subject-card-link">Learn More →</a>
+                    </div>
+
+                    <!-- Cyber Security -->
+                    <div class="subject-card accent-red">
+                        <div class="subject-card-icon">🔒</div>
+                        <h3 class="subject-card-title">Cyber Security</h3>
+                        <p class="subject-card-desc">Cryptography, Network Security, Ethical Hacking</p>
+                        <a href="#" class="subject-card-link">Learn More →</a>
+                    </div>
+
+                    <!-- FOIT -->
+                    <div class="subject-card accent-teal">
+                        <div class="subject-card-icon">💻</div>
+                        <h3 class="subject-card-title">Fundamental of IT</h3>
+                        <p class="subject-card-desc">Computer Basics, Hardware, Software, Networks</p>
+                        <a href="#" class="subject-card-link">Learn More →</a>
+                    </div>
+
+                    <!-- DAA -->
+                    <div class="subject-card accent-blue">
+                        <div class="subject-card-icon">📐</div>
+                        <h3 class="subject-card-title">Design & Analysis of Algorithms</h3>
+                        <p class="subject-card-desc">Complexity, DP, Greedy, Divide & Conquer</p>
+                        <a href="#" class="subject-card-link">Learn More →</a>
+                    </div>
                 </div>
-                <div class="hero-stat">
-                    <div class="number">50+</div>
-                    <div class="label">Topics</div>
-                </div>
-                <div class="hero-stat">
-                    <div class="number">5</div>
-                    <div class="label">Past Papers</div>
-                </div>
-                <div class="hero-stat">
-                    <div class="number">Live</div>
-                    <div class="label">Python Terminal</div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="section">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number gradient-text">9+</div>
+                        <div class="stat-label">Subjects</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number gradient-text">500+</div>
+                        <div class="stat-label">Students</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number gradient-text">Since 2017</div>
+                        <div class="stat-label">Teaching at IPU</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number gradient-text">IPU</div>
+                        <div class="stat-label">Expert Faculty</div>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- About Section -->
         <section class="section">
-            <h2 class="section-title">What This Course Offers</h2>
-            <p class="section-subtitle">Everything you need to ace Python Programming in MCA at GGSIPU</p>
-            <div class="features-grid">
-                <a href="syllabus.html" class="feature-card">
-                    <div class="feature-icon">📚</div>
-                    <h3 class="feature-title">Complete Syllabus</h3>
-                    <p class="feature-desc">Full IPU MCA Python syllabus with 5 units, all topics organized with code examples</p>
-                </a>
-                <a href="pyq.html" class="feature-card">
-                    <div class="feature-icon">📝</div>
-                    <h3 class="feature-title">Previous Year Papers</h3>
-                    <p class="feature-desc">Solved papers from 2021-2023, section-wise questions for exam preparation</p>
-                </a>
-                <a href="terminal.html" class="feature-card">
-                    <div class="feature-icon">💻</div>
-                    <h3 class="feature-title">Live Terminal</h3>
-                    <p class="feature-desc">Practice Python code directly in your browser with instant output</p>
-                </a>
-                <a href="instructor.html" class="feature-card">
-                    <div class="feature-icon">👨‍🏫</div>
-                    <h3 class="feature-title">Expert Faculty</h3>
-                    <p class="feature-desc">Learn from Manoj Purohit - experienced Python instructor with proven results</p>
-                </a>
-            </div>
-        </section>
-
-        <!-- CTA Section -->
-        <section class="section cta-section">
-            <h2 class="section-title">Get Started Now</h2>
-            <p class="section-subtitle">Jump into any section and start learning Python</p>
-            <div class="cta-grid">
-                <a href="syllabus.html" class="cta-card">
-                    <div class="cta-emoji">🗂️</div>
-                    <div class="cta-title">Explore Syllabus</div>
-                    <div class="cta-desc">All 5 units with detailed topics</div>
-                </a>
-                <a href="pyq.html" class="cta-card">
-                    <div class="cta-emoji">📋</div>
-                    <div class="cta-title">Practice PYQs</div>
-                    <div class="cta-desc">5 years of question papers</div>
-                </a>
-                <a href="terminal.html" class="cta-card">
-                    <div class="cta-emoji">⚡</div>
-                    <div class="cta-title">Code Live</div>
-                    <div class="cta-desc">Run Python in your browser</div>
-                </a>
-                <a href="instructor.html" class="cta-card">
-                    <div class="cta-emoji">🌟</div>
-                    <div class="cta-title">Meet Instructor</div>
-                    <div class="cta-desc">Know your Python guru</div>
-                </a>
+            <div class="container">
+                <h2 class="section-title gradient-text">About Prof. Manoj Purohit</h2>
+                <div class="about-content">
+                    <p class="about-text">
+                        Prof. Manoj Purohit is a dedicated educator at Guru Gobind Singh Indraprastha University (GGSIPU), teaching MCA students since 2017. He specializes in making complex computer science concepts simple and accessible through practical examples, hands-on coding exercises, and visual diagrams. His teaching covers the entire spectrum of MCA curriculum from programming fundamentals to advanced software engineering.
+                    </p>
+                    <div class="skill-pills">
+                        <span class="pill pill-green">Python</span>
+                        <span class="pill pill-orange">Java</span>
+                        <span class="pill pill-purple">OOSE</span>
+                        <span class="pill pill-cyan">C++</span>
+                        <span class="pill pill-pink">C#</span>
+                        <span class="pill pill-yellow">UML</span>
+                        <span class="pill pill-blue">Design Patterns</span>
+                        <span class="pill pill-teal">Agile</span>
+                        <span class="pill pill-red">Cyber Security</span>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
 
     <!-- Footer -->
     <footer class="footer">
-        <p class="footer-text">Made with 💜 by <span>Manoj Purohit</span> | PyMCA - Python for MCA at GGSIPU</p>
+        <div class="footer-brand gradient-text">Manoj Purohit - MCA Learning Hub</div>
+        <div class="footer-links">
+            <a href="python.html" class="footer-link">Python</a>
+            <a href="java.html" class="footer-link">Java / OOPJ</a>
+            <a href="oose.html" class="footer-link">OOSE</a>
+            <a href="terminal.html" class="footer-link">Terminal</a>
+        </div>
+        <p class="footer-copy">&copy; 2024 Prof. Manoj Purohit &middot; GGSIPU</p>
     </footer>
 
     <script>
         function toggleMenu() {
             document.getElementById('navLinks').classList.toggle('active');
+            document.getElementById('hamburger').classList.toggle('active');
         }
     </script>
 </body>

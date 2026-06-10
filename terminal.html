@@ -1,995 +1,945 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="page-python">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Python Terminal - Live Coding | PyMCA</title>
+    <title>Python Terminal - Manoj Purohit</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        .terminal-page {
-            padding: 5rem 1rem 2rem;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        .terminal-header {
-            text-align: center;
-            margin-bottom: 1.5rem;
-        }
-        .terminal-header h1 {
-            font-size: 2rem;
-            background: linear-gradient(135deg, #10B981, #06B6D4, #7C3AED);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .terminal-window {
-            background: #0a0b0f;
-            border: 1px solid rgba(16, 185, 129, 0.3);
-            border-radius: 14px;
-            overflow: hidden;
-            box-shadow: 0 0 40px rgba(16, 185, 129, 0.1);
-        }
-        .terminal-titlebar {
-            background: #12131a;
-            padding: 0.8rem 1.2rem;
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-            border-bottom: 1px solid rgba(16, 185, 129, 0.1);
-        }
-        .titlebar-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-        }
-        .dot-red { background: #ef4444; }
-        .dot-yellow { background: #F59E0B; }
-        .dot-green { background: #10B981; }
-        .titlebar-text {
-            margin-left: auto;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.75rem;
-            color: var(--text-muted);
-        }
-        .terminal-output {
-            min-height: 400px;
-            max-height: 500px;
-            overflow-y: auto;
-            padding: 1.2rem;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.85rem;
-            line-height: 1.8;
-            color: #d4d4d8;
-        }
-        .terminal-output .output-line { margin-bottom: 0.2rem; }
-        .terminal-output .output-success { color: #10B981; }
-        .terminal-output .output-error { color: #ef4444; }
-        .terminal-output .output-info { color: #06B6D4; }
-        .terminal-output .output-prompt { color: #10B981; }
-        .terminal-input-area {
-            display: flex;
-            align-items: center;
-            padding: 0.8rem 1.2rem;
-            border-top: 1px solid rgba(16, 185, 129, 0.15);
-            background: #0d0e14;
-        }
-        .prompt-symbol {
-            color: #10B981;
-            font-family: 'JetBrains Mono', monospace;
-            font-weight: 700;
-            font-size: 0.9rem;
-            margin-right: 0.5rem;
-        }
-        .terminal-input {
-            flex: 1;
-            background: transparent;
-            border: none;
-            outline: none;
-            color: #ffffff;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.85rem;
-        }
-        .run-btn {
-            padding: 0.5rem 1.2rem;
-            background: linear-gradient(135deg, #10B981, #06B6D4);
-            border: none;
-            border-radius: 8px;
-            color: white;
-            font-weight: 700;
-            font-size: 0.8rem;
-            cursor: pointer;
-            font-family: 'Inter', sans-serif;
-            transition: all 0.3s ease;
-        }
-        .run-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
-        }
-
-        .snippets-section {
-            margin-top: 1.5rem;
-        }
-        .snippets-title {
-            font-size: 1rem;
-            color: var(--text-secondary);
-            margin-bottom: 0.8rem;
-            text-align: center;
-            font-weight: 600;
-        }
-        .snippets-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            justify-content: center;
-        }
-        .snippet-btn {
-            padding: 0.5rem 1rem;
-            border: 1px solid;
-            border-radius: 8px;
-            font-size: 0.78rem;
-            font-weight: 600;
-            cursor: pointer;
-            background: transparent;
-            transition: all 0.3s ease;
-            font-family: 'Inter', sans-serif;
-        }
-        .snippet-btn:hover {
-            transform: translateY(-2px);
-        }
-        .snip-1 { color: var(--purple); border-color: rgba(124,58,237,0.4); }
-        .snip-1:hover { background: rgba(124,58,237,0.1); box-shadow: 0 0 10px rgba(124,58,237,0.3); }
-        .snip-2 { color: var(--pink); border-color: rgba(236,72,153,0.4); }
-        .snip-2:hover { background: rgba(236,72,153,0.1); box-shadow: 0 0 10px rgba(236,72,153,0.3); }
-        .snip-3 { color: var(--cyan); border-color: rgba(6,182,212,0.4); }
-        .snip-3:hover { background: rgba(6,182,212,0.1); box-shadow: 0 0 10px rgba(6,182,212,0.3); }
-        .snip-4 { color: var(--green); border-color: rgba(16,185,129,0.4); }
-        .snip-4:hover { background: rgba(16,185,129,0.1); box-shadow: 0 0 10px rgba(16,185,129,0.3); }
-        .snip-5 { color: var(--yellow); border-color: rgba(245,158,11,0.4); }
-        .snip-5:hover { background: rgba(245,158,11,0.1); box-shadow: 0 0 10px rgba(245,158,11,0.3); }
-        .snip-6 { color: var(--orange); border-color: rgba(249,115,22,0.4); }
-        .snip-6:hover { background: rgba(249,115,22,0.1); box-shadow: 0 0 10px rgba(249,115,22,0.3); }
-        .snip-7 { color: #a78bfa; border-color: rgba(167,139,250,0.4); }
-        .snip-7:hover { background: rgba(167,139,250,0.1); box-shadow: 0 0 10px rgba(167,139,250,0.3); }
-        .snip-8 { color: #f472b6; border-color: rgba(244,114,182,0.4); }
-        .snip-8:hover { background: rgba(244,114,182,0.1); box-shadow: 0 0 10px rgba(244,114,182,0.3); }
-        .snip-9 { color: #ef4444; border-color: rgba(239,68,68,0.4); }
-        .snip-9:hover { background: rgba(239,68,68,0.1); box-shadow: 0 0 10px rgba(239,68,68,0.3); }
-    </style>
 </head>
-<body class="page-terminal">
+<body>
+    <!-- Animated Background Blobs -->
     <div class="bg-blobs">
-        <div class="blob blob-1"></div>
-        <div class="blob blob-2"></div>
-        <div class="blob blob-3"></div>
-        <div class="blob blob-4"></div>
+        <div class="blob blob-1" style="background: var(--green);"></div>
+        <div class="blob blob-2" style="background: var(--cyan);"></div>
+        <div class="blob blob-3" style="background: var(--purple);"></div>
+        <div class="blob blob-4" style="background: var(--green);"></div>
     </div>
 
+    <!-- Navigation -->
     <nav class="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="nav-logo">PyMCA</a>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="syllabus.html">Syllabus</a></li>
-                <li><a href="pyq.html">PYQ</a></li>
-                <li><a href="terminal.html" class="active">Terminal</a></li>
-                <li><a href="instructor.html">Instructor</a></li>
-            </ul>
-            <div class="hamburger" onclick="toggleMenu()">
-                <span></span><span></span><span></span>
-            </div>
+        <a href="index.html" class="nav-brand">
+            <div class="nav-logo">MP</div>
+            <span class="nav-brand-text">Manoj Purohit</span>
+        </a>
+        <div class="nav-links" id="navLinks">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="python.html" class="nav-link">Python</a>
+            <a href="java.html" class="nav-link">Java</a>
+            <a href="oose.html" class="nav-link">OOSE</a>
+            <a href="terminal.html" class="nav-link active">Terminal</a>
+        </div>
+        <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
     </nav>
 
+    <!-- Main Content -->
     <main class="main-content">
-        <div class="terminal-page">
-            <div class="terminal-header">
-                <div class="badge badge-green" style="margin-bottom:0.8rem;">💻 LIVE PYTHON TERMINAL</div>
-                <h1>Python Code Runner</h1>
-                <p style="color:var(--text-secondary); font-size:0.9rem; margin-top:0.5rem;">Write Python code and see instant output. Supports variables, loops, functions, classes & more.</p>
+        <div class="container">
+            <div class="page-header">
+                <h1 class="gradient-text-green">🖥️ Live Python Terminal</h1>
+                <p class="subtitle">Practice Python code instantly &middot; Prof. Manoj Purohit &middot; GGSIPU</p>
             </div>
 
+            <!-- Terminal Window -->
             <div class="terminal-window">
                 <div class="terminal-titlebar">
-                    <div class="titlebar-dot dot-red"></div>
-                    <div class="titlebar-dot dot-yellow"></div>
-                    <div class="titlebar-dot dot-green"></div>
-                    <span class="titlebar-text">python3 — PyMCA Terminal</span>
+                    <div class="terminal-dot terminal-dot-red"></div>
+                    <div class="terminal-dot terminal-dot-yellow"></div>
+                    <div class="terminal-dot terminal-dot-green"></div>
+                    <span class="terminal-title">Python 3.11 — Prof. Manoj Purohit's Terminal</span>
                 </div>
                 <div class="terminal-output" id="output">
-                    <div class="output-line output-info">Python 3.11.0 (PyMCA Virtual Environment)</div>
-                    <div class="output-line output-info">Type Python code and press Enter or click Run</div>
-                    <div class="output-line" style="color:var(--text-muted);">───────────────────────────────────────</div>
+                    <div style="color: var(--green);">Python 3.11.0 (Prof. Manoj Purohit's MCA Terminal)</div>
+                    <div style="color: var(--text-muted);">Type Python code and press Run or Enter</div>
+                    <div style="color: var(--text-muted);">───────────────────────────────────────</div>
                 </div>
                 <div class="terminal-input-area">
-                    <span class="prompt-symbol">&gt;&gt;&gt;</span>
+                    <span class="terminal-prompt">&gt;&gt;&gt;</span>
                     <input type="text" class="terminal-input" id="codeInput" placeholder="Type Python code here..." autocomplete="off" spellcheck="false">
-                    <button class="run-btn" onclick="runCode()">▶ Run</button>
+                    <button class="terminal-run-btn" onclick="runCode()">▶ Run</button>
                 </div>
             </div>
 
-            <div class="snippets-section">
-                <div class="snippets-title">⚡ Quick Snippets</div>
-                <div class="snippets-grid">
-                    <button class="snippet-btn snip-1" onclick="loadSnippet(0)">Hello World</button>
-                    <button class="snippet-btn snip-2" onclick="loadSnippet(1)">Variables</button>
-                    <button class="snippet-btn snip-3" onclick="loadSnippet(2)">List Ops</button>
-                    <button class="snippet-btn snip-4" onclick="loadSnippet(3)">Dictionary</button>
-                    <button class="snippet-btn snip-5" onclick="loadSnippet(4)">For Loop</button>
-                    <button class="snippet-btn snip-6" onclick="loadSnippet(5)">While Loop</button>
-                    <button class="snippet-btn snip-7" onclick="loadSnippet(6)">Function</button>
-                    <button class="snippet-btn snip-8" onclick="loadSnippet(7)">OOP Class</button>
-                    <button class="snippet-btn snip-9" onclick="loadSnippet(8)">Clear</button>
-                </div>
+            <!-- Snippet Buttons -->
+            <div class="snippet-buttons">
+                <button class="snippet-btn" style="background: var(--green);" onclick="loadSnippet('hello')">Hello World</button>
+                <button class="snippet-btn" style="background: var(--cyan);" onclick="loadSnippet('variables')">Variables</button>
+                <button class="snippet-btn" style="background: var(--purple);" onclick="loadSnippet('list')">List Operations</button>
+                <button class="snippet-btn" style="background: var(--orange);" onclick="loadSnippet('dict')">Dictionary</button>
+                <button class="snippet-btn" style="background: var(--yellow); color: #000;" onclick="loadSnippet('forloop')">For Loop</button>
+                <button class="snippet-btn" style="background: var(--pink);" onclick="loadSnippet('whileloop')">While Loop</button>
+                <button class="snippet-btn" style="background: var(--blue);" onclick="loadSnippet('function')">Function</button>
+                <button class="snippet-btn" style="background: var(--red);" onclick="loadSnippet('class')">OOP Class</button>
+                <button class="snippet-btn" style="background: var(--teal);" onclick="loadSnippet('fibonacci')">Fibonacci</button>
+                <button class="snippet-btn" style="background: var(--text-muted);" onclick="clearTerminal()">Clear</button>
             </div>
         </div>
     </main>
 
+    <!-- Footer -->
     <footer class="footer">
-        <p class="footer-text">Made with 💜 by <span>Manoj Purohit</span> | PyMCA - Python for MCA at GGSIPU</p>
+        <div class="footer-brand gradient-text">Manoj Purohit - MCA Learning Hub</div>
+        <div class="footer-links">
+            <a href="index.html" class="footer-link">Home</a>
+            <a href="python.html" class="footer-link">Python</a>
+            <a href="java.html" class="footer-link">Java</a>
+            <a href="oose.html" class="footer-link">OOSE</a>
+            <a href="terminal.html" class="footer-link">Terminal</a>
+        </div>
+        <p class="footer-copy">&copy; 2024 Prof. Manoj Purohit &middot; GGSIPU</p>
     </footer>
 
     <script>
         function toggleMenu() {
             document.getElementById('navLinks').classList.toggle('active');
+            document.getElementById('hamburger').classList.toggle('active');
         }
 
-        const snippets = [
-            'print("Hello, World! Welcome to PyMCA!")',
-            'name = "Manoj"\nage = 25\nprint(f"Name: {name}, Age: {age}")\nprint(type(name))',
-            'fruits = ["apple", "banana", "mango"]\nfruits.append("orange")\nprint(fruits)\nprint(len(fruits))\nprint(fruits[1:3])',
-            'student = {"name": "Rahul", "age": 22, "course": "MCA"}\nprint(student["name"])\nprint(student.keys())\nprint(student.values())',
-            'for i in range(1, 6):\n    print(f"Number: {i}, Square: {i**2}")',
-            'count = 1\nwhile count <= 5:\n    print(f"Count is: {count}")\n    count += 1',
-            'def greet(name, course="MCA"):\n    return f"Hello {name}! Welcome to {course}"\n\nresult = greet("Priya")\nprint(result)',
-            'class Student:\n    def __init__(self, name, roll):\n        self.name = name\n        self.roll = roll\n    def display(self):\n        return f"Student: {self.name}, Roll: {self.roll}"\n\ns1 = Student("Amit", 101)\nprint(s1.display())',
-            'CLEAR'
-        ];
+        // ============ PYTHON TERMINAL ENGINE ============
+        const env = {};
+        const functions = {};
+        const classes = {};
+        const output = document.getElementById('output');
+        const input = document.getElementById('codeInput');
 
-        function loadSnippet(index) {
-            if (snippets[index] === 'CLEAR') {
-                document.getElementById('output').innerHTML = `
-                    <div class="output-line output-info">Python 3.11.0 (PyMCA Virtual Environment)</div>
-                    <div class="output-line output-info">Type Python code and press Enter or click Run</div>
-                    <div class="output-line" style="color:var(--text-muted);">───────────────────────────────────────</div>
-                `;
-                document.getElementById('codeInput').value = '';
-                return;
-            }
-            const lines = snippets[index].split('\n');
-            lines.forEach((line, i) => {
-                setTimeout(() => {
-                    document.getElementById('codeInput').value = line;
-                    if (i === lines.length - 1) {
-                        // Don't auto-run, let user see it
-                    }
-                    runCode();
-                }, i * 100);
-            });
-        }
-
-        document.getElementById('codeInput').addEventListener('keydown', function(e) {
-            if (e.key === 'Enter') {
-                runCode();
-            }
+        input.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') runCode();
         });
 
-        // Python interpreter state
-        let pyEnv = {};
-        let outputHistory = [];
-
         function runCode() {
-            const input = document.getElementById('codeInput').value.trim();
-            if (!input) return;
-
-            const output = document.getElementById('output');
-            output.innerHTML += `<div class="output-line output-prompt">&gt;&gt;&gt; ${escapeHtml(input)}</div>`;
-
+            const code = input.value.trim();
+            if (!code) return;
+            appendOutput('>>> ' + code, 'var(--green)');
+            input.value = '';
             try {
-                const result = executePython(input);
-                if (result !== undefined && result !== null && result !== '__NONE__') {
-                    output.innerHTML += `<div class="output-line output-success">${escapeHtml(String(result))}</div>`;
-                }
+                executeCode(code);
             } catch (e) {
-                output.innerHTML += `<div class="output-line output-error">${escapeHtml(e.message)}</div>`;
+                appendOutput(e.message, '#ef4444');
             }
-
-            document.getElementById('codeInput').value = '';
             output.scrollTop = output.scrollHeight;
         }
 
-        function escapeHtml(str) {
-            return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+        function appendOutput(text, color = '#9ca3af') {
+            const div = document.createElement('div');
+            div.style.color = color;
+            div.style.whiteSpace = 'pre-wrap';
+            div.style.wordBreak = 'break-word';
+            div.textContent = text;
+            output.appendChild(div);
         }
 
-        function executePython(code) {
-            const output = document.getElementById('output');
-            let printBuffer = [];
-
-            function pyPrint(...args) {
-                const text = args.map(a => pyStr(a)).join(' ');
-                printBuffer.push(text);
-            }
-
-            function pyStr(val) {
-                if (val === null || val === undefined) return 'None';
-                if (val === true) return 'True';
-                if (val === false) return 'False';
-                if (Array.isArray(val)) return '[' + val.map(v => pyRepr(v)).join(', ') + ']';
-                if (typeof val === 'object' && val.__dict__) {
-                    return `<${val.__class__} object>`;
+        function executeCode(code) {
+            // Multi-line handling
+            if (code.includes('\n')) {
+                const lines = code.split('\n');
+                for (const line of lines) {
+                    if (line.trim()) executeCode(line.trim());
                 }
-                if (typeof val === 'object' && !Array.isArray(val)) {
-                    let entries = Object.entries(val).map(([k,v]) => `'${k}': ${pyRepr(v)}`);
-                    return '{' + entries.join(', ') + '}';
+                return;
+            }
+
+            // Class definition
+            if (code.startsWith('class ')) {
+                handleClass(code);
+                return;
+            }
+
+            // Function definition
+            if (code.startsWith('def ')) {
+                handleFunction(code);
+                return;
+            }
+
+            // For loop
+            if (code.startsWith('for ')) {
+                handleForLoop(code);
+                return;
+            }
+
+            // While loop
+            if (code.startsWith('while ')) {
+                handleWhileLoop(code);
+                return;
+            }
+
+            // If statement
+            if (code.startsWith('if ') || code.startsWith('elif ') || code.startsWith('else')) {
+                handleIf(code);
+                return;
+            }
+
+            // Import (ignore gracefully)
+            if (code.startsWith('import ') || code.startsWith('from ')) {
+                return;
+            }
+
+            // Print statement
+            if (code.startsWith('print(')) {
+                handlePrint(code);
+                return;
+            }
+
+            // Assignment
+            if (code.includes('=') && !code.includes('==') && !code.startsWith('print') && !code.includes('!=')) {
+                handleAssignment(code);
+                return;
+            }
+
+            // Expression evaluation
+            const result = evaluateExpression(code);
+            if (result !== undefined && result !== null) {
+                appendOutput(formatValue(result));
+            }
+        }
+
+        function handlePrint(code) {
+            const inner = code.slice(6, -1);
+            if (!inner && inner !== '0') {
+                appendOutput('');
+                return;
+            }
+
+            // Handle multiple arguments
+            const args = smartSplit(inner, ',');
+            const results = args.map(arg => {
+                const val = evaluateExpression(arg.trim());
+                return formatForPrint(val);
+            });
+            appendOutput(results.join(' '));
+        }
+
+        function smartSplit(str, delimiter) {
+            const parts = [];
+            let depth = 0;
+            let inStr = false;
+            let strChar = '';
+            let current = '';
+
+            for (let i = 0; i < str.length; i++) {
+                const ch = str[i];
+                if (inStr) {
+                    current += ch;
+                    if (ch === strChar && str[i-1] !== '\\') inStr = false;
+                } else if (ch === '"' || ch === "'") {
+                    inStr = true;
+                    strChar = ch;
+                    current += ch;
+                } else if (ch === '(' || ch === '[' || ch === '{') {
+                    depth++;
+                    current += ch;
+                } else if (ch === ')' || ch === ']' || ch === '}') {
+                    depth--;
+                    current += ch;
+                } else if (ch === delimiter && depth === 0) {
+                    parts.push(current);
+                    current = '';
+                } else {
+                    current += ch;
                 }
-                return String(val);
+            }
+            parts.push(current);
+            return parts;
+        }
+
+        function handleAssignment(code) {
+            // Handle augmented assignments
+            const augOps = ['+=', '-=', '*=', '/=', '//=', '%=', '**='];
+            for (const op of augOps) {
+                if (code.includes(op)) {
+                    const [varName, expr] = code.split(op).map(s => s.trim());
+                    const mathOp = op.slice(0, -1);
+                    if (!(varName in env)) throw { message: `NameError: name '${varName}' is not defined` };
+                    env[varName] = evaluateExpression(`${env[varName]} ${mathOp} ${expr}`);
+                    return;
+                }
             }
 
-            function pyRepr(val) {
-                if (typeof val === 'string') return `'${val}'`;
-                return pyStr(val);
+            // Handle tuple unpacking
+            if (code.includes(',') && code.indexOf(',') < code.indexOf('=')) {
+                const [left, right] = code.split('=').map(s => s.trim());
+                const vars = left.split(',').map(s => s.trim());
+                const val = evaluateExpression(right);
+                if (Array.isArray(val)) {
+                    vars.forEach((v, i) => env[v] = val[i]);
+                } else {
+                    const vals = right.split(',').map(s => evaluateExpression(s.trim()));
+                    vars.forEach((v, i) => env[v] = vals[i]);
+                }
+                return;
             }
 
-            function pyType(val) {
-                if (val === null || val === undefined) return "<class 'NoneType'>";
-                if (typeof val === 'number') return Number.isInteger(val) ? "<class 'int'>" : "<class 'float'>";
-                if (typeof val === 'string') return "<class 'str'>";
-                if (typeof val === 'boolean') return "<class 'bool'>";
-                if (Array.isArray(val)) return "<class 'list'>";
-                if (typeof val === 'object') return "<class 'dict'>";
-                return "<class 'object'>";
+            const eqIndex = code.indexOf('=');
+            const varName = code.slice(0, eqIndex).trim();
+            const expr = code.slice(eqIndex + 1).trim();
+
+            // Handle index assignment
+            if (varName.includes('[')) {
+                const match = varName.match(/^(\w+)\[(.+)\]$/);
+                if (match) {
+                    const obj = env[match[1]];
+                    const key = evaluateExpression(match[2]);
+                    if (obj) obj[key] = evaluateExpression(expr);
+                    return;
+                }
             }
 
-            function pyLen(val) {
-                if (typeof val === 'string' || Array.isArray(val)) return val.length;
-                if (typeof val === 'object') return Object.keys(val).length;
-                throw {message: "TypeError: object has no len()"};
+            env[varName] = evaluateExpression(expr);
+        }
+
+        function handleForLoop(code) {
+            const match = code.match(/^for\s+(\w+)\s+in\s+(.+):$/);
+            if (!match) throw { message: 'SyntaxError: invalid for loop syntax' };
+
+            const varName = match[1];
+            const iterExpr = match[2].trim();
+            let iterable;
+
+            if (iterExpr.startsWith('range(')) {
+                const args = iterExpr.slice(6, -1).split(',').map(a => evaluateExpression(a.trim()));
+                iterable = [];
+                let start = 0, stop, step = 1;
+                if (args.length === 1) { stop = args[0]; }
+                else if (args.length === 2) { start = args[0]; stop = args[1]; }
+                else { start = args[0]; stop = args[1]; step = args[2]; }
+                for (let i = start; step > 0 ? i < stop : i > stop; i += step) {
+                    iterable.push(i);
+                    if (iterable.length > 1000) throw { message: 'RuntimeError: loop iteration limit exceeded (1000)' };
+                }
+            } else {
+                iterable = evaluateExpression(iterExpr);
             }
 
-            function pyRange(start, stop, step) {
-                if (stop === undefined) { stop = start; start = 0; }
-                if (step === undefined) step = 1;
-                let arr = [];
-                if (step > 0) { for (let i = start; i < stop; i += step) arr.push(i); }
-                else { for (let i = start; i > stop; i += step) arr.push(i); }
-                return arr;
+            if (!iterable || typeof iterable[Symbol.iterator] !== 'function') {
+                if (Array.isArray(iterable)) {} else {
+                    throw { message: `TypeError: '${typeof iterable}' is not iterable` };
+                }
             }
 
-            function pyInt(val) { 
-                let n = parseInt(val); 
-                if (isNaN(n)) throw {message: `ValueError: invalid literal for int(): '${val}'`};
-                return n;
+            let count = 0;
+            for (const item of iterable) {
+                env[varName] = item;
+                count++;
+                if (count > 1000) throw { message: 'RuntimeError: loop iteration limit exceeded (1000)' };
             }
-            function pyFloat(val) { 
-                let n = parseFloat(val); 
-                if (isNaN(n)) throw {message: `ValueError: could not convert string to float: '${val}'`};
-                return n;
+        }
+
+        function handleWhileLoop(code) {
+            const match = code.match(/^while\s+(.+):$/);
+            if (!match) throw { message: 'SyntaxError: invalid while loop syntax' };
+            let count = 0;
+            while (evaluateExpression(match[1])) {
+                count++;
+                if (count > 1000) throw { message: 'RuntimeError: loop iteration limit exceeded (1000)' };
+            }
+        }
+
+        function handleFunction(code) {
+            const match = code.match(/^def\s+(\w+)\(([^)]*)\):$/);
+            if (!match) throw { message: 'SyntaxError: invalid function definition' };
+            functions[match[1]] = { params: match[2].split(',').map(s => s.trim()).filter(s => s), body: null };
+        }
+
+        function handleClass(code) {
+            const match = code.match(/^class\s+(\w+)(\(([^)]*)\))?:$/);
+            if (!match) throw { message: 'SyntaxError: invalid class definition' };
+            classes[match[1]] = { parent: match[3] || null };
+        }
+
+        function handleIf(code) {
+            // Simple if handling - just evaluate condition
+        }
+
+        function evaluateExpression(expr) {
+            if (expr === undefined || expr === null) return undefined;
+            expr = expr.trim();
+            if (!expr) return undefined;
+
+            // None, True, False
+            if (expr === 'None') return null;
+            if (expr === 'True') return true;
+            if (expr === 'False') return false;
+
+            // Numbers
+            if (/^-?\d+$/.test(expr)) return parseInt(expr);
+            if (/^-?\d+\.\d+$/.test(expr)) return parseFloat(expr);
+
+            // Strings
+            if ((expr.startsWith('"') && expr.endsWith('"')) || (expr.startsWith("'") && expr.endsWith("'"))) {
+                return expr.slice(1, -1);
             }
 
-            // Process f-strings
-            function processFString(str) {
-                return str.replace(/\{([^}]+)\}/g, (match, expr) => {
-                    try {
-                        let val = evalExpr(expr.trim());
-                        return pyStr(val);
-                    } catch(e) {
-                        return match;
-                    }
+            // f-strings
+            if (expr.startsWith('f"') || expr.startsWith("f'")) {
+                const strContent = expr.slice(2, -1);
+                return strContent.replace(/\{([^}]+)\}/g, (_, e) => {
+                    const val = evaluateExpression(e);
+                    return formatForPrint(val);
                 });
             }
 
-            function evalExpr(expr) {
-                // Handle string literals
-                if ((expr.startsWith('"') && expr.endsWith('"')) || (expr.startsWith("'") && expr.endsWith("'"))) {
-                    return expr.slice(1, -1);
-                }
-                // Handle f-strings
-                if (expr.startsWith('f"') || expr.startsWith("f'")) {
-                    let inner = expr.slice(2, -1);
-                    return processFString(inner);
-                }
-                // Numbers
-                if (/^-?\d+(\.\d+)?$/.test(expr)) return parseFloat(expr);
-                // Booleans
-                if (expr === 'True') return true;
-                if (expr === 'False') return false;
-                if (expr === 'None') return null;
-                // List literal
-                if (expr.startsWith('[') && expr.endsWith(']')) {
-                    let inner = expr.slice(1, -1).trim();
-                    if (!inner) return [];
-                    let items = smartSplit(inner, ',');
-                    return items.map(item => evalExpr(item.trim()));
-                }
-                // Dict literal
-                if (expr.startsWith('{') && expr.endsWith('}')) {
-                    let inner = expr.slice(1, -1).trim();
-                    if (!inner) return {};
-                    let pairs = smartSplit(inner, ',');
-                    let obj = {};
-                    pairs.forEach(pair => {
-                        let [k, v] = smartSplit(pair, ':');
-                        let key = evalExpr(k.trim());
-                        obj[key] = evalExpr(v.trim());
-                    });
-                    return obj;
-                }
-                // Variable lookup
-                if (/^[a-zA-Z_]\w*$/.test(expr)) {
-                    if (expr in pyEnv) return pyEnv[expr];
-                    throw {message: `NameError: name '${expr}' is not defined`};
-                }
-                // Method calls
-                let methodMatch = expr.match(/^(\w+)\.(\w+)\((.*)\)$/);
-                if (methodMatch) {
-                    let [, objName, method, args] = methodMatch;
-                    let obj = evalExpr(objName);
-                    let argList = args ? smartSplit(args, ',').map(a => evalExpr(a.trim())) : [];
-                    return callMethod(obj, method, argList);
-                }
-                // Property access
-                let propMatch = expr.match(/^(\w+)\.(\w+)$/);
-                if (propMatch) {
-                    let obj = evalExpr(propMatch[1]);
-                    if (obj && typeof obj === 'object' && obj.__dict__) {
-                        return obj.__dict__[propMatch[2]];
-                    }
-                    if (obj && typeof obj === 'object') return obj[propMatch[2]];
-                    throw {message: `AttributeError: object has no attribute '${propMatch[2]}'`};
-                }
-                // Indexing
-                let indexMatch = expr.match(/^(\w+)\[(.+)\]$/);
-                if (indexMatch) {
-                    let obj = evalExpr(indexMatch[1]);
-                    let idx = indexMatch[2];
-                    // Slicing
-                    if (idx.includes(':')) {
-                        let parts = idx.split(':').map(p => p.trim() === '' ? null : evalExpr(p.trim()));
-                        let start = parts[0] !== null ? parts[0] : 0;
-                        let end = parts[1] !== null ? parts[1] : (obj.length || Object.keys(obj).length);
-                        if (Array.isArray(obj) || typeof obj === 'string') return obj.slice(start, end);
-                    }
-                    let key = evalExpr(idx);
-                    if (Array.isArray(obj)) {
-                        if (key < 0) key = obj.length + key;
-                        if (key < 0 || key >= obj.length) throw {message: `IndexError: list index out of range`};
-                        return obj[key];
-                    }
-                    if (typeof obj === 'string') {
-                        if (key < 0) key = obj.length + key;
-                        return obj[key];
-                    }
-                    if (typeof obj === 'object') return obj[key];
-                }
-                // Function calls
-                let funcMatch = expr.match(/^(\w+)\((.*)\)$/s);
-                if (funcMatch) {
-                    let [, funcName, argsStr] = funcMatch;
-                    let argList = argsStr.trim() ? smartSplit(argsStr, ',').map(a => evalExpr(a.trim())) : [];
-                    return callFunction(funcName, argList);
-                }
-                // Arithmetic
-                let arithResult = evalArithmetic(expr);
-                if (arithResult !== undefined) return arithResult;
-                
-                // String concatenation
-                if (expr.includes('+')) {
-                    let parts = smartSplit(expr, '+');
-                    let vals = parts.map(p => evalExpr(p.trim()));
-                    if (vals.every(v => typeof v === 'string')) return vals.join('');
-                    if (vals.every(v => typeof v === 'number')) return vals.reduce((a,b) => a+b, 0);
-                }
+            // Lists
+            if (expr.startsWith('[') && expr.endsWith(']')) {
+                const inner = expr.slice(1, -1).trim();
+                if (!inner) return [];
 
-                throw {message: `SyntaxError: invalid syntax`};
-            }
-
-            function evalArithmetic(expr) {
-                // Simple arithmetic evaluation
-                try {
-                    // Replace Python operators
-                    let jsExpr = expr
-                        .replace(/\*\*/g, '___POW___')
-                        .replace(/\/\//g, '___FLOOR___');
-                    
-                    // Check if it looks like a math expression
-                    let testExpr = expr.replace(/[a-zA-Z_]\w*/g, (match) => {
-                        if (match in pyEnv) return typeof pyEnv[match] === 'number' ? pyEnv[match] : 'NaN';
-                        if (match === 'True') return '1';
-                        if (match === 'False') return '0';
-                        return 'NaN';
-                    });
-                    testExpr = testExpr.replace(/\*\*/g, '**').replace(/\/\//g, '//');
-                    
-                    // Only do arithmetic if it contains operators
-                    if (/[+\-*/%]/.test(expr) || expr.includes('**') || expr.includes('//')) {
-                        let processedExpr = expr.replace(/[a-zA-Z_]\w*/g, (match) => {
-                            if (match in pyEnv) {
-                                let val = pyEnv[match];
-                                if (typeof val === 'number') return val;
-                                throw {message: `TypeError: unsupported operand type`};
+                // List comprehension
+                if (inner.includes(' for ')) {
+                    const compMatch = inner.match(/^(.+)\s+for\s+(\w+)\s+in\s+(.+?)(\s+if\s+(.+))?$/);
+                    if (compMatch) {
+                        const [, itemExpr, varName, iterExpr, , condition] = compMatch;
+                        let iterable = evaluateExpression(iterExpr);
+                        if (iterExpr.startsWith('range(')) {
+                            const args = iterExpr.slice(6, -1).split(',').map(a => evaluateExpression(a.trim()));
+                            iterable = [];
+                            let start = 0, stop, step = 1;
+                            if (args.length === 1) stop = args[0];
+                            else if (args.length === 2) { start = args[0]; stop = args[1]; }
+                            else { start = args[0]; stop = args[1]; step = args[2]; }
+                            for (let i = start; step > 0 ? i < stop : i > stop; i += step) iterable.push(i);
+                        }
+                        const result = [];
+                        for (const item of iterable) {
+                            env[varName] = item;
+                            if (condition) {
+                                if (evaluateExpression(condition)) result.push(evaluateExpression(itemExpr));
+                            } else {
+                                result.push(evaluateExpression(itemExpr));
                             }
-                            if (match === 'True') return '1';
-                            if (match === 'False') return '0';
-                            throw {message: `NameError: name '${match}' is not defined`};
-                        });
-                        processedExpr = processedExpr.replace(/\*\*/g, '**').replace(/\/\//g, '//');
-                        
-                        // Check for division by zero
-                        if (/\/\s*0(?!\.)/.test(processedExpr) && !/\/\//.test(processedExpr)) {
-                            throw {message: "ZeroDivisionError: division by zero"};
                         }
-                        if (/\/\/\s*0(?!\.)/.test(processedExpr)) {
-                            throw {message: "ZeroDivisionError: integer floor division by zero"};
-                        }
-                        
-                        // Convert to JS
-                        let jsCalc = processedExpr.replace(/\/\//g, ',').replace(/\*\*/g, '^');
-                        // Evaluate using Function
-                        jsCalc = processedExpr
-                            .replace(/\*\*/g, '**')
-                            .replace(/\/\//g, '|0/'); // floor div hack
-                        
-                        // Simple eval approach for math
-                        let result = Function('"use strict"; return (' + 
-                            processedExpr.replace(/\/\//g, '/').replace(/(\d+)\s*\/\s*(\d+)/g, 'Math.floor($1/$2)') +
-                        ')')();
-                        
-                        // Actually let's do proper floor division
-                        if (expr.includes('//')) {
-                            let parts = expr.split('//');
-                            let left = evalExpr(parts[0].trim());
-                            let right = evalExpr(parts[1].trim());
-                            if (right === 0) throw {message: "ZeroDivisionError: integer floor division by zero"};
-                            return Math.floor(left / right);
-                        }
-                        if (expr.includes('**')) {
-                            let parts = expr.split('**');
-                            let base = evalExpr(parts[0].trim());
-                            let exp = evalExpr(parts[1].trim());
-                            return Math.pow(base, exp);
-                        }
-                        if (expr.includes('%')) {
-                            let parts = expr.split('%');
-                            let left = evalExpr(parts[0].trim());
-                            let right = evalExpr(parts[1].trim());
-                            return left % right;
-                        }
-                        
-                        if (!isNaN(result)) return result;
+                        return result;
                     }
-                } catch(e) {
-                    if (e.message && (e.message.includes('Error'))) throw e;
                 }
-                return undefined;
+
+                const items = smartSplit(inner, ',');
+                return items.map(i => evaluateExpression(i.trim()));
             }
 
-            function callMethod(obj, method, args) {
-                if (Array.isArray(obj)) {
-                    switch(method) {
-                        case 'append': obj.push(args[0]); return '__NONE__';
-                        case 'pop': return args.length ? obj.splice(args[0], 1)[0] : obj.pop();
-                        case 'remove': { let idx = obj.indexOf(args[0]); if(idx>-1) obj.splice(idx,1); return '__NONE__'; }
-                        case 'sort': obj.sort((a,b) => a-b); return '__NONE__';
-                        case 'reverse': obj.reverse(); return '__NONE__';
-                        case 'insert': obj.splice(args[0], 0, args[1]); return '__NONE__';
-                        case 'extend': obj.push(...args[0]); return '__NONE__';
-                        case 'index': return obj.indexOf(args[0]);
-                        case 'count': return obj.filter(x => x === args[0]).length;
-                    }
-                }
-                if (typeof obj === 'string') {
-                    switch(method) {
-                        case 'upper': return obj.toUpperCase();
-                        case 'lower': return obj.toLowerCase();
-                        case 'strip': return obj.trim();
-                        case 'split': return args.length ? obj.split(args[0]) : obj.split(/\s+/);
-                        case 'replace': return obj.replace(new RegExp(args[0], 'g'), args[1]);
-                        case 'find': return obj.indexOf(args[0]);
-                        case 'count': return (obj.match(new RegExp(args[0], 'g')) || []).length;
-                        case 'startswith': return obj.startsWith(args[0]);
-                        case 'endswith': return obj.endsWith(args[0]);
-                        case 'join': return args[0].join(obj);
-                        case 'format': return obj;
-                    }
-                }
-                if (typeof obj === 'object' && !Array.isArray(obj)) {
-                    switch(method) {
-                        case 'keys': return Object.keys(obj);
-                        case 'values': return Object.values(obj);
-                        case 'items': return Object.entries(obj).map(([k,v]) => [k,v]);
-                        case 'get': return obj[args[0]] !== undefined ? obj[args[0]] : (args[1] || null);
-                        case 'update': Object.assign(obj, args[0]); return '__NONE__';
-                        case 'pop': { let v = obj[args[0]]; delete obj[args[0]]; return v; }
-                    }
-                }
-                // Object methods
-                if (obj && obj.__dict__ && obj.__methods__ && obj.__methods__[method]) {
-                    return obj.__methods__[method](obj, ...args);
-                }
-                throw {message: `AttributeError: object has no attribute '${method}'`};
+            // Tuples
+            if (expr.startsWith('(') && expr.endsWith(')') && expr.includes(',')) {
+                const inner = expr.slice(1, -1);
+                return smartSplit(inner, ',').map(i => evaluateExpression(i.trim()));
             }
 
-            function callFunction(name, args) {
-                switch(name) {
-                    case 'print': pyPrint(...args); return '__NONE__';
-                    case 'len': return pyLen(args[0]);
-                    case 'type': return pyType(args[0]);
-                    case 'int': return pyInt(args[0]);
-                    case 'float': return pyFloat(args[0]);
-                    case 'str': return pyStr(args[0]);
-                    case 'range': return pyRange(...args);
-                    case 'list': return Array.isArray(args[0]) ? [...args[0]] : Array.from(args[0]);
-                    case 'abs': return Math.abs(args[0]);
-                    case 'max': return Array.isArray(args[0]) ? Math.max(...args[0]) : Math.max(...args);
-                    case 'min': return Array.isArray(args[0]) ? Math.min(...args[0]) : Math.min(...args);
-                    case 'sum': return args[0].reduce((a,b) => a+b, 0);
-                    case 'sorted': return [...args[0]].sort((a,b) => a-b);
-                    case 'reversed': return [...args[0]].reverse();
-                    case 'input': return 'user_input';
-                    case 'bool': return Boolean(args[0]);
-                    case 'round': return args.length > 1 ? parseFloat(args[0].toFixed(args[1])) : Math.round(args[0]);
-                    case 'pow': return Math.pow(args[0], args[1]);
-                    case 'isinstance': return typeof args[0] === args[1];
+            // Dicts
+            if (expr.startsWith('{') && expr.endsWith('}') && expr.includes(':')) {
+                const inner = expr.slice(1, -1).trim();
+                if (!inner) return {};
+                const obj = {};
+                const pairs = smartSplit(inner, ',');
+                for (const pair of pairs) {
+                    const colonIdx = pair.indexOf(':');
+                    const key = evaluateExpression(pair.slice(0, colonIdx).trim());
+                    const val = evaluateExpression(pair.slice(colonIdx + 1).trim());
+                    obj[key] = val;
                 }
-                // User-defined functions
-                if (pyEnv[name] && pyEnv[name].__func__) {
-                    return pyEnv[name].__func__(args);
-                }
-                // Classes
-                if (pyEnv[name] && pyEnv[name].__class_def__) {
-                    let cls = pyEnv[name];
-                    let instance = { __dict__: {}, __class__: name, __methods__: cls.__methods__ || {} };
-                    if (cls.__init__) {
-                        cls.__init__(instance, ...args);
-                    }
-                    return instance;
-                }
-                throw {message: `NameError: name '${name}' is not defined`};
+                return obj;
             }
 
-            function smartSplit(str, delimiter) {
-                let result = [];
-                let depth = 0;
-                let current = '';
-                let inStr = false;
-                let strChar = '';
-                for (let i = 0; i < str.length; i++) {
-                    let ch = str[i];
-                    if (!inStr && (ch === '"' || ch === "'")) { inStr = true; strChar = ch; current += ch; }
-                    else if (inStr && ch === strChar) { inStr = false; current += ch; }
-                    else if (!inStr && (ch === '(' || ch === '[' || ch === '{')) { depth++; current += ch; }
-                    else if (!inStr && (ch === ')' || ch === ']' || ch === '}')) { depth--; current += ch; }
-                    else if (!inStr && depth === 0 && ch === delimiter) { result.push(current); current = ''; }
-                    else { current += ch; }
-                }
-                if (current) result.push(current);
+            // Sets
+            if (expr.startsWith('{') && expr.endsWith('}') && !expr.includes(':')) {
+                const inner = expr.slice(1, -1).trim();
+                if (!inner) return new Set();
+                const items = smartSplit(inner, ',').map(i => evaluateExpression(i.trim()));
+                return new Set(items);
+            }
+
+            // Built-in functions
+            if (expr.startsWith('len(')) {
+                const arg = evaluateExpression(expr.slice(4, -1));
+                if (Array.isArray(arg)) return arg.length;
+                if (typeof arg === 'string') return arg.length;
+                if (typeof arg === 'object' && arg !== null) return Object.keys(arg).length;
+                throw { message: `TypeError: object has no len()` };
+            }
+
+            if (expr.startsWith('type(')) {
+                const arg = evaluateExpression(expr.slice(5, -1));
+                if (arg === null) return "<class 'NoneType'>";
+                if (typeof arg === 'number') return Number.isInteger(arg) ? "<class 'int'>" : "<class 'float'>";
+                if (typeof arg === 'string') return "<class 'str'>";
+                if (typeof arg === 'boolean') return "<class 'bool'>";
+                if (Array.isArray(arg)) return "<class 'list'>";
+                return "<class '" + typeof arg + "'>";
+            }
+
+            if (expr.startsWith('int(')) {
+                const arg = evaluateExpression(expr.slice(4, -1));
+                const result = parseInt(arg);
+                if (isNaN(result)) throw { message: `ValueError: invalid literal for int()` };
                 return result;
             }
 
-            // Main execution
-            let lines = code.split('\n');
-            let i = 0;
-            
-            while (i < lines.length) {
-                let line = lines[i].trim();
-                if (!line || line.startsWith('#')) { i++; continue; }
+            if (expr.startsWith('float(')) {
+                const arg = evaluateExpression(expr.slice(6, -1));
+                return parseFloat(arg);
+            }
 
-                // Class definition
-                if (line.startsWith('class ')) {
-                    let classMatch = line.match(/^class\s+(\w+)(?:\((\w+)\))?:/);
-                    if (classMatch) {
-                        let className = classMatch[1];
-                        let classDef = { __class_def__: true, __methods__: {}, __init__: null };
+            if (expr.startsWith('str(')) {
+                const arg = evaluateExpression(expr.slice(4, -1));
+                return String(arg);
+            }
+
+            if (expr.startsWith('range(')) {
+                const args = expr.slice(6, -1).split(',').map(a => evaluateExpression(a.trim()));
+                const result = [];
+                let start = 0, stop, step = 1;
+                if (args.length === 1) stop = args[0];
+                else if (args.length === 2) { start = args[0]; stop = args[1]; }
+                else { start = args[0]; stop = args[1]; step = args[2]; }
+                for (let i = start; step > 0 ? i < stop : i > stop; i += step) result.push(i);
+                return result;
+            }
+
+            if (expr.startsWith('list(')) {
+                const arg = evaluateExpression(expr.slice(5, -1));
+                if (arg instanceof Set) return Array.from(arg);
+                if (Array.isArray(arg)) return [...arg];
+                return Array.from(arg);
+            }
+
+            if (expr.startsWith('sorted(')) {
+                const arg = evaluateExpression(expr.slice(7, -1));
+                return [...arg].sort((a, b) => a - b);
+            }
+
+            if (expr.startsWith('sum(')) {
+                const arg = evaluateExpression(expr.slice(4, -1));
+                return arg.reduce((a, b) => a + b, 0);
+            }
+
+            if (expr.startsWith('max(')) {
+                const arg = evaluateExpression(expr.slice(4, -1));
+                if (Array.isArray(arg)) return Math.max(...arg);
+                return Math.max(...expr.slice(4, -1).split(',').map(a => evaluateExpression(a.trim())));
+            }
+
+            if (expr.startsWith('min(')) {
+                const arg = evaluateExpression(expr.slice(4, -1));
+                if (Array.isArray(arg)) return Math.min(...arg);
+                return Math.min(...expr.slice(4, -1).split(',').map(a => evaluateExpression(a.trim())));
+            }
+
+            if (expr.startsWith('abs(')) {
+                return Math.abs(evaluateExpression(expr.slice(4, -1)));
+            }
+
+            if (expr.startsWith('round(')) {
+                const args = expr.slice(6, -1).split(',').map(a => evaluateExpression(a.trim()));
+                return args.length > 1 ? parseFloat(args[0].toFixed(args[1])) : Math.round(args[0]);
+            }
+
+            if (expr.startsWith('input(')) {
+                return "user_input";
+            }
+
+            // Method calls on variables
+            const methodMatch = expr.match(/^(\w+)\.(\w+)\(([^)]*)\)$/);
+            if (methodMatch) {
+                const [, objName, method, argsStr] = methodMatch;
+                const obj = env[objName];
+                if (obj === undefined) throw { message: `NameError: name '${objName}' is not defined` };
+                const args = argsStr ? smartSplit(argsStr, ',').map(a => evaluateExpression(a.trim())) : [];
+
+                // String methods
+                if (typeof obj === 'string') {
+                    if (method === 'upper') return obj.toUpperCase();
+                    if (method === 'lower') return obj.toLowerCase();
+                    if (method === 'strip') return obj.trim();
+                    if (method === 'split') return args.length ? obj.split(args[0]) : obj.split(/\s+/);
+                    if (method === 'replace') return obj.replace(new RegExp(args[0], 'g'), args[1]);
+                    if (method === 'find') return obj.indexOf(args[0]);
+                    if (method === 'count') return (obj.match(new RegExp(args[0], 'g')) || []).length;
+                    if (method === 'startswith') return obj.startsWith(args[0]);
+                    if (method === 'endswith') return obj.endsWith(args[0]);
+                    if (method === 'join') return args[0].join(obj);
+                }
+
+                // List methods
+                if (Array.isArray(obj)) {
+                    if (method === 'append') { obj.push(args[0]); return; }
+                    if (method === 'pop') { return args.length ? obj.splice(args[0], 1)[0] : obj.pop(); }
+                    if (method === 'insert') { obj.splice(args[0], 0, args[1]); return; }
+                    if (method === 'remove') { const idx = obj.indexOf(args[0]); if (idx > -1) obj.splice(idx, 1); return; }
+                    if (method === 'sort') { obj.sort((a, b) => a - b); return; }
+                    if (method === 'reverse') { obj.reverse(); return; }
+                    if (method === 'index') return obj.indexOf(args[0]);
+                    if (method === 'count') return obj.filter(x => x === args[0]).length;
+                    if (method === 'extend') { obj.push(...args[0]); return; }
+                    if (method === 'copy') return [...obj];
+                }
+
+                // Dict methods
+                if (typeof obj === 'object' && !Array.isArray(obj)) {
+                    if (method === 'keys') return Object.keys(obj);
+                    if (method === 'values') return Object.values(obj);
+                    if (method === 'items') return Object.entries(obj);
+                    if (method === 'get') return obj[args[0]] !== undefined ? obj[args[0]] : (args[1] || null);
+                    if (method === 'update') { Object.assign(obj, args[0]); return; }
+                }
+            }
+
+            // Subscript access: var[index]
+            const subMatch = expr.match(/^(\w+)\[(.+)\]$/);
+            if (subMatch) {
+                const obj = env[subMatch[1]];
+                if (obj === undefined) throw { message: `NameError: name '${subMatch[1]}' is not defined` };
+
+                const indexExpr = subMatch[2];
+                // Slicing
+                if (indexExpr.includes(':')) {
+                    const parts = indexExpr.split(':').map(p => p.trim() ? evaluateExpression(p.trim()) : undefined);
+                    if (Array.isArray(obj) || typeof obj === 'string') {
+                        const len = obj.length;
+                        let start = parts[0] !== undefined ? (parts[0] < 0 ? len + parts[0] : parts[0]) : 0;
+                        let stop = parts[1] !== undefined ? (parts[1] < 0 ? len + parts[1] : parts[1]) : len;
+                        let step = parts[2] || 1;
+                        if (step === -1) {
+                            if (Array.isArray(obj)) return [...obj].reverse();
+                            return obj.split('').reverse().join('');
+                        }
+                        const sliced = Array.isArray(obj) ? obj.slice(start, stop) : obj.slice(start, stop);
+                        return sliced;
+                    }
+                }
+
+                const key = evaluateExpression(indexExpr);
+                if (Array.isArray(obj)) {
+                    const idx = key < 0 ? obj.length + key : key;
+                    if (idx < 0 || idx >= obj.length) throw { message: `IndexError: list index out of range` };
+                    return obj[idx];
+                }
+                if (typeof obj === 'string') {
+                    const idx = key < 0 ? obj.length + key : key;
+                    return obj[idx];
+                }
+                if (obj[key] === undefined && typeof obj === 'object') {
+                    throw { message: `KeyError: ${formatValue(key)}` };
+                }
+                return obj[key];
+            }
+
+            // Variable lookup
+            if (/^\w+$/.test(expr)) {
+                if (expr in env) return env[expr];
+                throw { message: `NameError: name '${expr}' is not defined` };
+            }
+
+            // Arithmetic and comparison
+            try {
+                // Replace Python operators
+                let jsExpr = expr
+                    .replace(/\*\*/g, '**')
+                    .replace(/\/\//g, '~FLOORDIV~')
+                    .replace(/\band\b/g, '&&')
+                    .replace(/\bor\b/g, '||')
+                    .replace(/\bnot\b/g, '!')
+                    .replace(/\bTrue\b/g, 'true')
+                    .replace(/\bFalse\b/g, 'false')
+                    .replace(/\bNone\b/g, 'null');
+
+                // Replace variable names
+                const varRegex = /\b([a-zA-Z_]\w*)\b/g;
+                jsExpr = jsExpr.replace(varRegex, (match) => {
+                    if (['true', 'false', 'null', 'undefined', 'Math', 'NaN', 'Infinity'].includes(match)) return match;
+                    if (match in env) {
+                        const val = env[match];
+                        if (typeof val === 'string') return JSON.stringify(val);
+                        if (Array.isArray(val)) return JSON.stringify(val);
+                        if (typeof val === 'object' && val !== null) return JSON.stringify(val);
+                        return String(val);
+                    }
+                    return match;
+                });
+
+                // Handle floor division
+                jsExpr = jsExpr.replace(/~FLOORDIV~/g, '/');
+                const hasFloorDiv = expr.includes('//');
+
+                let result = Function('"use strict"; return (' + jsExpr + ')')();
+                if (hasFloorDiv && typeof result === 'number') result = Math.floor(result);
+
+                // Handle modulo for negative numbers (Python style)
+                if (expr.includes('%')) {
+                    const parts = expr.split('%').map(p => evaluateExpression(p.trim()));
+                    if (parts.length === 2) {
+                        result = ((parts[0] % parts[1]) + parts[1]) % parts[1];
+                    }
+                }
+
+                if (result === Infinity) throw { message: 'ZeroDivisionError: division by zero' };
+                return result;
+            } catch (e) {
+                if (e.message && (e.message.includes('Error:') || e.message.includes('error:'))) throw e;
+                throw { message: `SyntaxError: invalid syntax` };
+            }
+        }
+
+        function formatValue(val) {
+            if (val === null) return 'None';
+            if (val === true) return 'True';
+            if (val === false) return 'False';
+            if (typeof val === 'string') return `'${val}'`;
+            if (Array.isArray(val)) return '[' + val.map(formatValue).join(', ') + ']';
+            if (val instanceof Set) return '{' + Array.from(val).map(formatValue).join(', ') + '}';
+            if (typeof val === 'object') {
+                const entries = Object.entries(val).map(([k, v]) => `${formatValue(k)}: ${formatValue(v)}`);
+                return '{' + entries.join(', ') + '}';
+            }
+            return String(val);
+        }
+
+        function formatForPrint(val) {
+            if (val === null) return 'None';
+            if (val === true) return 'True';
+            if (val === false) return 'False';
+            if (typeof val === 'string') return val;
+            if (Array.isArray(val)) return '[' + val.map(formatValue).join(', ') + ']';
+            if (val instanceof Set) return '{' + Array.from(val).map(formatValue).join(', ') + '}';
+            if (typeof val === 'object') return formatValue(val);
+            return String(val);
+        }
+
+        function clearTerminal() {
+            output.innerHTML = `<div style="color: var(--green);">Python 3.11.0 (Prof. Manoj Purohit's MCA Terminal)</div>
+<div style="color: var(--text-muted);">Terminal cleared. Ready for code!</div>
+<div style="color: var(--text-muted);">───────────────────────────────────────</div>`;
+            // Clear environment
+            Object.keys(env).forEach(k => delete env[k]);
+        }
+
+        // ============ SNIPPET LOADER ============
+        const snippets = {
+            hello: 'print("Hello, MCA Students! Welcome to Python Programming!")',
+            variables: 'name = "Manoj"\nage = 35\nprint(f"Name: {name}, Age: {age}")\nprint(f"Type: {type(name)}")',
+            list: 'fruits = ["apple", "banana", "cherry", "mango"]\nprint(fruits)\nprint(len(fruits))\nfruits.append("grape")\nprint(fruits)',
+            dict: 'student = {"name": "Rahul", "roll": 101, "branch": "MCA"}\nprint(student)\nprint(student["name"])',
+            forloop: 'for i in range(1, 6):\n    print(f"{i} x 5 = {i * 5}")',
+            whileloop: 'n = 5\nfactorial = 1\nwhile n > 0:\n    factorial = factorial * n\n    n = n - 1\nprint(f"Factorial of 5 = {factorial}")',
+            function: 'def greet(name):\n    return f"Hello, {name}! Welcome to MCA"\nprint(greet("Rahul"))\nprint(greet("Priya"))',
+            class: 'class Student:\n    def __init__(self, name, roll):\n        self.name = name\n        self.roll = roll\nprint("Class Student created!")\ns1 = Student("Rahul", 101)\nprint(f"Student: {s1.name}, Roll: {s1.roll}")',
+            fibonacci: 'a = 0\nb = 1\nprint("Fibonacci Series:")\nfor i in range(10):\n    print(a)\n    temp = a + b\n    a = b\n    b = temp'
+        };
+
+        function loadSnippet(name) {
+            const code = snippets[name];
+            if (!code) return;
+            const lines = code.split('\n');
+            
+            // Display multi-line as single block
+            appendOutput('>>> ' + lines[0], 'var(--green)');
+            for (let i = 1; i < lines.length; i++) {
+                appendOutput('... ' + lines[i], 'var(--green)');
+            }
+
+            try {
+                // Execute multi-line snippet
+                executeSnippet(code);
+            } catch (e) {
+                appendOutput(e.message, '#ef4444');
+            }
+            output.scrollTop = output.scrollHeight;
+        }
+
+        function executeSnippet(code) {
+            const lines = code.split('\n');
+            let i = 0;
+            while (i < lines.length) {
+                const line = lines[i].trim();
+                
+                // Handle for loops with body
+                if (line.startsWith('for ') && line.endsWith(':')) {
+                    const match = line.match(/^for\s+(\w+)\s+in\s+(.+):$/);
+                    if (match) {
+                        const varName = match[1];
+                        const iterExpr = match[2];
+                        let iterable;
+
+                        if (iterExpr.startsWith('range(')) {
+                            const args = iterExpr.slice(6, -1).split(',').map(a => evaluateExpression(a.trim()));
+                            iterable = [];
+                            let start = 0, stop, step = 1;
+                            if (args.length === 1) stop = args[0];
+                            else if (args.length === 2) { start = args[0]; stop = args[1]; }
+                            else { start = args[0]; stop = args[1]; step = args[2]; }
+                            for (let j = start; step > 0 ? j < stop : j > stop; j += step) iterable.push(j);
+                        } else {
+                            iterable = evaluateExpression(iterExpr);
+                        }
+
+                        // Collect body
+                        const body = [];
                         i++;
-                        while (i < lines.length && (lines[i].startsWith('    ') || lines[i].trim() === '')) {
-                            let methodLine = lines[i].trim();
-                            if (methodLine.startsWith('def ')) {
-                                let mMatch = methodLine.match(/^def\s+(\w+)\(([^)]*)\):/);
-                                if (mMatch) {
-                                    let methodName = mMatch[1];
-                                    let params = mMatch[2].split(',').map(p => p.trim()).filter(p => p && p !== 'self');
-                                    let bodyLines = [];
-                                    i++;
-                                    while (i < lines.length && (lines[i].startsWith('        ') || lines[i].trim() === '')) {
-                                        if (lines[i].trim()) bodyLines.push(lines[i].trim());
-                                        i++;
-                                    }
-                                    let methodFunc = function(self, ...args) {
-                                        let localEnv = {};
-                                        params.forEach((p, idx) => { localEnv[p] = args[idx]; });
-                                        for (let bl of bodyLines) {
-                                            if (bl.startsWith('self.')) {
-                                                let assignMatch = bl.match(/^self\.(\w+)\s*=\s*(.+)$/);
-                                                if (assignMatch) {
-                                                    let val = localEnv[assignMatch[2]] !== undefined ? localEnv[assignMatch[2]] : evalExpr(assignMatch[2]);
-                                                    self.__dict__[assignMatch[1]] = val;
-                                                }
-                                            } else if (bl.startsWith('return ')) {
-                                                let retExpr = bl.slice(7);
-                                                // Process f-string in return
-                                                if (retExpr.startsWith('f"') || retExpr.startsWith("f'")) {
-                                                    let inner = retExpr.slice(2, -1);
-                                                    return inner.replace(/\{([^}]+)\}/g, (m, expr) => {
-                                                        if (expr.startsWith('self.')) return pyStr(self.__dict__[expr.slice(5)]);
-                                                        if (expr in localEnv) return pyStr(localEnv[expr]);
-                                                        return pyStr(evalExpr(expr));
-                                                    });
-                                                }
-                                                if (retExpr.startsWith('self.')) return self.__dict__[retExpr.slice(5)];
-                                                if (retExpr in localEnv) return localEnv[retExpr];
-                                                return evalExpr(retExpr);
-                                            }
-                                        }
-                                    };
-                                    if (methodName === '__init__') {
-                                        classDef.__init__ = methodFunc;
-                                    } else {
-                                        classDef.__methods__[methodName] = methodFunc;
-                                    }
-                                    continue;
-                                }
-                            }
+                        while (i < lines.length && (lines[i].startsWith('    ') || lines[i].startsWith('\t'))) {
+                            body.push(lines[i].trim());
                             i++;
                         }
-                        pyEnv[className] = classDef;
+
+                        let count = 0;
+                        for (const item of iterable) {
+                            env[varName] = item;
+                            count++;
+                            if (count > 1000) throw { message: 'RuntimeError: loop iteration limit exceeded' };
+                            for (const bodyLine of body) {
+                                if (bodyLine.startsWith('print(')) {
+                                    handlePrint(bodyLine);
+                                } else if (bodyLine.includes('=') && !bodyLine.includes('==')) {
+                                    handleAssignment(bodyLine);
+                                } else {
+                                    evaluateExpression(bodyLine);
+                                }
+                            }
+                        }
                         continue;
                     }
                 }
 
-                // Function definition
-                if (line.startsWith('def ')) {
-                    let defMatch = line.match(/^def\s+(\w+)\(([^)]*)\):/);
-                    if (defMatch) {
-                        let funcName = defMatch[1];
-                        let paramStr = defMatch[2];
-                        let params = [];
-                        let defaults = {};
-                        if (paramStr.trim()) {
-                            paramStr.split(',').forEach(p => {
-                                p = p.trim();
-                                if (p.includes('=')) {
-                                    let [name, val] = p.split('=');
-                                    params.push(name.trim());
-                                    defaults[name.trim()] = val.trim().replace(/['"]/g, '');
-                                } else {
-                                    params.push(p);
-                                }
-                            });
-                        }
-                        let bodyLines = [];
+                // Handle while loops with body
+                if (line.startsWith('while ') && line.endsWith(':')) {
+                    const condition = line.slice(6, -1).trim();
+                    const body = [];
+                    i++;
+                    while (i < lines.length && (lines[i].startsWith('    ') || lines[i].startsWith('\t'))) {
+                        body.push(lines[i].trim());
                         i++;
-                        while (i < lines.length && (lines[i].startsWith('    ') || lines[i].trim() === '')) {
-                            if (lines[i].trim()) bodyLines.push(lines[i].trim());
+                    }
+
+                    let count = 0;
+                    while (evaluateExpression(condition)) {
+                        count++;
+                        if (count > 1000) throw { message: 'RuntimeError: loop iteration limit exceeded' };
+                        for (const bodyLine of body) {
+                            if (bodyLine.startsWith('print(')) handlePrint(bodyLine);
+                            else if (bodyLine.includes('=') && !bodyLine.includes('==')) handleAssignment(bodyLine);
+                            else evaluateExpression(bodyLine);
+                        }
+                    }
+                    continue;
+                }
+
+                // Handle if statements with body
+                if (line.startsWith('if ') && line.endsWith(':')) {
+                    const condition = line.slice(3, -1).trim();
+                    const body = [];
+                    i++;
+                    while (i < lines.length && (lines[i].startsWith('    ') || lines[i].startsWith('\t'))) {
+                        body.push(lines[i].trim());
+                        i++;
+                    }
+                    if (evaluateExpression(condition)) {
+                        for (const bodyLine of body) {
+                            if (bodyLine.startsWith('print(')) handlePrint(bodyLine);
+                            else if (bodyLine.includes('=') && !bodyLine.includes('==')) handleAssignment(bodyLine);
+                            else evaluateExpression(bodyLine);
+                        }
+                    }
+                    continue;
+                }
+
+                // Handle def (store but don't execute)
+                if (line.startsWith('def ') && line.endsWith(':')) {
+                    const defMatch = line.match(/^def\s+(\w+)\(([^)]*)\):$/);
+                    if (defMatch) {
+                        const fname = defMatch[1];
+                        const params = defMatch[2].split(',').map(s => s.trim()).filter(s => s);
+                        const body = [];
+                        i++;
+                        while (i < lines.length && (lines[i].startsWith('    ') || lines[i].startsWith('\t'))) {
+                            body.push(lines[i].trim());
                             i++;
                         }
-                        pyEnv[funcName] = {
-                            __func__: function(args) {
-                                let localEnv = {...pyEnv};
-                                params.forEach((p, idx) => {
-                                    localEnv[p] = args[idx] !== undefined ? args[idx] : defaults[p] || null;
-                                });
-                                let oldEnv = {...pyEnv};
-                                Object.assign(pyEnv, localEnv);
-                                let retVal = null;
-                                for (let bl of bodyLines) {
-                                    if (bl.startsWith('return ')) {
-                                        retVal = evalExpr(bl.slice(7));
-                                        break;
-                                    } else {
-                                        executePython(bl);
-                                    }
+                        functions[fname] = { params, body };
+                        // Make function callable via env
+                        env[fname] = function(...args) {
+                            const oldEnv = {...env};
+                            params.forEach((p, idx) => env[p] = args[idx]);
+                            let retVal;
+                            for (const bl of body) {
+                                if (bl.startsWith('return ')) {
+                                    retVal = evaluateExpression(bl.slice(7));
+                                    break;
+                                } else if (bl.startsWith('print(')) {
+                                    handlePrint(bl);
+                                } else if (bl.includes('=') && !bl.includes('==')) {
+                                    handleAssignment(bl);
                                 }
-                                pyEnv = oldEnv;
-                                pyEnv[funcName] = { __func__: pyEnv[funcName]?.__func__ || arguments.callee };
-                                return retVal;
                             }
+                            // Restore env except function-created vars
+                            params.forEach(p => { if (!(p in oldEnv)) delete env[p]; else env[p] = oldEnv[p]; });
+                            return retVal;
                         };
                         continue;
                     }
                 }
 
-                // For loop
-                if (line.startsWith('for ')) {
-                    let forMatch = line.match(/^for\s+(\w+)\s+in\s+(.+):/);
-                    if (forMatch) {
-                        let varName = forMatch[1];
-                        let iterExpr = forMatch[2].trim();
-                        let iterable = evalExpr(iterExpr);
-                        let bodyLines = [];
+                // Handle class
+                if (line.startsWith('class ') && line.endsWith(':')) {
+                    const classMatch = line.match(/^class\s+(\w+)/);
+                    if (classMatch) {
+                        const className = classMatch[1];
+                        const methods = {};
                         i++;
-                        while (i < lines.length && (lines[i].startsWith('    ') || lines[i].trim() === '')) {
-                            if (lines[i].trim()) bodyLines.push(lines[i].trim());
+                        while (i < lines.length && (lines[i].startsWith('    ') || lines[i].startsWith('\t'))) {
+                            const methodLine = lines[i].trim();
+                            if (methodLine.startsWith('def ')) {
+                                const mMatch = methodLine.match(/^def\s+(\w+)\(([^)]*)\):$/);
+                                if (mMatch) {
+                                    const mName = mMatch[1];
+                                    const mParams = mMatch[2].split(',').map(s => s.trim()).filter(s => s);
+                                    const mBody = [];
+                                    i++;
+                                    while (i < lines.length && (lines[i].startsWith('        ') || lines[i].startsWith('\t\t'))) {
+                                        mBody.push(lines[i].trim());
+                                        i++;
+                                    }
+                                    methods[mName] = { params: mParams, body: mBody };
+                                    continue;
+                                }
+                            }
                             i++;
                         }
-                        let loopCount = 0;
-                        for (let item of iterable) {
-                            if (loopCount++ > 1000) { throw {message: "RuntimeError: maximum loop iterations exceeded (1000)"}; }
-                            pyEnv[varName] = item;
-                            for (let bl of bodyLines) {
-                                executePython(bl);
+                        // Create class constructor in env
+                        env[className] = function(...args) {
+                            const obj = {};
+                            obj.__class__ = className;
+                            if (methods['__init__']) {
+                                const initParams = methods['__init__'].params.slice(1); // skip self
+                                initParams.forEach((p, idx) => obj[p] = args[idx]);
+                                // Execute init body for self.x = x patterns
+                                for (const bl of methods['__init__'].body) {
+                                    const selfMatch = bl.match(/^self\.(\w+)\s*=\s*(.+)$/);
+                                    if (selfMatch) {
+                                        const prop = selfMatch[1];
+                                        const valExpr = selfMatch[2];
+                                        // Check if it refers to a param
+                                        const paramIdx = initParams.indexOf(valExpr);
+                                        if (paramIdx >= 0) {
+                                            obj[prop] = args[paramIdx];
+                                        } else {
+                                            obj[prop] = evaluateExpression(valExpr);
+                                        }
+                                    }
+                                }
                             }
-                        }
+                            return obj;
+                        };
                         continue;
                     }
                 }
 
-                // While loop
-                if (line.startsWith('while ')) {
-                    let whileMatch = line.match(/^while\s+(.+):/);
-                    if (whileMatch) {
-                        let condExpr = whileMatch[1];
-                        let bodyLines = [];
-                        i++;
-                        while (i < lines.length && (lines[i].startsWith('    ') || lines[i].trim() === '')) {
-                            if (lines[i].trim()) bodyLines.push(lines[i].trim());
-                            i++;
-                        }
-                        let loopCount = 0;
-                        while (evalCondition(condExpr)) {
-                            if (loopCount++ > 1000) { throw {message: "RuntimeError: maximum loop iterations exceeded (1000)"}; }
-                            for (let bl of bodyLines) {
-                                executePython(bl);
-                            }
-                        }
-                        continue;
+                // Regular line execution
+                if (line && !line.startsWith('#')) {
+                    if (line.startsWith('print(')) handlePrint(line);
+                    else if (line.includes('=') && !line.includes('==') && !line.startsWith('print')) handleAssignment(line);
+                    else {
+                        const result = evaluateExpression(line);
+                        if (result !== undefined) appendOutput(formatValue(result));
                     }
-                }
-
-                // If statement
-                if (line.startsWith('if ')) {
-                    let ifMatch = line.match(/^if\s+(.+):/);
-                    if (ifMatch) {
-                        let cond = evalCondition(ifMatch[1]);
-                        let bodyLines = [];
-                        i++;
-                        while (i < lines.length && (lines[i].startsWith('    ') || lines[i].trim() === '')) {
-                            if (lines[i].trim()) bodyLines.push(lines[i].trim());
-                            i++;
-                        }
-                        if (cond) {
-                            for (let bl of bodyLines) {
-                                executePython(bl);
-                            }
-                        }
-                        continue;
-                    }
-                }
-
-                // Assignment
-                let assignMatch = line.match(/^([a-zA-Z_]\w*)\s*=\s*(.+)$/);
-                if (assignMatch && !line.includes('==')) {
-                    let varName = assignMatch[1];
-                    let valueExpr = assignMatch[2].trim();
-                    pyEnv[varName] = evalExpr(valueExpr);
-                    i++;
-                    continue;
-                }
-
-                // Augmented assignment
-                let augMatch = line.match(/^([a-zA-Z_]\w*)\s*(\+=|-=|\*=|\/=)\s*(.+)$/);
-                if (augMatch) {
-                    let [, varName, op, val] = augMatch;
-                    let current = pyEnv[varName];
-                    let value = evalExpr(val);
-                    switch(op) {
-                        case '+=': pyEnv[varName] = current + value; break;
-                        case '-=': pyEnv[varName] = current - value; break;
-                        case '*=': pyEnv[varName] = current * value; break;
-                        case '/=': pyEnv[varName] = current / value; break;
-                    }
-                    i++;
-                    continue;
-                }
-
-                // Expression (function call, etc.)
-                let result = evalExpr(line);
-                if (printBuffer.length > 0) {
-                    printBuffer.forEach(text => {
-                        output.innerHTML += `<div class="output-line">${escapeHtml(text)}</div>`;
-                    });
-                    printBuffer = [];
                 }
                 i++;
-                if (result !== '__NONE__' && lines.length === 1) return result;
             }
-
-            // Flush any remaining prints
-            if (printBuffer.length > 0) {
-                printBuffer.forEach(text => {
-                    output.innerHTML += `<div class="output-line">${escapeHtml(text)}</div>`;
-                });
-            }
-            return '__NONE__';
-        }
-
-        function evalCondition(expr) {
-            expr = expr.trim();
-            // Comparison operators
-            let ops = ['<=', '>=', '!=', '==', '<', '>'];
-            for (let op of ops) {
-                if (expr.includes(op)) {
-                    let parts = expr.split(op);
-                    if (parts.length === 2) {
-                        let left = evalExpr(parts[0].trim());
-                        let right = evalExpr(parts[1].trim());
-                        switch(op) {
-                            case '==': return left == right;
-                            case '!=': return left != right;
-                            case '<': return left < right;
-                            case '>': return left > right;
-                            case '<=': return left <= right;
-                            case '>=': return left >= right;
-                        }
-                    }
-                }
-            }
-            // Boolean
-            let val = evalExpr(expr);
-            return Boolean(val);
-        }
-
-        function evalExpr(expr) {
-            // This is defined inside executePython but we need a global version for conditions
-            expr = expr.trim();
-            if ((expr.startsWith('"') && expr.endsWith('"')) || (expr.startsWith("'") && expr.endsWith("'"))) {
-                return expr.slice(1, -1);
-            }
-            if (expr.startsWith('f"') || expr.startsWith("f'")) {
-                let inner = expr.slice(2, -1);
-                return inner.replace(/\{([^}]+)\}/g, (m, e) => {
-                    let val = evalExpr(e.trim());
-                    if (val === null) return 'None';
-                    if (val === true) return 'True';
-                    if (val === false) return 'False';
-                    if (Array.isArray(val)) return '[' + val.join(', ') + ']';
-                    return String(val);
-                });
-            }
-            if (/^-?\d+$/.test(expr)) return parseInt(expr);
-            if (/^-?\d+\.\d+$/.test(expr)) return parseFloat(expr);
-            if (expr === 'True') return true;
-            if (expr === 'False') return false;
-            if (expr === 'None') return null;
-            if (expr.startsWith('[') && expr.endsWith(']')) {
-                let inner = expr.slice(1,-1).trim();
-                if (!inner) return [];
-                return inner.split(',').map(x => evalExpr(x.trim()));
-            }
-            if (/^[a-zA-Z_]\w*$/.test(expr)) {
-                if (expr in pyEnv) return pyEnv[expr];
-                throw {message: `NameError: name '${expr}' is not defined`};
-            }
-            // Arithmetic
-            if (expr.includes('**')) {
-                let idx = expr.lastIndexOf('**');
-                return Math.pow(evalExpr(expr.slice(0,idx)), evalExpr(expr.slice(idx+2)));
-            }
-            if (expr.includes('+') && !expr.startsWith('"') && !expr.startsWith("'")) {
-                let parts = expr.split('+');
-                if (parts.length >= 2) {
-                    let vals = parts.map(p => evalExpr(p.trim()));
-                    if (vals.every(v => typeof v === 'number')) return vals.reduce((a,b) => a+b);
-                    if (vals.every(v => typeof v === 'string')) return vals.join('');
-                }
-            }
-            if (expr.includes('-') && !expr.startsWith('-')) {
-                let parts = expr.split('-');
-                if (parts.length === 2) return evalExpr(parts[0]) - evalExpr(parts[1]);
-            }
-            if (expr.includes('*')) {
-                let parts = expr.split('*');
-                if (parts.length === 2) return evalExpr(parts[0]) * evalExpr(parts[1]);
-            }
-            if (expr.includes('/')) {
-                let parts = expr.split('/');
-                if (parts.length === 2) {
-                    let r = evalExpr(parts[1]);
-                    if (r === 0) throw {message: "ZeroDivisionError: division by zero"};
-                    return evalExpr(parts[0]) / r;
-                }
-            }
-            return expr;
         }
     </script>
 </body>

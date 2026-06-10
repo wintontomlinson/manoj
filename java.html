@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en" class="page-java">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java / OOPJ - Manoj Purohit</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Animated Background Blobs -->
+    <div class="bg-blobs">
+        <div class="blob blob-1" style="background: var(--orange);"></div>
+        <div class="blob blob-2" style="background: var(--yellow);"></div>
+        <div class="blob blob-3" style="background: var(--pink);"></div>
+        <div class="blob blob-4" style="background: var(--orange);"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="index.html" class="nav-brand">
+            <div class="nav-logo">MP</div>
+            <span class="nav-brand-text">Manoj Purohit</span>
+        </a>
+        <div class="nav-links" id="navLinks">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="python.html" class="nav-link">Python</a>
+            <a href="java.html" class="nav-link active">Java</a>
+            <a href="oose.html" class="nav-link">OOSE</a>
+            <a href="terminal.html" class="nav-link">Terminal</a>
+        </div>
+        <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Page Header -->
+            <div class="page-header">
+                <h1 class="gradient-text-orange">☕ Object Oriented Programming with Java</h1>
+                <p class="subtitle">Complete OOPJ Notes with Examples &middot; Prof. Manoj Purohit &middot; GGSIPU</p>
+            </div>
+
+            <!-- UNIT 1 -->
+            <div class="unit active" onclick="toggleUnit(this)">
+                <div class="unit-header">
+                    <div class="unit-badge">U1</div>
+                    <div class="unit-title">Java Basics</div>
+                    <div class="unit-toggle">▼</div>
+                </div>
+                <div class="unit-content" onclick="event.stopPropagation()">
+                    <div class="content-card">
+                        <h3>JDK, JRE, JVM Architecture</h3>
+                        <div class="diagram">
+                            <div class="diagram-box" style="background: rgba(249, 115, 22, 0.15); border: 2px solid var(--orange); color: var(--orange); min-width: 320px;">
+                                <strong>JDK (Java Development Kit)</strong><br>
+                                <small style="color: var(--text-secondary);">javac, jdb, jar + JRE</small>
+                            </div>
+                            <div class="diagram-arrow">↓ contains</div>
+                            <div class="diagram-box" style="background: rgba(245, 158, 11, 0.15); border: 2px solid var(--yellow); color: var(--yellow); min-width: 280px;">
+                                <strong>JRE (Java Runtime Environment)</strong><br>
+                                <small style="color: var(--text-secondary);">Libraries + JVM</small>
+                            </div>
+                            <div class="diagram-arrow">↓ contains</div>
+                            <div class="diagram-box" style="background: rgba(16, 185, 129, 0.15); border: 2px solid var(--green); color: var(--green); min-width: 240px;">
+                                <strong>JVM (Java Virtual Machine)</strong><br>
+                                <small style="color: var(--text-secondary);">Executes Bytecode</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-card">
+                        <h3>Hello World in Java</h3>
+                        <div class="code-block">
+                            <span class="code-label">Java</span>
+                            <code><span class="keyword">public class</span> <span class="class-name">HelloWorld</span> {
+    <span class="keyword">public static void</span> <span class="function">main</span>(<span class="class-name">String</span>[] args) {
+        <span class="class-name">System</span>.out.<span class="function">println</span>(<span class="string">"Hello, MCA Students!"</span>);
+        <span class="class-name">System</span>.out.<span class="function">println</span>(<span class="string">"Welcome to OOPJ - Prof. Manoj Purohit"</span>);
+    }
+}</code>
+                        </div>
+                    </div>
+
+                    <div class="content-card">
+                        <h3>Data Types in Java</h3>
+                        <table class="styled-table">
+                            <tr><th>Type</th><th>Size</th><th>Range</th><th>Default</th></tr>
+                            <tr><td>byte</td><td>1 byte</td><td>-128 to 127</td><td>0</td></tr>
+                            <tr><td>short</td><td>2 bytes</td><td>-32768 to 32767</td><td>0</td></tr>
+                            <tr><td>int</td><td>4 bytes</td><td>-2^31 to 2^31-1</td><td>0</td></tr>
+                            <tr><td>long</td><td>8 bytes</td><td>-2^63 to 2^63-1</td><td>0L</td></tr>
+                            <tr><td>float</td><td>4 bytes</td><td>3.4e-38 to 3.4e+38</td><td>0.0f</td></tr>
+                            <tr><td>double</td><td>8 bytes</td><td>1.7e-308 to 1.7e+308</td><td>0.0d</td></tr>
+                            <tr><td>char</td><td>2 bytes</td><td>0 to 65535</td><td>'\u0000'</td></tr>
+                            <tr><td>boolean</td><td>1 bit</td><td>true / false</td><td>false</td></tr>
+                        </table>
+                    </div>
+
+                    <div class="content-card">
+                        <h3>Variables & Control Flow</h3>
+                        <div class="code-block">
+                            <span class="code-label">Java</span>
+                            <code><span class="keyword">public class</span> <span class="class-name">ControlFlow</span> {
+    <span class="keyword">public static void</span> <span class="function">main</span>(<span class="class-name">String</span>[] args) {
+        <span class="keyword">int</span> marks = <span class="number">85</span>;
+        
+        <span class="comment">// if-else</span>
+        <span class="keyword">if</span> (marks >= <span class="number">90</span>) {
+            <span class="class-name">System</span>.out.<span class="function">println</span>(<span class="string">"Grade: A+"</span>);
+        } <span class="keyword">else if</span> (marks >= <span class="number">80</span>) {
+            <span class="class-name">System</span>.out.<span class="function">println</span>(<span class="string">"Grade: A"</span>);
+        } <span class="keyword">else</span> {
+            <span class="class-name">System</span>.out.<span class="function">println</span>(<span class="string">"Grade: B"</span>);
+        }
+        
+        <span class="comment">// for loop</span>
+        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i <= <span class="number">10</span>; i++) {
+            <span class="class-name">System</span>.out.<span class="function">println</span>(i + <span class="string">" x 5 = "</span> + (i * <span class="number">5</span>));
+        }
+        
+        <span class="comment">// while loop</span>
+        <span class="keyword">int</span> n = <span class="number">5</span>, fact = <span class="number">1</span>;
+        <span class="keyword">while</span> (n > <span class="number">0</span>) {
+            fact *= n;
+            n--;
+        }
+        <span class="class-name">System</span>.out.<span class="function">println</span>(<span class="string">"Factorial: "</span> + fact);
+    }
+}</code>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- UNIT 2 -->
+            <div class="unit" onclick="toggleUnit(this)">
+                <div class="unit-header">
+                    <div class="unit-badge">U2</div>
+                    <div class="unit-title">OOP Concepts</div>
+                    <div class="unit-toggle">▼</div>
+                </div>
+                <div class="unit-content" onclick="event.stopPropagation()">
+                    <div class="content-card">
+                        <h3>Inheritance Hierarchy</h3>
+                        <div class="diagram">
+                            <div class="diagram-box" style="background: rgba(249, 115, 22, 0.15); border: 2px solid var(--orange); color: var(--orange);">
+                                <strong>Vehicle</strong><br>
+                                <small style="color: var(--text-secondary);">brand, speed</small><br>
+                                <small style="color: var(--cyan);">start(), stop()</small>
+                            </div>
+                            <div class="diagram-arrow">↓ extends</div>
+                            <div class="diagram-row">
+                                <div class="diagram-box" style="background: rgba(6, 182, 212, 0.15); border: 2px solid var(--cyan); color: var(--cyan);">
+                                    <strong>Car</strong><br>
+                                    <small style="color: var(--text-secondary);">doors</small><br>
+                                    <small style="color: var(--green);">openTrunk()</small>
+                                </div>
+                                <div class="diagram-box" style="background: rgba(236, 72, 153, 0.15); border: 2px solid var(--pink); color: var(--pink);">
+                                    <strong>Bike</strong><br>
+                                    <small style="color: var(--text-secondary);">type</small><br>
+                                    <small style="color: var(--green);">wheelie()</small>
+                                </div>
+                                <div class="diagram-box" style="background: rgba(16, 185, 129, 0.15); border: 2px solid var(--green); color: var(--green);">
+                                    <strong>Truck</strong><br>
+                                    <small style="color: var(--text-secondary);">capacity</small><br>
+                                    <small style="color: var(--green);">loadCargo()</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-card">
+                        <h3>Classes, Objects & Constructors</h3>
+                        <div class="code-block">
+                            <span class="code-label">Java</span>
+                            <code><span class="keyword">class</span> <span class="class-name">Student</span> {
+    <span class="keyword">private</span> <span class="class-name">String</span> name;
+    <span class="keyword">private int</span> roll;
+    <span class="keyword">private double</span> marks;
+    
+    <span class="comment">// Constructor</span>
+    <span class="keyword">public</span> <span class="function">Student</span>(<span class="class-name">String</span> name, <span class="keyword">int</span> roll, <span class="keyword">double</span> marks) {
+        <span class="keyword">this</span>.name = name;
+        <span class="keyword">this</span>.roll = roll;
+        <span class="keyword">this</span>.marks = marks;
+    }
+    
+    <span class="comment">// Method</span>
+    <span class="keyword">public void</span> <span class="function">display</span>() {
+        <span class="class-name">System</span>.out.<span class="function">println</span>(<span class="string">"Name: "</span> + name);
+        <span class="class-name">System</span>.out.<span class="function">println</span>(<span class="string">"Roll: "</span> + roll);
+        <span class="class-name">System</span>.out.<span class="function">println</span>(<span class="string">"Marks: "</span> + marks);
+    }
+    
+    <span class="comment">// Getter</span>
+    <span class="keyword">public</span> <span class="class-name">String</span> <span class="function">getName</span>() { <span class="keyword">return</span> name; }
+}
+
+<span class="comment">// Usage</span>
+<span class="class-name">Student</span> s1 = <span class="keyword">new</span> <span class="class-name">Student</span>(<span class="string">"Rahul"</span>, <span class="number">101</span>, <span class="number">85.5</span>);
+s1.<span class="function">display</span>();</code>
+                        </div>
+                    </div>
+
+                    <div class="content-card">
+                        <h3>Inheritance Types</h3>
+                        <div class="topic-list">
+                            <span class="pill pill-orange">Single Inheritance</span>
+                            <span class="pill pill-yellow">Multilevel Inheritance</span>
+                            <span class="pill pill-green">Hierarchical Inheritance</span>
+                        </div>
+                        <div class="code-block">
+                            <span class="code-label">Java</span>
+                            <code><span class="comment">// Single Inheritance</span>
+<span class="keyword">class</span> <span class="class-name">Animal</span> {
+    <span class="keyword">void</span> <span class="function">eat</span>() { <span class="class-name">System</span>.out.<span class="function">println</span>(<span class="string">"Eating..."</span>); }
+}
+
+<span class="keyword">class</span> <span class="class-name">Dog</span> <span class="keyword">extends</span> <span class="class-name">Animal</span> {
+    <span class="keyword">void</span> <span class="function">bark</span>() { <span class="class-name">System</span>.out.<span class="function">println</span>(<span class="string">"Barking..."</span>); }
+}
+
+<span class="comment">// Multilevel Inheritance</span>
+<span class="keyword">class</span> <span class="class-name">Puppy</span> <span class="keyword">extends</span> <span class="class-name">Dog</span> {
+    <span class="keyword">void</span> <span class="function">play</span>() { <span class="class-name">System</span>.out.<span class="function">println</span>(<span class="string">"Playing..."</span>); }
+}
+
+<span class="class-name">Puppy</span> p = <span class="keyword">new</span> <span class="class-name">Puppy</span>();
+p.<span class="function">eat</span>();   <span class="comment">// from Animal</span>
+p.<span class="function">bark</span>();  <span class="comment">// from Dog</span>
+p.<span class="function">play</span>();  <span class="comment">// from Puppy</span></code>
+                        </div>
+                    </div>
+
+                    <div class="content-card">
+                        <h3>Polymorphism</h3>
+                        <div class="code-block">
+                            <span class="code-label">Java</span>
+                            <code><span class="comment">// Method Overloading (Compile-time)</span>
+<span class="keyword">class</span> <span class="class-name">Calculator</span> {
+    <span class="keyword">int</span> <span class="function">add</span>(<span class="keyword">int</span> a, <span class="keyword">int</span> b) { <span class="keyword">return</span> a + b; }
+    <span class="keyword">double</span> <span class="function">add</span>(<span class="keyword">double</span> a, <span class="keyword">double</span> b) { <span class="keyword">return</span> a + b; }
+    <span class="keyword">int</span> <span class="function">add</span>(<span class="keyword">int</span> a, <span class="keyword">int</span> b, <span class="keyword">int</span> c) { <span class="keyword">return</span> a + b + c; }
+}
+
+<span class="comment">// Method Overriding (Runtime)</span>
+<span class="keyword">class</span> <span class="class-name">Shape</span> {
+    <span class="keyword">void</span> <span class="function">draw</span>() { <span class="class-name">System</span>.out.<span class="function">println</span>(<span class="string">"Drawing Shape"</span>); }
+}
+
+<span class="keyword">class</span> <span class="class-name">Circle</span> <span class="keyword">extends</span> <span class="class-name">Shape</span> {
+    <span class="keyword">@Override</span>
+    <span class="keyword">void</span> <span class="function">draw</span>() { <span class="class-name">System</span>.out.<span class="function">println</span>(<span class="string">"Drawing Circle"</span>); }
+}
+
+<span class="class-name">Shape</span> s = <span class="keyword">new</span> <span class="class-name">Circle</span>();  <span class="comment">// Runtime polymorphism</span>
+s.<span class="function">draw</span>();  <span class="comment">// Output: Drawing Circle</span></code>
+                        </div>
+                    </div>
+
+                    <div class="content-card">
+                        <h3>Abstraction & Interfaces</h3>
+                        <div class="code-block">
+                            <span class="code-label">Java</span>
+                            <code><span class="comment">// Abstract Class</span>
+<span class="keyword">abstract class</span> <span class="class-name">Shape</span> {
+    <span class="keyword">abstract double</span> <span class="function">area</span>();
+    <span class="keyword">void</span> <span class="function">display</span>() {
+        <span class="class-name">System</span>.out.<span class="function">println</span>(<span class="string">"Area: "</span> + <span class="function">area</span>());
+    }
+}
+
+<span class="comment">// Interface</span>
+<span class="keyword">interface</span> <span class="class-name">Drawable</span> {
+    <span class="keyword">void</span> <span class="function">draw</span>();
+    <span class="keyword">default void</span> <span class="function">color</span>() {
+        <span class="class-name">System</span>.out.<span class="function">println</span>(<span class="string">"Default color: Black"</span>);
+    }
+}
+
+<span class="keyword">class</span> <span class="class-name">Circle</span> <span class="keyword">extends</span> <span class="class-name">Shape</span> <span class="keyword">implements</span> <span class="class-name">Drawable</span> {
+    <span class="keyword">double</span> radius;
+    <span class="class-name">Circle</span>(<span class="keyword">double</span> r) { radius = r; }
+    
+    <span class="keyword">double</span> <span class="function">area</span>() { <span class="keyword">return</span> Math.PI * radius * radius; }
+    <span class="keyword">public void</span> <span class="function">draw</span>() { <span class="class-name">System</span>.out.<span class="function">println</span>(<span class="string">"Drawing circle"</span>); }
+}</code>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- UNIT 3 -->
+            <div class="unit" onclick="toggleUnit(this)">
+                <div class="unit-header">
+                    <div class="unit-badge">U3</div>
+                    <div class="unit-title">Advanced Java</div>
+                    <div class="unit-toggle">▼</div>
+                </div>
+                <div class="unit-content" onclick="event.stopPropagation()">
+                    <div class="content-card">
+                        <h3>Exception Handling</h3>
+                        <div class="code-block">
+                            <span class="code-label">Java</span>
+                            <code><span class="keyword">public class</span> <span class="class-name">ExceptionDemo</span> {
+    <span class="keyword">public static void</span> <span class="function">main</span>(<span class="class-name">String</span>[] args) {
+        <span class="keyword">try</span> {
+            <span class="keyword">int</span>[] arr = {<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>};
+            <span class="class-name">System</span>.out.<span class="function">println</span>(arr[<span class="number">5</span>]);  <span class="comment">// ArrayIndexOutOfBounds</span>
+        } <span class="keyword">catch</span> (<span class="class-name">ArrayIndexOutOfBoundsException</span> e) {
+            <span class="class-name">System</span>.out.<span class="function">println</span>(<span class="string">"Index out of range!"</span>);
+        } <span class="keyword">catch</span> (<span class="class-name">Exception</span> e) {
+            <span class="class-name">System</span>.out.<span class="function">println</span>(<span class="string">"Error: "</span> + e.<span class="function">getMessage</span>());
+        } <span class="keyword">finally</span> {
+            <span class="class-name">System</span>.out.<span class="function">println</span>(<span class="string">"Always executes!"</span>);
+        }
+    }
+}
+
+<span class="comment">// Custom Exception</span>
+<span class="keyword">class</span> <span class="class-name">AgeException</span> <span class="keyword">extends</span> <span class="class-name">Exception</span> {
+    <span class="class-name">AgeException</span>(<span class="class-name">String</span> msg) { <span class="keyword">super</span>(msg); }
+}</code>
+                        </div>
+                    </div>
+
+                    <div class="content-card">
+                        <h3>Collections Framework</h3>
+                        <div class="code-block">
+                            <span class="code-label">Java</span>
+                            <code><span class="keyword">import</span> java.util.*;
+
+<span class="keyword">public class</span> <span class="class-name">CollectionDemo</span> {
+    <span class="keyword">public static void</span> <span class="function">main</span>(<span class="class-name">String</span>[] args) {
+        <span class="comment">// ArrayList</span>
+        <span class="class-name">ArrayList</span>&lt;<span class="class-name">String</span>&gt; names = <span class="keyword">new</span> <span class="class-name">ArrayList</span>&lt;&gt;();
+        names.<span class="function">add</span>(<span class="string">"Rahul"</span>);
+        names.<span class="function">add</span>(<span class="string">"Priya"</span>);
+        names.<span class="function">add</span>(<span class="string">"Amit"</span>);
+        
+        <span class="comment">// HashMap</span>
+        <span class="class-name">HashMap</span>&lt;<span class="class-name">Integer</span>, <span class="class-name">String</span>&gt; students = <span class="keyword">new</span> <span class="class-name">HashMap</span>&lt;&gt;();
+        students.<span class="function">put</span>(<span class="number">101</span>, <span class="string">"Rahul"</span>);
+        students.<span class="function">put</span>(<span class="number">102</span>, <span class="string">"Priya"</span>);
+        
+        <span class="comment">// HashSet</span>
+        <span class="class-name">HashSet</span>&lt;<span class="class-name">String</span>&gt; unique = <span class="keyword">new</span> <span class="class-name">HashSet</span>&lt;&gt;();
+        unique.<span class="function">add</span>(<span class="string">"Java"</span>);
+        unique.<span class="function">add</span>(<span class="string">"Python"</span>);
+        unique.<span class="function">add</span>(<span class="string">"Java"</span>);  <span class="comment">// duplicate ignored</span>
+        
+        <span class="comment">// Iterating</span>
+        <span class="keyword">for</span> (<span class="class-name">Map.Entry</span>&lt;<span class="class-name">Integer</span>, <span class="class-name">String</span>&gt; entry : students.<span class="function">entrySet</span>()) {
+            <span class="class-name">System</span>.out.<span class="function">println</span>(entry.<span class="function">getKey</span>() + <span class="string">": "</span> + entry.<span class="function">getValue</span>());
+        }
+    }
+}</code>
+                        </div>
+                    </div>
+
+                    <div class="content-card">
+                        <h3>Multithreading</h3>
+                        <div class="code-block">
+                            <span class="code-label">Java</span>
+                            <code><span class="comment">// Using Thread class</span>
+<span class="keyword">class</span> <span class="class-name">MyThread</span> <span class="keyword">extends</span> <span class="class-name">Thread</span> {
+    <span class="keyword">public void</span> <span class="function">run</span>() {
+        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i <= <span class="number">5</span>; i++) {
+            <span class="class-name">System</span>.out.<span class="function">println</span>(<span class="function">getName</span>() + <span class="string">": "</span> + i);
+            <span class="keyword">try</span> { <span class="class-name">Thread</span>.<span class="function">sleep</span>(<span class="number">500</span>); }
+            <span class="keyword">catch</span> (<span class="class-name">InterruptedException</span> e) {}
+        }
+    }
+}
+
+<span class="comment">// Using Runnable interface</span>
+<span class="keyword">class</span> <span class="class-name">Counter</span> <span class="keyword">implements</span> <span class="class-name">Runnable</span> {
+    <span class="keyword">public void</span> <span class="function">run</span>() {
+        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i < <span class="number">5</span>; i++) {
+            <span class="class-name">System</span>.out.<span class="function">println</span>(<span class="class-name">Thread</span>.<span class="function">currentThread</span>().<span class="function">getName</span>() + <span class="string">": "</span> + i);
+        }
+    }
+}
+
+<span class="comment">// Creating threads</span>
+<span class="class-name">MyThread</span> t1 = <span class="keyword">new</span> <span class="class-name">MyThread</span>();
+<span class="class-name">Thread</span> t2 = <span class="keyword">new</span> <span class="class-name">Thread</span>(<span class="keyword">new</span> <span class="class-name">Counter</span>());
+t1.<span class="function">start</span>();
+t2.<span class="function">start</span>();</code>
+                        </div>
+                    </div>
+
+                    <div class="content-card">
+                        <h3>File I/O</h3>
+                        <div class="code-block">
+                            <span class="code-label">Java</span>
+                            <code><span class="keyword">import</span> java.io.*;
+
+<span class="comment">// Writing to file</span>
+<span class="keyword">try</span> (<span class="class-name">FileWriter</span> fw = <span class="keyword">new</span> <span class="class-name">FileWriter</span>(<span class="string">"data.txt"</span>)) {
+    fw.<span class="function">write</span>(<span class="string">"Hello MCA Students!\n"</span>);
+    fw.<span class="function">write</span>(<span class="string">"Java File I/O Example\n"</span>);
+}
+
+<span class="comment">// Reading from file</span>
+<span class="keyword">try</span> (<span class="class-name">BufferedReader</span> br = <span class="keyword">new</span> <span class="class-name">BufferedReader</span>(<span class="keyword">new</span> <span class="class-name">FileReader</span>(<span class="string">"data.txt"</span>))) {
+    <span class="class-name">String</span> line;
+    <span class="keyword">while</span> ((line = br.<span class="function">readLine</span>()) != <span class="keyword">null</span>) {
+        <span class="class-name">System</span>.out.<span class="function">println</span>(line);
+    }
+}</code>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- UNIT 4 -->
+            <div class="unit" onclick="toggleUnit(this)">
+                <div class="unit-header">
+                    <div class="unit-badge">U4</div>
+                    <div class="unit-title">AWT & Swing (GUI Programming)</div>
+                    <div class="unit-toggle">▼</div>
+                </div>
+                <div class="unit-content" onclick="event.stopPropagation()">
+                    <div class="content-card">
+                        <h3>Simple Swing Application</h3>
+                        <div class="code-block">
+                            <span class="code-label">Java</span>
+                            <code><span class="keyword">import</span> javax.swing.*;
+<span class="keyword">import</span> java.awt.*;
+<span class="keyword">import</span> java.awt.event.*;
+
+<span class="keyword">public class</span> <span class="class-name">SimpleGUI</span> <span class="keyword">extends</span> <span class="class-name">JFrame</span> {
+    <span class="keyword">private</span> <span class="class-name">JTextField</span> input;
+    <span class="keyword">private</span> <span class="class-name">JLabel</span> output;
+    
+    <span class="keyword">public</span> <span class="function">SimpleGUI</span>() {
+        <span class="function">setTitle</span>(<span class="string">"MCA Calculator"</span>);
+        <span class="function">setSize</span>(<span class="number">300</span>, <span class="number">200</span>);
+        <span class="function">setDefaultCloseOperation</span>(EXIT_ON_CLOSE);
+        
+        input = <span class="keyword">new</span> <span class="class-name">JTextField</span>(<span class="number">15</span>);
+        <span class="class-name">JButton</span> btn = <span class="keyword">new</span> <span class="class-name">JButton</span>(<span class="string">"Calculate"</span>);
+        output = <span class="keyword">new</span> <span class="class-name">JLabel</span>(<span class="string">"Result here"</span>);
+        
+        btn.<span class="function">addActionListener</span>(e -> {
+            <span class="keyword">int</span> n = <span class="class-name">Integer</span>.<span class="function">parseInt</span>(input.<span class="function">getText</span>());
+            output.<span class="function">setText</span>(<span class="string">"Square: "</span> + (n * n));
+        });
+        
+        <span class="class-name">JPanel</span> panel = <span class="keyword">new</span> <span class="class-name">JPanel</span>();
+        panel.<span class="function">add</span>(input);
+        panel.<span class="function">add</span>(btn);
+        panel.<span class="function">add</span>(output);
+        <span class="function">add</span>(panel);
+        <span class="function">setVisible</span>(<span class="keyword">true</span>);
+    }
+}</code>
+                        </div>
+                    </div>
+
+                    <div class="content-card">
+                        <h3>Event Handling</h3>
+                        <div class="code-block">
+                            <span class="code-label">Java</span>
+                            <code><span class="comment">// ActionListener for buttons</span>
+btn.<span class="function">addActionListener</span>(<span class="keyword">new</span> <span class="class-name">ActionListener</span>() {
+    <span class="keyword">public void</span> <span class="function">actionPerformed</span>(<span class="class-name">ActionEvent</span> e) {
+        <span class="class-name">System</span>.out.<span class="function">println</span>(<span class="string">"Button clicked!"</span>);
+    }
+});
+
+<span class="comment">// Lambda expression (Java 8+)</span>
+btn.<span class="function">addActionListener</span>(e -> <span class="class-name">System</span>.out.<span class="function">println</span>(<span class="string">"Clicked!"</span>));
+
+<span class="comment">// MouseListener</span>
+panel.<span class="function">addMouseListener</span>(<span class="keyword">new</span> <span class="class-name">MouseAdapter</span>() {
+    <span class="keyword">public void</span> <span class="function">mouseClicked</span>(<span class="class-name">MouseEvent</span> e) {
+        <span class="class-name">System</span>.out.<span class="function">println</span>(<span class="string">"Clicked at: "</span> + e.<span class="function">getX</span>() + <span class="string">","</span> + e.<span class="function">getY</span>());
+    }
+});</code>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- UNIT 5 -->
+            <div class="unit" onclick="toggleUnit(this)">
+                <div class="unit-header">
+                    <div class="unit-badge">U5</div>
+                    <div class="unit-title">Design Patterns in Java</div>
+                    <div class="unit-toggle">▼</div>
+                </div>
+                <div class="unit-content" onclick="event.stopPropagation()">
+                    <div class="content-card">
+                        <h3>Singleton Pattern</h3>
+                        <div class="code-block">
+                            <span class="code-label">Java</span>
+                            <code><span class="keyword">class</span> <span class="class-name">Database</span> {
+    <span class="keyword">private static</span> <span class="class-name">Database</span> instance;
+    <span class="keyword">private</span> <span class="class-name">String</span> connection;
+    
+    <span class="keyword">private</span> <span class="function">Database</span>() {
+        connection = <span class="string">"Connected to MySQL"</span>;
+    }
+    
+    <span class="keyword">public static</span> <span class="class-name">Database</span> <span class="function">getInstance</span>() {
+        <span class="keyword">if</span> (instance == <span class="keyword">null</span>) {
+            instance = <span class="keyword">new</span> <span class="class-name">Database</span>();
+        }
+        <span class="keyword">return</span> instance;
+    }
+    
+    <span class="keyword">public</span> <span class="class-name">String</span> <span class="function">getConnection</span>() { <span class="keyword">return</span> connection; }
+}
+
+<span class="comment">// Usage - same instance always</span>
+<span class="class-name">Database</span> db1 = <span class="class-name">Database</span>.<span class="function">getInstance</span>();
+<span class="class-name">Database</span> db2 = <span class="class-name">Database</span>.<span class="function">getInstance</span>();
+<span class="comment">// db1 == db2 → true</span></code>
+                        </div>
+                    </div>
+
+                    <div class="content-card">
+                        <h3>Factory Pattern</h3>
+                        <div class="code-block">
+                            <span class="code-label">Java</span>
+                            <code><span class="keyword">interface</span> <span class="class-name">Shape</span> {
+    <span class="keyword">void</span> <span class="function">draw</span>();
+}
+
+<span class="keyword">class</span> <span class="class-name">Circle</span> <span class="keyword">implements</span> <span class="class-name">Shape</span> {
+    <span class="keyword">public void</span> <span class="function">draw</span>() { <span class="class-name">System</span>.out.<span class="function">println</span>(<span class="string">"Drawing Circle"</span>); }
+}
+
+<span class="keyword">class</span> <span class="class-name">Rectangle</span> <span class="keyword">implements</span> <span class="class-name">Shape</span> {
+    <span class="keyword">public void</span> <span class="function">draw</span>() { <span class="class-name">System</span>.out.<span class="function">println</span>(<span class="string">"Drawing Rectangle"</span>); }
+}
+
+<span class="keyword">class</span> <span class="class-name">ShapeFactory</span> {
+    <span class="keyword">public</span> <span class="class-name">Shape</span> <span class="function">getShape</span>(<span class="class-name">String</span> type) {
+        <span class="keyword">if</span> (type.<span class="function">equals</span>(<span class="string">"circle"</span>)) <span class="keyword">return new</span> <span class="class-name">Circle</span>();
+        <span class="keyword">if</span> (type.<span class="function">equals</span>(<span class="string">"rectangle"</span>)) <span class="keyword">return new</span> <span class="class-name">Rectangle</span>();
+        <span class="keyword">return null</span>;
+    }
+}
+
+<span class="class-name">ShapeFactory</span> factory = <span class="keyword">new</span> <span class="class-name">ShapeFactory</span>();
+<span class="class-name">Shape</span> s = factory.<span class="function">getShape</span>(<span class="string">"circle"</span>);
+s.<span class="function">draw</span>();  <span class="comment">// Drawing Circle</span></code>
+                        </div>
+                    </div>
+
+                    <div class="content-card">
+                        <h3>Observer Pattern</h3>
+                        <div class="code-block">
+                            <span class="code-label">Java</span>
+                            <code><span class="keyword">import</span> java.util.*;
+
+<span class="keyword">interface</span> <span class="class-name">Observer</span> {
+    <span class="keyword">void</span> <span class="function">update</span>(<span class="class-name">String</span> message);
+}
+
+<span class="keyword">class</span> <span class="class-name">NewsChannel</span> <span class="keyword">implements</span> <span class="class-name">Observer</span> {
+    <span class="keyword">private</span> <span class="class-name">String</span> name;
+    <span class="class-name">NewsChannel</span>(<span class="class-name">String</span> name) { <span class="keyword">this</span>.name = name; }
+    
+    <span class="keyword">public void</span> <span class="function">update</span>(<span class="class-name">String</span> msg) {
+        <span class="class-name">System</span>.out.<span class="function">println</span>(name + <span class="string">" received: "</span> + msg);
+    }
+}
+
+<span class="keyword">class</span> <span class="class-name">NewsAgency</span> {
+    <span class="keyword">private</span> <span class="class-name">List</span>&lt;<span class="class-name">Observer</span>&gt; observers = <span class="keyword">new</span> <span class="class-name">ArrayList</span>&lt;&gt;();
+    
+    <span class="keyword">void</span> <span class="function">subscribe</span>(<span class="class-name">Observer</span> o) { observers.<span class="function">add</span>(o); }
+    
+    <span class="keyword">void</span> <span class="function">publish</span>(<span class="class-name">String</span> news) {
+        observers.<span class="function">forEach</span>(o -> o.<span class="function">update</span>(news));
+    }
+}</code>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-brand gradient-text">Manoj Purohit - MCA Learning Hub</div>
+        <div class="footer-links">
+            <a href="index.html" class="footer-link">Home</a>
+            <a href="python.html" class="footer-link">Python</a>
+            <a href="java.html" class="footer-link">Java</a>
+            <a href="oose.html" class="footer-link">OOSE</a>
+            <a href="terminal.html" class="footer-link">Terminal</a>
+        </div>
+        <p class="footer-copy">&copy; 2024 Prof. Manoj Purohit &middot; GGSIPU</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+            document.getElementById('hamburger').classList.toggle('active');
+        }
+
+        function toggleUnit(el) {
+            el.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
