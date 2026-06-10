@@ -197,6 +197,12 @@ print("Name: %s, Age: %d, GPA: %.2f" % (name, age, gpa))</pre>
 <p data-lang="en">f-strings are fastest and most readable. Use :.2f for decimal places.</p>
 <p data-lang="hi">f-strings sabse fast aur readable hain. :.2f se decimal places control hote hain.</p></div>
 
+<div class="activity"><h4>📝 Activity - Unit 1</h4>
+<div class="mcq"><p class="q">Q1. What is output of: print(type(3.14))?</p><button class="opt" onclick="ck(this,false)">&lt;class 'int'&gt;</button><button class="opt" onclick="ck(this,true)">&lt;class 'float'&gt;</button><button class="opt" onclick="ck(this,false)">&lt;class 'str'&gt;</button><span class="ans"></span></div>
+<div class="mcq"><p class="q">Q2. Which operator gives remainder?</p><button class="opt" onclick="ck(this,false)">//</button><button class="opt" onclick="ck(this,true)">%</button><button class="opt" onclick="ck(this,false)">**</button><span class="ans"></span></div>
+<div class="mcq"><p class="q">Q3. x="5"; print(x+x) gives?</p><button class="opt" onclick="ck(this,false)">10</button><button class="opt" onclick="ck(this,true)">55</button><button class="opt" onclick="ck(this,false)">Error</button><span class="ans"></span></div>
+<div class="coding-task"><p class="q">💻 Task: Create variables for your name, age, and CGPA. Print them using f-string.</p><a href="terminal.html" class="try-btn">Try in Terminal →</a></div></div>
+
 </div></div>
 
 <!-- ===== UNIT 2: Control Flow & Functions ===== -->
@@ -421,6 +427,12 @@ print(fib(7))  # 13</pre>
 <p data-lang="en">Recursion: function calls itself. Must have base case to stop infinite calls.</p>
 <p data-lang="hi">Recursion: function khud ko call karta hai. Base case zaroori hai infinite calls rokne ke liye.</p></div>
 
+<div class="activity"><h4>📝 Activity - Unit 2</h4>
+<div class="mcq"><p class="q">Q1. What does range(1,10,2) generate?</p><button class="opt" onclick="ck(this,true)">1,3,5,7,9</button><button class="opt" onclick="ck(this,false)">1,2,3...10</button><button class="opt" onclick="ck(this,false)">2,4,6,8</button><span class="ans"></span></div>
+<div class="mcq"><p class="q">Q2. Lambda function is also called?</p><button class="opt" onclick="ck(this,true)">Anonymous function</button><button class="opt" onclick="ck(this,false)">Recursive function</button><button class="opt" onclick="ck(this,false)">Generator</button><span class="ans"></span></div>
+<div class="mcq"><p class="q">Q3. What keyword is used to create a generator?</p><button class="opt" onclick="ck(this,false)">return</button><button class="opt" onclick="ck(this,true)">yield</button><button class="opt" onclick="ck(this,false)">generate</button><span class="ans"></span></div>
+<div class="coding-task"><p class="q">💻 Task: Write a function that takes a list of numbers and returns only even numbers using filter() and lambda.</p><a href="terminal.html" class="try-btn">Try in Terminal →</a></div></div>
+
 </div></div>
 
 <!-- ===== UNIT 3: Data Structures ===== -->
@@ -580,6 +592,12 @@ for ch in "hello world":
 print(dict(counter))  # {'h':1, 'e':1, 'l':3, ...}</pre>
 <p data-lang="en">Counter counts elements, defaultdict provides default values for missing keys.</p>
 <p data-lang="hi">Counter elements count karta hai, defaultdict missing keys ke liye default value deta hai.</p></div>
+
+<div class="activity"><h4>📝 Activity - Unit 3</h4>
+<div class="mcq"><p class="q">Q1. Which is immutable?</p><button class="opt" onclick="ck(this,false)">List</button><button class="opt" onclick="ck(this,true)">Tuple</button><button class="opt" onclick="ck(this,false)">Dictionary</button><span class="ans"></span></div>
+<div class="mcq"><p class="q">Q2. "hello"[1:4] gives?</p><button class="opt" onclick="ck(this,false)">hell</button><button class="opt" onclick="ck(this,true)">ell</button><button class="opt" onclick="ck(this,false)">ello</button><span class="ans"></span></div>
+<div class="mcq"><p class="q">Q3. What removes duplicates from a list?</p><button class="opt" onclick="ck(this,true)">set()</button><button class="opt" onclick="ck(this,false)">list()</button><button class="opt" onclick="ck(this,false)">tuple()</button><span class="ans"></span></div>
+<div class="coding-task"><p class="q">💻 Task: Create a dictionary of 5 students with marks. Use dict comprehension to get only toppers (marks > 80).</p><a href="terminal.html" class="try-btn">Try in Terminal →</a></div></div>
 
 </div></div>
 
@@ -806,6 +824,12 @@ print(len(v1))      # 5 — __len__
 print(v1 == v2)     # False — __eq__</pre>
 <p data-lang="en">Magic methods customize operators (+, ==, len, print) for your objects.</p>
 <p data-lang="hi">Magic methods aapke objects ke liye operators (+, ==, len, print) customize karte hain.</p></div>
+
+<div class="activity"><h4>📝 Activity - Unit 4</h4>
+<div class="mcq"><p class="q">Q1. What is __init__ in Python class?</p><button class="opt" onclick="ck(this,true)">Constructor</button><button class="opt" onclick="ck(this,false)">Destructor</button><button class="opt" onclick="ck(this,false)">Iterator</button><span class="ans"></span></div>
+<div class="mcq"><p class="q">Q2. Which supports multiple inheritance?</p><button class="opt" onclick="ck(this,false)">Java</button><button class="opt" onclick="ck(this,true)">Python</button><button class="opt" onclick="ck(this,false)">C#</button><span class="ans"></span></div>
+<div class="mcq"><p class="q">Q3. __name mangling makes variable?</p><button class="opt" onclick="ck(this,false)">Public</button><button class="opt" onclick="ck(this,false)">Protected</button><button class="opt" onclick="ck(this,true)">Private</button><span class="ans"></span></div>
+<div class="coding-task"><p class="q">💻 Task: Create a BankAccount class with deposit(), withdraw(), and balance. Use encapsulation (__balance as private).</p><a href="terminal.html" class="try-btn">Try in Terminal →</a></div></div>
 
 </div></div>
 
@@ -1044,6 +1068,12 @@ with managed_resource("DB") as r:
 <p data-lang="en">Context managers handle setup/cleanup automatically. Use __enter__/__exit__ or @contextmanager.</p>
 <p data-lang="hi">Context managers setup/cleanup automatically handle karte hain. __enter__/__exit__ ya @contextmanager use karo.</p></div>
 
+<div class="activity"><h4>📝 Activity - Unit 5</h4>
+<div class="mcq"><p class="q">Q1. Which mode opens file for both read and write?</p><button class="opt" onclick="ck(this,false)">r</button><button class="opt" onclick="ck(this,true)">r+</button><button class="opt" onclick="ck(this,false)">w</button><span class="ans"></span></div>
+<div class="mcq"><p class="q">Q2. Which block always executes in exception handling?</p><button class="opt" onclick="ck(this,false)">try</button><button class="opt" onclick="ck(this,false)">except</button><button class="opt" onclick="ck(this,true)">finally</button><span class="ans"></span></div>
+<div class="mcq"><p class="q">Q3. re.findall() returns?</p><button class="opt" onclick="ck(this,true)">List of all matches</button><button class="opt" onclick="ck(this,false)">First match only</button><button class="opt" onclick="ck(this,false)">Boolean</button><span class="ans"></span></div>
+<div class="coding-task"><p class="q">💻 Task: Write a program that reads a file, counts words, and handles FileNotFoundError gracefully.</p><a href="terminal.html" class="try-btn">Try in Terminal →</a></div></div>
+
 </div></div>
 
 </main>
@@ -1055,6 +1085,7 @@ with managed_resource("DB") as r:
 
 <script>
 function toggleUnit(header){const s=header.parentElement;s.classList.toggle('open')}
+function ck(b,c){const m=b.closest('.mcq'),a=m.querySelector('.ans');m.querySelectorAll('.opt').forEach(o=>{o.disabled=true;});if(c){b.style.background='rgba(16,185,129,.2)';b.style.borderColor='#10B981';a.textContent='✅ Correct!';a.style.color='#10B981';}else{b.style.background='rgba(239,68,68,.2)';b.style.borderColor='#ef4444';a.textContent='❌ Wrong!';a.style.color='#ef4444';}}
 const langBtn=document.getElementById('langToggle');
 let isHindi=false;
 langBtn.addEventListener('click',()=>{isHindi=!isHindi;document.body.classList.toggle('hinglish',isHindi);const spans=langBtn.querySelectorAll('span');spans[0].classList.toggle('active',!isHindi);spans[2].classList.toggle('active',isHindi)});
