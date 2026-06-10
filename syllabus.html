@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Syllabus - IPU MCA | PyMCA</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .syllabus-hero {
+            text-align: center;
+            padding: 6rem 2rem 3rem;
+        }
+        .syllabus-hero h1 {
+            font-size: 2.8rem;
+            background: linear-gradient(135deg, #06B6D4, #10B981, #7C3AED);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+        .unit-section {
+            margin-bottom: 1.5rem;
+        }
+        .unit-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .unit-header:hover {
+            background: var(--bg-card-hover);
+            border-color: rgba(124, 58, 237, 0.4);
+        }
+        .unit-number {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.2rem;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            flex-shrink: 0;
+        }
+        .unit-1 .unit-number { background: linear-gradient(135deg, var(--purple), var(--pink)); }
+        .unit-2 .unit-number { background: linear-gradient(135deg, var(--cyan), var(--green)); }
+        .unit-3 .unit-number { background: linear-gradient(135deg, var(--orange), var(--yellow)); }
+        .unit-4 .unit-number { background: linear-gradient(135deg, var(--pink), var(--purple)); }
+        .unit-5 .unit-number { background: linear-gradient(135deg, var(--green), var(--cyan)); }
+        .unit-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+        .unit-1 .unit-title { color: var(--purple); }
+        .unit-2 .unit-title { color: var(--cyan); }
+        .unit-3 .unit-title { color: var(--orange); }
+        .unit-4 .unit-title { color: var(--pink); }
+        .unit-5 .unit-title { color: var(--green); }
+        .unit-arrow {
+            margin-left: auto;
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+            color: var(--text-muted);
+        }
+        .unit-section.active .unit-arrow {
+            transform: rotate(180deg);
+        }
+        .unit-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+        .unit-section.active .unit-content {
+            max-height: 5000px;
+        }
+        .unit-body {
+            padding: 1.5rem;
+            background: rgba(18, 19, 26, 0.5);
+            border: 1px solid var(--border-color);
+            border-top: none;
+            border-radius: 0 0 14px 14px;
+        }
+        .topic-group {
+            margin-bottom: 1.5rem;
+        }
+        .topic-group-title {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .topics-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+        .code-example {
+            margin-top: 1rem;
+            background: #0d0e14;
+            border: 1px solid rgba(124, 58, 237, 0.2);
+            border-radius: 10px;
+            padding: 1rem 1.2rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.82rem;
+            line-height: 1.7;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body class="page-syllabus">
+    <div class="bg-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+        <div class="blob blob-4"></div>
+    </div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">PyMCA</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="syllabus.html" class="active">Syllabus</a></li>
+                <li><a href="pyq.html">PYQ</a></li>
+                <li><a href="terminal.html">Terminal</a></li>
+                <li><a href="instructor.html">Instructor</a></li>
+            </ul>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <section class="syllabus-hero">
+            <div class="badge badge-cyan" style="margin-bottom:1rem;">📘 IPU MCA SYLLABUS</div>
+            <h1>Python Programming</h1>
+            <p style="color:var(--text-secondary); max-width:600px; margin:0 auto;">Complete syllabus for MCA Python Programming at Guru Gobind Singh Indraprastha University</p>
+        </section>
+
+        <section class="section" style="padding-top:0;">
+            <!-- UNIT 1 -->
+            <div class="unit-section unit-1 active">
+                <div class="unit-header" onclick="toggleUnit(this)">
+                    <div class="unit-number">U1</div>
+                    <div>
+                        <div class="unit-title">Introduction to Python</div>
+                        <div style="font-size:0.8rem; color:var(--text-muted); margin-top:0.2rem;">Basics, Setup, Data Types & Operators</div>
+                    </div>
+                    <div class="unit-arrow">▼</div>
+                </div>
+                <div class="unit-content">
+                    <div class="unit-body">
+                        <div class="topic-group">
+                            <div class="topic-group-title">🐍 Python Overview</div>
+                            <div class="topics-pills">
+                                <span class="pill">History of Python</span>
+                                <span class="pill pill-pink">Features of Python</span>
+                                <span class="pill pill-cyan">Python vs Other Languages</span>
+                                <span class="pill pill-green">Applications of Python</span>
+                            </div>
+                        </div>
+                        <div class="topic-group">
+                            <div class="topic-group-title">⚙️ Setup & Environment</div>
+                            <div class="topics-pills">
+                                <span class="pill pill-yellow">Installing Python</span>
+                                <span class="pill pill-orange">IDE Setup (VS Code, PyCharm)</span>
+                                <span class="pill">Python Interpreter</span>
+                                <span class="pill pill-pink">Interactive Mode</span>
+                                <span class="pill pill-cyan">Script Mode</span>
+                            </div>
+                        </div>
+                        <div class="topic-group">
+                            <div class="topic-group-title">📝 Basic Syntax</div>
+                            <div class="topics-pills">
+                                <span class="pill pill-green">Indentation Rules</span>
+                                <span class="pill pill-yellow">Comments (# and ''')</span>
+                                <span class="pill">Keywords & Identifiers</span>
+                                <span class="pill pill-orange">Naming Conventions</span>
+                            </div>
+                        </div>
+                        <div class="topic-group">
+                            <div class="topic-group-title">📦 Variables & Data Types</div>
+                            <div class="topics-pills">
+                                <span class="pill pill-pink">Variables Declaration</span>
+                                <span class="pill pill-cyan">int</span>
+                                <span class="pill pill-green">float</span>
+                                <span class="pill pill-yellow">str</span>
+                                <span class="pill pill-orange">bool</span>
+                                <span class="pill">complex</span>
+                                <span class="pill pill-pink">Type Casting</span>
+                                <span class="pill pill-cyan">type() Function</span>
+                            </div>
+                        </div>
+                        <div class="topic-group">
+                            <div class="topic-group-title">🔄 Input / Output</div>
+                            <div class="topics-pills">
+                                <span class="pill pill-green">print() Function</span>
+                                <span class="pill pill-yellow">input() Function</span>
+                                <span class="pill pill-orange">String Formatting</span>
+                                <span class="pill">f-strings</span>
+                            </div>
+                        </div>
+                        <div class="topic-group">
+                            <div class="topic-group-title">➕ Operators</div>
+                            <div class="topics-pills">
+                                <span class="pill pill-pink">Arithmetic (+, -, *, /, //, %, **)</span>
+                                <span class="pill pill-cyan">Comparison (==, !=, &lt;, &gt;)</span>
+                                <span class="pill pill-green">Logical (and, or, not)</span>
+                                <span class="pill pill-yellow">Bitwise (&, |, ^, ~)</span>
+                                <span class="pill pill-orange">Assignment (=, +=, -=)</span>
+                                <span class="pill">Membership (in, not in)</span>
+                                <span class="pill pill-pink">Identity (is, is not)</span>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <span style="color:#71717a"># Example: Variables and Data Types</span><br>
+                            <span style="color:#7C3AED">name</span> <span style="color:#EC4899">=</span> <span style="color:#10B981">"Python MCA"</span><br>
+                            <span style="color:#7C3AED">year</span> <span style="color:#EC4899">=</span> <span style="color:#F97316">2024</span><br>
+                            <span style="color:#7C3AED">gpa</span> <span style="color:#EC4899">=</span> <span style="color:#F97316">9.5</span><br>
+                            <span style="color:#7C3AED">is_active</span> <span style="color:#EC4899">=</span> <span style="color:#F59E0B">True</span><br><br>
+                            <span style="color:#06B6D4">print</span>(<span style="color:#10B981">f"Course: </span><span style="color:#EC4899">{</span><span style="color:#7C3AED">name</span><span style="color:#EC4899">}</span><span style="color:#10B981">, Year: </span><span style="color:#EC4899">{</span><span style="color:#7C3AED">year</span><span style="color:#EC4899">}</span><span style="color:#10B981">"</span>)<br>
+                            <span style="color:#06B6D4">print</span>(<span style="color:#06B6D4">type</span>(<span style="color:#7C3AED">gpa</span>))  <span style="color:#71717a"># &lt;class 'float'&gt;</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- UNIT 2 -->
+            <div class="unit-section unit-2">
+                <div class="unit-header" onclick="toggleUnit(this)">
+                    <div class="unit-number">U2</div>
+                    <div>
+                        <div class="unit-title">Control Flow & Functions</div>
+                        <div style="font-size:0.8rem; color:var(--text-muted); margin-top:0.2rem;">Conditionals, Loops, Functions & Recursion</div>
+                    </div>
+                    <div class="unit-arrow">▼</div>
+                </div>
+                <div class="unit-content">
+                    <div class="unit-body">
+                        <div class="topic-group">
+                            <div class="topic-group-title">🔀 Conditional Statements</div>
+                            <div class="topics-pills">
+                                <span class="pill pill-cyan">if Statement</span>
+                                <span class="pill pill-green">elif Statement</span>
+                                <span class="pill pill-yellow">else Statement</span>
+                                <span class="pill pill-orange">Nested if</span>
+                                <span class="pill">Ternary Operator</span>
+                            </div>
+                        </div>
+                        <div class="topic-group">
+                            <div class="topic-group-title">🔁 Loops</div>
+                            <div class="topics-pills">
+                                <span class="pill pill-pink">for Loop</span>
+                                <span class="pill pill-cyan">while Loop</span>
+                                <span class="pill pill-green">range() Function</span>
+                                <span class="pill pill-yellow">break Statement</span>
+                                <span class="pill pill-orange">continue Statement</span>
+                                <span class="pill">pass Statement</span>
+                                <span class="pill pill-pink">Nested Loops</span>
+                                <span class="pill pill-cyan">Loop else Clause</span>
+                            </div>
+                        </div>
+                        <div class="topic-group">
+                            <div class="topic-group-title">⚡ Functions</div>
+                            <div class="topics-pills">
+                                <span class="pill pill-green">def Keyword</span>
+                                <span class="pill pill-yellow">Function Parameters</span>
+                                <span class="pill pill-orange">Return Statement</span>
+                                <span class="pill">Default Arguments</span>
+                                <span class="pill pill-pink">Keyword Arguments</span>
+                                <span class="pill pill-cyan">*args (Variable Positional)</span>
+                                <span class="pill pill-green">**kwargs (Variable Keyword)</span>
+                            </div>
+                        </div>
+                        <div class="topic-group">
+                            <div class="topic-group-title">🧮 Advanced Functions</div>
+                            <div class="topics-pills">
+                                <span class="pill pill-yellow">Lambda Functions</span>
+                                <span class="pill pill-orange">Recursion</span>
+                                <span class="pill">Scope (Local & Global)</span>
+                                <span class="pill pill-pink">global Keyword</span>
+                                <span class="pill pill-cyan">nonlocal Keyword</span>
+                                <span class="pill pill-green">Closures</span>
+                                <span class="pill pill-yellow">Decorators (Intro)</span>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <span style="color:#71717a"># Example: Functions with *args and **kwargs</span><br>
+                            <span style="color:#7C3AED">def</span> <span style="color:#06B6D4">greet_students</span>(<span style="color:#EC4899">*</span><span style="color:#7C3AED">names</span>, <span style="color:#EC4899">**</span><span style="color:#7C3AED">details</span>):<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#7C3AED">for</span> name <span style="color:#7C3AED">in</span> names:<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#06B6D4">print</span>(<span style="color:#10B981">f"Hello </span><span style="color:#EC4899">{</span>name<span style="color:#EC4899">}</span><span style="color:#10B981">!"</span>)<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#7C3AED">for</span> key, val <span style="color:#7C3AED">in</span> details.<span style="color:#06B6D4">items</span>():<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#06B6D4">print</span>(<span style="color:#10B981">f"</span><span style="color:#EC4899">{</span>key<span style="color:#EC4899">}</span><span style="color:#10B981">: </span><span style="color:#EC4899">{</span>val<span style="color:#EC4899">}</span><span style="color:#10B981">"</span>)<br><br>
+                            <span style="color:#06B6D4">greet_students</span>(<span style="color:#10B981">"Rahul"</span>, <span style="color:#10B981">"Priya"</span>, course=<span style="color:#10B981">"MCA"</span>)
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- UNIT 3 -->
+            <div class="unit-section unit-3">
+                <div class="unit-header" onclick="toggleUnit(this)">
+                    <div class="unit-number">U3</div>
+                    <div>
+                        <div class="unit-title">Data Structures</div>
+                        <div style="font-size:0.8rem; color:var(--text-muted); margin-top:0.2rem;">Strings, Lists, Tuples, Sets, Dicts & Generators</div>
+                    </div>
+                    <div class="unit-arrow">▼</div>
+                </div>
+                <div class="unit-content">
+                    <div class="unit-body">
+                        <div class="topic-group">
+                            <div class="topic-group-title">🔤 Strings</div>
+                            <div class="topics-pills">
+                                <span class="pill pill-orange">String Methods</span>
+                                <span class="pill pill-yellow">Slicing & Indexing</span>
+                                <span class="pill">String Formatting</span>
+                                <span class="pill pill-pink">f-strings</span>
+                                <span class="pill pill-cyan">Raw Strings</span>
+                                <span class="pill pill-green">String Immutability</span>
+                                <span class="pill pill-orange">Escape Characters</span>
+                            </div>
+                        </div>
+                        <div class="topic-group">
+                            <div class="topic-group-title">📋 Lists</div>
+                            <div class="topics-pills">
+                                <span class="pill pill-yellow">List Creation</span>
+                                <span class="pill pill-orange">append(), extend(), insert()</span>
+                                <span class="pill">pop(), remove(), del</span>
+                                <span class="pill pill-pink">List Slicing</span>
+                                <span class="pill pill-cyan">List Comprehension</span>
+                                <span class="pill pill-green">Nested Lists</span>
+                                <span class="pill pill-yellow">sort() vs sorted()</span>
+                            </div>
+                        </div>
+                        <div class="topic-group">
+                            <div class="topic-group-title">📌 Tuples</div>
+                            <div class="topics-pills">
+                                <span class="pill pill-orange">Tuple Creation</span>
+                                <span class="pill">Immutable Sequences</span>
+                                <span class="pill pill-pink">Packing & Unpacking</span>
+                                <span class="pill pill-cyan">Named Tuples</span>
+                                <span class="pill pill-green">Tuple vs List</span>
+                            </div>
+                        </div>
+                        <div class="topic-group">
+                            <div class="topic-group-title">🎯 Sets</div>
+                            <div class="topics-pills">
+                                <span class="pill pill-yellow">Set Creation</span>
+                                <span class="pill pill-orange">Union, Intersection, Difference</span>
+                                <span class="pill">Symmetric Difference</span>
+                                <span class="pill pill-pink">Set Methods</span>
+                                <span class="pill pill-cyan">Frozen Sets</span>
+                            </div>
+                        </div>
+                        <div class="topic-group">
+                            <div class="topic-group-title">📖 Dictionaries</div>
+                            <div class="topics-pills">
+                                <span class="pill pill-green">Dict Creation</span>
+                                <span class="pill pill-yellow">keys(), values(), items()</span>
+                                <span class="pill pill-orange">Dict Comprehension</span>
+                                <span class="pill">get(), setdefault()</span>
+                                <span class="pill pill-pink">Nested Dictionaries</span>
+                                <span class="pill pill-cyan">update(), pop()</span>
+                            </div>
+                        </div>
+                        <div class="topic-group">
+                            <div class="topic-group-title">🔄 Iterators & Generators</div>
+                            <div class="topics-pills">
+                                <span class="pill pill-green">Iterator Protocol</span>
+                                <span class="pill pill-yellow">__iter__ and __next__</span>
+                                <span class="pill pill-orange">Generator Functions (yield)</span>
+                                <span class="pill">Generator Expressions</span>
+                                <span class="pill pill-pink">Lazy Evaluation</span>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <span style="color:#71717a"># Example: List Comprehension & Dict Comprehension</span><br>
+                            <span style="color:#7C3AED">squares</span> <span style="color:#EC4899">=</span> [x<span style="color:#EC4899">**</span><span style="color:#F97316">2</span> <span style="color:#7C3AED">for</span> x <span style="color:#7C3AED">in</span> <span style="color:#06B6D4">range</span>(<span style="color:#F97316">1</span>, <span style="color:#F97316">11</span>)]<br>
+                            <span style="color:#06B6D4">print</span>(squares)  <span style="color:#71717a"># [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]</span><br><br>
+                            <span style="color:#7C3AED">student_grades</span> <span style="color:#EC4899">=</span> {<span style="color:#10B981">"Amit"</span>: <span style="color:#F97316">85</span>, <span style="color:#10B981">"Sneha"</span>: <span style="color:#F97316">92</span>, <span style="color:#10B981">"Raj"</span>: <span style="color:#F97316">78</span>}<br>
+                            <span style="color:#7C3AED">toppers</span> <span style="color:#EC4899">=</span> {k: v <span style="color:#7C3AED">for</span> k, v <span style="color:#7C3AED">in</span> student_grades.<span style="color:#06B6D4">items</span>() <span style="color:#7C3AED">if</span> v <span style="color:#EC4899">>=</span> <span style="color:#F97316">80</span>}<br>
+                            <span style="color:#06B6D4">print</span>(toppers)  <span style="color:#71717a"># {'Amit': 85, 'Sneha': 92}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- UNIT 4 -->
+            <div class="unit-section unit-4">
+                <div class="unit-header" onclick="toggleUnit(this)">
+                    <div class="unit-number">U4</div>
+                    <div>
+                        <div class="unit-title">Object-Oriented Programming</div>
+                        <div style="font-size:0.8rem; color:var(--text-muted); margin-top:0.2rem;">Classes, Inheritance, Polymorphism & Abstraction</div>
+                    </div>
+                    <div class="unit-arrow">▼</div>
+                </div>
+                <div class="unit-content">
+                    <div class="unit-body">
+                        <div class="topic-group">
+                            <div class="topic-group-title">🏗️ Classes & Objects</div>
+                            <div class="topics-pills">
+                                <span class="pill pill-pink">Class Definition</span>
+                                <span class="pill pill-cyan">Object Instantiation</span>
+                                <span class="pill pill-green">__init__ Method</span>
+                                <span class="pill pill-yellow">self Parameter</span>
+                                <span class="pill pill-orange">Instance Variables</span>
+                                <span class="pill">Class Variables</span>
+                            </div>
+                        </div>
+                        <div class="topic-group">
+                            <div class="topic-group-title">🔧 Methods</div>
+                            <div class="topics-pills">
+                                <span class="pill pill-pink">Instance Methods</span>
+                                <span class="pill pill-cyan">Class Methods (@classmethod)</span>
+                                <span class="pill pill-green">Static Methods (@staticmethod)</span>
+                                <span class="pill pill-yellow">Property Decorators</span>
+                            </div>
+                        </div>
+                        <div class="topic-group">
+                            <div class="topic-group-title">🧬 Inheritance</div>
+                            <div class="topics-pills">
+                                <span class="pill pill-orange">Single Inheritance</span>
+                                <span class="pill">Multiple Inheritance</span>
+                                <span class="pill pill-pink">Multilevel Inheritance</span>
+                                <span class="pill pill-cyan">Method Resolution Order (MRO)</span>
+                                <span class="pill pill-green">super() Function</span>
+                                <span class="pill pill-yellow">Method Overriding</span>
+                            </div>
+                        </div>
+                        <div class="topic-group">
+                            <div class="topic-group-title">🎭 Polymorphism & Encapsulation</div>
+                            <div class="topics-pills">
+                                <span class="pill pill-orange">Method Overloading</span>
+                                <span class="pill">Operator Overloading</span>
+                                <span class="pill pill-pink">Duck Typing</span>
+                                <span class="pill pill-cyan">Public Members</span>
+                                <span class="pill pill-green">Protected Members (_)</span>
+                                <span class="pill pill-yellow">Private Members (__)</span>
+                                <span class="pill pill-orange">Name Mangling</span>
+                            </div>
+                        </div>
+                        <div class="topic-group">
+                            <div class="topic-group-title">✨ Abstraction & Magic Methods</div>
+                            <div class="topics-pills">
+                                <span class="pill">Abstract Classes (ABC)</span>
+                                <span class="pill pill-pink">Abstract Methods</span>
+                                <span class="pill pill-cyan">__str__ and __repr__</span>
+                                <span class="pill pill-green">__len__, __getitem__</span>
+                                <span class="pill pill-yellow">__add__, __eq__</span>
+                                <span class="pill pill-orange">__enter__, __exit__</span>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <span style="color:#71717a"># Example: Inheritance and Polymorphism</span><br>
+                            <span style="color:#7C3AED">class</span> <span style="color:#06B6D4">Shape</span>:<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#7C3AED">def</span> <span style="color:#06B6D4">area</span>(<span style="color:#EC4899">self</span>):<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#7C3AED">raise</span> <span style="color:#06B6D4">NotImplementedError</span><br><br>
+                            <span style="color:#7C3AED">class</span> <span style="color:#06B6D4">Circle</span>(<span style="color:#06B6D4">Shape</span>):<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#7C3AED">def</span> <span style="color:#06B6D4">__init__</span>(<span style="color:#EC4899">self</span>, <span style="color:#7C3AED">radius</span>):<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#EC4899">self</span>.radius <span style="color:#EC4899">=</span> radius<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#7C3AED">def</span> <span style="color:#06B6D4">area</span>(<span style="color:#EC4899">self</span>):<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#7C3AED">return</span> <span style="color:#F97316">3.14</span> <span style="color:#EC4899">*</span> <span style="color:#EC4899">self</span>.radius <span style="color:#EC4899">**</span> <span style="color:#F97316">2</span><br><br>
+                            <span style="color:#7C3AED">c</span> <span style="color:#EC4899">=</span> <span style="color:#06B6D4">Circle</span>(<span style="color:#F97316">5</span>)<br>
+                            <span style="color:#06B6D4">print</span>(<span style="color:#10B981">f"Area: </span><span style="color:#EC4899">{</span>c.<span style="color:#06B6D4">area</span>()<span style="color:#EC4899">}</span><span style="color:#10B981">"</span>)  <span style="color:#71717a"># Area: 78.5</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- UNIT 5 -->
+            <div class="unit-section unit-5">
+                <div class="unit-header" onclick="toggleUnit(this)">
+                    <div class="unit-number">U5</div>
+                    <div>
+                        <div class="unit-title">File Handling & Modules</div>
+                        <div style="font-size:0.8rem; color:var(--text-muted); margin-top:0.2rem;">Files, Exceptions, Modules & Packages</div>
+                    </div>
+                    <div class="unit-arrow">▼</div>
+                </div>
+                <div class="unit-content">
+                    <div class="unit-body">
+                        <div class="topic-group">
+                            <div class="topic-group-title">📁 File Operations</div>
+                            <div class="topics-pills">
+                                <span class="pill pill-green">open() Function</span>
+                                <span class="pill pill-yellow">read(), readline(), readlines()</span>
+                                <span class="pill pill-orange">write(), writelines()</span>
+                                <span class="pill">File Modes (r, w, a, rb, wb)</span>
+                                <span class="pill pill-pink">with Statement (Context Manager)</span>
+                                <span class="pill pill-cyan">File Pointer & seek()</span>
+                            </div>
+                        </div>
+                        <div class="topic-group">
+                            <div class="topic-group-title">📊 Structured File Handling</div>
+                            <div class="topics-pills">
+                                <span class="pill pill-green">CSV File Reading</span>
+                                <span class="pill pill-yellow">CSV File Writing</span>
+                                <span class="pill pill-orange">JSON Loading (json.load)</span>
+                                <span class="pill">JSON Dumping (json.dump)</span>
+                                <span class="pill pill-pink">json.loads() & json.dumps()</span>
+                            </div>
+                        </div>
+                        <div class="topic-group">
+                            <div class="topic-group-title">⚠️ Exception Handling</div>
+                            <div class="topics-pills">
+                                <span class="pill pill-cyan">try Block</span>
+                                <span class="pill pill-green">except Block</span>
+                                <span class="pill pill-yellow">finally Block</span>
+                                <span class="pill pill-orange">else with try</span>
+                                <span class="pill">raise Statement</span>
+                                <span class="pill pill-pink">Custom Exceptions</span>
+                                <span class="pill pill-cyan">Multiple except Clauses</span>
+                                <span class="pill pill-green">Exception Hierarchy</span>
+                            </div>
+                        </div>
+                        <div class="topic-group">
+                            <div class="topic-group-title">📦 Modules & Packages</div>
+                            <div class="topics-pills">
+                                <span class="pill pill-yellow">import Statement</span>
+                                <span class="pill pill-orange">from...import</span>
+                                <span class="pill">import as (Aliasing)</span>
+                                <span class="pill pill-pink">Creating Modules</span>
+                                <span class="pill pill-cyan">__name__ == "__main__"</span>
+                                <span class="pill pill-green">Package Structure</span>
+                                <span class="pill pill-yellow">__init__.py</span>
+                            </div>
+                        </div>
+                        <div class="topic-group">
+                            <div class="topic-group-title">🛠️ Standard Library</div>
+                            <div class="topics-pills">
+                                <span class="pill pill-orange">os Module</span>
+                                <span class="pill">sys Module</span>
+                                <span class="pill pill-pink">math Module</span>
+                                <span class="pill pill-cyan">random Module</span>
+                                <span class="pill pill-green">datetime Module</span>
+                                <span class="pill pill-yellow">pip Package Manager</span>
+                                <span class="pill pill-orange">Virtual Environments</span>
+                            </div>
+                        </div>
+                        <div class="code-example">
+                            <span style="color:#71717a"># Example: File Handling with Exception</span><br>
+                            <span style="color:#7C3AED">try</span>:<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#7C3AED">with</span> <span style="color:#06B6D4">open</span>(<span style="color:#10B981">"students.txt"</span>, <span style="color:#10B981">"w"</span>) <span style="color:#7C3AED">as</span> f:<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;f.<span style="color:#06B6D4">write</span>(<span style="color:#10B981">"Rahul, MCA, GGSIPU\n"</span>)<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;f.<span style="color:#06B6D4">write</span>(<span style="color:#10B981">"Priya, MCA, GGSIPU\n"</span>)<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#06B6D4">print</span>(<span style="color:#10B981">"File written successfully!"</span>)<br>
+                            <span style="color:#7C3AED">except</span> <span style="color:#06B6D4">IOError</span> <span style="color:#7C3AED">as</span> e:<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#06B6D4">print</span>(<span style="color:#10B981">f"Error: </span><span style="color:#EC4899">{</span>e<span style="color:#EC4899">}</span><span style="color:#10B981">"</span>)<br>
+                            <span style="color:#7C3AED">finally</span>:<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#06B6D4">print</span>(<span style="color:#10B981">"Operation complete."</span>)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p class="footer-text">Made with 💜 by <span>Manoj Purohit</span> | PyMCA - Python for MCA at GGSIPU</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+        function toggleUnit(header) {
+            const section = header.parentElement;
+            section.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
